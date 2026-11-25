@@ -113,7 +113,7 @@ What visitors said, counted about once an hour from the report form. Only places
 
 ```json
 {"format": 1, "city": "nyc", "generated": "2026-11-25T02:00:00Z", "votes": {
-  "n1234567890": {"ok": [3, "2026-11-25", 2], "bad": [1, "2026-11-26"], "stars": [4.3, 7]}
+  "n1234567890": {"ok": [3, "2026-11-25"], "bad": [1, "2026-11-26"], "stars": [4.3, 7]}
 }}
 ```
 
@@ -121,7 +121,7 @@ What visitors said, counted about once an hour from the report form. Only places
 |---|---|---|
 | `generated` | UTC time | When the counts last **changed** (an hourly run that finds nothing new leaves the file alone) |
 | `votes` | object | Place `id` → counts. Any of `ok`, `bad`, `stars` may be missing; a place with none is not listed |
-| `ok` | `[count, date, on_site]` | Visitors who confirmed the **current** hours (their `hh` equals the place's `hh`), the date of the newest, and how many of them said they were at the café |
+| `ok` | `[count, date]` | Visitors who confirmed the **current** hours (their `hh` equals the place's `hh`) and the date of the newest |
 | `bad` | `[count, date]` | Open "hours wrong" / "closed for good" reports and the date of the newest |
 | `stars` | `[mean, count]` | Mean rating to one decimal (1–5) and the number of ratings |
 
@@ -129,7 +129,7 @@ Dates are days in the city's time zone. An id here may briefly be missing from t
 
 **Counting rules.** A confirmation counts when its `hh` equals the place's current `hh` and it is under 120 days old; one per install per place (the newest). A rating: the newest per install per place. An install that sends more than 30 votes in one day is dropped whole. `bad` counts `hours` and `closed` reports dated after the place's `checked` date and made after its hours last changed; so a report disappears when we re-check the place or its hours change. Malformed rows are skipped.
 
-**What clients send** (to the manifest's `report` endpoint): `type` `attest` with `note` `v=1;iid=<uuid>;hh=<hh>;onsite=0|1`, or `type` `rate` with `note` `v=1;iid=<uuid>;stars=<1-5>`, plus `place_id`. `iid` is a random UUID the client makes once and keeps. The pipeline publishes counts only: no rows and no install ids.
+**What clients send** (to the manifest's `report` endpoint): `type` `attest` with `note` `v=1;iid=<uuid>;hh=<hh>`, or `type` `rate` with `note` `v=1;iid=<uuid>;stars=<1-5>`, plus `place_id`. `iid` is a random UUID the client makes once and keeps. The pipeline publishes counts only: no rows and no install ids. Nothing about where the visitor was is sent or counted (the first form of the note ended in `;onsite=0|1`; the pipeline still accepts it and ignores the flag).
 
 ## How the feed is made
 

@@ -24,9 +24,10 @@ def fixture():
 def test_counting_rules():
     rows = votes.read_rows(fixture(), NY)
     out = votes.count(rows, PLACES, SINCE, NOW, NY)
-    # n1: installs 1 (newest: 11-21, not on site) and 2 (11-22, on site) count; the stale hash, the 148-day-old
-    # one, the unknown place and every malformed note do not
-    assert out["n1"]["ok"] == [2, "2026-11-22", 1]
+    # n1: installs 1 (newest: 11-21) and 2 (11-22, sent in the first form of the note with `;onsite=1`, which is
+    # accepted and ignored) count; the stale hash, the 148-day-old one, the unknown place and every malformed
+    # note (onsite=2, a repeated key, an unknown key, v=2) do not
+    assert out["n1"]["ok"] == [2, "2026-11-22"]
     # ratings: install 1's newest (5), installs 2 and 3 (4, 4); 6, 0 and 4.5 stars are skipped
     assert out["n1"]["stars"] == [4.3, 3]
     # n1 was confirmed by us on 11-24: the 11-23 report is older, the 11-25 one counts
@@ -45,7 +46,7 @@ def test_an_install_with_more_than_30_votes_in_a_day_is_dropped_whole():
     good = "cccccccc-0000-4000-8000-000000000001"
     lines = ["timestamp,type,place_id,note"]
     lines += [f"11/24/2026 12:{m:02d}:00,rate,n{1 + m % 3},v=1;iid={iid};stars=5" for m in range(31)]
-    lines += [f"11/20/2026 12:00:00,attest,n1,v=1;iid={iid};hh={HH};onsite=1"]            # another day: dropped too
+    lines += [f"11/20/2026 12:00:00,attest,n1,v=1;iid={iid};hh={HH}"]                     # another day: dropped too
     lines += [f"11/24/2026 13:{m:02d}:00,rate,n1,v=1;iid={good};stars=3" for m in range(30)]  # exactly 30: kept
     out = votes.count(votes.read_rows("\n".join(lines), NY), PLACES, SINCE, NOW, NY)
     assert out == {"n1": {"stars": [3.0, 1]}}
@@ -57,8 +58,8 @@ def test_the_published_sheet_shape():
     text = "\n".join([
         "timestamp,type,place_id,note",
         "2026-11-24 21:13:05,attest,test,v=1;iid=AAAAAAAA-0000-4000-8000-00000000000A;hh=abc;onsite=1",
-        f"2026-11-24 21:14:00,attest,n1,v=1;iid=AAAAAAAA-0000-4000-8000-00000000000A;hh={HH};onsite=1",
-        f"2026-11-25 23:50:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-00000000000a;hh={HH};onsite=0",
+        f"2026-11-24 21:14:00,attest,n1,v=1;iid=AAAAAAAA-0000-4000-8000-00000000000A;hh={HH};onsite=0",
+        f"2026-11-25 23:50:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-00000000000a;hh={HH}",
         "2026-11-24 21:15:00,rate,n1,v=1;iid=AAAAAAAA-0000-4000-8000-00000000000A;stars=4",
         "2026-11-24 21:16:00,other,n1,",
         "2026-11-24 21:17:00,hours,test,",
@@ -66,7 +67,25 @@ def test_the_published_sheet_shape():
     ])
     out = votes.count(votes.read_rows(text, NY), PLACES, SINCE, NOW, NY)
     # one install (capitals and lower case are the same id), its newest confirmation; the date is the New York day
-    assert out == {"n1": {"ok": [1, "2026-11-25", 0], "stars": [4.0, 1]}}
+    assert out == {"n1": {"ok": [1, "2026-11-25"], "stars": [4.0, 1]}}
+
+
+def test_the_old_note_with_onsite_counts_the_same_and_the_flag_goes_nowhere():
+    a, b = "dddddddd-0000-4000-8000-000000000001", "dddddddd-0000-4000-8000-000000000002"
+    text = "\n".join([
+        "timestamp,type,place_id,note",
+        f"2026-11-24 20:00:00,attest,n1,v=1;iid={a};hh={HH};onsite=1",
+        f"2026-11-24 20:05:00,attest,n1,v=1;iid={b};hh={HH}",
+        f"2026-11-24 20:06:00,attest,n1,v=1;iid={b};hh={HH};onsite=yes",          # not 0 or 1: skipped
+    ])
+    out = votes.count(votes.read_rows(text, NY), PLACES, SINCE, NOW, NY)
+    assert out == {"n1": {"ok": [2, "2026-11-24"]}}
+    assert "onsite" not in json.dumps(out)
+    # the validator no longer takes a third element
+    import pytest
+    with pytest.raises(validate.Invalid):
+        validate.votes_file({"format": 1, "city": "nyc", "generated": "2026-11-26T05:00:00Z",
+                             "votes": {"n1": {"ok": [2, "2026-11-24", 1]}}}, "nyc")
 
 
 def test_hostile_input_never_raises():

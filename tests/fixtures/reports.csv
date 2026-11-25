@@ -1,16 +1,18 @@
 timestamp,type,place_id,note
-11/20/2026 21:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000001;hh=HH1;onsite=1
-11/21/2026 21:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000001;hh=HH1;onsite=0
+11/20/2026 21:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000001;hh=HH1
+11/21/2026 21:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000001;hh=HH1
 11/22/2026 09:30:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000002;hh=HH1;onsite=1
-11/22/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000003;hh=deadbeef;onsite=1
-07/01/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000004;hh=HH1;onsite=1
+11/22/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000003;hh=deadbeef
+07/01/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000004;hh=HH1
 11/22/2026 10:00:00,attest,n999,v=1;iid=aaaaaaaa-0000-4000-8000-000000000002;hh=HH1;onsite=1
-11/22/2026 10:00:00,attest,n1,v=1;iid=not-a-uuid;hh=HH1;onsite=1
+11/22/2026 10:00:00,attest,n1,v=1;iid=not-a-uuid;hh=HH1
 11/22/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1;onsite=2
 11/22/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;iid=aaaaaaaa-0000-4000-8000-000000000006;hh=HH1;onsite=1
-11/22/2026 10:00:00,attest,n1,v=2;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1;onsite=1
-11/22/2026 10:00:00,attest,n1,"v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1;onsite=1;extra=<script>"
-not a date,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1;onsite=1
+11/22/2026 10:00:00,attest,n1,v=2;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1
+11/22/2026 10:00:00,attest,n1,"v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1;extra=<script>"
+not a date,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1
+11/22/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1;onsite=1;onsite=0
+11/22/2026 10:00:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000005;hh=HH1;stars=5
 11/22/2026 10:00:00,attest,n1
 11/20/2026 12:00:00,rate,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000001;stars=2
 11/21/2026 12:00:00,rate,n1,v=1;iid=aaaaaaaa-0000-4000-8000-000000000001;stars=5

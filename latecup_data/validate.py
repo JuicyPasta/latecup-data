@@ -127,8 +127,8 @@ def votes_file(doc, city_id, place_ids=None):
         _need(isinstance(v, dict) and v and set(v) <= {"ok", "bad", "stars"}, f"votes[{pid}]: ok, bad, stars only")
         if "ok" in v:
             ok = v["ok"]
-            _need(isinstance(ok, list) and len(ok) == 3 and type(ok[0]) is int and ok[0] >= 1
-                  and type(ok[2]) is int and 0 <= ok[2] <= ok[0], f"votes[{pid}].ok is [count, date, on site]")
+            _need(isinstance(ok, list) and len(ok) == 2 and type(ok[0]) is int and ok[0] >= 1,
+                  f"votes[{pid}].ok is [count, date]")
             _day(ok[1], f"votes[{pid}].ok")
         if "bad" in v:
             bad = v["bad"]

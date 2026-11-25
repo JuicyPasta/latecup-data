@@ -111,7 +111,9 @@ def read_rows(text, tz):
             if not _UUID.match(f["iid"]):
                 continue
             if kind == "attest":
-                if not _HH.match(f.get("hh", "")) or f.get("onsite") not in ("0", "1") or set(f) != {"v", "iid", "hh", "onsite"}:
+                # `onsite=0|1` was part of the first form of the note; it is accepted and ignored
+                if not _HH.match(f.get("hh", "")) or f.get("onsite", "0") not in ("0", "1") or \
+                        set(f) - {"onsite"} != {"v", "iid", "hh"}:
                     continue
             else:
                 if f.get("stars") not in ("1", "2", "3", "4", "5") or set(f) != {"v", "iid", "stars"}:
@@ -141,7 +143,7 @@ def count(rows, places, hh_since, now, tz):
         if kind == "attest":
             if f["iid"] in flooders or f["hh"] != p["hh"] or now - when >= timedelta(days=MAX_AGE_DAYS):
                 continue
-            ok.setdefault(pid, {})[f["iid"]] = (when, f["onsite"] == "1")       # sorted: the newest wins
+            ok.setdefault(pid, {})[f["iid"]] = when       # sorted: the newest wins
         elif kind == "rate":
             if f["iid"] in flooders:
                 continue
@@ -161,7 +163,7 @@ def count(rows, places, hh_since, now, tz):
         v = {}
         if ok.get(pid):
             got = ok[pid].values()
-            v["ok"] = [len(got), max(w for w, _ in got).astimezone(tz).date().isoformat(), sum(o for _, o in got)]
+            v["ok"] = [len(got), max(got).astimezone(tz).date().isoformat()]
         if bad.get(pid):
             v["bad"] = [len(bad[pid]), max(bad[pid]).astimezone(tz).date().isoformat()]
         if stars.get(pid):
