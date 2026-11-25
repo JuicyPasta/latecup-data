@@ -1,0 +1,47 @@
+name: brand
+
+# Weekly: read the chains' own store locators again (Dunkin' store pages,
+# Starbucks' locator data) and commit the hours to overrides/ with src
+# "brand". The Starbucks pass skips a week that has a holiday in it. The
+# daily `refresh` run at 09:17 UTC publishes what this commits.
+on:
+  schedule:
+    - cron: "7 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: brand
+  cancel-in-progress: false
+
+jobs:
+  locators:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: OSM pull
+        run: python -m latecup_data.osm work/osm.json
+      - name: Starbucks
+        run: python tools/confirm_brand.py starbucks --refresh --pause 2
+      - name: Dunkin'
+        run: python tools/confirm_brand.py dunkin --refresh --pause 2
+      - name: Commit
+        run: |
+          git config user.name "latecup-data pipeline"
+          git config user.email "actions@users.noreply.github.com"
+          git add overrides
+          if git diff --cached --quiet; then echo "nothing new"; exit 0; fi
+          git commit --quiet -m "Brand store locators $(date -u +%Y-%m-%d)"
+          for i in 1 2 3; do
+            git pull --quiet --rebase origin main && git push --quiet origin HEAD:main && exit 0
+            sleep 10
+          done
+          echo "::error::push failed"; exit 1

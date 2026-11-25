@@ -50,5 +50,6 @@
  "source": "https://www.dunkindonuts.com/locations/us/ny/queens/laguardia-airport/store-357836/",
  "checked": "2026-11-24",
  "osm_hours": "05:00-21:30",
- "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours."
+ "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
 }

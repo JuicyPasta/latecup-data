@@ -13,7 +13,7 @@ store locator. Never a listing site, never a guess.
 import argparse
 import json
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta  # noqa: F401
 from pathlib import Path
 from zoneinfo import ZoneInfo
 

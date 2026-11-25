@@ -50,5 +50,6 @@
  "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/411-e-70th-st/store-349809/",
  "checked": "2026-11-24",
  "osm_hours": "Mo-Su 04:30-22:30",
- "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours."
+ "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
 }

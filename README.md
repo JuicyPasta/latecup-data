@@ -65,6 +65,7 @@ Places OpenStreetMap lacks are in [`additions/`](additions/) (`x-<slug>.json`: n
 |---|---|---|
 | [`refresh`](.github/workflows/refresh.yml) | Daily at 09:17 UTC, on a push that changes the data or the pipeline, or by hand | Tests → OSM pull (Overpass) → classify → hours → overrides and additions → validate → publish as one commit on `gh-pages`. **Refuses to publish** a feed that fails validation or that lost more than 20 % of its places; the job fails and the last good feed stays up |
 | [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings and "hours wrong" reports from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into `v1/nyc-votes.json`. No OSM pull. Publishes only when the counts changed. With no secret it writes an empty, valid file. Only counts are published: no rows, no install ids |
+| [`brand`](.github/workflows/brand.yml) | Mondays 07:07 UTC, or by hand | Reads the chains' own store locators again (Dunkin' store pages, Starbucks' locator data) and commits the hours to `overrides/` as `brand`. Starbucks' locator shows the next seven days, so that pass skips any week with a holiday in it |
 | [`staleness`](.github/workflows/staleness.yml) | Every 6 hours | Fails if the published feed is older than 36 hours, does not match its manifest's hash, or no longer validates |
 | [`tests`](.github/workflows/tests.yml) | On every push | `pytest`: the hours parser, the classifier, the validator, the build rules |
 

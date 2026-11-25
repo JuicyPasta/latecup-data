@@ -50,5 +50,6 @@
  "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/3701-nostrand-ave/store-340439/",
  "checked": "2026-11-24",
  "osm_hours": "Mo-Sa 05:00-21:00; Su 06:00-21:00",
- "note": "OpenStreetMap said \"Mo-Sa 05:00-21:00; Su 06:00-21:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+ "note": "OpenStreetMap said \"Mo-Sa 05:00-21:00; Su 06:00-21:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
 }

@@ -49,3 +49,13 @@ def position(el):
         return el["lat"], el["lon"]
     c = el.get("center")
     return (c["lat"], c["lon"]) if c else None
+
+
+if __name__ == "__main__":
+    # python -m latecup_data.osm work/osm.json : save a pull for the tools
+    import sys
+    from pathlib import Path
+    out = Path(sys.argv[1])
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(fetch()))
+    print("saved", out)
