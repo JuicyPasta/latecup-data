@@ -1,0 +1,562 @@
+[
+ {
+  "id": "n2567093832",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://locations.dunkindonuts.com/en/ny/brooklyn/806-franklin-ave/353640",
+  "evidence": "locations.dunkindonuts.com URL returned Cloudflare error page ('DNS points to prohibited IP', HTTP 403); the equivalent www.dunkindonuts.com/locations/.../store-353640/ URL returned 'Page Not Found' (HTTP 404).",
+  "note": "Store page missing from Dunkin's locator while every other sampled Dunkin' URL resolved; the store may have closed or moved, but Dunkin's site does not say so."
+ },
+ {
+  "id": "n10109662192",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-We 05:00-21:00; Th 05:00-17:00; Fr-Su 05:00-21:00",
+  "thursday_is_holiday": true,
+  "source": "https://www.starbucks.com/apiproxy/v1/locations?lat=40.68951&lng=-73.9829",
+  "evidence": "store 1053809 'Bond & Fulton', 498 Fulton St: Tuesday: 5:00 AM to 9:00 PM; Wednesday: 5:00 AM to 9:00 PM; Thursday: 5:00 AM to 5:00 PM; Friday: 5:00 AM to 9:00 PM; Saturday: 5:00 AM to 9:00 PM; Sunday: 5:00 AM to 9:00 PM; Monday: 5:00 AM to 9:00 PM"
+ },
+ {
+  "id": "n11658333435",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://locations.dunkindonuts.com/en/ny/new-york/140-delancey-st/340537",
+  "evidence": "locations.dunkindonuts.com URL returned Cloudflare error page ('DNS points to prohibited IP', HTTP 403); the equivalent www.dunkindonuts.com/locations/.../store-340537/ URL returned 'Page Not Found' (HTTP 404).",
+  "note": "Store page missing from Dunkin's locator while every other sampled Dunkin' URL resolved; the store may have closed or moved, but Dunkin's site does not say so."
+ },
+ {
+  "id": "n2279017953",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "web search (no official source found)",
+  "evidence": "Two web searches found news coverage confirming Luckin at 2799 Broadway but no Luckin US website or store-locator page with hours; luckincoffee.us did not resolve. Hours only on delivery apps/listings."
+ },
+ {
+  "id": "n835414667",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://nikocoffeenyc.com/",
+  "evidence": "curl: HTTP 403 Cloudflare 'Just a moment...' challenge; WebFetch: HTTP 403."
+ },
+ {
+  "id": "n9241590661",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://vivibubbletea.com/locations/",
+  "evidence": "Official locations page lists 'UES 2nd Ave | 1324 2nd ave, NY 10021 | (646) 858-0710' but gives no hours for any store."
+ },
+ {
+  "id": "n2550005915",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "web search (no official source found)",
+  "evidence": "Two web searches found no Mixue US website/store page for 519 Fulton St; only press and listing sites. Brand Instagram @mixue.us not readable without login."
+ },
+ {
+  "id": "n6932788478",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Su 11:00-20:45",
+  "thursday_is_holiday": false,
+  "source": "https://www.kungfutea.com/locations/new-york/",
+  "evidence": "'Brooklyn — Brooklyn 8th Ave | 806 55th St, Brooklyn, NY 11220 | 929-969-5655 | Hours: 11:00 am – 8:45 pm' (page footer: 'Last updated: 2026-11-24 · Data sourced live from our store directory').",
+  "note": "The chain's list gives one daily range with no days named; written as every day. (A search-engine summary had claimed 11AM-8PM; the page itself says 8:45 pm.)"
+ },
+ {
+  "id": "n6696993241",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Su 10:00-22:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.kopitiamnyc.com/",
+  "evidence": "Main page body: 'LOCATION 151 East Broadway New York, NY 10002 HOURS 7 DAYS A WEEK 10:00 AM – 10:00 PM'.",
+  "note": "Conflict on the same page: the footer business-info block (© 2021) and the schema.org openingHours say 'Mon 11am - 7 pm ... Wed Closed ... Sun 11am - 7 pm'. Took the main body block as the current hours; the footer looks stale."
+ },
+ {
+  "id": "n3144820987",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Su 07:00-20:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.cafemadelline.com/",
+  "evidence": "Square Online site; its Location & Hours block is synced to the Square location at '1603 Cortelyou Rd' with hours Monday-Sunday ' 7:00am - 8:00pm' (from the page's embedded syncedLocation data; the block's template placeholder text 'Square Inc, Market Street, San Francisco ... 9:00am - 5:00pm' is overridden by the sync).",
+  "note": "Hours rendered client-side from Square's synced location data, not static text."
+ },
+ {
+  "id": "n12586253669",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Su 12:00-21:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.imilkyusa.com/locations",
+  "evidence": "'Long Island City | Address: 22-43 Jackson Ave., Long Island City NY 11101 | ... | Open Hours: Mon-Sun: 12:00pm - 9:00 pm'."
+ },
+ {
+  "id": "n10047602537",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "web search (no official source found)",
+  "evidence": "Two web searches found no website or readable official social page for Trash Island (616 Halsey St); hours only on listing sites."
+ },
+ {
+  "id": "n12102901861",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://www.joejuice.com/",
+  "evidence": "joejuice.com is a JavaScript app with no store data in the HTML; no per-store page found via search.",
+  "note": "Tribeca Citizen (2026-07-30) reported that the Joe & The Juice at 295 Greenwich St was closing on 2026-07-31 and relocating; not confirmed on the chain's own site, so not marked closed."
+ },
+ {
+  "id": "n2310498477",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-We 05:00-22:00; Th 04:00-18:00; Fr 04:00-22:00; Sa-Su 05:00-22:00",
+  "thursday_is_holiday": true,
+  "source": "https://www.starbucks.com/apiproxy/v1/locations?lat=40.77138&lng=-73.98247",
+  "evidence": "store 17786 '63rd & Broadway', 1889 Broadway: Tuesday: 5:00 AM to 10:00 PM; Wednesday: 5:00 AM to 10:00 PM; Thursday: 4:00 AM to 6:00 PM; Friday: 4:00 AM to 10:00 PM; Saturday: 5:00 AM to 10:00 PM; Sunday: 5:00 AM to 10:00 PM; Monday: 5:00 AM to 10:00 PM",
+  "note": "Friday 2026-11-27 (Black Friday) shows 4:00 AM opening vs 5:00 AM other days; may be a special-day hour in the rolling week."
+ },
+ {
+  "id": "n746176794",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-We 05:00-21:00; Th 05:00-17:00; Fr-Su 05:00-21:00",
+  "thursday_is_holiday": true,
+  "source": "https://www.starbucks.com/apiproxy/v1/locations?lat=40.79384&lng=-73.97277",
+  "evidence": "store 13552 '95th & Broadway', 2525 Broadway: Tuesday: 5:00 AM to 9:00 PM; Wednesday: 5:00 AM to 9:00 PM; Thursday: 5:00 AM to 5:00 PM; Friday: 5:00 AM to 9:00 PM; Saturday: 5:00 AM to 9:00 PM; Sunday: 5:00 AM to 9:00 PM; Monday: 5:00 AM to 9:00 PM"
+ },
+ {
+  "id": "n4959225990",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Su 07:00-21:00",
+  "thursday_is_holiday": false,
+  "source": "https://tljus.com/stores/flushing-39-02-union-st",
+  "evidence": "Store page's 'Store Hours' block (an iframe the page embeds: https://royal-wave-aec3.mailtorujen.workers.dev/?id=loc_767fe1ad172192ec65d8bc44) reads 'MON: 7AM to 9PM | TUE: 7AM to 9PM | WED: 7AM to 9PM | THU: 7AM to 9PM | FRI: 7AM to 9PM | SAT: 7AM to 9PM | SUN: 7AM to 9PM'.",
+  "note": "The chain's /locations/new-york page carries schema.org hours Mo-Fr 07:00-20:00, Sa-Su 09:00-18:00 identical for all 13 NY stores (template boilerplate); ignored in favour of the store page's visible hours."
+ },
+ {
+  "id": "n11119847161",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://www.instagram.com/tuttocalcioespressobar/",
+  "evidence": "Instagram HTML without login exposes only follower counts, no bio/hours. No official website found by search.",
+  "note": "Most listings place Tutto Calcio in Whitestone (Clintonville St); only one listing ties it to 24 John St, so the address itself may be wrong."
+ },
+ {
+  "id": "w285071607",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Su 04:30-22:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/far-rockaway/11320-beach-channel-dr/store-351930/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '11320 Beach Channel Dr': Mo,Tu,We,Th,Fr,Sa,Su opens 04:30 closes 22:00"
+ },
+ {
+  "id": "n5775247318",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Su 04:30-23:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/astoria/3114-ditmars-blvd/store-306660/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '3114 Ditmars Blvd': Mo,Tu,We,Th,Fr,Sa,Su opens 04:30 closes 23:00"
+ },
+ {
+  "id": "n3235708620",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-We 05:00-21:00; Th 04:00-17:00; Fr-Su 05:00-21:00",
+  "thursday_is_holiday": true,
+  "source": "https://www.starbucks.com/apiproxy/v1/locations?lat=40.77792&lng=-73.9782",
+  "evidence": "store 11600 '73rd & Columbus', 267-275 Columbus Ave: Tuesday: 5:00 AM to 9:00 PM; Wednesday: 5:00 AM to 9:00 PM; Thursday: 4:00 AM to 5:00 PM; Friday: 5:00 AM to 9:00 PM; Saturday: 5:00 AM to 9:00 PM; Sunday: 5:00 AM to 9:00 PM; Monday: 5:00 AM to 9:00 PM"
+ },
+ {
+  "id": "n12505709615",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://www.meadowdessert.com/contact-8",
+  "evidence": "Official site (home page and Contact page) shows 'Address | 3112 Steinway, Astoria, NY, 11103 | Instagram @meadowdessert' but no opening hours."
+ },
+ {
+  "id": "w248495831",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-We 05:00-21:00; Th 06:00-18:00; Fr 05:30-20:30; Sa-Su 05:00-21:00",
+  "thursday_is_holiday": true,
+  "source": "https://www.starbucks.com/apiproxy/v1/locations?lat=40.58127&lng=-73.98544",
+  "evidence": "store 7189 'Cropsey Ave & Hart Place', 3035 Cropsey Ave: Tuesday: 5:00 AM to 9:00 PM; Wednesday: 5:00 AM to 9:00 PM; Thursday: 6:00 AM to 6:00 PM; Friday: 5:30 AM to 8:30 PM; Saturday: 5:00 AM to 9:00 PM; Sunday: 5:00 AM to 9:00 PM; Monday: 5:00 AM to 9:00 PM",
+  "note": "Friday 2026-11-27 (Black Friday) shows 5:30 AM-8:30 PM vs 5:00 AM-9:00 PM other days; may be a special-day hour in the rolling week."
+ },
+ {
+  "id": "n3270030570",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "24/7",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/466-10th-ave/store-347534/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '466 10th Ave BP': Mo,Tu,We,Th,Fr,Sa,Su opens 00:00 closes 00:00",
+  "note": "Store address on Dunkin's page is '466 10th Ave BP' (inside a BP gas station); 00:00-00:00 read as 24 hours."
+ },
+ {
+  "id": "n2550046897",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Fr 08:00-20:00; Sa-Su 09:00-20:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.thirdrailcoffee.com/location",
+  "evidence": "'240 Sullivan Street New York, NY 10012 no phone Monday - Friday : 8am - 8pm Saturday - Sunday: 9am - 8pm'.",
+  "note": "The site's schema.org openingHours (Mo-Fr 07:00-20:00, Sa-Su 08:00-20:00) disagrees with the visible text; used the visible text."
+ },
+ {
+  "id": "n7360048859",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://parisbaguette.com/locations/ny/new-york/303-park-avenue-south/",
+  "evidence": "Store page returns 'Page Not Found' (HTTP 404); https://parisbaguette.com/locations/ny/new-york/ also 404.",
+  "note": "A 2019 Paris Baguette press release (republished on franchising.com) says the Park Avenue South café closed and relocated to 700 Sixth Ave. Likely closed, but no page on the chain's own site says so."
+ },
+ {
+  "id": "n5401978031",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://www.alhornoleanmexicankitchen.com/",
+  "evidence": "Domain does not resolve (no DNS record for www or bare domain); one web search found only listing sites.",
+  "note": "Website dead; possible sign the restaurant closed."
+ },
+ {
+  "id": "n2844224365",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Fr 05:00-21:00; Sa-Su 05:00-20:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/maspeth/6908-grand-ave/store-307496/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '6908 Grand Ave': Mo,Tu,We,Th,Fr opens 05:00 closes 21:00; Sa,Su opens 05:00 closes 20:00"
+ },
+ {
+  "id": "n3822484908",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "http://thebeannyc.com/",
+  "evidence": "Domain resolves to 0.0.0.0 (no reachable site); one web search found no other official page, only 2014 press and listings.",
+  "note": "A listing site shows 101 Bedford Ave under a different business name ('Imperial Taste 88'), so The Bean at this address may be gone; unverified."
+ },
+ {
+  "id": "n3958232658",
+  "sample": "osm",
+  "status": "could_not_check",
+  "hours": null,
+  "thursday_is_holiday": false,
+  "source": "https://www.starbucks.com/apiproxy/v1/locations?lat=40.74358&lng=-73.99208",
+  "evidence": "Store 11203 (750 6th Ave) is not among the 50 stores the locator returns for these coordinates (nearest: 776 and 684 Avenue of the Americas). The store page https://www.starbucks.com/store-locator/store/11203/... is a client-side shell with no store data.",
+  "note": "Likely closed or delisted, but Starbucks' site does not say so explicitly."
+ },
+ {
+  "id": "n4394357390",
+  "sample": "osm",
+  "status": "checked",
+  "hours": "Mo-Fr 06:00-21:00; Sa-Su 07:00-21:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.lepainquotidien.com/us/en/stores/127:%20Bryant%20Park",
+  "evidence": "'Opening hours monday 06:00 AM until 09:00 PM ... friday 06:00 AM until 09:00 PM saturday 07:00 AM until 09:00 PM sunday 07:00 AM until 09:00 PM'; also 'Hours: Mon–Fri 6am–9pm · Sat–Sun 7am–9pm'.",
+  "note": "Separate dated block 'Bank Holiday 26/11/2026 06:00 AM until 06:00 PM' excluded as special hours."
+ },
+ {
+  "id": "n5747118463",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 05:00-21:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/4912-fort-hamilton-pkwy/store-349768/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '4912 Fort Hamilton Pkwy': Mo,Tu,We,Th,Fr,Sa,Su opens 05:00 closes 21:00"
+ },
+ {
+  "id": "n14022797943",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 08:30-23:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.cafeauburndale.net/",
+  "evidence": "'Cafe Auburndale is open daily from 8:30 AM to 11:00 PM ... Visit us at 192-10 Northern Blvd, Flushing.'"
+ },
+ {
+  "id": "n9609973481",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "24/7",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/418-avenue-p/store-359458/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '418 Avenue P': Mo,Tu,We,Th,Fr,Sa,Su opens 00:00 closes 00:00",
+  "note": "Dunkin' page is for '418 Avenue P' (store 359458), not '418 E 2nd St'; likely the same corner store (coordinates near Avenue P & E 2nd St), but the addresses differ."
+ },
+ {
+  "id": "n5213939821",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 05:30-20:00; Sa-Su 07:00-17:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/25-w-43rd-st/store-350994/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '25 W 43rd St': Mo,Tu,We,Th,Fr opens 05:30 closes 20:00; Sa,Su opens 07:00 closes 17:00"
+ },
+ {
+  "id": "n10835856480",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Th 11:30-21:00; Fr-Su 11:30-21:30",
+  "thursday_is_holiday": false,
+  "source": "https://www.imilkyusa.com/locations",
+  "evidence": "'Williamsburg, NY | Address: 142 N6 Street, Brooklyn NY 11249 | ... | Open Hours: Mon-Thurs: 11:30am-9:00pm | Fri-Sun: 11:30am-9:30pm'."
+ },
+ {
+  "id": "n4410974542",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Sa 05:00-21:00; Su 06:00-21:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/staten-island/1201-victory-blvd/store-337725/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '1201 Victory Blvd': Mo,Tu,We,Th,Fr,Sa opens 05:00 closes 21:00; Su opens 06:00 closes 21:00"
+ },
+ {
+  "id": "n11085585440",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Tu 05:00-20:00; We 05:00-19:00; Th-Sa 05:00-20:00; Su 05:00-19:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/1285-broadway/store-330135/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '1285 Broadway': Mo,Tu,Th,Fr,Sa opens 05:00 closes 20:00; We,Su opens 05:00 closes 19:00"
+ },
+ {
+  "id": "n14320577884",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Th 07:00-20:00; Fr 07:00-21:00; Sa-Su 08:00-22:00",
+  "thursday_is_holiday": false,
+  "source": "https://novacafeastoria.com/",
+  "evidence": "Footer: 'Mon – Thurs 7:00 AM – 8:00 PM | Fri 7:00 AM – 9:00 PM | Sat – Sun 8:00 AM – 10:00 PM'; schema.org agrees.",
+  "note": "The same page's FAQ and hero line mention only Mon–Thu 7–8 and Fri 7–9 (weekend omitted), not a contradiction."
+ },
+ {
+  "id": "n10767181148",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 04:30-20:00; Sa 06:00-20:00; Su 06:00-19:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/staten-island/585-veterans-rd-w/store-353381/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '585 Veterans Rd W': Mo,Tu,We,Th,Fr opens 04:30 closes 20:00; Sa opens 06:00 closes 20:00; Su opens 06:00 closes 19:00"
+ },
+ {
+  "id": "n3956950395",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Sa 08:00-21:00; Su 08:00-16:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.banternyc.com/locations",
+  "evidence": "'Murray Hill | 201 East 31st Street, New York, NY 10016 | 8am - 9pm | Monday - Saturday | 8am - 4pm | Sunday'."
+ },
+ {
+  "id": "n9807347128",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 05:30-21:00; Sa-Su 06:00-17:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/361-3rd-ave/store-359682/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '361 3rd Ave': Mo,Tu,We,Th,Fr opens 05:30 closes 21:00; Sa,Su opens 06:00 closes 17:00"
+ },
+ {
+  "id": "n8308533917",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 05:00-22:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/howard-beach/82-09-153rd-ave/store-347926/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '82-09 153rd Ave': Mo,Tu,We,Th,Fr,Sa,Su opens 05:00 closes 22:00"
+ },
+ {
+  "id": "n6231238816",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-We 06:00-23:00; Th-Sa 06:00-24:00; Su 06:00-23:00",
+  "thursday_is_holiday": false,
+  "source": "https://parisbaguette.com/locations/ny/new-york/6-west-32nd-street/",
+  "evidence": "'Café Hours Monday 6:00 AM - 11:00 PM Tuesday 6:00 AM - 11:00 PM Wednesday 6:00 AM - 11:00 PM Thursday 6:00 AM - 12:00 AM Friday 6:00 AM - 12:00 AM Saturday 6:00 AM - 12:00 AM Sunday 6:00 AM - 11:00 PM'; schema.org agrees."
+ },
+ {
+  "id": "n8927528256",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 05:00-20:00; Sa-Su 06:00-20:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/long-island-city/40-35-21st-st/store-359075/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '40-35 21st St': Mo,Tu,We,Th,Fr opens 05:00 closes 20:00; Sa,Su opens 06:00 closes 20:00"
+ },
+ {
+  "id": "n6270647902",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 05:00-21:00; Sa-Su 05:30-20:30",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/1391-madison-ave/store-340849/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '1391 Madison Ave': Mo,Tu,We,Th,Fr opens 05:00 closes 21:00; Sa,Su opens 05:30 closes 20:30"
+ },
+ {
+  "id": "n9741561061",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 04:00-23:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/flushing/3015-stratton-st/store-307262/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '3015 Stratton St': Mo,Tu,We,Th,Fr,Sa,Su opens 04:00 closes 23:00"
+ },
+ {
+  "id": "n6841975413",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 05:00-22:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/jackson-heights/87-10-northern-blvd/store-351303/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '87-10 Northern Blvd': Mo,Tu,We,Th,Fr,Sa,Su opens 05:00 closes 22:00"
+ },
+ {
+  "id": "n2567551910",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Th 08:00-19:30; Fr-Sa 08:00-20:00; Su 08:00-19:30",
+  "thursday_is_holiday": false,
+  "source": "https://bakecultureusa.com/locations",
+  "evidence": "'48 Bowery New York, NY | Located in the historic bustle of the Bowery ... | Sunday - Thursday 8:00 AM - 7:30 PM | Friday - Saturday 8:00 AM - 8:00 PM | (646) 858-2898'."
+ },
+ {
+  "id": "n4995784471",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 05:00-21:00; Sa-Su 06:00-20:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/long-island-city/2304-jackson-ave/store-353951/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '2304 Jackson Ave': Mo,Tu,We,Th,Fr opens 05:00 closes 21:00; Sa,Su opens 06:00 closes 20:00"
+ },
+ {
+  "id": "n2547733495",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Sa 07:00-21:00; Su 07:00-19:00",
+  "thursday_is_holiday": false,
+  "source": "https://sunriseespressobar.com/",
+  "evidence": "'Hours | Mon, Tue, Wed, Thur, Fri, Sat | 7:00 AM - 9:00 PM | Sun | 7:00 AM - 7:00 PM'; schema.org agrees."
+ },
+ {
+  "id": "n2377128148",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo 07:00-18:00; Tu-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.stkildacoffee.com/",
+  "evidence": "'Hells Kitchen 46 & 374 West 46 Street New York, NY 10036 | Mon 7am-6pm | Tue-Friday 7am-8pm | Sat 8am-8pm | Sunday 8am-6pm' (then 'Hells Kitchen 44 328 West 44 Street', no separate hours).",
+  "note": "Sample coordinates (40.74397, -73.99971) are around W 20th St & 9th Ave in Chelsea, not W 46th St (~40.761): the pin looks misplaced."
+ },
+ {
+  "id": "n12995859806",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+  "thursday_is_holiday": false,
+  "source": "https://cafebilboquet.com/",
+  "evidence": "'Hours Of Operation | Monday – Friday | 7:00 AM – 8:00 PM | Saturday | 8:00 AM – 8:00 PM | Sunday | 8:00 AM – 6:00 PM'."
+ },
+ {
+  "id": "n2557326696",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 05:00-20:00; Sa-Su 07:00-17:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/471-lexington-ave/store-353428/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '471 Lexington Ave': Mo,Tu,We,Th,Fr opens 05:00 closes 20:00; Sa,Su opens 07:00 closes 17:00"
+ },
+ {
+  "id": "n9147058660",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 05:00-21:00; Sa-Su 05:30-21:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/forest-hills/71-67-yellowstone-blvd/store-331708/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '71-67 Yellowstone Blvd': Mo,Tu,We,Th,Fr opens 05:00 closes 21:00; Sa,Su opens 05:30 closes 21:00"
+ },
+ {
+  "id": "n617740848",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 05:00-22:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/352-graham-ave/store-342627/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '352 Graham Ave': Mo,Tu,We,Th,Fr,Sa,Su opens 05:00 closes 22:00"
+ },
+ {
+  "id": "n11667208275",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Sa 05:00-20:00; Su 06:00-20:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/staten-island/1351-forest-ave/store-304909/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '1351 Forest Ave Forest Plaza': Mo,Tu,We,Th,Fr,Sa opens 05:00 closes 20:00; Su opens 06:00 closes 20:00"
+ },
+ {
+  "id": "n6689923801",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+  "thursday_is_holiday": false,
+  "source": "https://danbakery.us/pages/location-nyc",
+  "evidence": "'1431 York Ave, New York NY 10021 | Mon – Fri: 7 AM – 8 PM Sat – Sun: 8 AM – 8 PM'; also 'Hours Monday – Friday 7:00 AM – 8:00 PM Saturday – Sunday 8:00 AM – 8:00 PM'."
+ },
+ {
+  "id": "n2091641953",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 08:00-23:00",
+  "thursday_is_holiday": false,
+  "source": "https://amritacafe.com/",
+  "evidence": "'301 W 110th St New York, NY 10026 | Business Hours: ... Mon: 8:00 AM – 11:00 PM ... Sun: 8:00 AM – 11:00 PM'; header 'Mon – Sun 8AM – 11 PM'."
+ },
+ {
+  "id": "n6893565114",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Su 05:00-21:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.dunkindonuts.com/locations/us/ny/flushing/4102-college-point-blvd/store-306457/",
+  "evidence": "schema.org openingHoursSpecification (description 'STORE hours') for streetAddress '4102 College Point Blvd': Mo,Tu,We,Th,Fr,Sa,Su opens 05:00 closes 21:00"
+ },
+ {
+  "id": "n6053555793",
+  "sample": "confirmed",
+  "status": "checked",
+  "hours": "Mo-Th 08:00-22:00; Fr-Sa 08:00-23:00; Su 08:00-22:00",
+  "thursday_is_holiday": false,
+  "source": "https://www.venieros.com/",
+  "evidence": "'Our Hours | Sun - Thu | 8 AM - 10 PM | Fri - Sat | 8 AM - 11 PM | Visit Us | 342 East 11th Street'."
+ }
+]
