@@ -162,6 +162,30 @@ def test_exclude_override_removes_a_place():
     assert out["places"] == [] and out["stats"]["excluded by override"] == 1
 
 
+def test_publish_guard_holds_back_odd_confirmed_hours():
+    def ov(text, **more):
+        return {"n1": {"id": "n1", "hours": H.parse(text), "hours_text": text, "src": "brand",
+                       "source": "https://brand.example/store/1", "checked": "2026-11-24", **more}}
+    osm = [el(1, "Late Cafe", 40.7301, -74.0027, "24/7")]
+    # the QA case: confirmed as open on Monday only, while OSM says always open
+    out = B.build(osm, overrides=ov("Mo 05:30-24:00"))
+    assert [(p["id"], p["src"], p["hours"]) for p in out["places"]] == [("n1", "osm", [[[0, 1440]]] * 7)]
+    assert out["stats"]["confirmed but held back by the guard"] == 1
+    assert out["recheck"][0]["id"] == "n1" and "closed 6 days" in out["recheck"][0]["reason"]
+    # open days differ from OSM's
+    out = B.build(osm, overrides=ov("Mo-Sa 06:00-22:00"))
+    assert out["places"][0]["src"] == "osm" and "Su" in out["recheck"][0]["reason"]
+    # a second look lets it through
+    out = B.build(osm, overrides=ov("Mo-Sa 06:00-22:00", second_look="2026-11-25"))
+    assert out["places"][0]["src"] == "shop" and out["recheck"] == []
+    # same days, other times: confirmed as usual
+    out = B.build(osm, overrides=ov("Mo-Su 06:00-22:00"))
+    assert out["places"][0]["src"] == "shop" and out["recheck"] == []
+    # held back and OSM has nothing usable: not in the feed at all
+    out = B.build([el(1, "Late Cafe", 40.7301, -74.0027)], overrides=ov("Fr-Su 13:00-23:00"))
+    assert out["places"] == [] and len(out["recheck"]) == 1
+
+
 def test_addition_replaces_its_osm_twin():
     add = {"id": "x-night-owl", "name": "Night Owl", "lat": 40.7301, "lon": -74.0027, "addr": "9 Carmine St",
            "cat": "coffee", "hours": [[[600, 1620]]] * 7, "src": "shop", "source": "https://nightowl.example",
@@ -215,6 +239,94 @@ def test_empty_feed_is_never_published(tmp_path, monkeypatch):
     monkeypatch.setattr(B, "load_additions", lambda: [])
     with pytest.raises(validate.Invalid):
         run.make([], tmp_path / "site", now="2026-11-24T23:10:00Z", log=lambda *_: None)
+    assert not (tmp_path / "site" / "v1").exists()
+
+
+def _bundle(tmp_path, monkeypatch):
+    monkeypatch.setattr(B, "load_overrides", lambda: {})
+    monkeypatch.setattr(B, "load_additions", lambda: [])
+    monkeypatch.setattr(run, "load_report", lambda: None)
+    site = tmp_path / "site"
+    m = run.make(_elements(6), site, now="2026-11-24T23:10:00Z", log=lambda *_: None)
+    files = {"nyc.json": (site / "v1" / "nyc.json").read_bytes(),
+             m["map"]["style_dark"]: (site / "v1" / "style-dark.json").read_bytes(),
+             m["map"]["style_light"]: (site / "v1" / "style-light.json").read_bytes()}
+
+    def read(name):
+        if name not in files:
+            raise IOError("HTTP 404")
+        return files[name]
+    return m, files, read
+
+
+def test_bundle_accepts_what_the_pipeline_writes(tmp_path, monkeypatch):
+    m, _files, read = _bundle(tmp_path, monkeypatch)
+    validate.bundle(m, read)
+
+
+@pytest.mark.parametrize("tz", ["Mars/Phobos", "America/New_Yrok", "New York", "EST5EDT4", "", None, 5])
+def test_bundle_rejects_a_time_zone_that_is_not_real(tmp_path, monkeypatch, tz):
+    m, _files, read = _bundle(tmp_path, monkeypatch)
+    m["cities"][0]["tz"] = tz
+    with pytest.raises(validate.Invalid, match="IANA time zone"):
+        validate.bundle(m, read)
+
+
+def test_bundle_rejects_a_center_outside_the_bbox(tmp_path, monkeypatch):
+    m, _files, read = _bundle(tmp_path, monkeypatch)
+    m["cities"][0]["center"] = [41.2, -73.99]
+    with pytest.raises(validate.Invalid, match="inside the bbox"):
+        validate.bundle(m, read)
+
+
+def test_bundle_rejects_a_places_file_that_does_not_match(tmp_path, monkeypatch):
+    m, files, read = _bundle(tmp_path, monkeypatch)
+    good = files["nyc.json"]
+    # one byte changed, same length: the hash no longer matches
+    files["nyc.json"] = good.replace(b"Late Cafe 1", b"Late Cafe X", 1)
+    with pytest.raises(validate.Invalid, match="sha256"):
+        validate.bundle(m, read)
+    files["nyc.json"] = good + b" "
+    with pytest.raises(validate.Invalid, match="bytes"):
+        validate.bundle(m, read)
+    files["nyc.json"] = good
+    m["cities"][0]["count"] += 1
+    with pytest.raises(validate.Invalid, match="the manifest says 7"):
+        validate.bundle(m, read)
+    m["cities"][0]["count"] -= 1
+    m["cities"][0]["confirmed"] = 3
+    with pytest.raises(validate.Invalid, match="confirmed"):
+        validate.bundle(m, read)
+    m["cities"][0]["confirmed"] = 0
+    del files["nyc.json"]
+    with pytest.raises(validate.Invalid, match="HTTP 404"):
+        validate.bundle(m, read)
+
+
+def test_bundle_rejects_a_style_that_does_not_answer_with_a_style(tmp_path, monkeypatch):
+    m, files, read = _bundle(tmp_path, monkeypatch)
+    dark = m["map"]["style_dark"]
+    good = files[dark]
+    files[dark] = b"<html>Not Found</html>"
+    with pytest.raises(validate.Invalid, match="is not JSON"):
+        validate.bundle(m, read)
+    files[dark] = b'{"version": 8, "layers": []}'
+    with pytest.raises(validate.Invalid, match="not a MapLibre style"):
+        validate.bundle(m, read)
+    del files[dark]
+    with pytest.raises(validate.Invalid, match="does not answer"):
+        validate.bundle(m, read)
+    files[dark] = good
+    validate.bundle(m, read)
+
+
+def test_a_missing_style_file_stops_the_publish(tmp_path, monkeypatch):
+    monkeypatch.setattr(B, "load_overrides", lambda: {})
+    monkeypatch.setattr(B, "load_additions", lambda: [])
+    monkeypatch.setattr(run, "ROOT", tmp_path)          # no styles/ folder here
+    (tmp_path / "data").mkdir()
+    with pytest.raises(validate.Invalid, match="style_dark"):
+        run.make(_elements(6), tmp_path / "site", now="2026-11-24T23:10:00Z", log=lambda *_: None)
     assert not (tmp_path / "site" / "v1").exists()
 
 

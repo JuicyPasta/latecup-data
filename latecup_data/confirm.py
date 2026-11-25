@@ -89,17 +89,45 @@ def _minutes(text):
     return h * 60 + mi
 
 
-def spec_to_table(spec):
-    """schema.org openingHoursSpecification -> table, or None when unsure."""
+_STORE_HOURS = re.compile(r"\b(store|lobby|walk.?in|dine.?in|caf[eé])\b", re.I)
+_OTHER_HOURS = re.compile(r"\b(delivery|pick.?up|order.?ahead|drive.?thru|drive.?through|curbside|kitchen|happy)\b", re.I)
+
+
+def store_items(spec):
+    """Of a list of OpeningHoursSpecification items, the ones that are the
+    store's own opening hours. A chain's page often lists several sets, each
+    with a `description` or `name` ("STORE hours", "DELIVERY hours", "DRIVE_THRU
+    hours"); merging them gives hours nobody keeps. When the items are
+    labelled, only the "store" set is used (None if there is none); unlabelled
+    items are all used."""
     if isinstance(spec, dict):
         spec = [spec]
-    if not isinstance(spec, list) or not spec:
+    if not isinstance(spec, list) or not spec or not all(isinstance(i, dict) for i in spec):
+        return None
+    label = lambda i: str(i.get("description") or i.get("name") or "").strip()  # noqa: E731
+    if not any(label(i) for i in spec):
+        return spec
+    store = [i for i in spec if label(i).upper().startswith("STORE")]
+    if not store:
+        store = [i for i in spec if _STORE_HOURS.search(label(i)) and not _OTHER_HOURS.search(label(i))]
+    return store or None
+
+
+def spec_to_table(spec, midnight_to_midnight=None):
+    """schema.org openingHoursSpecification -> table, or None when unsure.
+
+    `opens` 00:00 with `closes` 00:00 means "closed all day" on some sites
+    (Google's convention) and "open 24 hours" on others (Dunkin's locator).
+    By default that is not certain and the answer is None. Pass
+    midnight_to_midnight="open" to read it as 24 hours; the caller must then
+    have a second reason to believe it.
+    """
+    spec = store_items(spec)
+    if not spec:
         return None
     week = [[] for _ in range(7)]
     seen = set()
     for item in spec:
-        if not isinstance(item, dict):
-            return None
         if item.get("validFrom") or item.get("validThrough"):
             continue  # a dated exception, not the normal week
         days = item.get("dayOfWeek")
@@ -126,15 +154,20 @@ def spec_to_table(spec):
         for i in idx:
             seen.add(i)
             if a == 0 and b == 0:
-                continue                     # 00:00-00:00 is Google's "closed all day"
-            end = b
-            if a == 0 and b in (1439, 1440):
+                if midnight_to_midnight != "open":
+                    return None              # closed all day, or open all day: the page does not say which
+                end = 1440
+            elif b in (1439, 1440) and a == 0:
                 end = 1440
             elif b == 1439:
                 end = 1440
             elif b <= a:
                 end = b + 1440
+            else:
+                end = b
             week[i].append([a, end])
+    if len(seen) < 7 and not any(week):
+        return None
     if not seen:
         return None
     try:
@@ -165,7 +198,10 @@ def _addr_text(node):
 
 
 def jsonld_hours(page):
-    """[{name, address, phone, table}] for every schema.org thing with hours on the page."""
+    """[{name, address, phone, table, table_if_24h}] for every schema.org thing
+    with hours on the page. `table` is None when the page's 00:00-00:00 days
+    could be "closed" or "open 24 hours"; `table_if_24h` is then the reading
+    as 24 hours, for a caller that has a second source."""
     out = []
     for block in _LD.findall(page):
         try:
@@ -178,15 +214,19 @@ def jsonld_hours(page):
         for node in _walk(doc):
             if not isinstance(node, dict):
                 continue
-            table = None
+            table = alt = None
             if "openingHoursSpecification" in node:
                 table = spec_to_table(node["openingHoursSpecification"])
-            if table is None and "openingHours" in node:
+                if table is None:
+                    # readable only if 00:00-00:00 means "open 24 hours": kept apart, never used on its own
+                    alt = spec_to_table(node["openingHoursSpecification"], midnight_to_midnight="open")
+            if table is None and alt is None and "openingHours" in node:
                 table = text_to_table(node["openingHours"])
-            if table is None or not any(table):
+            if (table is None or not any(table)) and (alt is None or not any(alt)):
                 continue
             out.append({"name": str(node.get("name", ""))[:80], "address": _addr_text(node)[:120],
-                        "phone": re.sub(r"\D", "", str(node.get("telephone", "")))[-10:], "table": table})
+                        "phone": re.sub(r"\D", "", str(node.get("telephone", "")))[-10:],
+                        "table": table if table and any(table) else None, "table_if_24h": alt})
     return out
 
 

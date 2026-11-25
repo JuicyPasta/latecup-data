@@ -1,0 +1,55 @@
+{
+ "id": "w285891147",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    270,
+    1320
+   ]
+  ],
+  [
+   [
+    270,
+    1320
+   ]
+  ],
+  [
+   [
+    270,
+    1320
+   ]
+  ],
+  [
+   [
+    270,
+    1320
+   ]
+  ],
+  [
+   [
+    270,
+    1320
+   ]
+  ],
+  [
+   [
+    270,
+    1320
+   ]
+  ],
+  [
+   [
+    270,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo 04:30-22:00; Tu 04:30-22:00; We 04:30-22:00; Th 04:30-22:00; Fr 04:30-22:00; Sa 04:30-22:00; Su 04:30-22:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/howard-beach/16302-cross-bay-blvd/store-302933/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 04:30-22:00",
+ "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
+}

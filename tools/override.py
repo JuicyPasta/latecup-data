@@ -23,7 +23,7 @@ from latecup_data import confirm, hours as H  # noqa: E402
 
 
 def write(pid, text=None, *, source, src="shop", checked=None, note=None, osm_hours=None, name=None, closed=False,
-          exclude=False, folder=None, addr=None):
+          exclude=False, folder=None, addr=None, second_look=None):
     if not confirm.allowed(source):
         raise SystemExit(f"{source}: not an allowed source (a listing site)")
     checked = checked or datetime.now(ZoneInfo("America/New_York")).date().isoformat()
@@ -46,6 +46,8 @@ def write(pid, text=None, *, source, src="shop", checked=None, note=None, osm_ho
         rec["osm_hours"] = osm_hours
     if note:
         rec["note"] = note
+    if second_look:
+        rec["second_look"] = second_look
     folder = Path(folder or ROOT / "overrides")
     (folder / f"{pid}.json").write_text(json.dumps(rec, ensure_ascii=False, indent=1) + "\n")
     return rec
@@ -63,12 +65,16 @@ def main():
     ap.add_argument("--name")
     ap.add_argument("--closed", action="store_true", help="the shop has closed for good")
     ap.add_argument("--exclude", action="store_true", help="not a café (say why in --note), or a duplicate")
+    ap.add_argument("--second-look", metavar="YYYY-MM-DD",
+                    help="the date you looked at the source a second time: needed when the place is closed four or "
+                         "more days a week or its open days differ from OpenStreetMap's (the publish guard)")
     a = ap.parse_args()
     if not a.closed and not a.exclude and not a.hours:
         ap.error("give the hours, --closed or --exclude")
     try:
         rec = write(a.id, a.hours, source=a.source, src=a.src, checked=a.checked, note=a.note,
-                    osm_hours=a.osm_hours, name=a.name, closed=a.closed, exclude=a.exclude)
+                    osm_hours=a.osm_hours, name=a.name, closed=a.closed, exclude=a.exclude,
+                    second_look=a.second_look)
     except H.Unparsed as e:
         raise SystemExit(f"not certain about that hours string: {e}")
     print(json.dumps(rec, ensure_ascii=False))

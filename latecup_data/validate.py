@@ -1,6 +1,9 @@
 """The format-1 contract as code. Nothing is published unless these pass."""
+import hashlib
+import json
 import re
 from datetime import date, datetime
+from zoneinfo import ZoneInfo, ZoneInfoNotFoundError, available_timezones
 
 from . import FORMAT
 from .hours import DAY_MIN, is_late, table_hash
@@ -141,6 +144,59 @@ def votes_file(doc, city_id, place_ids=None):
                   and type(st[1]) is int and st[1] >= 1, f"votes[{pid}].stars is [mean, count]")
 
 
+def real_zone(name):
+    """True for a canonical IANA zone name this machine's tz database knows
+    (an app with an older database must still know it: keep to long-standing
+    names like America/New_York)."""
+    if not isinstance(name, str) or "/" not in name or name not in available_timezones():
+        return False
+    try:
+        ZoneInfo(name)
+    except (ZoneInfoNotFoundError, ValueError, OSError):
+        return False
+    return True
+
+
+def bundle(m, read):
+    """Everything a client will fetch, checked together. `read(name) -> bytes`
+    gets a file named in the manifest (a places file name, or a full style
+    URL) and raises IOError when it does not answer.
+
+    Rejects: an invalid manifest (bad tz, center outside the bbox, ...), a
+    places file whose bytes, sha256 or count differ from the manifest or that
+    is not valid, and a map style that does not answer or is not a MapLibre
+    style in JSON."""
+    manifest(m)
+    for c in m["cities"]:
+        try:
+            body = read(c["places"])
+        except IOError as e:
+            raise Invalid(f"{c['places']}: {e}") from None
+        _need(len(body) == c["bytes"], f"{c['places']}: {len(body)} bytes, the manifest says {c['bytes']}")
+        _need(hashlib.sha256(body).hexdigest() == c["sha256"], f"{c['places']}: sha256 does not match the manifest")
+        try:
+            doc = json.loads(body)
+        except ValueError:
+            raise Invalid(f"{c['places']}: not JSON") from None
+        n = places_file(doc, c["id"], c["bbox"])
+        _need(n == c["count"], f"{c['places']}: {n} places, the manifest says {c['count']}")
+        confirmed = sum(p["src"] != "osm" for p in doc["places"])
+        _need(confirmed == c["confirmed"], f"{c['places']}: {confirmed} confirmed, the manifest says {c['confirmed']}")
+    for key in ("style_dark", "style_light"):
+        url = (m.get("map") or {}).get(key)
+        if url is None:
+            continue
+        try:
+            style = json.loads(read(url))
+        except IOError as e:
+            raise Invalid(f"map.{key}: {url} does not answer: {e}") from None
+        except ValueError:
+            raise Invalid(f"map.{key}: {url} is not JSON") from None
+        _need(isinstance(style, dict) and style.get("version") == 8 and isinstance(style.get("layers"), list)
+              and style["layers"] and isinstance(style.get("sources"), dict),
+              f"map.{key}: {url} is not a MapLibre style")
+
+
 def manifest(m):
     _need(m.get("format") == FORMAT, "manifest: format must be 1")
     _ts(m.get("generated"), "manifest.generated")
@@ -151,7 +207,7 @@ def manifest(m):
         cid = c.get("id")
         _need(isinstance(cid, str) and _SLUG.match(cid), f"city: bad id {cid!r}")
         _need(isinstance(c.get("name"), str) and c["name"], f"{cid}: bad name")
-        _need(isinstance(c.get("tz"), str) and "/" in c["tz"], f"{cid}: bad tz")
+        _need(real_zone(c.get("tz")), f"{cid}: tz {c.get('tz')!r} is not an IANA time zone")
         ctr, bbox = c.get("center"), c.get("bbox")
         _need(isinstance(bbox, list) and len(bbox) == 4 and bbox[0] < bbox[2] and bbox[1] < bbox[3],
               f"{cid}: bbox is [west, south, east, north]")

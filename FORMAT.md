@@ -138,7 +138,8 @@ Dates are days in the city's time zone. An id here may briefly be missing from t
 3. The OSM `opening_hours` tag is parsed by a strict parser. A string it is not certain about is not guessed: the place waits on a to-confirm list.
 4. Hours we confirmed ourselves (`overrides/`, one file per place, with the source URL and date) replace the OSM hours and survive every refresh. Allowed sources: the shop's own website, its ordering page, its official Instagram or Facebook, a chain's own store locator. Never Google Maps, Yelp or other listing sites.
 5. A place that visitors reported wrong (`bad` in the votes file) goes to the top of the to-confirm list (`ops/to-confirm.json` → `recheck`, and `ops/recheck.json` hourly): it is the first thing re-checked from an allowed source. Re-checking it writes a new `checked` date, which clears the reports.
-6. The result is validated against this document (`latecup_data/validate.py`) and published. A feed that fails validation, or that lost more than 20 % of its places since the last run, is not published.
+6. **A publish guard** holds back confirmed hours of a shape that has been wrong before: a place closed four or more days a week, or one whose open days are not the days OpenStreetMap has. Such a place is published with its OpenStreetMap hours as `osm` (or left out when OSM has none) and listed under `recheck` until someone has looked at the source a second time.
+7. The result is validated against this document (`latecup_data/validate.py`) and published: the manifest (a real IANA time zone, the centre inside the bounding box), the places file against the manifest's hash and counts, and both map styles. A feed that fails any of it, or that lost more than 20 % of its places since the last run, is not published.
 
 ## Caching
 

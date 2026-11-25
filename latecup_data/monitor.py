@@ -2,7 +2,6 @@
 
 usage: python -m latecup_data.monitor [base URL]
 """
-import hashlib
 import json
 import sys
 from datetime import datetime, timezone
@@ -23,37 +22,21 @@ def check(manifest, fetch, now, max_age_hours=MAX_AGE_HOURS):
     age = (now - made).total_seconds() / 3600
     if age > max_age_hours:
         out.append(f"feed is stale: generated {manifest['generated']}, {age:.0f} h ago (limit {max_age_hours} h)")
+
+    def read(name):
+        return http.get(name, retries=2) if name.startswith("https://") else fetch(name)
+
+    try:
+        validate.bundle(manifest, read)      # places against hash and counts; both styles answer with a style
+    except validate.Invalid as e:
+        out.append(str(e))
     for city in manifest["cities"]:
-        try:
-            body = fetch(city["places"])
-        except IOError as e:
-            out.append(f"{city['places']}: {e}")
-            continue
-        if hashlib.sha256(body).hexdigest() != city["sha256"] or len(body) != city["bytes"]:
-            out.append(f"{city['places']} does not match the manifest's sha256/bytes")
-            continue
-        try:
-            n = validate.places_file(json.loads(body), city["id"], city["bbox"])
-            if n != city["count"]:
-                out.append(f"{city['places']} has {n} places, the manifest says {city['count']}")
-        except (validate.Invalid, ValueError) as e:
-            out.append(f"{city['places']} is invalid: {e}")
-            continue
         if city.get("votes"):
             try:
                 # a vote for a place that left the feed since the last hourly count is not an error
                 validate.votes_file(json.loads(fetch(city["votes"])), city["id"])
             except (IOError, validate.Invalid, ValueError) as e:
                 out.append(f"{city['votes']}: {e}")
-    for key in ("style_dark", "style_light"):
-        url = (manifest.get("map") or {}).get(key)
-        if url:
-            try:
-                style = json.loads(http.get(url, retries=2))
-                if style.get("version") != 8 or not style.get("layers"):
-                    out.append(f"{key} is not a MapLibre style")
-            except (IOError, ValueError) as e:
-                out.append(f"{key}: {e}")
     return out
 
 

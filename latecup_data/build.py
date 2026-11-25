@@ -59,6 +59,22 @@ def suspicious(table):
     return None
 
 
+def guard(table, osm_table):
+    """A reason a confirmed table needs a second look before it is published
+    as confirmed, or None. Two shapes have been wrong before (a locator's
+    "open 24 hours" days read as closed): a place closed four or more days a
+    week, and a place whose open days are not the days OpenStreetMap has."""
+    closed = sum(1 for day in table if not day)
+    if closed >= 4:
+        return f"closed {closed} days a week"
+    if osm_table is not None:
+        names = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]
+        diff = [names[d] for d in range(7) if bool(table[d]) != bool(osm_table[d])]
+        if diff:
+            return "open days differ from OpenStreetMap's: " + ",".join(diff)
+    return None
+
+
 def _same_shop(a, b):
     """Two mappings of one shop: the same name within 60 m, or nearly the same
     name at the same street address within 150 m."""
@@ -159,7 +175,7 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
     chain_slugs = chains.assign([c["tags"] for c in cands] + [{"name": a["name"]} for a in additions])
     stats["classified places"] = len(cands)
 
-    places, to_confirm = [], []
+    places, to_confirm, recheck = [], [], []
     used_overrides = set()
     for c, chain in zip(cands, chain_slugs):
         tags, pid = c["tags"], c["id"]
@@ -175,8 +191,22 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
             if ov.get("closed") or ov.get("exclude"):
                 stats["closed by override" if ov.get("closed") else "excluded by override"] += 1
                 continue
+            table = H.normalize(ov["hours"])
+            try:
+                osm_table = H.parse(raw) if raw else None
+            except H.Unparsed:
+                osm_table = None
+            # the publish guard: an odd shape is not shown as confirmed until someone has looked twice
+            # (`second_look` in the override). Until then the place falls back to its OSM hours.
+            why = None if ov.get("second_look") else guard(table, osm_table)
+            if why:
+                recheck.append(dict(base, reason=f"confirmed hours held back: {why}", source=ov.get("source"),
+                                    read=ov.get("hours_text") or H.fmt(table)))
+                stats["confirmed but held back by the guard"] += 1
+                ov = None
+        if ov is not None:
             # hours read on a chain's own site are `brand`, on an independent shop's `shop`
-            table, src, checked = H.normalize(ov["hours"]), ("brand" if chain else "shop"), ov["checked"]
+            src, checked = ("brand" if chain else "shop"), ov["checked"]
         else:
             src, checked = "osm", clean.check_date(tags)
             if not raw:
@@ -215,6 +245,12 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
         if loc is None:
             raise ValueError(f"{add['id']}: not inside the five boroughs")
         table = H.normalize(add["hours"])
+        why = None if add.get("second_look") else guard(table, None)
+        if why:
+            recheck.append({"id": add["id"], "name": add["name"], "addr": add["addr"], "source": add.get("source"),
+                            "reason": f"hand-added hours held back: {why}"})
+            stats["confirmed but held back by the guard"] += 1
+            continue
         if not H.is_late(table):
             warnings.append(f"{add['id']}: hand-added but not late; left out")
             continue
@@ -238,5 +274,6 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
     to_confirm.sort(key=lambda p: p["id"])
     stats["feed places"] = len(places)
     stats["to confirm"] = len(to_confirm)
-    return {"places": places, "to_confirm": to_confirm, "stats": dict(stats), "excluded": dict(reasons),
-            "warnings": warnings}
+    recheck.sort(key=lambda p: p["id"])
+    return {"places": places, "to_confirm": to_confirm, "recheck": recheck, "stats": dict(stats),
+            "excluded": dict(reasons), "warnings": warnings}

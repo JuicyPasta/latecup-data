@@ -1,0 +1,9 @@
+{
+ "id": "n7975003159",
+ "name": "La Mercerie",
+ "exclude": true,
+ "source": "https://romanandwilliams.com/pages/lamercerie-homepage/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 12:00-15:30, 16:30-22:00; Sa 11:00-15:30, 16:30-22:00; Su 11:00-15:30, 16:30-21:00",
+ "note": "Its own page: \"La Mercerie celebrates the thoughtful delight of French cuisine. The restaurant serves brunch, lunch, and dinner.\" A restaurant, not a café."
+}

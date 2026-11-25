@@ -1,0 +1,55 @@
+{
+ "id": "n5775247318",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo 04:30-23:00; Tu 04:30-23:00; We 04:30-23:00; Th 04:30-23:00; Fr 04:30-23:00; Sa 04:30-23:00; Su 04:30-23:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/astoria/3114-ditmars-blvd/store-306660/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 05:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Su 05:00-23:00\"; the brand's own store locator wins. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
+}

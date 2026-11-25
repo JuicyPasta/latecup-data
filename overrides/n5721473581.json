@@ -1,0 +1,55 @@
+{
+ "id": "n5721473581",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-22:00; Tu 05:00-22:00; We 05:00-22:00; Th 05:00-22:00; Fr 05:00-22:00; Sa 06:00-22:00; Su 06:00-22:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/sunnyside/4128-queens-blvd/store-340852/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:30-22:30; Sa, Su 06:00-22:30",
+ "note": "OpenStreetMap said \"Mo-Fr 05:30-22:30; Sa, Su 06:00-22:30\"; the brand's own store locator wins. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
+}

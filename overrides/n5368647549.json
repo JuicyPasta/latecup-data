@@ -30,5 +30,6 @@
  "source": "https://www.mirrorinthewoods.com/",
  "checked": "2026-11-24",
  "osm_hours": "Fr 15:00-20:30, Sa 13:00-21:00, Su 13:00-20:30",
- "note": "Agrees with OpenStreetMap. Read: 575 UNION ST, BROOKLYN, NY 11215 / MON-THU/CLOSED / FRI : 3PM - 8:30PM / SAT : 1PM - 9:00PM / SUN: 1PM - 8:30PM Tea and sake house; matches OSM."
+ "note": "Agrees with OpenStreetMap. Read: 575 UNION ST, BROOKLYN, NY 11215 / MON-THU/CLOSED / FRI : 3PM - 8:30PM / SAT : 1PM - 9:00PM / SUN: 1PM - 8:30PM Tea and sake house; matches OSM. Second look 2026-11-24: the page states \"MON-THU/CLOSED\" and OpenStreetMap lists the same three open days.",
+ "second_look": "2026-11-24"
 }

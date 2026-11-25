@@ -55,6 +55,8 @@ python tools/override.py n1234567890 "Mo-Th 08:00-24:00; Fr-Sa 08:00-02:00; Su 0
 git add overrides/ && git commit -m "Confirm Example Coffee House" && git push
 ```
 
+**The publish guard.** Confirmed hours that leave a place closed four or more days a week, or open on other days than OpenStreetMap has, are not published as confirmed on the first reading: the place keeps its OpenStreetMap hours and appears under `recheck` in `ops/to-confirm.json`. Look at the source again, then add `--second-look YYYY-MM-DD` to the command (or `"second_look": "YYYY-MM-DD"` to the record).
+
 The push starts the `refresh` workflow, which rebuilds and publishes. The hours argument is OSM `opening_hours` syntax; the tool refuses a string the parser is not certain about.
 
 Places OpenStreetMap lacks are in [`additions/`](additions/) (`x-<slug>.json`: name, coordinates, address, category, hours, source, date). Each needs hours from an allowed source, like an override.

@@ -59,6 +59,14 @@ def _skip(pid, refresh):
     return not (refresh and json.loads(f.read_text()).get("by") == "confirm_brand")
 
 
+def _stale(pid):
+    """A --refresh that can no longer read a store removes what this tool wrote
+    for it earlier, so an old reading never outlives its source."""
+    f = ROOT / "overrides" / f"{pid}.json"
+    if f.exists() and json.loads(f.read_text()).get("by") == "confirm_brand":
+        f.unlink()
+
+
 def _write(pid, tags, table, source, how):
     raw = tags.get("opening_hours")
     try:
@@ -202,7 +210,8 @@ def main(argv):
         todo.append((pid, tags, url))
     print(len(todo), "store pages to read")
     s = requests.Session()
-    counts = {"confirmed": 0, "no hours": 0, "address mismatch": 0, "fetch failed": 0, "not believable": 0}
+    counts = {"confirmed": 0, "no hours": 0, "address mismatch": 0, "fetch failed": 0, "not believable": 0,
+              "held back by the guard": 0}
     for pid, tags, url in todo[:limit]:
         time.sleep(pause)
         try:
@@ -214,6 +223,7 @@ def main(argv):
         found = C.jsonld_hours(page)
         if not found:
             counts["no hours"] += 1
+            _stale(pid)
             continue
         addr = clean.address(tags)
         ref = tags.get("ref")
@@ -221,13 +231,39 @@ def main(argv):
             match = [x for x in found if C.address_matches(x["address"], addr)]
         else:
             match = found if ref and re.search(rf"(^|\D){re.escape(ref)}(\D|$)", urlsplit(final).path) else []
-        tables = {json.dumps(x["table"]) for x in match}
+        raw = tags.get("opening_hours")
+        try:
+            osm_table = H.parse(raw) if raw else None
+        except H.Unparsed:
+            osm_table = None
+
+        def read(x):
+            """The store's table, or None. Days the page gives as 00:00-00:00
+            count as open 24 hours only where OpenStreetMap says the same."""
+            if x["table"] is not None:
+                return x["table"]
+            alt = x.get("table_if_24h")
+            if alt and osm_table and all(osm_table[d] == [[0, 1440]] for d in range(7) if alt[d] == [[0, 1440]]):
+                return alt
+            return None
+
+        tables = {json.dumps(read(x)) for x in match}
         if len(tables) != 1:
             counts["address mismatch"] += 1
+            _stale(pid)
             continue
-        table = match[0]["table"]
+        table = read(match[0])
+        if table is None:
+            counts["no hours"] += 1
+            _stale(pid)
+            continue
+        if B.guard(table, osm_table):
+            counts["held back by the guard"] += 1
+            _stale(pid)
+            continue
         if B.suspicious(table):
             counts["not believable"] += 1
+            _stale(pid)
             continue
         _write(pid, tags, table, final, "Read from the store page's schema.org opening hours.")
         counts["confirmed"] += 1

@@ -43,3 +43,14 @@ What the audit changed:
 - **schema.org hours on small shops' sites are not reliable.** On the pages that had both schema.org hours and visible hours, they disagreed about a third of the time (stale site settings, a template's placeholder, another branch's hours). So visible text for the address wins, and schema.org alone is accepted only when it equals OpenStreetMap's hours (two sources agreeing) or comes from a chain's per-store locator page.
 - Of 388 shop sites tagged in OSM, 89 could not be fetched (dead domains, 403/404), 93 had no hours on the page or one link away, and the rest were read: 99 confirmed from visible text, the others not certain (several locations on one page, kitchen or brunch hours only, a page that contradicts itself).
 - Chains' own locators are clean where they exist per store (Dunkin'). A locator that shows "the next seven days" (Starbucks, Paris Baguette's API) is a normal week only when no holiday falls in it; the Starbucks pass waits for such a week.
+
+## Correction, same day: the first Dunkin' pass misread five stores
+
+The app's QA found three brand-confirmed Dunkin' stores shown as open one or two days a week. The cause was in our reader, not in Dunkin's data:
+
+- Dunkin's store pages carry several labelled sets of hours (STORE, PICKUP, ORDER_AHEAD, WALK_IN, DELIVERY, DRIVE_THRU). The first pass merged them all.
+- A 24-hour store is written there as 00:00–00:00 on every day. The reader took that as "closed all day" (Google's convention), which left only the delivery hours.
+
+The reader now uses the STORE set only, and never guesses what 00:00–00:00 means: it is read as 24 hours only on days where OpenStreetMap also says 24 hours, and otherwise the store stays unconfirmed. Every Dunkin' record was read again: of the 216 that had been written before, 211 came out the same and **5 changed** (the three QA found, one more 24-hour store, and one whose hours had been stretched by another set). The blind audit above had sampled 18 Dunkin' stores and all 18 were right, so it did not see a 2 % error; the publish guard below is there for the cases a sample misses.
+
+**Publish guard.** Confirmed hours that leave a place closed four or more days a week, or open on other days than OpenStreetMap has, are no longer published as confirmed on the first reading. The place keeps its OpenStreetMap hours and is listed for a second look. On the data as it stood before the fix the guard caught 7 records (4 Dunkin', 3 read from shops' sites); after the re-read it holds back 2, both from shops' sites where the page and OpenStreetMap disagree about which days the café opens.

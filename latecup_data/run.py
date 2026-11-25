@@ -11,12 +11,11 @@ import argparse
 import hashlib
 import json
 import os
-import shutil
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
-from . import BASE_URL, FORMAT, build as B, holidays, osm, validate
+from . import BASE_URL, FORMAT, build as B, holidays, http, osm, validate
 from .hours import is_24_7, latest_close
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -102,14 +101,28 @@ def make(elements, site, *, now=None, allow_shrink=False, log=print):
         "holidays": holidays.upcoming(datetime.strptime(now, "%Y-%m-%dT%H:%M:%SZ").date()),
         "report": report,
     }
-    validate.manifest(manifest)
+    # everything a client will fetch, checked together before a byte is written:
+    # the manifest, the places file against its hash and counts, and both map styles
+    styles = {f.name: f.read_bytes() for f in sorted((ROOT / "styles").glob("*.json"))}
+
+    def read(name):
+        if name == CITY["places"]:
+            return body
+        if name.startswith(BASE_URL):                    # our own files, published in the same commit
+            try:
+                return styles[name[len(BASE_URL):]]
+            except KeyError:
+                raise IOError("no such file in styles/") from None
+        return http.get(name, retries=2, backoff=3, timeout=30)
+
+    validate.bundle(manifest, read)
 
     v1.mkdir(parents=True, exist_ok=True)
     (site / ".nojekyll").write_text("")
     (v1 / CITY["places"]).write_bytes(body)
     (v1 / "manifest.json").write_bytes(_dump(manifest))
-    for style in sorted((ROOT / "styles").glob("*.json")):
-        shutil.copy(style, v1 / style.name)
+    for name, data in styles.items():
+        (v1 / name).write_bytes(data)
     (site / "index.html").write_text(
         '<!doctype html><meta charset="utf-8"><title>latecup-data</title>'
         '<p>Data feed for <a href="https://juicypasta.github.io/latecup/">Latecup</a>. '
@@ -141,7 +154,11 @@ def make(elements, site, *, now=None, allow_shrink=False, log=print):
                 "checked": by_id[pid]["checked"], "web": by_id[pid].get("web"), "reports": v["bad"][0],
                 "latest": v["bad"][1]}
                for pid, v in votes.items() if isinstance(v, dict) and "bad" in v and pid in by_id]
+    for r in recheck:
+        r["reason"] = f"reported wrong by {r['reports']} visitor(s), latest {r['latest']}"
     recheck.sort(key=lambda r: (-r["reports"], r["id"]))
+    # then the confirmed hours the publish guard held back (build.guard)
+    recheck += result["recheck"]
     (ops / "to-confirm.json").write_bytes(_dump({"generated": now, "recheck": recheck,
                                                   "places": result["to_confirm"]}))
     closing = {}
@@ -150,7 +167,8 @@ def make(elements, site, *, now=None, allow_shrink=False, log=print):
         key = "24h" if is_24_7(p["hours"]) else ("24+" if c >= 1440 else str(c // 60))
         closing[key] = closing.get(key, 0) + 1
     stats = {"generated": now, "stats": result["stats"], "excluded": result["excluded"],
-             "latest_close": closing, "warnings": result["warnings"]}
+             "latest_close": closing, "warnings": result["warnings"],
+             "held_back": [{"id": r["id"], "name": r["name"], "reason": r["reason"]} for r in result["recheck"]]}
     (ops / "stats.json").write_bytes(_dump(stats))
     log(json.dumps(stats, indent=1, ensure_ascii=False))
     return manifest

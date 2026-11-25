@@ -1,0 +1,55 @@
+{
+ "id": "n7124780470",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1350
+   ]
+  ],
+  [
+   [
+    300,
+    1350
+   ]
+  ],
+  [
+   [
+    300,
+    1350
+   ]
+  ],
+  [
+   [
+    330,
+    1350
+   ]
+  ],
+  [
+   [
+    300,
+    1380
+   ]
+  ],
+  [
+   [
+    330,
+    1380
+   ]
+  ],
+  [
+   [
+    330,
+    1350
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-22:30; Tu 05:00-22:30; We 05:00-22:30; Th 05:30-22:30; Fr 05:00-23:00; Sa 05:30-23:00; Su 05:30-22:30",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/flushing/14636-45th-ave/store-352231/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:00-22:30; Sa 06:00-23:00; Su 06:00-22:30",
+ "note": "OpenStreetMap said \"Mo-Fr 05:00-22:30; Sa 06:00-23:00; Su 06:00-22:30\"; the brand's own store locator wins. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
+}

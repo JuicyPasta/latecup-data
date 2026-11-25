@@ -1,0 +1,55 @@
+{
+ "id": "n7658735270",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo 00:00-24:00; Tu 00:00-24:00; We 00:00-24:00; Th 00:00-24:00; Fr 00:00-24:00; Sa 00:00-24:00; Su 00:00-24:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/east-elmhurst/10702-grand-central-pky-east/store-341051/",
+ "checked": "2026-11-24",
+ "osm_hours": "24/7",
+ "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours.",
+ "by": "confirm_brand"
+}
