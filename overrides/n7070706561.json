@@ -1,0 +1,8 @@
+{
+ "id": "n7070706561",
+ "name": "Dunkin'",
+ "exclude": true,
+ "source": "https://locations.dunkindonuts.com/en/ny/bronx/1-e.-233rd-st/347530",
+ "checked": "2026-11-24",
+ "note": "Dunkin's own page for this store no longer exists (HTTP 404 on 2026-11-24): the store is no longer on the brand's locator, so it is left off the map until it is seen there again."
+}

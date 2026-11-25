@@ -190,21 +190,32 @@ def jsonld_hours(page):
     return out
 
 
+_STREET_NOISE = {"st", "street", "ave", "avenue", "blvd", "boulevard", "rd", "road", "pl", "place", "dr", "drive",
+                 "w", "e", "n", "s", "west", "east", "north", "south"}
+
+
+def _addr_tokens(text):
+    """Lower-case words and numbers; '22nd' -> '22', '37-11' stays one token."""
+    return [re.sub(r"(?<=\d)(st|nd|rd|th)$", "", t) for t in re.findall(r"[a-z0-9]+(?:-[0-9]+)?", text.lower())]
+
+
 def address_matches(candidate, addr):
-    """True when a schema.org address is the place's street address
-    ("13 Carmine St" vs "13 Carmine Street, New York")."""
+    """True when a schema.org address (or a locator URL slug) is the place's
+    street address: "13 Carmine St" vs "13 Carmine Street, New York". The
+    house number and the first word of the street name must both be there as
+    whole words ("418 E 2nd St" is not "418 Avenue P ... 11223")."""
     if not candidate or not addr:
         return False
-    num, _, rest = addr.partition(" ")
-    words = [w for w in re.findall(r"[a-z0-9]+", rest.lower())
-             if w not in ("st", "ave", "blvd", "rd", "pl", "dr", "w", "e", "n", "s", "west", "east", "north", "south")]
-    cand = candidate.lower()
-    if not re.search(rf"(^|[^0-9-]){re.escape(num.lower())}([^0-9]|$)", cand):
+    ours = _addr_tokens(addr)
+    theirs = _addr_tokens(candidate)
+    if not ours or ours[0] not in theirs and ours[0].replace("-", "") not in [t.replace("-", "") for t in theirs]:
         return False
-    if not words:
+    street = [t for t in ours[1:] if t not in _STREET_NOISE]
+    if not street:
         return True
-    key = re.sub(r"(st|nd|rd|th)$", "", words[0])
-    return key in re.sub(r"(?<=\d)(st|nd|rd|th)\b", "", cand)
+    pos = [i for i, t in enumerate(theirs) if t.replace("-", "") == ours[0].replace("-", "")]
+    # the street word must come after the house number, within the next four words
+    return any(street[0] in theirs[i + 1:i + 5] for i in pos)
 
 
 # ---------------------------------------------------------------- visible text

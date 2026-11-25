@@ -1,0 +1,9 @@
+{
+ "id": "n7360048859",
+ "name": "Paris Baguette",
+ "exclude": true,
+ "source": "https://parisbaguette.com/locations/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 06:00-21:00",
+ "note": "Not on Paris Baguette's own store locator on 2026-11-24 (its store page is gone): left off the map."
+}

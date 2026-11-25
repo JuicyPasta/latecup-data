@@ -2,7 +2,7 @@ from datetime import date
 
 import pytest
 
-from latecup_data import clean, geo, holidays
+from latecup_data import clean, confirm, geo, holidays
 
 
 @pytest.mark.parametrize("raw,out", [
@@ -131,3 +131,19 @@ def test_holidays_thirteen_months():
     assert hol[0]["date"] >= "2026-11-24" and hol[-1]["date"] <= "2027-12-24"
     assert "2027-12-25" not in by_date
     assert [h["date"] for h in hol] == sorted(by_date)
+
+
+@pytest.mark.parametrize("candidate,addr,same", [
+    ("13 Carmine Street New York 10014", "13 Carmine St", True),
+    ("585 Veterans Rd W Staten Island 10309", "585 Veterans Road West", True),
+    ("240 West 40th Street, New York", "240 W 40th St", True),
+    ("37-11 30th Ave Astoria 11103", "37-11 30th Ave", True),
+    ("3711 30th Avenue, Astoria", "37-11 30th Ave", True),
+    ("418 Avenue P Brooklyn 11223", "418 E 2nd St", False),       # a 2 in the ZIP code is not 2nd Street
+    ("130 Carmine Street", "13 Carmine St", False),
+    ("13 Bleecker Street", "13 Carmine St", False),
+    ("en ny brooklyn 418 avenue p 345101", "418 Avenue P", True),  # a locator URL slug
+    ("", "13 Carmine St", False),
+])
+def test_address_matches(candidate, addr, same):
+    assert confirm.address_matches(candidate, addr) is same
