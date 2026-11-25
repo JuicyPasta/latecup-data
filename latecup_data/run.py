@@ -25,6 +25,7 @@ CITY = {
     "center": [40.7359, -73.9911], "zoom": 12.5,
     "bbox": [-74.26, 40.49, -73.69, 40.92],
     "places": "nyc.json",
+    "votes": "nyc-votes.json",
 }
 MAP = {
     "style_dark": BASE_URL + "style-dark.json",
@@ -116,7 +117,33 @@ def make(elements, site, *, now=None, allow_shrink=False, log=print):
         'Data © OpenStreetMap contributors, ODbL 1.0.</p>\n')
     ops = site / "ops"
     ops.mkdir(exist_ok=True)
-    (ops / "to-confirm.json").write_bytes(_dump({"generated": now, "places": result["to_confirm"]}))
+
+    # when each place's hours last changed (the votes step needs it: a "hours
+    # wrong" report older than the last change no longer counts)
+    try:
+        since = json.loads((ops / "hh-since.json").read_text())
+    except (OSError, ValueError):
+        since = {}
+    since = {p["id"]: (since[p["id"]] if since.get(p["id"], [None])[0] == p["hh"] else [p["hh"], now])
+             for p in places}
+    (ops / "hh-since.json").write_bytes(_dump(since))
+
+    # the votes file belongs to the hourly votes step; make sure a valid one exists
+    votes_path = v1 / CITY["votes"]
+    votes = {}
+    try:
+        votes = json.loads(votes_path.read_text())["votes"]
+    except (OSError, ValueError, KeyError):
+        votes_path.write_bytes(_dump({"format": FORMAT, "city": CITY["id"], "generated": now, "votes": {}}))
+    # places people reported wrong come first on the to-confirm list
+    by_id = {p["id"]: p for p in places}
+    recheck = [{"id": pid, "name": by_id[pid]["name"], "addr": by_id[pid]["addr"], "src": by_id[pid]["src"],
+                "checked": by_id[pid]["checked"], "web": by_id[pid].get("web"), "reports": v["bad"][0],
+                "latest": v["bad"][1]}
+               for pid, v in votes.items() if isinstance(v, dict) and "bad" in v and pid in by_id]
+    recheck.sort(key=lambda r: (-r["reports"], r["id"]))
+    (ops / "to-confirm.json").write_bytes(_dump({"generated": now, "recheck": recheck,
+                                                  "places": result["to_confirm"]}))
     closing = {}
     for p in places:
         c = latest_close(p["hours"])

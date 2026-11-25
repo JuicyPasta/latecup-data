@@ -100,7 +100,7 @@ def _dedupe(cands):
 def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, phone, web, ig, tags):
     p = {"id": pid, "name": name, "lat": round(float(pos[0]), 5), "lon": round(float(pos[1]), 5),
          "addr": addr, "hood": hood, "boro": boro, "cat": cat, "chain": chain,
-         "hours": table, "src": src, "checked": checked}
+         "hours": table, "src": src, "checked": checked, "hh": H.table_hash(table)}
     if phone:
         p["phone"] = phone
     if web:

@@ -1,0 +1,54 @@
+{
+ "id": "n2709306642",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    330,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-24:00; Tu 05:00-24:00; We 05:00-24:00; Th 05:00-24:00; Fr 05:00-24:00; Sa 05:00-24:00; Su 05:30-23:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/302-5th-ave/store-310079/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:00-24:00; Sa 05:30-24:00; Su 05:30-23:00",
+ "note": "OpenStreetMap said \"Mo-Fr 05:00-24:00; Sa 05:30-24:00; Su 05:30-23:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

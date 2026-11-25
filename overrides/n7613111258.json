@@ -1,0 +1,54 @@
+{
+ "id": "n7613111258",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-21:30; Tu 05:00-21:30; We 05:00-21:30; Th 05:00-21:30; Fr 05:00-21:30; Sa 05:00-21:30; Su 05:00-21:30",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/queens/laguardia-airport/store-357836/",
+ "checked": "2026-11-24",
+ "osm_hours": "05:00-21:30",
+ "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours."
+}

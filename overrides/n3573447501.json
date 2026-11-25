@@ -1,0 +1,49 @@
+{
+ "id": "n3573447501",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Mo 06:00-19:00; Tu 06:00-19:00; We 06:00-19:00; Th 06:00-19:00; Fr 06:00-19:00; Sa 07:00-15:00; Su off",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/long-island-city/3530-36th-st/store-348317/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 06:00-19:00; Sa 07:00-15:00; Su 00:00-24:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:00-19:00; Sa 07:00-15:00; Su 00:00-24:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

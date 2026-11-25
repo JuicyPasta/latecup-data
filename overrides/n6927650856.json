@@ -1,0 +1,54 @@
+{
+ "id": "n6927650856",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1020
+   ]
+  ],
+  [
+   [
+    360,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo 06:00-21:00; Tu 06:00-21:00; We 06:00-21:00; Th 06:00-21:00; Fr 06:00-21:00; Sa 06:00-17:00; Su 06:00-17:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/1235-amsterdam-ave/store-357115/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 06:00-17:00; Sa-Su 06:00-16:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:00-17:00; Sa-Su 06:00-16:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

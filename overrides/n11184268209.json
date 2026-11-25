@@ -1,0 +1,54 @@
+{
+ "id": "n11184268209",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    330,
+    1320
+   ]
+  ],
+  [
+   [
+    330,
+    1320
+   ]
+  ],
+  [
+   [
+    330,
+    1320
+   ]
+  ],
+  [
+   [
+    330,
+    1320
+   ]
+  ],
+  [
+   [
+    330,
+    1320
+   ]
+  ],
+  [
+   [
+    330,
+    1320
+   ]
+  ],
+  [
+   [
+    330,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:30-22:00; Tu 05:30-22:00; We 05:30-22:00; Th 05:30-22:00; Fr 05:30-22:00; Sa 05:30-22:00; Su 05:30-22:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/1556-broadway/store-331707/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 05:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Su 05:00-22:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

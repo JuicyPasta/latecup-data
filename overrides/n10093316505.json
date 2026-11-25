@@ -1,0 +1,54 @@
+{
+ "id": "n10093316505",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-22:00; Tu 05:00-22:00; We 05:00-22:00; Th 05:00-22:00; Fr 05:00-22:00; Sa 06:00-22:00; Su 06:00-21:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/bronx/4-e-fordham-rd/store-351966/",
+ "checked": "2026-11-24",
+ "osm_hours": "05:00-22:00",
+ "note": "OpenStreetMap said \"05:00-22:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

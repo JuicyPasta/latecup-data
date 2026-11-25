@@ -1,0 +1,54 @@
+{
+ "id": "n2555120318",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    330,
+    1260
+   ]
+  ],
+  [
+   [
+    330,
+    1260
+   ]
+  ],
+  [
+   [
+    330,
+    1260
+   ]
+  ],
+  [
+   [
+    330,
+    1260
+   ]
+  ],
+  [
+   [
+    330,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:30-21:00; Tu 05:30-21:00; We 05:30-21:00; Th 05:30-21:00; Fr 05:30-21:00; Sa 06:00-21:00; Su 06:00-21:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/303-canal-st/store-355206/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 06:00-19:00; Sa-Su 06:30-17:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:00-19:00; Sa-Su 06:30-17:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

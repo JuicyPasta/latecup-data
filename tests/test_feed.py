@@ -3,13 +3,14 @@ import json
 
 import pytest
 
-from latecup_data import build as B, run, validate
+from latecup_data import build as B, hours as H, run, validate
 
 GOOD = {"id": "n1", "name": "Example Coffee House", "lat": 40.73012, "lon": -73.99555, "addr": "13 Carmine St",
         "hood": "West Village", "boro": "Manhattan", "cat": "coffee", "chain": None,
         "hours": [[[480, 1500]]] * 4 + [[[480, 1560]], [[540, 1560]], [[540, 1380]]],
         "src": "shop", "checked": "2026-11-24", "phone": "+12125550123", "web": "https://example.com",
         "ig": "examplecoffee", "tags": ["wifi", "outdoor"]}
+GOOD["hh"] = H.table_hash(GOOD["hours"])
 BBOX = [-74.26, 40.49, -73.69, 40.92]
 
 
@@ -44,6 +45,7 @@ def test_contract_example_is_valid():
     ({"tags": ["wifi", "parking"]}, "tags"),
     ({"tags": []}, "tags"),
     ({"extra": 1}, "unknown keys"),
+    ({"hh": "00000000"}, "hash of hours"),
     ({"hours": [[[480, 1200]]] * 6}, "7 days"),
     ({"hours": [[[480, 1100]]] * 7}, "20:00"),
     ({"hours": [[[1500, 1560]]] + [[[480, 1320]]] * 6}, "outside 0..1439"),
@@ -67,6 +69,22 @@ def test_missing_key_is_rejected():
         del p[key]
         with pytest.raises(validate.Invalid):
             validate.place(p, BBOX)
+
+
+def test_hh_changes_exactly_when_hours_change():
+    a = [[[480, 1320]]] * 7
+    b = [[[480, 1320]]] * 6 + [[[480, 1321]]]
+    assert H.table_hash(a) == H.table_hash([[[480, 1320]] for _ in range(7)]) == H.table_hash(json.loads(json.dumps(a)))
+    assert H.table_hash(a) != H.table_hash(b)
+    assert len(H.table_hash(a)) == 8 and int(H.table_hash(a), 16) >= 0
+
+
+def test_hh_value_is_pinned():
+    # clients echo this value back months later: the recipe must never change
+    import hashlib
+    table = H.parse("Mo-Su 08:00-22:00")
+    canon = "[" + ",".join(["[[480,1320]]"] * 7) + "]"
+    assert H.table_hash(table) == hashlib.sha256(canon.encode()).hexdigest()[:8]
 
 
 def test_osm_place_may_have_no_check_date():
@@ -166,6 +184,10 @@ def test_run_writes_a_valid_site_and_refuses_to_shrink(tmp_path, monkeypatch):
     m = run.make(_elements(10), site, now="2026-11-24T23:10:00Z", log=lambda *_: None)
     validate.manifest(m)
     assert m["cities"][0]["count"] == 10 and m["report"] is None
+    assert m["cities"][0]["votes"] == "nyc-votes.json"
+    assert json.loads((site / "v1" / "nyc-votes.json").read_text())["votes"] == {}
+    since = json.loads((site / "ops" / "hh-since.json").read_text())
+    assert since["n1"][1] == "2026-11-24T23:10:00Z"
     assert m["holidays"][0] == {"date": "2026-11-25", "name": "Thanksgiving Eve"}
     body = (site / "v1" / "nyc.json").read_bytes()
     import hashlib
@@ -176,6 +198,7 @@ def test_run_writes_a_valid_site_and_refuses_to_shrink(tmp_path, monkeypatch):
     m2 = run.make(_elements(10), site, now="2026-11-25T23:10:00Z", log=lambda *_: None)
     assert m2["cities"][0]["sha256"] == m["cities"][0]["sha256"]
     assert m2["cities"][0]["updated"] == "2026-11-24T23:10:00Z" and m2["generated"] == "2026-11-25T23:10:00Z"
+    assert json.loads((site / "ops" / "hh-since.json").read_text()) == since     # hours unchanged: date kept
 
     # 10 -> 8 is exactly 20 %: allowed. 10 -> 7 is refused and nothing is written.
     run.make(_elements(8), site, now="2026-11-26T23:10:00Z", log=lambda *_: None)

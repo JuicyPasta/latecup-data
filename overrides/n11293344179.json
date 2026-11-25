@@ -1,0 +1,54 @@
+{
+ "id": "n11293344179",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-20:00; Tu 05:00-20:00; We 05:00-20:00; Th 05:00-20:00; Fr 05:00-20:00; Sa 06:00-18:00; Su 06:00-18:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/1602-2nd-ave/store-359582/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 05:30-20:00; Fr 05:30-19:00; Sa 06:30-18:00; Su 06:30-17:00",
+ "note": "OpenStreetMap said \"Mo-Th 05:30-20:00; Fr 05:30-19:00; Sa 06:30-18:00; Su 06:30-17:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

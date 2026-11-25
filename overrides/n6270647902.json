@@ -1,0 +1,54 @@
+{
+ "id": "n6270647902",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    330,
+    1230
+   ]
+  ],
+  [
+   [
+    330,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-21:00; Tu 05:00-21:00; We 05:00-21:00; Th 05:00-21:00; Fr 05:00-21:00; Sa 05:30-20:30; Su 05:30-20:30",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/1391-madison-ave/store-340849/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:00-21:00; Sa-Su 06:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 05:00-21:00; Sa-Su 06:00-20:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

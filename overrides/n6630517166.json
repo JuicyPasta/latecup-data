@@ -1,0 +1,54 @@
+{
+ "id": "n6630517166",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    330,
+    960
+   ]
+  ],
+  [
+   [
+    330,
+    960
+   ]
+  ],
+  [
+   [
+    330,
+    960
+   ]
+  ],
+  [
+   [
+    330,
+    960
+   ]
+  ],
+  [
+   [
+    330,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:30-16:00; Tu 05:30-16:00; We 05:30-16:00; Th 05:30-16:00; Fr 05:30-16:00; Sa 07:00-16:00; Su 07:00-16:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/175-varick-st/store-340355/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-15:30; Sa-Su 07:00-14:30",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-15:30; Sa-Su 07:00-14:30\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

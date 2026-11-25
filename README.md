@@ -64,6 +64,7 @@ Places OpenStreetMap lacks are in [`additions/`](additions/) (`x-<slug>.json`: n
 | Workflow | When | What |
 |---|---|---|
 | [`refresh`](.github/workflows/refresh.yml) | Daily at 09:17 UTC, on a push that changes the data or the pipeline, or by hand | Tests → OSM pull (Overpass) → classify → hours → overrides and additions → validate → publish as one commit on `gh-pages`. **Refuses to publish** a feed that fails validation or that lost more than 20 % of its places; the job fails and the last good feed stays up |
+| [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings and "hours wrong" reports from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into `v1/nyc-votes.json`. No OSM pull. Publishes only when the counts changed. With no secret it writes an empty, valid file. Only counts are published: no rows, no install ids |
 | [`staleness`](.github/workflows/staleness.yml) | Every 6 hours | Fails if the published feed is older than 36 hours, does not match its manifest's hash, or no longer validates |
 | [`tests`](.github/workflows/tests.yml) | On every push | `pytest`: the hours parser, the classifier, the validator, the build rules |
 
@@ -74,6 +75,7 @@ python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m pytest -q
 .venv/bin/python -m latecup_data.run --site work/site --save-osm work/osm.json   # live OSM pull, builds work/site/v1
 .venv/bin/python -m latecup_data.run --site work/site --osm work/osm.json        # the same from a saved pull
+REPORTS_CSV_URL=… .venv/bin/python -m latecup_data.votes --site work/site        # the votes file (empty without the URL)
 .venv/bin/python -m latecup_data.report work/site                                # coverage numbers
 .venv/bin/python -m latecup_data.monitor                                         # checks the published feed
 tools/publish.sh work/site                                                       # publish by hand (the Action normally does)
@@ -91,6 +93,7 @@ tools/publish.sh work/site                                                      
 | `latecup_data/build.py` | Dedupe, overrides, additions, the feed and the to-confirm list |
 | `latecup_data/validate.py` | The format-1 contract as code |
 | `latecup_data/run.py`, `monitor.py`, `report.py` | One pipeline run; the staleness check; the coverage report |
+| `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings and wrong-hours reports |
 | `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools |
 | `overrides/`, `additions/` | Hours we confirmed; places we added |
 | `data/` | Neighbourhood polygons; the cache of looked-up street addresses |

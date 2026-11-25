@@ -1,0 +1,54 @@
+{
+ "id": "n5565396744",
+ "name": "Dunkin' Donuts",
+ "hours": [
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    300,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-20:00; Tu 05:00-20:00; We 05:00-20:00; Th 05:00-20:00; Fr 05:00-20:00; Sa 06:00-20:00; Su 06:00-19:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/bronx/1779-southern-blvd/store-353569/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:30-18:00; Sa-Su 07:00-16:00",
+ "note": "OpenStreetMap said \"Mo-Fr 05:30-18:00; Sa-Su 07:00-16:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

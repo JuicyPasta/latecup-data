@@ -1,0 +1,54 @@
+{
+ "id": "n5978868291",
+ "name": "Dunkin’s Donuts",
+ "hours": [
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ]
+ ],
+ "hours_text": "Mo 06:00-19:30; Tu 06:00-19:30; We 06:00-19:30; Th 06:00-19:30; Fr 06:00-19:30; Sa 06:00-19:30; Su 06:00-19:30",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/1964-3rd-ave/store-355516/",
+ "checked": "2026-11-24",
+ "osm_hours": "05:30-20:00",
+ "note": "OpenStreetMap said \"05:30-20:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

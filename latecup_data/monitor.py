@@ -38,6 +38,13 @@ def check(manifest, fetch, now, max_age_hours=MAX_AGE_HOURS):
                 out.append(f"{city['places']} has {n} places, the manifest says {city['count']}")
         except (validate.Invalid, ValueError) as e:
             out.append(f"{city['places']} is invalid: {e}")
+            continue
+        if city.get("votes"):
+            try:
+                # a vote for a place that left the feed since the last hourly count is not an error
+                validate.votes_file(json.loads(fetch(city["votes"])), city["id"])
+            except (IOError, validate.Invalid, ValueError) as e:
+                out.append(f"{city['votes']}: {e}")
     for key in ("style_dark", "style_light"):
         url = (manifest.get("map") or {}).get(key)
         if url:

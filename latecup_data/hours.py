@@ -14,6 +14,8 @@ What is ignored, because it does not change a normal week:
     the app shows a holiday banner instead;
   * rules that close the place on single calendar dates (`Dec 25 off`).
 """
+import hashlib
+import json
 import re
 
 DAYS = ["mo", "tu", "we", "th", "fr", "sa", "su"]
@@ -335,6 +337,13 @@ def is_late(table, threshold=1200):
     """True when the place closes at 20:00 or later on at least one day."""
     c = latest_close(table)
     return c is not None and c >= threshold
+
+
+def table_hash(table):
+    """`hh`: 8 hex digits of the SHA-256 of the table's canonical JSON. It
+    changes exactly when the table changes. Clients echo it; they never compute it."""
+    canon = json.dumps([[[int(a), int(b)] for a, b in day] for day in table], separators=(",", ":"))
+    return hashlib.sha256(canon.encode()).hexdigest()[:8]
 
 
 def fmt(table):

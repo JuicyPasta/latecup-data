@@ -1,0 +1,54 @@
+{
+ "id": "n6957709097",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo 06:00-24:00; Tu 06:00-24:00; We 06:00-24:00; Th 06:00-24:00; Fr 06:00-24:00; Sa 06:00-24:00; Su 06:00-24:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/53-west-116th-st/store-337355/",
+ "checked": "2026-11-24",
+ "osm_hours": "05:30-21:00",
+ "note": "OpenStreetMap said \"05:30-21:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

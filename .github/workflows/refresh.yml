@@ -24,8 +24,9 @@ on:
 permissions:
   contents: write
 
+# the same group as `votes`: both publish the whole gh-pages branch
 concurrency:
-  group: refresh
+  group: publish
   cancel-in-progress: false
 
 jobs:

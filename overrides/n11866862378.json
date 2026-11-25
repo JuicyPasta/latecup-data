@@ -1,0 +1,54 @@
+{
+ "id": "n11866862378",
+ "name": "Dunkin",
+ "hours": [
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    300,
+    1290
+   ]
+  ],
+  [
+   [
+    360,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-21:30; Tu 05:00-21:30; We 05:00-21:30; Th 05:00-21:30; Fr 05:00-21:30; Sa 05:00-21:30; Su 06:00-21:30",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/forest-hills/9712-metropolitan-ave/store-330459/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:00-22:00; Sa 05:30-22:00; Su 06:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Fr 05:00-22:00; Sa 05:30-22:00; Su 06:00-22:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n5889478638",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    330,
+    1200
+   ]
+  ],
+  [
+   [
+    330,
+    1200
+   ]
+  ],
+  [
+   [
+    330,
+    1200
+   ]
+  ],
+  [
+   [
+    240,
+    1200
+   ]
+  ],
+  [
+   [
+    330,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1020
+   ]
+  ],
+  [
+   [
+    360,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:30-20:00; Tu 05:30-20:00; We 05:30-20:00; Th 04:00-20:00; Fr 05:30-21:00; Sa 06:00-17:00; Su 06:00-16:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/10-w-33rd-st/store-352670/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo 05:30-19:00; Tu-Th 05:30-21:00; Fr-Su 05:30-19:00",
+ "note": "OpenStreetMap said \"Mo 05:30-19:00; Tu-Th 05:30-21:00; Fr-Su 05:30-19:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

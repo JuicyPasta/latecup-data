@@ -1,0 +1,54 @@
+{
+ "id": "n9147058660",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    300,
+    1260
+   ]
+  ],
+  [
+   [
+    330,
+    1260
+   ]
+  ],
+  [
+   [
+    330,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-21:00; Tu 05:00-21:00; We 05:00-21:00; Th 05:00-21:00; Fr 05:00-21:00; Sa 05:30-21:00; Su 05:30-21:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/forest-hills/71-67-yellowstone-blvd/store-331708/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 05:30-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 05:30-21:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

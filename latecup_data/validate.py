@@ -3,7 +3,7 @@ import re
 from datetime import date, datetime
 
 from . import FORMAT
-from .hours import DAY_MIN, is_late
+from .hours import DAY_MIN, is_late, table_hash
 
 BOROS = {"Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"}
 CATS = {"coffee", "tea", "dessert"}
@@ -16,7 +16,7 @@ _E164 = re.compile(r"^\+[1-9]\d{7,14}$")
 _IG = re.compile(r"^[a-z0-9._]{1,30}$")
 _SHA = re.compile(r"^[0-9a-f]{64}$")
 _URL = re.compile(r"^https?://[^\s/]+\.[^\s/]+(/\S*)?$")
-PLACE_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "cat", "chain", "hours", "src", "checked",
+PLACE_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "cat", "chain", "hours", "src", "checked", "hh",
               "phone", "web", "ig", "tags"}
 REQUIRED = PLACE_KEYS - {"phone", "web", "ig", "tags"}
 
@@ -90,6 +90,7 @@ def place(p, bbox=None):
         _need(p["src"] == "osm", f"{pid}: a confirmed place needs a checked date")
     else:
         _day(p["checked"], f"{pid}: checked")
+    _need(p["hh"] == table_hash(p["hours"]), f"{pid}: hh is not the hash of hours")
     if "phone" in p:
         _need(isinstance(p["phone"], str) and _E164.match(p["phone"]), f"{pid}: phone is not E.164")
     if "web" in p:
@@ -112,6 +113,32 @@ def places_file(doc, city_id, bbox=None):
         _need(p["id"] not in seen, f"duplicate id {p['id']}")
         seen.add(p["id"])
     return len(seen)
+
+
+def votes_file(doc, city_id, place_ids=None):
+    _need(doc.get("format") == FORMAT, "votes: format must be 1")
+    _need(doc.get("city") == city_id, f"votes: city must be {city_id!r}")
+    _ts(doc.get("generated"), "votes.generated")
+    votes = doc.get("votes")
+    _need(isinstance(votes, dict), "votes: `votes` must be an object")
+    for pid, v in votes.items():
+        _need(isinstance(pid, str) and _ID.match(pid), f"votes: bad id {pid!r}")
+        _need(place_ids is None or pid in place_ids, f"votes: {pid} is not in the feed")
+        _need(isinstance(v, dict) and v and set(v) <= {"ok", "bad", "stars"}, f"votes[{pid}]: ok, bad, stars only")
+        if "ok" in v:
+            ok = v["ok"]
+            _need(isinstance(ok, list) and len(ok) == 3 and type(ok[0]) is int and ok[0] >= 1
+                  and type(ok[2]) is int and 0 <= ok[2] <= ok[0], f"votes[{pid}].ok is [count, date, on site]")
+            _day(ok[1], f"votes[{pid}].ok")
+        if "bad" in v:
+            bad = v["bad"]
+            _need(isinstance(bad, list) and len(bad) == 2 and type(bad[0]) is int and bad[0] >= 1,
+                  f"votes[{pid}].bad is [count, date]")
+            _day(bad[1], f"votes[{pid}].bad")
+        if "stars" in v:
+            st = v["stars"]
+            _need(isinstance(st, list) and len(st) == 2 and isinstance(st[0], (int, float)) and 1 <= st[0] <= 5
+                  and type(st[1]) is int and st[1] >= 1, f"votes[{pid}].stars is [mean, count]")
 
 
 def manifest(m):
@@ -137,6 +164,8 @@ def manifest(m):
         _need(type(c.get("count")) is int and c["count"] > 0, f"{cid}: bad count")
         _need(type(c.get("confirmed")) is int and 0 <= c["confirmed"] <= c["count"], f"{cid}: bad confirmed")
         _ts(c.get("updated"), f"{cid}.updated")
+        if "votes" in c:
+            _need(isinstance(c["votes"], str) and re.match(r"^[a-z0-9-]+\.json$", c["votes"]), f"{cid}: bad votes")
         cov = c.get("tag_coverage")
         _need(isinstance(cov, dict) and all(k in TAGS and isinstance(v, (int, float)) and 0 <= v <= 1
                                             for k, v in cov.items()), f"{cid}: bad tag_coverage")

@@ -1,0 +1,54 @@
+{
+ "id": "n4011732598",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    330,
+    1380
+   ]
+  ],
+  [
+   [
+    330,
+    1380
+   ]
+  ],
+  [
+   [
+    330,
+    1380
+   ]
+  ],
+  [
+   [
+    330,
+    1380
+   ]
+  ],
+  [
+   [
+    330,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:30-23:00; Tu 05:30-23:00; We 05:30-23:00; Th 05:30-23:00; Fr 05:30-23:00; Sa 06:00-23:00; Su 06:00-23:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/265-w-37th-st/store-344936/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:30-24:00; Sa-Su 06:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Fr 05:30-24:00; Sa-Su 06:00-23:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

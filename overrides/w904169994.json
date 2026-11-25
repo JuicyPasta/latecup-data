@@ -1,0 +1,54 @@
+{
+ "id": "w904169994",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo 09:00-20:00; Tu 09:00-20:00; We 09:00-20:00; Th 09:00-20:00; Fr 09:00-20:00; Sa 09:00-20:00; Su 10:00-18:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/staten-island/2655-richmond-ave/store-355263/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 09:30-19:00; Fr-Sa 09:30-20:00; Su 10:00-18:00",
+ "note": "OpenStreetMap said \"Mo-Th 09:30-19:00; Fr-Sa 09:30-20:00; Su 10:00-18:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

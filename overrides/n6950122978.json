@@ -1,0 +1,54 @@
+{
+ "id": "n6950122978",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1140
+   ]
+  ],
+  [
+   [
+    300,
+    1140
+   ]
+  ],
+  [
+   [
+    300,
+    1140
+   ]
+  ],
+  [
+   [
+    300,
+    1140
+   ]
+  ],
+  [
+   [
+    300,
+    1140
+   ]
+  ],
+  [
+   [
+    300,
+    1140
+   ]
+  ],
+  [
+   [
+    300,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-19:00; Tu 05:00-19:00; We 05:00-19:00; Th 05:00-19:00; Fr 05:00-19:00; Sa 05:00-19:00; Su 05:00-19:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/6627-bay-pkwy/store-345147/",
+ "checked": "2026-11-24",
+ "osm_hours": "05:00-20:00",
+ "note": "OpenStreetMap said \"05:00-20:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

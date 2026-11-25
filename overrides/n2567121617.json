@@ -1,0 +1,54 @@
+{
+ "id": "n2567121617",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    240,
+    1320
+   ]
+  ],
+  [
+   [
+    240,
+    1320
+   ]
+  ],
+  [
+   [
+    240,
+    1320
+   ]
+  ],
+  [
+   [
+    240,
+    1320
+   ]
+  ],
+  [
+   [
+    240,
+    1320
+   ]
+  ],
+  [
+   [
+    240,
+    1320
+   ]
+  ],
+  [
+   [
+    240,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo 04:00-22:00; Tu 04:00-22:00; We 04:00-22:00; Th 04:00-22:00; Fr 04:00-22:00; Sa 04:00-22:00; Su 04:00-22:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/40-empire-blvd/store-337503/",
+ "checked": "2026-11-24",
+ "osm_hours": "24/7",
+ "note": "OpenStreetMap said \"24/7\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}

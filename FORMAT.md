@@ -18,6 +18,7 @@ Data © OpenStreetMap contributors, [ODbL 1.0](https://opendatacommons.org/licen
     "center": [40.7359, -73.9911], "zoom": 12.5,
     "bbox": [-74.26, 40.49, -73.69, 40.92],
     "places": "nyc.json", "sha256": "…", "bytes": 412345,
+    "votes": "nyc-votes.json",
     "count": 1234, "confirmed": 456, "updated": "2026-11-24T23:10:00Z",
     "tag_coverage": {"wifi": 0.18, "outdoor": 0.22, "seating": 0.05, "laptop": 0.0}
   }],
@@ -43,6 +44,7 @@ Data © OpenStreetMap contributors, [ODbL 1.0](https://opendatacommons.org/licen
 | `cities[].bbox` | `[west, south, east, north]` | Every place is inside it |
 | `cities[].places` | file name | Relative to the base URL |
 | `cities[].sha256`, `bytes` | hex string, int | Of the places file exactly as served. Check them before replacing a stored copy |
+| `cities[].votes` | file name, may be absent | The city's votes file (below), relative to the base URL. It has its own clock: refresh it at most every 30 minutes with `If-None-Match`, and work without it |
 | `cities[].count` | int | Places in the file |
 | `cities[].confirmed` | int | Places whose `src` is `shop` or `brand` |
 | `cities[].updated` | UTC time | When the places last changed (the places file's own `generated`). Unchanged places keep the file, its hash and this time |
@@ -61,7 +63,7 @@ Data © OpenStreetMap contributors, [ODbL 1.0](https://opendatacommons.org/licen
    "cat": "coffee",
    "chain": null,
    "hours": [[[480,1500]],[[480,1500]],[[480,1500]],[[480,1500]],[[480,1560]],[[540,1560]],[[540,1380]]],
-   "src": "shop", "checked": "2026-11-24",
+   "src": "shop", "checked": "2026-11-24", "hh": "9f2c41aa",
    "phone": "+12125550123", "web": "https://example.com", "ig": "examplecoffee",
    "tags": ["wifi", "outdoor"]}
 ]}
@@ -82,6 +84,7 @@ Places are sorted by `id`. The file is one line of compact JSON, UTF-8.
 | `hours` | yes | array | The weekly table, below |
 | `src` | yes | string | Where the hours come from: `shop` (we confirmed them on the shop's own website, ordering page or official social account), `brand` (the chain's own store locator), `osm` (the OpenStreetMap tag; **not confirmed by us**) |
 | `checked` | yes | `YYYY-MM-DD` or `null` | `shop`/`brand`: the day we confirmed. `osm`: the day an OpenStreetMap mapper last checked the place, or `null` when OSM does not say |
+| `hh` | yes | string | A short hash of this place's `hours` (8 hex digits). It changes exactly when `hours` changes and is the same on every run otherwise. **Clients echo it and never compute it** (a visitor's "hours are right" carries the `hh` they were looking at) |
 | `phone` | no | string | E.164 (`+12125550123`) |
 | `web` | no | string | `http(s)://…` |
 | `ig` | no | string | Instagram handle, lower case, no `@` |
@@ -104,13 +107,38 @@ Every place in the feed closes at 20:00 or later on at least one day (or is open
 
 Holidays are not in the table. `hours` is a normal week.
 
+## nyc-votes.json (a votes file)
+
+What visitors said, counted about once an hour from the report form. Only places that have anything are listed, so the file is often nearly empty.
+
+```json
+{"format": 1, "city": "nyc", "generated": "2026-11-25T02:00:00Z", "votes": {
+  "n1234567890": {"ok": [3, "2026-11-25", 2], "bad": [1, "2026-11-26"], "stars": [4.3, 7]}
+}}
+```
+
+| Field | Type | Notes |
+|---|---|---|
+| `generated` | UTC time | When the counts last **changed** (an hourly run that finds nothing new leaves the file alone) |
+| `votes` | object | Place `id` → counts. Any of `ok`, `bad`, `stars` may be missing; a place with none is not listed |
+| `ok` | `[count, date, on_site]` | Visitors who confirmed the **current** hours (their `hh` equals the place's `hh`), the date of the newest, and how many of them said they were at the café |
+| `bad` | `[count, date]` | Open "hours wrong" / "closed for good" reports and the date of the newest |
+| `stars` | `[mean, count]` | Mean rating to one decimal (1–5) and the number of ratings |
+
+Dates are days in the city's time zone. An id here may briefly be missing from the places file (the place left the feed since the last count): ignore it.
+
+**Counting rules.** A confirmation counts when its `hh` equals the place's current `hh` and it is under 120 days old; one per install per place (the newest). A rating: the newest per install per place. An install that sends more than 30 votes in one day is dropped whole. `bad` counts `hours` and `closed` reports dated after the place's `checked` date and made after its hours last changed; so a report disappears when we re-check the place or its hours change. Malformed rows are skipped.
+
+**What clients send** (to the manifest's `report` endpoint): `type` `attest` with `note` `v=1;iid=<uuid>;hh=<hh>;onsite=0|1`, or `type` `rate` with `note` `v=1;iid=<uuid>;stars=<1-5>`, plus `place_id`. `iid` is a random UUID the client makes once and keeps. The pipeline publishes counts only: no rows and no install ids.
+
 ## How the feed is made
 
 1. Cafés, coffee shops, tea and dessert places in the five boroughs are read from OpenStreetMap once a day.
 2. Rules decide what is a café (`latecup_data/classify.py`); hookah lounges, bars, restaurants, delis, bagel shops and the like are left out.
 3. The OSM `opening_hours` tag is parsed by a strict parser. A string it is not certain about is not guessed: the place waits on a to-confirm list.
 4. Hours we confirmed ourselves (`overrides/`, one file per place, with the source URL and date) replace the OSM hours and survive every refresh. Allowed sources: the shop's own website, its ordering page, its official Instagram or Facebook, a chain's own store locator. Never Google Maps, Yelp or other listing sites.
-5. The result is validated against this document (`latecup_data/validate.py`) and published. A feed that fails validation, or that lost more than 20 % of its places since the last run, is not published.
+5. A place that visitors reported wrong (`bad` in the votes file) goes to the top of the to-confirm list (`ops/to-confirm.json` → `recheck`, and `ops/recheck.json` hourly): it is the first thing re-checked from an allowed source. Re-checking it writes a new `checked` date, which clears the reports.
+6. The result is validated against this document (`latecup_data/validate.py`) and published. A feed that fails validation, or that lost more than 20 % of its places since the last run, is not published.
 
 ## Caching
 

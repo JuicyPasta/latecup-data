@@ -1,0 +1,54 @@
+{
+ "id": "n3573482097",
+ "name": "Dunkin'",
+ "hours": [
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo 05:00-22:00; Tu 05:00-22:00; We 05:00-22:00; Th 05:00-22:00; Fr 05:00-22:00; Sa 07:00-22:00; Su 07:00-22:00",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/595-10th-ave/store-362681/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 05:00-21:00; Sa, Su 07:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Fr 05:00-21:00; Sa, Su 07:00-19:00\"; the brand's own store page wins. Read from the store page's schema.org opening hours."
+}
