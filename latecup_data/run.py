@@ -139,7 +139,11 @@ def main(argv=None):
     if args.osm:
         doc = json.loads(Path(args.osm).read_text())
     else:
-        doc = osm.fetch()
+        try:
+            doc = osm.fetch()
+        except IOError as e:
+            print(f"::error::not published: {e}", file=sys.stderr)
+            return 1
         if args.save_osm:
             Path(args.save_osm).write_text(json.dumps(doc))
     try:

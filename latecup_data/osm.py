@@ -8,6 +8,7 @@ ENDPOINTS = [
     "https://overpass-api.de/api/interpreter",
     "https://overpass.private.coffee/api/interpreter",
     "https://overpass.kumi.systems/api/interpreter",
+    "https://maps.mail.ru/osm/tools/overpass/api/interpreter",
 ]
 
 # New York City is the Wikidata item Q60. Wide on purpose: the classifier
@@ -22,18 +23,21 @@ area["wikidata"="Q60"]->.nyc;
 out center tags;"""
 
 
-def fetch(query=QUERY, endpoints=ENDPOINTS):
-    """-> the Overpass JSON document (dict). Tries each endpoint in turn."""
-    last = None
-    for url in endpoints:
-        try:
-            doc = json.loads(http.request("POST", url, data={"data": query}, retries=2))
-            if doc.get("elements"):
-                return doc
-            last = IOError(f"{url}: no elements ({doc.get('remark', 'no remark')})")
-        except (IOError, ValueError) as e:
-            last = e
-    raise IOError(f"Overpass failed on every endpoint: {last}")
+def fetch(query=QUERY, endpoints=ENDPOINTS, rounds=2, log=print):
+    """-> the Overpass JSON document (dict). Tries each endpoint in turn, twice
+    over; the public servers are often busy for a few minutes at a time."""
+    problems = []
+    for _ in range(rounds):
+        for url in endpoints:
+            try:
+                doc = json.loads(http.request("POST", url, data={"data": query}, retries=1, timeout=170))
+                if doc.get("elements"):
+                    return doc
+                problems.append(f"{url}: no elements ({doc.get('remark', 'no remark')})")
+            except (IOError, ValueError) as e:
+                problems.append(str(e))
+            log("Overpass:", problems[-1])
+    raise IOError("Overpass failed on every endpoint: " + "; ".join(problems[-len(endpoints):]))
 
 
 def element_id(el):

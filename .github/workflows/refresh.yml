@@ -6,7 +6,11 @@ name: refresh
 # feed stays up.
 on:
   schedule:
-    - cron: "17 9 * * *"   # 04:17 or 05:17 in New York, after the late night
+    # 04:17 or 05:17 in New York, after the late night; the second run is the
+    # retry for a morning when every Overpass server was busy (an unchanged
+    # feed keeps its hash, so a second good run costs clients nothing)
+    - cron: "17 9 * * *"
+    - cron: "17 15 * * *"
   workflow_dispatch:
     inputs:
       allow_shrink:
@@ -64,6 +68,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: |
+          mkdir -p docs
           python -m latecup_data.report site --out docs/coverage.md
           cp -R site publish
           cd publish
