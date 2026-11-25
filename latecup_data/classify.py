@@ -13,9 +13,20 @@ import unicodedata
 COFFEE_CUISINE = {"coffee_shop", "coffee", "cafe", "espresso"}
 TEA_CUISINE = {"bubble_tea", "tea", "boba", "teahouse", "tea_house"}
 DESSERT_CUISINE = {
-    "dessert", "desserts", "cake", "pastry", "ice_cream", "donut", "doughnut", "crepe", "crepes", "waffle",
-    "chocolate", "bakery", "patisserie", "frozen_yogurt", "gelato", "cookie", "cookies", "cupcake", "churro",
+    "dessert", "desserts", "cake", "pastry", "donut", "doughnut", "crepe", "crepes", "waffle",
+    "chocolate", "bakery", "patisserie", "cookie", "cookies", "cupcake", "churro",
     "sweets", "confectionery", "pie", "macaron", "mochi", "shaved_ice", "bingsu", "pancake",
+}
+ICE_CUISINE = {"ice_cream", "frozen_yogurt", "gelato", "health_food"}
+# a full kitchen's cuisine: with no sign of coffee, tea or dessert the place is a restaurant mapped as a café
+REGIONAL_CUISINE = {
+    "mexican", "middle_eastern", "american", "southern", "indian", "chinese", "thai", "korean", "japanese", "persian",
+    "cuban", "latin_american", "caribbean", "soul_food", "mediterranean", "greek", "turkish", "asian", "spanish",
+    "dominican", "colombian", "peruvian", "vietnamese", "african", "ethiopian", "georgian", "russian", "polish",
+    "lebanese", "egyptian", "yemeni", "pakistani", "bangladeshi", "filipino", "brazilian", "argentinian", "german",
+    "ukrainian", "uzbek", "israeli", "moroccan", "jamaican", "haitian", "ecuadorian", "venezuelan", "salvadoran",
+    "guatemalan", "tex-mex", "cajun", "international", "regional", "fusion", "eclectic", "pasta", "soup", "tapas",
+    "empanada", "arepa", "dim_sum", "hotpot", "curry", "kosher", "vegan", "vegetarian", "lunch", "dinner",
 }
 OUT_CUISINE = {
     "bagel", "deli", "diner", "steak_house", "steak", "burger", "pizza", "hookah", "kebab", "chicken", "sushi",
@@ -26,22 +37,24 @@ OUT_CUISINE = {
 # never a Latecup place, whatever else is tagged
 _OUT_NAME = re.compile(
     r"\b(hookah|hooka|shisha|nargile|delicatessen|deli|bodega|grocery|groceries|diner|steakhouse|steak house|"
-    r"pizzeria|pizza|tavern|pub|sports bar|bar (and|&) grill|gas station|internet caf[eé]|cyber ?caf[eé]|pc bang|pc cafe|"
+    r"pizzeria|pizza|tavern|irish pub|sports bar|luncheonette|bar (and|&) grill|gas station|internet caf[eé]|cyber ?caf[eé]|pc bang|pc cafe|"
     r"esports|billiards?|karaoke|night ?club|gentlemen'?s|smoke shop|vape|laundromat|laundry|food court|cafeteria|"
     r"board ?game|buffet)\b", re.I)
 # out unless the tags say coffee, tea or dessert
 _FOOD_NAME = re.compile(
     r"\b(bagels?|sandwich(es)?|salads?|juice|smoothies?|burgers?|grill|restaurant|restaurante|kitchen|bistro|"
     r"tacos?|taqueria|sushi|ramen|noodles?|bbq|wings|chicken|kebab|gyro|halal|empanadas?|pho|dumplings?|"
-    r"trattoria|osteria|brasserie|cantina|cocina|eatery|steak|seafood|oyster|wine bar|cocktails?|brewery|taproom)\b",
+    r"trattoria|osteria|brasserie|cantina|cocina|eatery|steak|seafood|oyster|wine bar|cocktails?|brewery|taproom|"
+    r"soups?|poke|pizza|market|marketplace|food hall|catering)\b",
     re.I)
 _TEA_NAME = re.compile(
     r"\b(boba|bubble ?tea|tea ?house|teahouse|tea|teas|matcha|chai|tee|cha|milk ?tea|tapioca)\b", re.I)
 _DESSERT_NAME = re.compile(
     r"\b(desserts?|patisserie|p[aâ]tisserie|bakery|bakeshop|bake shop|bakehouse|cakes?|gelato|gelateria|"
-    r"cr[eê]pes?|creperie|waffles?|churros?|mochi|ice ?cream|creamery|sweets|chocolat(e|ier)?|pastry|pastries|"
+    r"cr[eê]pes?|creperie|waffles?|churros?|mochi|sweets|chocolat(e|ier)?|pastry|pastries|"
     r"panader[ií]a|pasticceria|donuts?|doughnuts?|cookies?|cupcakes?|bingsu|macarons?|baklava|cheesecake|"
-    r"confection(ery|s)?|pasteler[ií]a|dolci|froyo|frozen yogurt)\b", re.I)
+    r"confection(ery|s)?|pasteler[ií]a|dolci)\b", re.I)
+_ICE_NAME = re.compile(r"\b(ice ?cream|creamery|gelato|gelateria|froyo|frozen yogurt|yogurt|paleta|paleteria|ices)\b", re.I)
 _CAFE_NAME = re.compile(
     r"\b(caf[eéè]|caff[eèé]|coffee|espresso|roasters?|roastery|kaffe|kaffee|kahve|qahwa|qahwah|cafeteria|"
     r"kafe|kopi|java|cappuccino|latte|brew)\b", re.I)
@@ -68,7 +81,9 @@ def is_gone(tags):
     """Closed, disused, vacant or not public."""
     for k in tags:
         if k.startswith(_LIFECYCLE):
-            if k.split(":", 1)[1] in ("amenity", "shop", "name"):
+            # "disused:amenity=restaurant" beside a live "amenity=cafe" describes the previous tenant
+            what = k.split(":", 1)[1]
+            if what in ("amenity", "shop") and what not in tags:
                 return True
     if tags.get("shop") == "vacant" or tags.get("amenity") == "vacant":
         return True
@@ -107,6 +122,13 @@ def classify(tags, brand=None):
     has_tea = bool(cuis & TEA_CUISINE)
     has_dessert = bool(cuis & DESSERT_CUISINE)
     has_out = bool(cuis & OUT_CUISINE)
+    drinks = any(tags.get(k) in ("yes", "only") for k in ("drink:coffee", "drink:espresso", "drink:tea"))
+    cafe_name = bool(_CAFE_NAME.search(name))
+    if has_out and _FOOD_NAME.search(name) and not cafe_name:
+        return None, "food name and food cuisine"
+    if not (has_coffee or has_tea or has_dessert or cafe_name or drinks):
+        if cuis and cuis <= ICE_CUISINE or (not cuis and _ICE_NAME.search(name)):
+            return None, "ice cream, no coffee"
 
     def by_tags_and_name(default):
         if brand is not None:
@@ -131,6 +153,10 @@ def classify(tags, brand=None):
             return "dessert", "name"
         if _FOOD_NAME.search(name):
             return None, "name says food, tags do not say café"
+        if tags.get("shop") in ("bakery", "pastry", "confectionery", "chocolate"):
+            return "dessert", "café and bakery"
+        if cuis & REGIONAL_CUISINE and not drinks:
+            return None, "a kitchen's cuisine and no sign of coffee"
         return default, "default for the amenity"
 
     if amenity == "cafe":
@@ -166,7 +192,8 @@ def classify(tags, brand=None):
         shops = set(re.split(r"[;,]", shop or ""))
         if "coffee" in shops and (has_coffee or _CAFE_NAME.search(name)) and tags.get("takeaway") != "only_beans":
             return "coffee", "shop=coffee"
-        if "tea" in shops and (cuis & {"bubble_tea", "boba"} or re.search(r"boba|bubble|milk ?tea", name, re.I)):
+        if "tea" in shops and (cuis & {"bubble_tea", "boba"} or
+                               re.search(r"boba|bubble|milk|chaiwala|tea ?house", name, re.I)):
             return "tea", "shop=tea, bubble tea"
         if shops & {"bakery", "pastry", "confectionery", "chocolate"} and has_coffee:
             return "dessert", "bakery with coffee"

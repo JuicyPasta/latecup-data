@@ -104,6 +104,8 @@ FRIENDLY = {
     "Auburndale": "Auburndale",
     "Whitestone-Beechhurst": "Whitestone",
     "Bay Terrace-Clearview": "Bay Terrace",
+    "John F. Kennedy International Airport": "JFK Airport",
+    "Flushing Meadows-Corona Park": "Flushing Meadows",
     "Glen Oaks-Floral Park-New Hyde Park": "Glen Oaks",
     "Howard Beach-Lindenwood": "Howard Beach",
     "Ozone Park (North)": "Ozone Park",
@@ -153,6 +155,13 @@ FRIENDLY = {
     "Mariner's Harbor-Arlington-Graniteville": "Mariners Harbor",
 }
 
+# Areas nobody lives in whose name is still the right answer for a café inside them.
+KEEP_NON_RESIDENTIAL = {
+    "Central Park", "Prospect Park", "Flushing Meadows-Corona Park", "John F. Kennedy International Airport",
+    "LaGuardia Airport", "The Battery-Governors Island-Ellis Island-Liberty Island", "United Nations",
+    "Randall's Island", "Brooklyn Navy Yard"
+}
+
 # Small, well-known areas inside a larger NTA: name, (south, west, north, east).
 # Rough rectangles; checked before the NTA name.
 SUB_AREAS = [
@@ -166,7 +175,6 @@ SUB_AREAS = [
     ("NoHo", (40.7250, -73.9965, 40.7300, -73.9915)),
     ("DUMBO", (40.7005, -73.9930, 40.7050, -73.9830)),
     ("Battery Park City", (40.7050, -74.0200, 40.7180, -74.0135)),
-    ("Roosevelt Island", (40.7490, -73.9620, 40.7730, -73.9390)),
     ("Kips Bay", (40.7385, -73.9830, 40.7445, -73.9710)),
     ("Cobble Hill", (40.6850, -74.0010, 40.6905, -73.9905)),
     ("Boerum Hill", (40.6830, -73.9905, 40.6890, -73.9800)),
@@ -218,6 +226,23 @@ def _dist_m(lat, lon, x, y):
     return math.hypot((x - lon) * 84400, (y - lat) * 111200)
 
 
+def _nearest(lat, lon, residential=False, reach=0.02):
+    """(metres, area) of the area with the closest boundary vertex, or None."""
+    best = None
+    for a in _areas():
+        if residential and a["type"] != "0":
+            continue
+        w, s, e, n = a["bbox"]
+        if not (w - reach <= lon <= e + reach and s - reach <= lat <= n + reach):
+            continue
+        for poly in a["polys"]:
+            for x, y in poly[0]:
+                d = _dist_m(lat, lon, x, y)
+                if best is None or d < best[0]:
+                    best = (d, a)
+    return best
+
+
 def locate(lat, lon, max_m=250):
     """(hood, boro, nta_code) or None when the point is not in New York City.
 
@@ -230,19 +255,15 @@ def locate(lat, lon, max_m=250):
             hit = a
             break
     if hit is None:
-        best = None
-        for a in _areas():
-            w, s, e, n = a["bbox"]
-            if not (w - 0.004 <= lon <= e + 0.004 and s - 0.003 <= lat <= n + 0.003):
-                continue
-            for poly in a["polys"]:
-                for x, y in poly[0]:
-                    d = _dist_m(lat, lon, x, y)
-                    if best is None or d < best[0]:
-                        best = (d, a)
+        best = _nearest(lat, lon)
         if best is None or best[0] > max_m:
             return None
         hit = best[1]
+    if hit["type"] != "0" and hit["name"] not in KEEP_NON_RESIDENTIAL:
+        # a cemetery, a small park, a rail yard: use the nearest neighbourhood people live in
+        near = _nearest(lat, lon, residential=True)
+        if near is not None:
+            hit = near[1]
     hood = friendly(hit["name"])
     for name, (s, w, n, e) in SUB_AREAS:
         if s <= lat <= n and w <= lon <= e:

@@ -147,7 +147,7 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
         ov = overrides.get(pid)
         raw = tags.get("opening_hours")
         addr = clean.address(tags) or addr_cache.get(pid)
-        base = dict(id=pid, name=tags["name"].strip(), lat=round(c["pos"][0], 5), lon=round(c["pos"][1], 5),
+        base = dict(id=pid, name=" ".join(tags["name"].split()), lat=round(c["pos"][0], 5), lon=round(c["pos"][1], 5),
                     addr=addr, hood=c["hood"], boro=c["boro"], cat=c["cat"], chain=chain,
                     web=clean.website(tags), ig=clean.instagram(tags), phone=clean.phone(tags), osm_hours=raw,
                     osm_checked=clean.check_date(tags))

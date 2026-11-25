@@ -84,6 +84,15 @@ _KNOWN = [
     ("debutea", "tea", r"^debutea\b"),
     ("chun-yang", "tea", r"^chun yang\b"),
     ("meet-fresh", "dessert", r"^meet fresh\b"),
+    ("mango-mango", "dessert", r"^mango mango\b"),
+    ("grace-street", "dessert", r"^grace street\b"),
+    ("spot-dessert-bar", "dessert", r"^spot dessert bar\b"),
+    ("beard-papas", "dessert", r"^beard papas?\b"),
+    ("caffe-bene", "coffee", r"^caffe bene\b"),
+    ("luckin", "coffee", r"^luckin\b"),
+    ("prince-tea-house", "tea", r"^prince tea house\b"),
+    ("cha-cha-matcha", "tea", r"^cha cha matcha\b"),
+    ("the-donut-pub", "dessert", r"^the donut pub\b"),
     # brands OSM sometimes tags as cafés that are not
     ("mcdonalds", None, r"^mcdonalds\b|^mccafe\b"),
     ("subway", None, r"^subway$"),
@@ -95,6 +104,10 @@ _KNOWN = [
     ("sweetgreen", None, r"^sweetgreen\b"),
     ("baskin-robbins", None, r"^baskin robbins$"),
     ("insomnia-cookies", None, r"^insomnia cookies\b"),
+    ("tropical-smoothie", None, r"^tropical smoothie\b"),
+    ("juice-generation", None, r"^juice generation\b"),
+    ("16-handles", None, r"^16 handles\b"),
+    ("hale-and-hearty", None, r"^hale and hearty\b"),
 ]
 _KNOWN = [(slug, cat, re.compile(rx)) for slug, cat, rx in _KNOWN]
 
