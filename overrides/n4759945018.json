@@ -1,0 +1,52 @@
+{
+ "id": "n4759945018",
+ "hours": [
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-17:00",
+ "src": "shop",
+ "source": "https://www.semicoloncafe.com/nyc-midtown",
+ "checked": "2026-11-25",
+ "note": "Its NYC Midtown page (516a 3rd Ave): 'HOURS| 8:00-17:00', no days given, read as daily. OSM said open to midnight/1 AM. Closes 17:00, so it leaves the late feed."
+}
