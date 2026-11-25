@@ -1,0 +1,9 @@
+{
+ "id": "n4252850545",
+ "name": "Bar Basic",
+ "exclude": true,
+ "source": "https://barbasicnyc.square.site/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 12:00-22:00; Fr 12:00-23:00; Sa 11:00-23:00; Su 11:00-21:00",
+ "note": "a restaurant/bar; its Location & Hours block says \"Monday - Sunday: 4pm - 9pm\" (not late)"
+}

@@ -1,0 +1,53 @@
+{
+ "id": "n9409060624",
+ "name": "Qahwah House",
+ "hours": [
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-23:00",
+ "src": "shop",
+ "source": "https://qahwahhouse.com/locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Qahwah House Broadway (Manhattan) / 2869 Broadway New York, NY 10025 / 7am - 11pm (bare daily hours shown under this location's address with a clock icon on the chain's own locations page) schema.org on the page says 00:00-23:59 for every location (template default); visible text used"
+}

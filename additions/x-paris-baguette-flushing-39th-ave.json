@@ -1,0 +1,58 @@
+{
+ "id": "x-paris-baguette-flushing-39th-ave",
+ "name": "Paris Baguette",
+ "lat": 40.76042,
+ "lon": -73.83014,
+ "addr": "136-17 39th Ave",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-22:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/queens/136-17-39th-avenue/",
+ "checked": "2026-11-24",
+ "web": "https://parisbaguette.com/",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: 136-17 39th Avenue, Queens NY 11354 | Café Hours | Monday–Sunday 6:00 AM - 10:00 PM Coordinates: Nominatim: 136-17 39th Avenue, Flushing (multi-tenant building; result named for another tenant); chain API -73.82966594, 40.76072714 agrees"
+}

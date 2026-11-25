@@ -1,0 +1,53 @@
+{
+ "id": "n3506087030",
+ "name": "Caffe Reggio",
+ "hours": [
+  [
+   [
+    540,
+    1620
+   ]
+  ],
+  [
+   [
+    540,
+    1620
+   ]
+  ],
+  [
+   [
+    540,
+    1620
+   ]
+  ],
+  [
+   [
+    540,
+    1620
+   ]
+  ],
+  [
+   [
+    540,
+    1710
+   ]
+  ],
+  [
+   [
+    540,
+    1710
+   ]
+  ],
+  [
+   [
+    540,
+    1620
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 09:00-03:00; Fr-Sa 09:00-04:30; Su 09:00-03:00",
+ "src": "shop",
+ "source": "https://www.caffereggio.com/location/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 119 MACDOUGAL STREET NEW YORK, NY 10012 (212) 475-9557 | Monday 9am – 3am | Tuesday 9am – 3am | Wednesday 9am – 3am | Thursday 9am – 3am | Friday 9am – 4.30am | Saturday 9am – 4.30am | Sunday 9am – 3am site footer says © 2014; hours are the shop's own and long-standing, but the site is old"
+}

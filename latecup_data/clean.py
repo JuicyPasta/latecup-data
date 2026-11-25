@@ -14,7 +14,8 @@ _ORDINAL = re.compile(r"^\d+(st|nd|rd|th)?$", re.I)
 def street(name):
     """'West 22nd Street' -> 'W 22nd St'. Named streets keep their direction
     ('West End Avenue' -> 'West End Ave', 'East Broadway' stays)."""
-    words = name.strip().split()
+    words = [w.capitalize() if w.islower() and not w[0].isdigit() and w not in ("of", "the", "and", "at") else w
+             for w in name.strip().split()]
     if not words:
         return ""
     if len(words) >= 3 and words[0] in _DIRECTION and _ORDINAL.match(words[1]):

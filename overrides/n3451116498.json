@@ -1,0 +1,53 @@
+{
+ "id": "n3451116498",
+ "name": "Moka & Co",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 06:00-22:00; Fr 06:00-24:00; Sa 07:00-24:00; Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://mokanco.com/manhattan-midtown-34th-st/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Address 142 West 34th st Manhattan, NY 10001 | Hours | Monday–Thursday 6:00 AM – 10:00 PM | Friday 6:00 AM – 12:00 AM | Saturday 7:00 AM – 12:00 AM | Sunday 7:00 AM – 10:00 PM"
+}

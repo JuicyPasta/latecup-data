@@ -1,0 +1,53 @@
+{
+ "id": "n2956614141",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-22:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/queens/29-44-union-street/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 29-44 Union Street (OSM: 29-42 Union St) | Café Hours | Monday–Sunday 6:00 AM - 10:00 PM OSM address 29-42 vs chain 29-44 Union St; same Flushing store (only Paris Baguette on that block in the locator)"
+}

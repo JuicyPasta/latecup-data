@@ -1,0 +1,54 @@
+{
+ "id": "n12475018927",
+ "name": "Posh Pop Bakeshop",
+ "hours": [
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:00-22:00; Fr-Sa 10:00-23:00; Su 10:00-21:00",
+ "src": "shop",
+ "source": "https://www.poshpopbakeshop.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 10:00-22:00; Fr,Sa 10:00-23:00; Su 10:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: NYC · Upper West Side / 483 Columbus Avenue / New York, NY, 10024 / Mon - Thurs: 10am - 10pm / Fri - Sat: 10am - 11pm / Sunday: 10am - 9pm matches OSM"
+}

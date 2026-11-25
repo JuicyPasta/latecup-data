@@ -1,0 +1,54 @@
+{
+ "id": "n2827478159",
+ "name": "Hungarian Pastry Shop",
+ "hours": [
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    510,
+    1230
+   ]
+  ],
+  [
+   [
+    510,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-20:30; Sa-Su 08:30-20:30",
+ "src": "shop",
+ "source": "https://www.hungarianpastryshop.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:30-20:30; Sa-Su 08:30-20:30",
+ "note": "Agrees with OpenStreetMap. Read: Opening Hours | Monday-Friday 7:30am-8:30pm | Saturday & Sunday 8:30am-8:30pm Wix site footer ©2020"
+}

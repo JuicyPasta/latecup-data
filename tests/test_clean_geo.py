@@ -17,6 +17,8 @@ from latecup_data import clean, geo, holidays
     ("North 6th Street", "N 6th St"),
     ("Northern Boulevard", "Northern Blvd"),
     ("Broadway", "Broadway"),
+    ("Bedford avenue", "Bedford Ave"),
+    ("west 4th street", "W 4th St"),
 ])
 def test_street(raw, out):
     assert clean.street(raw) == out

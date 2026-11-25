@@ -1,0 +1,54 @@
+{
+ "id": "n12102851138",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 06:00-23:00; Th-Sa 06:00-24:00; Su 06:00-23:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/new-york/990-6th-avenue/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 06:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Su 06:00-23:00\"; the shop's own source wins. Read: Café Hours | Monday–Wednesday 6:00 AM - 11:00 PM | Thursday 6:00 AM - 12:00 AM | Friday 6:00 AM - 12:00 AM | Saturday 6:00 AM - 12:00 AM | Sunday 6:00 AM - 11:00 PM"
+}

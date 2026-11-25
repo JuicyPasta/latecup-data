@@ -1,0 +1,59 @@
+{
+ "id": "x-moka-and-co-staten-island",
+ "name": "Moka & Co",
+ "lat": 40.57311,
+ "lon": -74.11452,
+ "addr": "193 New Dorp Ln",
+ "cat": "coffee",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-22:00; Fr 07:00-24:00; Sa 08:00-24:00; Su 08:00-22:00",
+ "src": "shop",
+ "source": "https://mokanco.com/staten-island-2/",
+ "checked": "2026-11-24",
+ "web": "https://mokanco.com/staten-island-2/",
+ "ig": "mokancocoffee",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: Address 193 New Dorp Ln, Staten Island, NY 10306 | Hours | Monday–Thursday 7:00 AM – 10:00 PM | Friday 7:00 AM – 12:00 AM | Saturday 8:00 AM – 12:00 AM | Sunday 8:00 AM – 10:00 PM Coordinates: Nominatim: 193 New Dorp Lane, New Dorp, Staten Island 10306 (building address)"
+}

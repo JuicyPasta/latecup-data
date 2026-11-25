@@ -1,0 +1,58 @@
+{
+ "id": "x-paris-baguette-567-7th-ave",
+ "name": "Paris Baguette",
+ "lat": 40.75488,
+ "lon": -73.98745,
+ "addr": "567 7th Ave",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 05:00-24:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/new-york/567-7th-avenue/",
+ "checked": "2026-11-24",
+ "web": "https://parisbaguette.com/",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: 567 7th Avenue, New York NY 10018 | Café Hours | Monday–Sunday 5:00 AM - 12:00 AM Coordinates: Nominatim: 567 7th Avenue, Times Square 10018 (building address)"
+}

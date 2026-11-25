@@ -1,0 +1,59 @@
+{
+ "id": "x-spot-dessert-bar-flushing",
+ "name": "Spot Dessert Bar",
+ "lat": 40.75906,
+ "lon": -73.83229,
+ "addr": "39-16 Prince St",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1500
+   ]
+  ],
+  [
+   [
+    690,
+    1500
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 11:30-24:00; Fr-Sa 11:30-01:00",
+ "src": "shop",
+ "source": "https://www.spotdessertbar.com/locations",
+ "checked": "2026-11-24",
+ "web": "https://www.spotdessertbar.com/",
+ "phone": "+19172852278",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: Flushing | 3916 Prince St, Flushing, NY 11354 | SUN-THURS : 11:30AM-12:00AM | FRI-SAT : 11:30AM-1:00AM Coordinates: Nominatim: 39-16 Prince Street, Flushing (building address)"
+}

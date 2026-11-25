@@ -1,0 +1,58 @@
+{
+ "id": "x-tous-les-jours-koreatown",
+ "name": "Tous les Jours",
+ "lat": 40.74791,
+ "lon": -73.987,
+ "addr": "31 W 32nd St",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-23:00; Fr-Sa 08:00-24:00; Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://tljus.com/stores/manhattan-31-w-32nd-st",
+ "checked": "2026-11-24",
+ "web": "https://tljus.com/stores/manhattan-31-w-32nd-st",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: LOCATION: 31 W 32nd St, New York, NY 10001 | Store Hours (embedded widget https://royal-wave-aec3.mailtorujen.workers.dev/?id=loc_b77c6be99aee88395a264a6d on the chain page): MON: 8AM to 11PM | TUE: 8AM to 11PM | WED: 8AM to 11PM | THU: 8AM to 11PM | FRI: 8AM to 12AM | SAT: 8AM to 12AM | SUN: 8AM to Coordinates: Nominatim: Tous les Jours, 31 West 32nd Street, Koreatown (POI already in OSM, probably tagged as a bakery, so not in known-places)"
+}

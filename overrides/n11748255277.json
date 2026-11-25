@@ -1,0 +1,54 @@
+{
+ "id": "n11748255277",
+ "name": "Moka & Co",
+ "hours": [
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-23:00; Fr 07:00-24:00; Sa 08:00-24:00; Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://mokanco.com/astoria-queens-2/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-00:00; Sa, Su 08:00-00:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-00:00; Sa, Su 08:00-00:00\"; the shop's own source wins. Read: Address 28-54 Steinway St, Astoria, NY 11103 | Hours | Monday–Thursday 7:00 AM – 11:00 PM | Friday 7:00 AM – 12:00 AM | Saturday 8:00 AM – 12:00 AM | Sunday 8:00 AM – 11:00 PM"
+}

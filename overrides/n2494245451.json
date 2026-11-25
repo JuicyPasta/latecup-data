@@ -1,0 +1,54 @@
+{
+ "id": "n2494245451",
+ "name": "Xing Fu Tang",
+ "hours": [
+  [
+   [
+    840,
+    1320
+   ]
+  ],
+  [
+   [
+    840,
+    1320
+   ]
+  ],
+  [
+   [
+    840,
+    1320
+   ]
+  ],
+  [
+   [
+    840,
+    1320
+   ]
+  ],
+  [
+   [
+    840,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 14:00-22:00; Fr 14:00-23:00; Sa 13:00-23:00; Su 13:00-22:00",
+ "src": "shop",
+ "source": "https://xingfutang.com/st-marks",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 14:00-22:00; Fr-Su 14:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Th 14:00-22:00; Fr-Su 14:00-23:00\"; the shop's own source wins. Read: St. Marks, NY / 133 2nd Ave, New York, NY 10003 / HOURS: MONDAY 2PM-10PM / TUESDAY 2PM-10PM / WEDNESDAY 2PM-10PM / THURSDAY 2PM-10PM / FRIDAY 2PM-11PM / SATURDAY 1PM-11PM / SUNDAY 1PM-10PM day/time pairing verified from the Squarespace grid positions (each time sits on the same row as its day); schema.org openingHours is empty; differs from OSM on Sa/Su"
+}

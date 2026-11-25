@@ -1,0 +1,59 @@
+{
+ "id": "x-rice-to-riches-spring-st",
+ "name": "Rice to Riches",
+ "lat": 40.72191,
+ "lon": -73.99576,
+ "addr": "37 Spring St",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1440
+   ]
+  ],
+  [
+   [
+    720,
+    1500
+   ]
+  ],
+  [
+   [
+    720,
+    1500
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Su-We 12:00-23:00; Th 12:00-24:00; Fr-Sa 12:00-01:00",
+ "src": "shop",
+ "source": "https://www.ricetoriches.com/pages/nyc-location",
+ "checked": "2026-11-24",
+ "web": "https://www.ricetoriches.com/",
+ "phone": "+12122740008",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: 37 Spring Street (between Mott & Mulberry St) New York, NY 10012 | Hours: | Sun - Wed 12pm-11pm, Thur 12pm-12am | Fri & Sat 12pm to 1am Coordinates: Nominatim: 37 Spring Street, Manhattan 10012 (building address)"
+}

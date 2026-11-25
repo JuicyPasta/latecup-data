@@ -1,0 +1,54 @@
+{
+ "id": "n13918879573",
+ "name": "Central Perk",
+ "hours": [
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://centralperk.com/pages/new-york-city-store-location",
+ "checked": "2026-11-24",
+ "osm_hours": "08:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: ADDRESS: 20 Times Square ... HOURS: / Mondays: 8AM - 11PM / Tuesdays: 8AM - 11PM / Wednesdays: 8AM - 11PM / Thursdays: 8AM - 11PM / Fridays: 8AM - 11PM / Saturdays: 8AM - 11PM / Sundays: 8AM - 11PM matches OSM"
+}

@@ -165,7 +165,7 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
         tags, pid = c["tags"], c["id"]
         ov = overrides.get(pid)
         raw = tags.get("opening_hours")
-        addr = clean.address(tags) or addr_cache.get(pid)
+        addr = (ov or {}).get("addr") or clean.address(tags) or addr_cache.get(pid)
         base = dict(id=pid, name=" ".join(tags["name"].split()), lat=round(c["pos"][0], 5), lon=round(c["pos"][1], 5),
                     addr=addr, hood=c["hood"], boro=c["boro"], cat=c["cat"], chain=chain,
                     web=clean.website(tags), ig=clean.instagram(tags), phone=clean.phone(tags), osm_hours=raw,
@@ -175,7 +175,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
             if ov.get("closed") or ov.get("exclude"):
                 stats["closed by override" if ov.get("closed") else "excluded by override"] += 1
                 continue
-            table, src, checked = H.normalize(ov["hours"]), ov["src"], ov["checked"]
+            # hours read on a chain's own site are `brand`, on an independent shop's `shop`
+            table, src, checked = H.normalize(ov["hours"]), ("brand" if chain else "shop"), ov["checked"]
         else:
             src, checked = "osm", clean.check_date(tags)
             if not raw:
@@ -218,7 +219,7 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
             warnings.append(f"{add['id']}: hand-added but not late; left out")
             continue
         places.append(_record(add["id"], add["name"], (add["lat"], add["lon"]), add["addr"], loc[0], loc[1],
-                              add["cat"], add.get("chain") or chain, table, add["src"], add["checked"],
+                              add["cat"], chain, table, ("brand" if chain else "shop"), add["checked"],
                               add.get("phone"), add.get("web"), add.get("ig"), add.get("tags")))
         stats["hand-added places"] += 1
 

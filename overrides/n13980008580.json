@@ -1,6 +1,7 @@
 {
  "id": "n13980008580",
  "name": "Qahwah Valley",
+ "addr": "630 1st Ave",
  "hours": [
   [
    [
@@ -49,5 +50,5 @@
  "src": "shop",
  "source": "https://www.qahwahvalley.com/",
  "checked": "2026-11-24",
- "note": "OpenStreetMap had no hours. Read: Sunday / 8:00 AM - 11:00 PM / Monday / 7:00 AM - 11:00 PM / Tuesday / 7:00 AM - 11:00 PM / Wednesday / 7:00 AM - 11:00 PM / Thursday / 7:00 AM - 11:00 PM / Friday / 7:00 AM - 1:00 AM / Saturday / 8:00 AM - 1:00 AM Bundle address is null; the page's schema.org location is \"Qahwah Valley 1st avenue\", 630 1st Avenue (Murray Hill), with exactly the same hours as the visible text."
+ "note": "OpenStreetMap had no hours. Read: Qahwah Valley 1st avenue | 630 1st Avenue | Manhattan , NY 10016 | Sunday 8:00 AM – 11:00 PM | Monday–Thursday 7:00 AM – 11:00 PM | Friday 7:00 AM – 1:00 AM | Saturday 8:00 AM – 1:00 AM OSM node lacks an address; the shop lists one location, 630 1st Avenue, which matches the node position (40.7453,-73.9720, E 36th-37th St). Address to add: 630 1st Avenue"
 }

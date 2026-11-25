@@ -1,0 +1,54 @@
+{
+ "id": "n6314792169",
+ "name": "Brooklyn Habit",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-17:00; Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-17:00",
+ "src": "shop",
+ "source": "https://brooklynhabit.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 07:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-23:00\"; the shop's own source wins. Read: 405 Smith Street, Brooklyn, NY 11231 / Hours / Monday – Thursday: 7am – 5pm / Friday: 7am – 8pm / Saturday: 8am – 8pm / Sunday: 8am – 5pm NOT late: OSM says daily to 23:00. Text is from the Canva-built page content"
+}

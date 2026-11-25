@@ -23,13 +23,15 @@ from latecup_data import confirm, hours as H  # noqa: E402
 
 
 def write(pid, text=None, *, source, src="shop", checked=None, note=None, osm_hours=None, name=None, closed=False,
-          exclude=False, folder=None):
+          exclude=False, folder=None, addr=None):
     if not confirm.allowed(source):
         raise SystemExit(f"{source}: not an allowed source (a listing site)")
     checked = checked or datetime.now(ZoneInfo("America/New_York")).date().isoformat()
     rec = {"id": pid}
     if name:
         rec["name"] = name
+    if addr:
+        rec["addr"] = addr
     if closed:
         rec["closed"] = True
     elif exclude:

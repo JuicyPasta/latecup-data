@@ -1,0 +1,54 @@
+{
+ "id": "n12272486862",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-21:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/brooklyn/532-5th-ave/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 06:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Café Hours | Monday–Sunday 6:00 AM - 9:00 PM"
+}

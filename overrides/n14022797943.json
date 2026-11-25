@@ -1,6 +1,7 @@
 {
  "id": "n14022797943",
  "name": "Cafe Auburndale",
+ "addr": "192-10 Northern Blvd",
  "hours": [
   [
    [
@@ -50,5 +51,5 @@
  "source": "https://www.cafeauburndale.net/",
  "checked": "2026-11-24",
  "osm_hours": "Mo-Su 08:30-23:00",
- "note": "Agrees with OpenStreetMap. Read: Cafe Auburndale is open daily from 8:30 AM to 11:00 PM, serving coffee, refreshers, pastries, and fusion desserts. Visit us at 192-10 Northern Blvd, Flushing. Matches OSM."
+ "note": "Agrees with OpenStreetMap. Read: Cafe Auburndale is open daily from 8:30 AM to 11:00 PM, serving coffee, refreshers, pastries, and fusion desserts. Visit us at 192-10 Northern Blvd, Flushing. equals OSM opening_hours; OSM node has no address but sits exactly where Nominatim puts 192-10 Northern Blvd. Address to add: 192-10 Northern Blvd"
 }

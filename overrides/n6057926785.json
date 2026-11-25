@@ -1,0 +1,54 @@
+{
+ "id": "n6057926785",
+ "name": "Mia's Bakery",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:00-22:00; Th 07:00-23:00; Fr-Sa 07:00-24:00; Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://miasbrooklyn.com/contact/",
+ "checked": "2026-11-24",
+ "osm_hours": "Su-Th 07:00-23:00; Fr-Sa 09:00-01:00",
+ "note": "OpenStreetMap said \"Su-Th 07:00-23:00; Fr-Sa 09:00-01:00\"; the shop's own source wins. Read: Brooklyn / 139 Smith St / Brooklyn, NY 11201 / (347) 987-3194 / Hours / Mon – Wed: 7:00 am – 10:00 pm / Thu: 7:00 am – 11:00 pm / Fri – Sat: 7:00 am – 12:00 am / Sun: 7:00 am – 10:00 pm visible text agrees with the site JSON-LD; differs from OSM"
+}

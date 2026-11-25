@@ -1,0 +1,54 @@
+{
+ "id": "n14067315890",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-22:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/brooklyn/58-10-8th-avenue/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 06:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 58-10 8th Avenue | Café Hours | Monday–Sunday 6:00 AM - 10:00 PM (each day listed)"
+}

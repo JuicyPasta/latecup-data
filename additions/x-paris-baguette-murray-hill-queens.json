@@ -1,0 +1,58 @@
+{
+ "id": "x-paris-baguette-murray-hill-queens",
+ "name": "Paris Baguette",
+ "lat": 40.76334,
+ "lon": -73.80881,
+ "addr": "156-24 Northern Blvd",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 06:00-22:00; Su 06:00-21:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/queens/156-24-northern-boulevard/",
+ "checked": "2026-11-24",
+ "web": "https://parisbaguette.com/",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: 156-24 Northern Boulevard, Queens NY 11354 | Café Hours | Monday–Saturday 6:00 AM - 10:00 PM | Sunday 6:00 AM - 9:00 PM Coordinates: Nominatim: 156-24 Northern Boulevard, Flushing/Murray Hill 11354 (building address); chain API coordinates -73.80875618, 40.76332162 agree"
+}

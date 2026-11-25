@@ -1,0 +1,54 @@
+{
+ "id": "n9683499914",
+ "name": "Café Maud",
+ "hours": [
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    480,
+    1680
+   ]
+  ],
+  [
+   [
+    480,
+    1680
+   ]
+  ],
+  [
+   [
+    480,
+    1680
+   ]
+  ],
+  [
+   [
+    480,
+    1680
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 08:00-02:00; Th-Su 08:00-04:00",
+ "src": "shop",
+ "source": "https://www.cafemaud.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-We 08:00-02:00, Th-Sa 08:00-04:00, Su 08:00-02:00",
+ "note": "OpenStreetMap said \"Mo-We 08:00-02:00, Th-Sa 08:00-04:00, Su 08:00-02:00\"; the shop's own source wins. Read: Upper East Side / 1640 2nd Ave, New York, NY / Hours Mon–Wed 8am – 2am / Thu–Fri 8am – 4am / Sat–Sun 8am – 4am / Coffee window from 8am café-restaurant with full bar and speakeasy; hours block is the one labelled for 1640 2nd Ave (homepage also lists the East Village branch separately)"
+}

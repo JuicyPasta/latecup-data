@@ -1,0 +1,53 @@
+{
+ "id": "n5802763480",
+ "name": "Prince Tea House",
+ "hours": [
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1440
+   ]
+  ],
+  [
+   [
+    720,
+    1440
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 12:00-23:00; Fr-Sa 12:00-24:00",
+ "src": "shop",
+ "source": "https://www.princeteahouse.com/locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Flushing | 36-39 Prince St., Flushing, NY 11354 | Open Hours: Sun-Thu 12pm - 11pm | Fri-Sat 12pm - 12am"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n11660428520",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-22:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/queens/45-22-46th-street/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 07:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-22:00\"; the shop's own source wins. Read: Café Hours | Monday–Sunday 6:00 AM - 10:00 PM (each day listed)"
+}

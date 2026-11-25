@@ -1,0 +1,54 @@
+{
+ "id": "n9448907812",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    300,
+    1380
+   ]
+  ],
+  [
+   [
+    300,
+    1380
+   ]
+  ],
+  [
+   [
+    300,
+    1380
+   ]
+  ],
+  [
+   [
+    300,
+    1380
+   ]
+  ],
+  [
+   [
+    300,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 05:00-23:00; Sa-Su 06:00-23:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/new-york/1270-lexington-avenue/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 07:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-21:00\"; the shop's own source wins. Read: Café Hours | Monday–Friday 5:00 AM - 11:00 PM | Saturday 6:00 AM - 11:00 PM | Sunday 6:00 AM - 11:00 PM"
+}

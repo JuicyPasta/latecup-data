@@ -1,0 +1,59 @@
+{
+ "id": "x-moka-and-co-bay-ridge",
+ "name": "Moka & Co",
+ "lat": 40.62944,
+ "lon": -74.0229,
+ "addr": "7500 5th Ave",
+ "cat": "coffee",
+ "hours": [
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1500
+   ]
+  ],
+  [
+   [
+    420,
+    1500
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-24:00; Fr-Sa 07:00-01:00; Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://mokanco.com/bay-ridge/",
+ "checked": "2026-11-24",
+ "web": "https://mokanco.com/bay-ridge/",
+ "ig": "mokancocoffee",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: Address 7500 5th Ave Brooklyn, NY 11209 | Hours | Monday–Thursday 7:00 AM – 12:00 AM | Friday 7:00 AM – 01:00 AM | Saturday 7:00 AM – 01:00 AM | Sunday 8:00 AM – 11:00 PM Coordinates: Nominatim: 7500 5th Avenue, Bay Ridge, Brooklyn 11209 (building address)"
+}

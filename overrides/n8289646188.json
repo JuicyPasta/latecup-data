@@ -1,0 +1,54 @@
+{
+ "id": "n8289646188",
+ "name": "Prince Tea House",
+ "hours": [
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-23:00; Fr 12:00-24:00; Sa 11:30-24:00; Su 11:30-23:00",
+ "src": "shop",
+ "source": "https://www.princeteahouse.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 12:00-22:30; Fr 12:00-23:30; Sa 11:30-23:30; Su 11:30-22:30",
+ "note": "OpenStreetMap said \"Mo-Th 12:00-22:30; Fr 12:00-23:30; Sa 11:30-23:30; Su 11:30-22:30\"; the shop's own source wins. Read: ChinaTown | 134 Bowery St., New York, NY 10013 | Open Hours: Mon-Thu 12pm - 11pm | Fri 12pm - 12am Sat 11:30am - 12am | Sun 11:30am - 11pm"
+}

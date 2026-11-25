@@ -1,0 +1,59 @@
+{
+ "id": "x-spot-dessert-bar-astoria",
+ "name": "Spot Dessert Bar",
+ "lat": 40.7664,
+ "lon": -73.92092,
+ "addr": "31-16 30th Ave",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    690,
+    1380
+   ]
+  ],
+  [
+   [
+    690,
+    1380
+   ]
+  ],
+  [
+   [
+    690,
+    1380
+   ]
+  ],
+  [
+   [
+    690,
+    1380
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 11:30-23:00; Fr-Sa 11:30-24:00",
+ "src": "shop",
+ "source": "https://www.spotdessertbar.com/locations",
+ "checked": "2026-11-24",
+ "web": "https://www.spotdessertbar.com/",
+ "phone": "+13478134932",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: Astoria | 3116 30th Ave, Astoria, NY 11102 | SUN-THURS : 11:30AM-11:00PM | FRI-SAT : 11:30AM-12:00AM Coordinates: Nominatim: 31-16 30th Avenue, Astoria (building address)"
+}

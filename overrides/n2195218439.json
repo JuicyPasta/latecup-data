@@ -1,0 +1,54 @@
+{
+ "id": "n2195218439",
+ "name": "Moka & Co",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://mokanco.com/manhattan-upper-west-side-broadway/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 08:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 08:00-21:00\"; the shop's own source wins. Read: Address 2481 Broadway, New York, NY 10025 | Hours | Monday 7:00 AM – 8:00 PM ... Sunday 7:00 AM – 8:00 PM (every day 7:00 AM – 8:00 PM)"
+}

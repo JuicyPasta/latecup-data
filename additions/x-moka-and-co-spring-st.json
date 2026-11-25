@@ -1,0 +1,59 @@
+{
+ "id": "x-moka-and-co-spring-st",
+ "name": "Moka & Co",
+ "lat": 40.72181,
+ "lon": -73.99565,
+ "addr": "33 Spring St",
+ "cat": "coffee",
+ "hours": [
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:00-22:00",
+ "src": "shop",
+ "source": "https://mokanco.com/lower-manhattan/",
+ "checked": "2026-11-24",
+ "web": "https://mokanco.com/lower-manhattan/",
+ "ig": "mokancocoffee",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: Address 33 Spring St New York, NY 10012 | Hours | Monday–Sunday 10:00 AM – 10:00 PM (each day listed) Coordinates: Nominatim: 33 Spring Street, Manhattan 10012 (building address)"
+}

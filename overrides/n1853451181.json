@@ -1,0 +1,54 @@
+{
+ "id": "n1853451181",
+ "name": "Think Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-19:00; Sa-Su 08:00-19:00",
+ "src": "shop",
+ "source": "https://thinkcoffee.com/pages/locations-catering",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-22:00; Sa-Su 07:30-22:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-22:00; Sa-Su 07:30-22:00\"; the shop's own source wins. Read: 73 8TH AVE | WEEKDAYS: 7:00AM - 7:00PM | WEEKENDS: 8:00AM - 7:00PM Think Coffee is no longer late"
+}

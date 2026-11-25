@@ -4,7 +4,7 @@ usage: python tools/apply_decisions.py decisions.json [--osm work/osm.json]
 
 decisions.json: [{"id", "status": "confirmed" | "closed" | "not_a_cafe" | anything else (ignored),
                   "hours": "<opening_hours string>", "source": URL, "evidence": text, "note": text,
-                  "src": "shop" | "brand"}]
+                  "src": "shop" | "brand", "addr": "street address, when OSM has none"}]
 Every hours string must pass the strict parser and every source must be an
 allowed one; a record that fails is reported and skipped. The note records
 whether the shop's own hours agree with OpenStreetMap's.
@@ -73,7 +73,7 @@ def main(argv):
         if d.get("note"):
             notes.append(str(d["note"]))
         override.write(pid, d["hours"], source=source, src=d.get("src", "shop"), osm_hours=raw, name=name,
-                       note=" ".join(notes), checked=d.get("checked"))
+                       note=" ".join(notes), checked=d.get("checked"), addr=d.get("addr"))
         done += 1
     print(done, "overrides written,", skipped, "skipped")
 

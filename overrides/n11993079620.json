@@ -1,0 +1,55 @@
+{
+ "id": "n11993079620",
+ "name": "Spot Dessert Bar",
+ "addr": "28-43 Jackson Ave",
+ "hours": [
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ],
+  [
+   [
+    690,
+    1500
+   ]
+  ],
+  [
+   [
+    690,
+    1500
+   ]
+  ],
+  [
+   [
+    690,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 11:30-24:00; Fr-Sa 11:30-01:00",
+ "src": "shop",
+ "source": "https://www.spotdessertbar.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 12:00-00:00; Fr 12:00-01:00; Sa 11:00-01:00; Su 11:00-02:00",
+ "note": "OpenStreetMap said \"Mo-Th 12:00-00:00; Fr 12:00-01:00; Sa 11:00-01:00; Su 11:00-02:00\"; the shop's own source wins. Read: LIC | 2843 Jackson Ave, LIC, NY 11101 | SUN-THURS : 11:30AM-12:00AM | FRI-SAT : 11:30AM-1:00AM OSM node has no address; the chain lists one LIC store, 28-43 Jackson Ave, which matches the node position near Court Sq/Queens Plaza (40.7489,-73.9380). OSM hours differ and are outdated."
+}

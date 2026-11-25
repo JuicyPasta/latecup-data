@@ -1,0 +1,54 @@
+{
+ "id": "n11918682921",
+ "name": "The Monroe",
+ "hours": [
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 10:00-24:00; Sa-Su 08:00-24:00",
+ "src": "shop",
+ "source": "https://themonroenyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 08:00-24:00",
+ "note": "OpenStreetMap said \"Mo-Su 08:00-24:00\"; the shop's own source wins. Read: Hours: Mon-Fri: 10AM - 12AM Sat-Sun: 8AM - 12AM (49 Monroe St) React single-page site: the Hours text is in the site's own JS bundle (https://themonroenyc.com/assets/index-BDuCw5aM.js) and rendered under 'Hours' on the page; self-described 'more than just a cafe and bar'"
+}

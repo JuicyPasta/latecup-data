@@ -1,0 +1,54 @@
+{
+ "id": "n13946608301",
+ "name": "Dayglow",
+ "hours": [
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-23:00",
+ "src": "shop",
+ "source": "https://dayglow.coffee/pages/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 07:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: DAYGLOW / NITEGLOW / Brooklyn / 8 Wilson Ave, Brooklyn, NY 11237 / Hours: Daily 7am-11pm matches OSM"
+}

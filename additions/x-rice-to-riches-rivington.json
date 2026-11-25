@@ -1,0 +1,59 @@
+{
+ "id": "x-rice-to-riches-rivington",
+ "name": "Rice to Riches",
+ "lat": 40.72012,
+ "lon": -73.9882,
+ "addr": "100 Rivington St",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1440
+   ]
+  ],
+  [
+   [
+    720,
+    1560
+   ]
+  ],
+  [
+   [
+    720,
+    1560
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Su-We 12:00-23:00; Th 12:00-24:00; Fr-Sa 12:00-02:00",
+ "src": "shop",
+ "source": "https://www.ricetoriches.com/pages/nyc-location",
+ "checked": "2026-11-24",
+ "web": "https://www.ricetoriches.com/",
+ "phone": "+16467999009",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: 100 Rivington Street (on the corner of Ludlow St) New York, NY 10002 | Hours: | Sun - Wed 12pm-11pm, Thur 12pm-12am | Fri & Sat 12pm-2am Coordinates: Nominatim: Rice to Riches, 100 Rivington Street, Lower East Side (POI already in OSM, not tagged as a café)"
+}

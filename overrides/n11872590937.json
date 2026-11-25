@@ -1,0 +1,54 @@
+{
+ "id": "n11872590937",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 05:00-24:00; Sa-Su 06:00-24:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/new-york/1450-broadway/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo, We-Su 06:00-00:00; Tu 07:00-22:00",
+ "note": "OpenStreetMap said \"Mo, We-Su 06:00-00:00; Tu 07:00-22:00\"; the shop's own source wins. Read: Café Hours | Monday–Friday 5:00 AM - 12:00 AM | Saturday 6:00 AM - 12:00 AM | Sunday 6:00 AM - 12:00 AM"
+}

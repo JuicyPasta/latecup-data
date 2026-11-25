@@ -1,0 +1,54 @@
+{
+ "id": "n7132140604",
+ "name": "Paris Baguette",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-21:00; Sa-Su 07:00-21:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/brooklyn/97-court-street/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 06:00-21:00; Sa-Su 07:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Café Hours | Monday–Friday 6:00 AM - 9:00 PM | Saturday 7:00 AM - 9:00 PM | Sunday 7:00 AM - 9:00 PM"
+}

@@ -1,0 +1,53 @@
+{
+ "id": "n5265747921",
+ "name": "Think Coffee",
+ "hours": [
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:30-19:00; Sa-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://thinkcoffee.com/pages/locations-catering",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 568 6TH AVE | WEEKDAYS: 6:30AM - 7:00PM | WEEKENDS: 7:00AM - 7:00PM not late"
+}

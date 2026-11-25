@@ -1,0 +1,54 @@
+{
+ "id": "n5960201621",
+ "name": "Moka & Co",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 06:00-21:00; Fr-Sa 06:00-23:00; Su 07:00-21:00",
+ "src": "shop",
+ "source": "https://mokanco.com/fort-greene/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 07:00-00:00; Fr-Sa 07:00-02:00; Su 07:00-00:00",
+ "note": "OpenStreetMap said \"Mo-Th 07:00-00:00; Fr-Sa 07:00-02:00; Su 07:00-00:00\"; the shop's own source wins. Read: Address 725 Fulton St. Brooklyn, NY 11217 | Hours | Monday–Thursday 6:00 AM – 9:00 PM | Friday 6:00 AM – 11:00 PM | Saturday 6:00 AM – 11:00 PM | Sunday 7:00 AM – 9:00 PM"
+}

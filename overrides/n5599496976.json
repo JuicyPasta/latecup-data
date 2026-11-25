@@ -1,0 +1,54 @@
+{
+ "id": "n5599496976",
+ "name": "Bibble & Sip",
+ "hours": [
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 08:00-20:00; Sa-Su 09:00-20:00",
+ "src": "shop",
+ "source": "https://www.bibbleandsip.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:30-20:00, Sa-Su 10:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:30-20:00, Sa-Su 10:00-20:00\"; the shop's own source wins. Read: Bibble and Sip | 253 West 51st Street | bibble and sip Store Hours: M-F 8:00am - 8:00pm | Weekend 9:00am - 8:00pm"
+}

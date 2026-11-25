@@ -1,0 +1,54 @@
+{
+ "id": "n5949200228",
+ "name": "Petee's Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://peteespie.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 11:00-23:00, Fr-Su 10:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Th 11:00-23:00, Fr-Su 10:00-23:00\"; the shop's own source wins. Read: 505 Myrtle Ave 11205 / 11am-11pm daily Petee's Pie Co. (pie shop); hours line in the site footer for this branch"
+}

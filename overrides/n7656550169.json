@@ -1,0 +1,54 @@
+{
+ "id": "n7656550169",
+ "name": "Prince Tea House",
+ "hours": [
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1440
+   ]
+  ],
+  [
+   [
+    720,
+    1440
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 12:00-23:00; Fr-Sa 12:00-24:00",
+ "src": "shop",
+ "source": "https://www.princeteahouse.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th,Su 12:00-23:00; Fr-Sa 12:00-24:00",
+ "note": "Agrees with OpenStreetMap. Read: 7th Ave. | 6122 7th Ave. Brooklyn, NY 11220 | Open Hours: Sun-Thu 12pm - 11pm | Fri-Sat 12pm - 12am"
+}

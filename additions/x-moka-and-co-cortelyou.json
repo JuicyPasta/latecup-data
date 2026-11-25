@@ -1,0 +1,59 @@
+{
+ "id": "x-moka-and-co-cortelyou",
+ "name": "Moka & Co",
+ "lat": 40.6409,
+ "lon": -73.96459,
+ "addr": "1418 Cortelyou Rd",
+ "cat": "coffee",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 06:00-22:00; Fr-Sa 06:00-24:00; Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://mokanco.com/cortelyou/",
+ "checked": "2026-11-24",
+ "web": "https://mokanco.com/cortelyou/",
+ "ig": "mokancocoffee",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: Address 1418 Cortelyou Rd, Brooklyn, NY 11226 | Hours | Monday–Thursday 6:00 AM – 10:00 PM | Friday 6:00 AM – 12:00 AM | Saturday 6:00 AM – 12:00 AM | Sunday 7:00 AM – 10:00 PM Coordinates: Nominatim: 1418 Cortelyou Road, Brooklyn 11226 (building address)"
+}

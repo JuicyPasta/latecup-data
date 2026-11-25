@@ -1,0 +1,9 @@
+{
+ "id": "n10136292572",
+ "name": "The Bay Cafe",
+ "exclude": true,
+ "source": "https://baycafebk.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 11:00-22:00; Fr off; Sa 21:30-24:00; Su 10:00-22:00",
+ "note": "read via WebFetch after curl 403. Site hours: Sunday 10:00 AM - 9:45 PM; Mon-Thu 11:00 AM - 9:45 PM; Friday Closed; Saturday 7:00 PM - 11:00 PM (= Su 10:00-21:45; Mo-Th 11:00-21:45; Fr off; Sa 19:00-23:00) - a restaurant, not open late"
+}

@@ -1,0 +1,58 @@
+{
+ "id": "x-paris-baguette-astoria-31st-st",
+ "name": "Paris Baguette",
+ "lat": 40.77588,
+ "lon": -73.91155,
+ "addr": "22-20 31st St",
+ "cat": "dessert",
+ "hours": [
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1440
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 05:00-24:00; Su 05:00-22:00",
+ "src": "shop",
+ "source": "https://parisbaguette.com/locations/ny/queens/22-20-31st-street/",
+ "checked": "2026-11-24",
+ "web": "https://parisbaguette.com/",
+ "note": "Not in OpenStreetMap's café set on 2026-11-24. Read: 22-20 31st Street, Queens NY 11105 | Café Hours | Monday–Saturday 5:00 AM - 12:00 AM | Sunday 5:00 AM - 10:00 PM Coordinates: Nominatim: 22-20 31st Street, Astoria/Steinway 11105 (building address)"
+}
