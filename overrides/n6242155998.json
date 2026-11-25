@@ -1,0 +1,49 @@
+{
+ "id": "n6242155998",
+ "name": "Bunch o' Bagels",
+ "hours": [
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    780
+   ]
+  ],
+  [],
+  [
+   [
+    420,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 07:00-16:00; Fr 07:00-13:00; Sa off",
+ "src": "shop",
+ "source": "https://bunchobagels.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Su-Th 07:00-16:00; Mar-Nov: Fr 07:00-14:00; Dec-Feb: Fr 07:00-13:00",
+ "note": "OpenStreetMap's hours could not be read with certainty. Read: 361 Troy Ave / Sun - Thur : 7:00 AM - 4:00 PM EST / Fri : 7:00 AM - 1:00 PM EST / Sat : Closed OSM says Friday close is seasonal (14:00 Mar-Nov, 13:00 Dec-Feb); the site states 1 PM with no season, so 13:00 recorded (worth rechecking in spring)."
+}

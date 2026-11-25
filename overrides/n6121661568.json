@@ -1,0 +1,54 @@
+{
+ "id": "n6121661568",
+ "name": "Absolute Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-19:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.absolutecoffee.nyc/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-We 07:00-20:00; Th-Sa 09:00-20:00; Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-We 07:00-20:00; Th-Sa 09:00-20:00; Su 07:00-20:00\"; the shop's own source wins. Read: Opening hours / Mon - Sat 07:00 am - 07:00 pm / Sunday 08:00 am - 06:00 pm"
+}

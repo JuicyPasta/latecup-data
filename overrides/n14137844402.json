@@ -1,0 +1,48 @@
+{
+ "id": "n14137844402",
+ "name": "Banh By Lauren",
+ "hours": [
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo 09:00-18:00; Tu off; We-Su 09:00-18:00",
+ "src": "shop",
+ "source": "https://banhbylauren.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Hours & Location / 42 Market St. / New York, NY 10002 / Mon 9am - 6pm / Tues / Closed / Wed - Sun 9am - 6pm Single-location site at 42 Market St; the bundle/OSM address says 42 Madison St (nearby corner), likely an OSM address error."
+}

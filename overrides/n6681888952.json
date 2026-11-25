@@ -1,0 +1,54 @@
+{
+ "id": "n6681888952",
+ "name": "Fishs Eddy",
+ "hours": [
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.fishseddy.com/pages/dumbo",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 09:00-20:00, Su 10:00-18:00 \"shop\"|| Mo-Su 08:00-18:00 \"cafe\"",
+ "note": "OpenStreetMap's hours could not be read with certainty. Read: Store: / Mon - Sat: 9am - 8pm / Sun: 10am - 6pm / Cafe: / Daily: 8am - 6pm Housewares store with a café; Cafe hours used (Thanksgiving notice ignored). DUMBO location page. Matches OSM \"cafe\" rule."
+}

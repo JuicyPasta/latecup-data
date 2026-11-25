@@ -1,0 +1,54 @@
+{
+ "id": "n11528502978",
+ "name": "Safir Bakery & Cafe",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 06:00-22:00; Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://safirbakery.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 06:00-22:00; Su 07:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Address / 1803 Kings Hwy, Brooklyn, NY 11229 / (718) 375-5888 / Monday: 06:00 AM - 10:00 PM / … Saturday: 06:00 AM - 10:00 PM / Sunday: 07:00 AM - 10:00 PM Two-location page (address block, then that location's hours); the 7am-7pm block belongs to 2718 Avenue U. Matches OSM exactly. Extra fetch made (also settled n2563014066)."
+}

@@ -1,0 +1,53 @@
+{
+ "id": "n2547109169",
+ "name": "Felix Roasting Co.",
+ "hours": [
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-17:00",
+ "src": "shop",
+ "source": "https://felixroastingco.com/pages/visit-us",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 145 Greene St / SOHO / Open Everyday 8am-5pm Multi-location page; SoHo block (address precedes its hours)."
+}

@@ -118,6 +118,32 @@ def test_override_wins_and_survives_osm_changes():
     assert len(out["warnings"]) == 2
 
 
+def test_double_mappings_are_merged_but_neighbours_are_not():
+    same_addr = [el(1, "Boris & Horton", 40.7290, -73.9840, "Mo-Su 08:00-22:00"),
+                 {"type": "node", "id": 2, "lat": 40.7291, "lon": -73.9841,
+                  "tags": {"amenity": "cafe", "name": "Borris & Horton", "addr:housenumber": "1",
+                           "addr:street": "Carmine Street"}}]
+    assert B.build(same_addr)["stats"]["duplicates dropped"] == 1
+    neighbours = [el(1, "Late Cafe 1", 40.7290, -73.9840, "Mo-Su 08:00-22:00"),
+                  el(2, "Late Cafe 2", 40.7291, -73.9840, "Mo-Su 08:00-22:00")]
+    assert B.build(neighbours)["stats"]["duplicates dropped"] == 0
+
+
+def test_a_neighbourhood_in_two_boroughs_stops_the_build(monkeypatch):
+    from latecup_data import geo
+    monkeypatch.setattr(geo, "SUB_AREAS", [("Nowhere Heights", (40.60, -74.05, 40.80, -73.90))])
+    elements = [el(1, "Late Cafe", 40.7301, -74.0027, "Mo-Su 08:00-23:00"),       # Manhattan
+                el(2, "Other Cafe", 40.7128, -73.9577, "Mo-Su 08:00-23:00")]      # Brooklyn
+    with pytest.raises(ValueError, match="two boroughs"):
+        B.build(elements)
+
+
+def test_exclude_override_removes_a_place():
+    ov = {"n1": {"id": "n1", "exclude": True, "source": "https://pub.example", "checked": "2026-11-24"}}
+    out = B.build([el(1, "Pub Cafe", 40.7301, -74.0027, "Mo-Su 08:00-23:00")], overrides=ov)
+    assert out["places"] == [] and out["stats"]["excluded by override"] == 1
+
+
 def test_addition_replaces_its_osm_twin():
     add = {"id": "x-night-owl", "name": "Night Owl", "lat": 40.7301, "lon": -74.0027, "addr": "9 Carmine St",
            "cat": "coffee", "hours": [[[600, 1620]]] * 7, "src": "shop", "source": "https://nightowl.example",
@@ -135,6 +161,7 @@ def _elements(n):
 def test_run_writes_a_valid_site_and_refuses_to_shrink(tmp_path, monkeypatch):
     monkeypatch.setattr(B, "load_overrides", lambda: {})
     monkeypatch.setattr(B, "load_additions", lambda: [])
+    monkeypatch.setattr(run, "load_report", lambda: None)
     site = tmp_path / "site"
     m = run.make(_elements(10), site, now="2026-11-24T23:10:00Z", log=lambda *_: None)
     validate.manifest(m)

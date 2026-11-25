@@ -1,0 +1,53 @@
+{
+ "id": "n8151649108",
+ "name": "Caffè Palermo",
+ "hours": [
+  [
+   [
+    630,
+    1380
+   ]
+  ],
+  [
+   [
+    630,
+    1380
+   ]
+  ],
+  [
+   [
+    630,
+    1380
+   ]
+  ],
+  [
+   [
+    630,
+    1380
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 10:30-23:00; Fr-Sa 10:30-24:00",
+ "src": "shop",
+ "source": "https://www.caffepalermo.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Café hours / Sunday-Thursday 10:30 AM-11 PM / Friday & Saturday 10:30 AM-midnight"
+}

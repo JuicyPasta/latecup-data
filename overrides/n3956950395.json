@@ -1,0 +1,54 @@
+{
+ "id": "n3956950395",
+ "name": "Banter",
+ "hours": [
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 08:00-21:00; Su 08:00-16:00",
+ "src": "shop",
+ "source": "https://www.banternyc.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 08:00-23:00, Sa 08:00-21:00, Su 08:00-17:00",
+ "note": "OpenStreetMap said \"Mo-Fr 08:00-23:00, Sa 08:00-21:00, Su 08:00-17:00\"; the shop's own source wins. Read: 201 East 31st Street, New York, NY 10016 / 8am - 9pm | Monday - Saturday / 8am - 4pm | Sunday Multi-location page; used the block right after the 201 E 31st St address."
+}

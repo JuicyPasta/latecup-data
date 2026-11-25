@@ -1,0 +1,53 @@
+{
+ "id": "n2186605427",
+ "name": "Sweetleaf",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-19:00; Sa-Su 08:00-19:00",
+ "src": "shop",
+ "source": "https://www.sweetleafcoffee.com/pages/_locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 4615 Center Blvd, Long Island City / CAFE / Mon-Fri: 7am to 7pm , Sat-Sun: 8am to 7pm / COCKTAIL BAR / Mon-Thu: 5pm to 12am , Fri & Sat: 5pm to 2am Used the CAFE hours. The cocktail bar has separate hours (and none listed for Sunday); nothing says coffee is served there, so it was left out."
+}

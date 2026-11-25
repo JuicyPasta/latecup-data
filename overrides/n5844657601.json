@@ -1,0 +1,54 @@
+{
+ "id": "n5844657601",
+ "name": "Little Cupcake Bakeshop",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-22:00; Sa 08:00-23:00; Su 08:00-22:00",
+ "src": "shop",
+ "source": "http://www.littlecupcakebakeshop.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-We 07:00-22:00; Th-Fr 07:00-23:00; Sa 08:00-23:00; Su 08:00-22:00",
+ "note": "OpenStreetMap said \"Mo-We 07:00-22:00; Th-Fr 07:00-23:00; Sa 08:00-23:00; Su 08:00-22:00\"; the shop's own source wins. Read: 9102 Third Avenue / 718-680-4465 / Mon - Thurs 7AM - 10PM / Fri 7AM - 10PM / Sat 8AM - 11PM / Sun 8AM - 10PM Multi-location page; pattern is address / phone / hours for every location (598 Vanderbilt and 995 Flushing follow the same pattern). OSM has Th-Fr to 23:00; page says Fri 10PM."
+}

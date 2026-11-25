@@ -1,0 +1,54 @@
+{
+ "id": "n5672782246",
+ "name": "Champignon Café",
+ "hours": [
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1170
+   ]
+  ],
+  [
+   [
+    420,
+    1050
+   ]
+  ],
+  [
+   [
+    420,
+    1050
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-19:30; Sa-Su 07:00-17:30",
+ "src": "shop",
+ "source": "https://champignoncafe.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-21:00; Sa, Su 07:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-21:00; Sa, Su 07:00-19:00\"; the shop's own source wins. Read: 1389 Madison Avenue / Hours / Mon-Friday 6:00am - 7:30pm / Sat-Sun 7:00am - 5:30pm OSM (Mo-Fr 07:00-21:00; Sa,Su 07:00-19:00) is stale; visible text used."
+}

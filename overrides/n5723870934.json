@@ -1,0 +1,54 @@
+{
+ "id": "n5723870934",
+ "name": "Caffeine Underground",
+ "hours": [
+  [
+   [
+    510,
+    1380
+   ]
+  ],
+  [
+   [
+    510,
+    1380
+   ]
+  ],
+  [
+   [
+    510,
+    1380
+   ]
+  ],
+  [
+   [
+    510,
+    1380
+   ]
+  ],
+  [
+   [
+    510,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 08:30-23:00; Sa-Su 09:00-23:00",
+ "src": "shop",
+ "source": "https://www.caffeineunderground.com/contact/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-21:00; Sa 09:00-21:00; Su 09:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-21:00; Sa 09:00-21:00; Su 09:00-20:00\"; the shop's own source wins. Read: 447 Central Ave, Ste A / Hours: / Monday - Friday: 830AM - 11:00PM | Sat - Sunday: 9:00AM -11:00PM Differs from OSM (closes 20-21); page wins."
+}

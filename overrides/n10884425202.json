@@ -1,0 +1,53 @@
+{
+ "id": "n10884425202",
+ "name": "In Common NYC Cafe",
+ "hours": [
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-15:00",
+ "src": "shop",
+ "source": "https://www.incommonnyc.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Everyday 8am-3pm"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n2547733495",
+ "name": "Sunrise Espresso & Bar",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-21:00; Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://sunriseespressobar.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "07:00-22:00",
+ "note": "OpenStreetMap said \"07:00-22:00\"; the shop's own source wins. Read: 652 5th Ave / Hours / Mon, Tue, Wed, Thur, Fri, Sat / 7:00 AM - 9:00 PM / Sun / 7:00 AM - 7:00 PM Visible text and schema.org agree; OSM (07:00-22:00) is stale."
+}

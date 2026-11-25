@@ -1,0 +1,54 @@
+{
+ "id": "n6399642997",
+ "name": "Queen's Room",
+ "hours": [
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-22:00",
+ "src": "shop",
+ "source": "https://www.queensroomnyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "08:00-23:30",
+ "note": "OpenStreetMap said \"08:00-23:30\"; the shop's own source wins. Read: schema.org opening hours published on the shop's own page and its visible hours list"
+}

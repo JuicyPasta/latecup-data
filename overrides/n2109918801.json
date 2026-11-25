@@ -1,0 +1,54 @@
+{
+ "id": "n2109918801",
+ "name": "Bite",
+ "hours": [
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-20:30; Sa-Su 09:00-20:00",
+ "src": "shop",
+ "source": "https://www.bitenyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 07:30-21:00; Sa, Su 11:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Sa 07:30-21:00; Sa, Su 11:00-20:00\"; the shop's own source wins. Read: 335 Lafayette Street (between Houston and Bleecker) / Hours: Monday - Friday 7:30AM - 8:30PM, Saturday & Sunday 9AM - 8PM Site lists 335 Lafayette St; the bundle address is 337 Lafayette St. It is the only Lafayette St location (the other is 62 W 22nd St), so taken as the same shop."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n12915135057",
+ "name": "I'Milky",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:30-21:00; Fr 11:30-22:00; Sa 12:00-22:00; Su 12:00-21:00",
+ "src": "shop",
+ "source": "https://www.imilkyusa.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 11:30-21:00, Fr 11:30-22:00, Sa 12:00-22:00, Su 12:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: 992 6th Ave. New York NY 10018 / Open Hours: / Mon-Thurs: 11:30am-9:00pm / Fri: 11:30am-10:00pm / Sat: 12pm-10:00pm / Sun: 12pm-9pm Text was split across lines on the page (\"11 / :30am-9:00pm / F / ri: …\"); reassembled. The block directly follows the 992 6th Ave address and matches OSM exactly."
+}

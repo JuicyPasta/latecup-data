@@ -1,0 +1,78 @@
+{
+ "id": "n12771316237",
+ "name": "Bad Therapy",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ],
+   [
+    1080,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ],
+   [
+    1080,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ],
+   [
+    1080,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ],
+   [
+    1080,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ],
+   [
+    1080,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ],
+   [
+    1080,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:00-17:00; Tu-We 07:00-17:00,18:00-23:00; Th-Sa 07:00-17:00,18:00-24:00; Su 08:00-17:00,18:00-23:00",
+ "src": "shop",
+ "source": "https://www.badtherapybar.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo 07:00-17:00; Tu-Fr 07:00-17:00,18:00-23:00; Sa-Su 08:00-17:00,18:00-23:00",
+ "note": "OpenStreetMap said \"Mo 07:00-17:00; Tu-Fr 07:00-17:00,18:00-23:00; Sa-Su 08:00-17:00,18:00-23:00\"; the shop's own source wins. Read: 1008 Cortelyou Road, Ditmas Park, / Hours / Monday 7am - 5pm / Tuesday - Wednesday 7am - 5pm, 6pm - 11pm / Thursday-Saturday 7am - 5pm, 6pm- Midnight / Sunday 8am - 5pm, 6pm - 11pm One venue, one hours list with a 5-6pm gap (café by day, bar at night). Page differs from OSM on Sa opening (7am vs 8am) and Th-Sa close (midnight); page wins."
+}

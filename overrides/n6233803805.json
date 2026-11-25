@@ -1,0 +1,54 @@
+{
+ "id": "n6233803805",
+ "name": "Caffè Vita",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-18:00; Sa-Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.caffevita.com/pages/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-21:00; Sa-Su 08:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-21:00; Sa-Su 08:00-21:00\"; the shop's own source wins. Read: 124 Ludlow St / New York, NY 10002 / Monday-Friday: 7am - 6pm / Saturday - Sunday: 8am - 6pm / 212-260-8482 Multi-location page; block directly under the 124 Ludlow address (pattern address / hours / phone). OSM (to 21:00) is stale."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n13700879666",
+ "name": "Little Honey",
+ "hours": [
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    540,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-15:00; Fr 08:00-20:00; Sa 08:00-15:00; Su 09:00-15:00",
+ "src": "shop",
+ "source": "https://www.littlehoneybk.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th,Sa 08:00-15:00; Fr 08:00-20:00; Su 09:00-15:00",
+ "note": "Agrees with OpenStreetMap. Read: schema.org opening hours published on the shop's own page"
+}

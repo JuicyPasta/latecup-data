@@ -1,0 +1,53 @@
+{
+ "id": "n13447161800",
+ "name": "Ioannis Coffee Chef",
+ "hours": [
+  [
+   [
+    450,
+    1050
+   ]
+  ],
+  [
+   [
+    450,
+    1050
+   ]
+  ],
+  [
+   [
+    450,
+    1050
+   ]
+  ],
+  [
+   [
+    450,
+    1050
+   ]
+  ],
+  [
+   [
+    450,
+    1050
+   ]
+  ],
+  [
+   [
+    480,
+    1050
+   ]
+  ],
+  [
+   [
+    480,
+    1050
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-17:30; Sa-Su 08:00-17:30",
+ "src": "shop",
+ "source": "https://www.ioanniscoffeechef.com/pages/locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 319 E 14th St / New York, New York, 10003 / Mon-Fri: 7:30AM - 5:30PM / Sat-Sun: 8:00AM - 5:30PM"
+}

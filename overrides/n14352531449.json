@@ -1,0 +1,53 @@
+{
+ "id": "n14352531449",
+ "name": "Teapulse",
+ "hours": [
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:00-21:00",
+ "src": "shop",
+ "source": "https://www.teapulseusa.com/locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: CHINATOWN (DOYERS ST) / 18 Doyers St / HOURS / MON - SUN / 10:00AM - 9:00PM Extra fetch confirmed structure (address then HOURS block per location; bundle text had lost the day labels of neighbouring blocks)."
+}

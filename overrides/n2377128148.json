@@ -1,0 +1,54 @@
+{
+ "id": "n2377128148",
+ "name": "St Kilda Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:00-18:00; Tu-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.stkildacoffee.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo 07:00-18:00; Tu-Fr 07:00-20:00; Sa-Su 08:00-18:00",
+ "note": "OpenStreetMap said \"Mo 07:00-18:00; Tu-Fr 07:00-20:00; Sa-Su 08:00-18:00\"; the shop's own source wins. Read: 374 West 46 Street / Mon 7am-6pm / Tue-Friday 7am-8pm / Sat 8am-8pm / Sunday 8am-6pm Same place as n4370603390 (duplicate OSM node). Page differs from this node's OSM on Saturday (8pm vs 6pm)."
+}

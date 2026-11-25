@@ -1,0 +1,54 @@
+{
+ "id": "n5827853291",
+ "name": "Sip & Play",
+ "hours": [
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-23:00; Fr 11:00-24:00; Sa 10:00-24:00; Su 10:00-23:00",
+ "src": "shop",
+ "source": "https://www.sipnplaynyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 11:00-23:00, Fr 11:00-24:00, Sa 10:00-24:00, Su 10:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: HOURS & LOCATION / 471 5th Ave. Brooklyn, NY 11215 / Our opening hours: / Sunday: 10am-11pm / Mon-Thurs: 11am-11pm / Fri: 11am-12am / Sat: 10am12am \"Sat: 10am12am\" has a missing dash; read as 10am-12am, which OSM also has. Kitchen closes 3 h earlier (not relevant to opening hours)."
+}

@@ -1,0 +1,53 @@
+{
+ "id": "n3676918489",
+ "name": "Cupsoul",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-17:00; Sa-Su 08:00-17:00",
+ "src": "shop",
+ "source": "https://www.cupsoul.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: CupSoul Cafe - New York 165 3rd Ave / Business Hours / Sunday: 8:00 AM - 5:00 PM / Monday-Friday: 7:00 AM - 5:00 PM / Saturday: 8:00 AM - 5:00 PM Extra fetch completed the truncated Saturday line; matches schema.org."
+}

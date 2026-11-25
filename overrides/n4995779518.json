@@ -1,0 +1,53 @@
+{
+ "id": "n4995779518",
+ "name": "Overflow Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-18:00",
+ "src": "shop",
+ "source": "https://www.overflowcoffee.nyc/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Hours / 7:00am - 6:00pm / Everyday / Long Island CIty, NY 11101 / Open Everyday 7:00am - 6:00pm Single-location site; bundle address null."
+}

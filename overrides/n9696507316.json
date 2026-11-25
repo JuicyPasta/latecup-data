@@ -1,0 +1,53 @@
+{
+ "id": "n9696507316",
+ "name": "Fuel Fever",
+ "hours": [
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 09:00-22:00; Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.fuelfeverbk.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Sunday: 11:00 AM-8:00 PM / Monday-Saturday: 9:00 AM-10:00 PM"
+}

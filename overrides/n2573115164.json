@@ -1,0 +1,54 @@
+{
+ "id": "n2573115164",
+ "name": "Little Cupcake Bakeshop",
+ "hours": [
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-23:00",
+ "src": "shop",
+ "source": "http://www.littlecupcakebakeshop.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 09:00-22:00; Fr-Sa 09:00-23:00; Su 09:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th 09:00-22:00; Fr-Sa 09:00-23:00; Su 09:00-22:00\"; the shop's own source wins. Read: 598 Vanderbilt Avenue / 718-783-0770 / Mon - Sun 8AM - 11PM Multi-location page; each block is address, phone, hours (area codes match each address). OSM (09:00-22/23:00) differs; page text used."
+}

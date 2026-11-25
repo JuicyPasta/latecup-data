@@ -1,0 +1,54 @@
+{
+ "id": "n12288613872",
+ "name": "Björk Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1020
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo 11:00-17:00; Tu-Sa 11:00-20:00; Su 11:00-17:00",
+ "src": "shop",
+ "source": "https://www.bjorkcafe.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo 11:00-17:00, Tu-Sa 11:00-20:00, Su 11:00-17:00",
+ "note": "Agrees with OpenStreetMap. Read: 58 Park Avenue, between 37th & 38th St / BUSINESS HOURS: / Monday 11am-5pm (last seating 4pm) / Tuesday - Saturday 11am - 8pm (Last seating 7.15pm) / Sunday 11am-5pm (Last seating 4pm) Matches OSM."
+}

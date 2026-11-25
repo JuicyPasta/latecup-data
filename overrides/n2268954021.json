@@ -1,0 +1,54 @@
+{
+ "id": "n2268954021",
+ "name": "Kettl",
+ "hours": [
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 09:00-19:00; Sa 09:00-20:00; Su 09:00-19:00",
+ "src": "shop",
+ "source": "https://kettl.co/pages/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 10:00-19:00; Fr 10:00-20:00; Sa 09:00-20:00; Su 09:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Th 10:00-19:00; Fr 10:00-20:00; Sa 09:00-20:00; Su 09:00-19:00\"; the shop's own source wins. Read: Kettl Greenpoint / 70 Greenpoint Ave, Brooklyn, NY 11222 / ... / Hours / Monday 9:00 am - 7:00 pm ... Friday 9:00 am - 7:00 pm / Saturday 9:00 am - 8:00 pm / Sunday 9:00 am - 7:00 pm Extra fetch confirmed structure (name, address, description, hours per location; next block is Kettl Los Feliz). OSM (Mo-Th 10:00-19:00 ...) is stale."
+}

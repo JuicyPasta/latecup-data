@@ -1,0 +1,53 @@
+{
+ "id": "n10845028784",
+ "name": "Bean & Bean Coffee",
+ "hours": [
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:30-20:00",
+ "src": "shop",
+ "source": "https://beannbeancoffee.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Bean & Bean Queens- Roastery & Cafe / 252-29 Northern Blvd 1 Fl. / Little Neck NY 11362 / Mon - Sun: 7:30am - 8pm Block for the Queens roastery & café (name, address, hours)."
+}

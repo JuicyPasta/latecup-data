@@ -1,0 +1,53 @@
+{
+ "id": "n2563014066",
+ "name": "Safir Bakery",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://safirbakery.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Address / 2718 Avenue U, Brooklyn, NY 11229 / (718) 934-3888 / Monday: 07:00 AM - 07:00 PM / … / Sunday: 07:00 AM - 07:00 PM Two-location page (address block, then its hours); settled by the extra fetch made for n11528502978."
+}

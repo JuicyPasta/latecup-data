@@ -1,0 +1,54 @@
+{
+ "id": "n2568677473",
+ "name": "Nook",
+ "hours": [
+  [
+   [
+    450,
+    1320
+   ]
+  ],
+  [
+   [
+    450,
+    1380
+   ]
+  ],
+  [
+   [
+    450,
+    1320
+   ]
+  ],
+  [
+   [
+    450,
+    1320
+   ]
+  ],
+  [
+   [
+    450,
+    1440
+   ]
+  ],
+  [
+   [
+    450,
+    1440
+   ]
+  ],
+  [
+   [
+    510,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:30-22:00; Tu 07:30-23:00; We-Th 07:30-22:00; Fr 07:30-24:00; Sa 07:30-24:00; Su 08:30-18:00",
+ "src": "shop",
+ "source": "https://www.nookbk.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo 07:30-22:00; Tu 07:30-23:00; We-Th 07:30-22:00; Fr 07:30-24:00; Sa 08:30-24:00; Su 08:30-18:00",
+ "note": "OpenStreetMap said \"Mo 07:30-22:00; Tu 07:30-23:00; We-Th 07:30-22:00; Fr 07:30-24:00; Sa 08:30-24:00; Su 08:30-18:00\"; the shop's own source wins. Read: Monday: 7:30 AM-10 PM / Tuesday: 7:30 AM-11 PM / Wednesday: 7:30 AM-10 PM / Thursday: 7:30 AM-10 PM / Friday: 7:30 AM-12 AM / Saturday: 7:30 AM-12 AM / Sunday: 8:30 AM-6 PM Single-location site. Differs from OSM on Saturday opening (OSM 08:30); page text used."
+}

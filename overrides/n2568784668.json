@@ -1,0 +1,53 @@
+{
+ "id": "n2568784668",
+ "name": "UCrew",
+ "hours": [
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:30",
+ "src": "shop",
+ "source": "https://www.ucrewnyc.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Mon - Sun / 11:00 AM - 10:30 PM / 56-23 Myrtle Avenue, Ridgewood, NY 11385"
+}

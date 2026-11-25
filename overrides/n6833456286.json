@@ -1,0 +1,9 @@
+{
+ "id": "n6833456286",
+ "name": "Hearth on the High Line",
+ "exclude": true,
+ "source": "https://www.restauranthearth.com/location-hours/",
+ "checked": "2026-11-24",
+ "osm_hours": "Th-Mo 12:00-20:00",
+ "note": "Not a café by its own site: Outdoor wine & beer bar run by Hearth restaurant, not a café."
+}

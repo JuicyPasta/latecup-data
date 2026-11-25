@@ -1,0 +1,54 @@
+{
+ "id": "n5358087423",
+ "name": "La Bergamote",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-22:00; Su 07:00-21:00",
+ "src": "shop",
+ "source": "https://www.labergamotenyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 07:00-22:00; Su 07:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: 177 Ninth Ave / (212) 627-9010 / Mon-Sat 7am-10pm / Sun 7am-9pm Matches OSM."
+}

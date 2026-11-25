@@ -1,0 +1,54 @@
+{
+ "id": "n11193936084",
+ "name": "Da Adriano",
+ "hours": [
+  [
+   [
+    450,
+    1290
+   ]
+  ],
+  [
+   [
+    450,
+    1290
+   ]
+  ],
+  [
+   [
+    450,
+    1290
+   ]
+  ],
+  [
+   [
+    450,
+    1290
+   ]
+  ],
+  [
+   [
+    450,
+    1290
+   ]
+  ],
+  [
+   [
+    450,
+    1290
+   ]
+  ],
+  [
+   [
+    450,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:30-21:30",
+ "src": "shop",
+ "source": "https://www.daadriano.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 07:30-21:30",
+ "note": "Agrees with OpenStreetMap. Read: Business Hours / Monday to Sunday 7:30 am to 9:30 pm"
+}

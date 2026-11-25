@@ -1,0 +1,53 @@
+{
+ "id": "n11963636514",
+ "name": "Buunni Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.buunnicoffee.com/pages/locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 711 W 168th St, New York, NY 10032 / Mon-Sunday: 7am - 7pm Multi-location page; each block is address then hours."
+}

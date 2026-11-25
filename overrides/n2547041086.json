@@ -1,0 +1,54 @@
+{
+ "id": "n2547041086",
+ "name": "PlantShed",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.plantshed.com/retail-prince-st",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 08:00-19:00 \"cafe\"||Mo-Su 09:00-19:00 \"shop\"",
+ "note": "OpenStreetMap's hours could not be read with certainty. Read: Café Hours: Mon - Sun: 7AM - 7PM"
+}

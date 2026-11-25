@@ -1,0 +1,53 @@
+{
+ "id": "n11892469640",
+ "name": "Busy Bee Cafe",
+ "hours": [
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://coffeebusybee.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Mon - Sun / 8AM - 6PM / Our Location / 35-20 Leavitt St, Flushing, NY 11354"
+}

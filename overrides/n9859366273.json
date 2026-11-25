@@ -1,0 +1,54 @@
+{
+ "id": "n9859366273",
+ "name": "Lamb's Bread",
+ "hours": [
+  [
+   [
+    780,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo 13:00-21:00; Tu-Sa 11:00-21:00; Su 12:00-21:00",
+ "src": "shop",
+ "source": "https://lambsbreadcafe.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 11:00-21:00; Su 12:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Sa 11:00-21:00; Su 12:00-21:00\"; the shop's own source wins. Read: Hours / Monday: 1:00 pm - 9:00 pm / Tuesday - Saturday: 11:00 am - 9:00 pm / Sunday: 12:00 pm - 9:00 pm"
+}

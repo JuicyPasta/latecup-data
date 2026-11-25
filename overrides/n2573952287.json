@@ -1,0 +1,54 @@
+{
+ "id": "n2573952287",
+ "name": "Chaotic Good",
+ "hours": [
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-22:00; Fr 08:00-23:00; Sa 09:00-23:00; Su 09:00-22:00",
+ "src": "shop",
+ "source": "https://www.chaoticgoodcafe.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 08:00-22:00; Fr 08:00-23:00; Sa 09:00-23:00; Su 09:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 200 W 84th St / Sun: 9am-10pm / Mon-Thu: 8am-10pm / Fri: 8am-11pm / Sat: 9am-11pm Matches OSM."
+}

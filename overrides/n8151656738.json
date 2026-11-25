@@ -1,0 +1,53 @@
+{
+ "id": "n8151656738",
+ "name": "Teapulse",
+ "hours": [
+  [
+   [
+    570,
+    1260
+   ]
+  ],
+  [
+   [
+    570,
+    1260
+   ]
+  ],
+  [
+   [
+    570,
+    1260
+   ]
+  ],
+  [
+   [
+    570,
+    1260
+   ]
+  ],
+  [
+   [
+    570,
+    1260
+   ]
+  ],
+  [
+   [
+    570,
+    1320
+   ]
+  ],
+  [
+   [
+    570,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Su-Fr 09:30-21:00; Sa 09:30-22:00",
+ "src": "shop",
+ "source": "https://www.teapulseusa.com/locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: CHINATOWN (CANAL ST) / 167 Canal St / New York, NY 10013 / (917) 388-3038 / HOURS / SUN - FRI / SAT / 9:30AM - 9:00PM / 9:30AM - 10:00PM Fetched the locations page: the block is name, address, phone, then day labels and times in two columns (day labels first, times in the same order)."
+}

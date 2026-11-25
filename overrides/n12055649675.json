@@ -1,0 +1,49 @@
+{
+ "id": "n12055649675",
+ "name": "Raf's",
+ "hours": [
+  [],
+  [
+   [
+    540,
+    900
+   ]
+  ],
+  [
+   [
+    540,
+    900
+   ]
+  ],
+  [
+   [
+    540,
+    900
+   ]
+  ],
+  [
+   [
+    540,
+    900
+   ]
+  ],
+  [
+   [
+    540,
+    900
+   ]
+  ],
+  [
+   [
+    540,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo off; Tu-Su 09:00-15:00",
+ "src": "shop",
+ "source": "https://www.rafsnewyork.com/location/rafs/",
+ "checked": "2026-11-24",
+ "osm_hours": "Tu-Su 09:00-14:00,17:00-22:00+",
+ "note": "OpenStreetMap's hours could not be read with certainty. Read: Raf's is open Tuesday – Sunday / Bakery: Tuesday – Sunday 9 a.m. – 3 p.m. / Breakfast: Tuesday – Thursday 9 a.m. – 11:30 a.m. / Brunch ... / Lunch ... / Dinner: Tuesday – Thursday 5 p.m. – 10 p.m., Friday – Saturday 5 p.m. – 10:30 p.m., Sunday 5 p.m. – 9 p.m. Re-fetched to read the table columns. Used the Bakery hours (the walk-in counter); breakfast, brunch, lunch and dinner are restaurant services. Monday closed is stated (\"open Tuesday – Sunday\")."
+}

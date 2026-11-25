@@ -1,0 +1,54 @@
+{
+ "id": "n2562136780",
+ "name": "Zatar",
+ "hours": [
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-22:00",
+ "src": "shop",
+ "source": "https://zatar.nyc/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00\"; the shop's own source wins. Read: Park Slope Location / Opening Hours / Everyday 8:00 AM - 10:00 PM / phone / (929) 252-1287 / store / 1201 8th Ave, Brooklyn, NY 11215 The 8:00 AM - 1:45 AM block is the Bushwick location (1294 Myrtle Ave). Extra fetch made to tie blocks to addresses."
+}

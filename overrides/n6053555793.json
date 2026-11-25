@@ -1,0 +1,54 @@
+{
+ "id": "n6053555793",
+ "name": "Veniero's Pasticceria & Caffé",
+ "hours": [
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 08:00-22:00; Fr-Sa 08:00-23:00",
+ "src": "shop",
+ "source": "https://www.venieros.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th,Su 08:00-22:00; Fr-Sa 08:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: Our Hours / Sun - Thu 8 AM - 10 PM / Fri - Sat 8 AM - 11 PM / Visit Us / 342 East 11th Street"
+}

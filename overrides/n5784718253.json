@@ -1,0 +1,66 @@
+{
+ "id": "n5784718253",
+ "name": "Crispy Heaven Bakery",
+ "hours": [
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 08:00-15:00; Th-Fr 08:00-15:00,17:00-22:00; Sa 08:00-16:00,17:00-22:00; Su 08:00-16:00",
+ "src": "shop",
+ "source": "https://crispyheavennyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-We 08:00-15:00; Th-Fr 08:00-15:00, 17:00-22:00; Sa 08:00-16:00, 17:00-22:00; Su 08:00-16:00",
+ "note": "Agrees with OpenStreetMap. Read: 222 Lafayette Street / Hours / MONDAY 8am-3pm / TUESDAY 8am-3pm / WEDNESDAY 8am-3pm / THURSDAY 8am-3pm 5pm-10pm / FRIDAY 8am-3pm 5pm-10pm / SATURDAY 8am-4pm 5pm-10pm / SUNDAY 8am-4pm Matches OSM exactly."
+}

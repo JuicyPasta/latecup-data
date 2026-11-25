@@ -1,0 +1,54 @@
+{
+ "id": "w241844604",
+ "name": "The Chocolate Room",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-22:00",
+ "src": "shop",
+ "source": "https://www.thechocolateroombrooklyn.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 12:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Hours: Everyday 12PM - 10PM / Come Visit Us / 269 Court St, Brooklyn, NY 11231 schema.org (Mo-Su 00:00-00:00, address typo 296) is a stale placeholder; visible text matches OSM."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n4252887915",
+ "name": "Cousin John's",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-21:00; Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://www.cousinjohnsbakery.com/store-info/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 07:00-21:00; Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Store Hours / Monday - Saturday : 7:00 AM - 9:00 PM / Sunday : 8:00 AM - 8:00 PM Used \"Store Hours\" (ignored breakfast/lunch/brunch hours). Site address reads 60 7th Avenue vs OSM 62 7th Ave; single-location bakery. Matches OSM."
+}

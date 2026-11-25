@@ -1,0 +1,54 @@
+{
+ "id": "n14367854314",
+ "name": "Peral",
+ "hours": [
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-15:00",
+ "src": "shop",
+ "source": "https://peralbk.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Tu 08:00-15:00; We-Th 08:00-15:00, 17:00-22:00; Fr-Sa 08:00-15:00, 17:00-23:00; Su 08:00-15:00, 17:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Tu 08:00-15:00; We-Th 08:00-15:00, 17:00-22:00; Fr-Sa 08:00-15:00, 17:00-23:00; Su 08:00-15:00, 17:00-22:00\"; the shop's own source wins. Read: 105 Saratoga Ave / DAILY 8am-3pm / taco + bar / WEDS, THURS, SUN 5pm-10pm / FRI, SAT 5pm-11PM Used only the daytime café hours; the evening service is labelled \"taco + bar\", so it was left out."
+}

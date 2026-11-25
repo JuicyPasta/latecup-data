@@ -1,0 +1,54 @@
+{
+ "id": "n5265713182",
+ "name": "Ferrara",
+ "hours": [
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 09:00-22:00; Fr-Sa 09:00-23:00",
+ "src": "shop",
+ "source": "https://www.ferraranyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th,Su 09:00-22:00; Fr-Sa 09:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: CAFE HOURS: Sun-Thu: 9:00 AM-10:00 PM; Fri-Sat: 9:00 AM-11:00 PM"
+}

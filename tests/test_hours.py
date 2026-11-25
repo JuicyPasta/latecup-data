@@ -80,7 +80,8 @@ def test_stretches_follow_the_chain():
     ("Mo-Su 07:00-23:00", 1380, True),
     ("Mo-Su 07:00-02:00", 1560, True),
     ("Mo-Su 00:00-02:00,10:00-18:00", 1560, True),   # open after midnight: late
-    ("Mo-Su 04:00-12:00", 1740, True),               # open before 05:00: an all-night spot by the app's rule
+    ("Mo-Su 04:00-12:00", 720, False),               # an early opening is not a late night
+    ("Mo-Su 04:30-22:30", 1350, True),
     ("Mo-Su 05:00-12:00", 720, False),
     ("24/7", 1740, True),
     ("Mo-Su 18:00-06:00", 1740, True),

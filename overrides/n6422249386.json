@@ -1,0 +1,9 @@
+{
+ "id": "n6422249386",
+ "name": "McNulty’s Tea & Coffee Co",
+ "exclude": true,
+ "source": "https://mcnultys.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 10:00-21:00; Su 13:00-19:00",
+ "note": "Not a café by its own site: A tea and coffee-bean retail shop (online shop, \"a visit to our store\"), not a café serving drinks; its hours are retail store hours (Mo-Sa 11:00-19:00; Su 11:00-17:00)."
+}

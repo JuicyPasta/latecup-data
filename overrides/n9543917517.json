@@ -1,0 +1,54 @@
+{
+ "id": "n9543917517",
+ "name": "% Arabica",
+ "hours": [
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://arabicacoffeeus.com/pages/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 08:00-20:00; Sa-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 08:00-20:00; Sa-Su 08:00-20:00\"; the shop's own source wins. Read: New York - Dumbo / Address: / 20 Old Fulton St, Brooklyn, NY 11201 / Get Directions / Store Hours: / Daily: 8AM - 6PM Bundle lines lacked location names; the page (same URL as in bundle) shows name, address, then hours for each store. OSM (to 20:00) is stale."
+}

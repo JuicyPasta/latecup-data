@@ -1,0 +1,54 @@
+{
+ "id": "n10703267650",
+ "name": "Teazzi Tea Shop",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://teazzi.com/contact/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Long Island City - Queens NY / 347 554 2680 / 43-21 Hunter Street, Queens, NY 11101 / Open In Google Maps / Mon-Fri 11:00 a.m.-22:00 p.m. / Sat-Sun 11:00 a.m.-22:00 p.m. Fetched the contact page: each block is name, address, map link, then hours, so the block after \"43-21 Hunter Street\" is LIC's (the bundle lines had made it look like the Sun-Thurs 11-21 block). Matches OSM."
+}

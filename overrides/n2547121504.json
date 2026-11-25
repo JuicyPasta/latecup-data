@@ -1,0 +1,54 @@
+{
+ "id": "n2547121504",
+ "name": "CHONG",
+ "hours": [
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 12:00-21:00; Sa-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.chongnyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 11:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 11:00-21:00\"; the shop's own source wins. Read: Opening Hours / Weekday : 12.00 pm. to 09.00 pm. / Weekend : 11.00 am. to 10.00 pm. Read \"Weekday\" as Mon-Fri and \"Weekend\" as Sat-Sun. Single-location site. Differs from OSM (Mo-Su 11-21)."
+}

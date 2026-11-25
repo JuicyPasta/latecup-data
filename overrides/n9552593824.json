@@ -1,0 +1,54 @@
+{
+ "id": "n9552593824",
+ "name": "The Donut Pub",
+ "hours": [
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "24/7",
+ "src": "shop",
+ "source": "https://www.donutpub.com/location/astor-place/",
+ "checked": "2026-11-24",
+ "osm_hours": "06:00-21:00",
+ "note": "OpenStreetMap said \"06:00-21:00\"; the shop's own source wins. Read: 740 Broadway / Open 24/7"
+}

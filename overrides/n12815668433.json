@@ -1,0 +1,54 @@
+{
+ "id": "n12815668433",
+ "name": "Gem",
+ "hours": [
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-18:00",
+ "src": "shop",
+ "source": "https://www.gemhomenyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "We-Sa 09:00-21:00; Su 09:00-18:00",
+ "note": "OpenStreetMap said \"We-Sa 09:00-21:00; Su 09:00-18:00\"; the shop's own source wins. Read: 181 Mott St. NY, NY 10012 / Open Daily 9am - 6pm / MPC Pop Up Wednesday - Saturday 6pm - 10pm The evening \"MPC Pop Up\" is a separate pop-up, not the café's hours, so it was left out. OSM has We-Sa until 21:00, which probably counts the pop-up."
+}

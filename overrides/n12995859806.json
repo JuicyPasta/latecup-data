@@ -1,0 +1,54 @@
+{
+ "id": "n12995859806",
+ "name": "Café Bilboquet",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://cafebilboquet.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00\"; the shop's own source wins. Read: Hours Of Operation / Monday - Friday 7:00 AM - 8:00 PM / Saturday 8:00 AM - 8:00 PM / Sunday 8:00 AM - 6:00 PM / 26 East 60 Sunday close differs from OSM (20:00); page wins."
+}

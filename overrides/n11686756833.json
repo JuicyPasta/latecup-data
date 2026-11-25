@@ -1,0 +1,9 @@
+{
+ "id": "n11686756833",
+ "name": "Westville",
+ "exclude": true,
+ "source": "https://westville.com/locations/westville-upper-west-side/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 11:30-22:00; Sa-Su 10:00-16:00,17:00-21:30",
+ "note": "Not a café by its own site: Westville is a full-service restaurant (brunch/dinner menu, eggs, pancakes); listed hours are restaurant hours."
+}

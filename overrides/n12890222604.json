@@ -1,0 +1,54 @@
+{
+ "id": "n12890222604",
+ "name": "Cafe 2by2",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+ "src": "shop",
+ "source": "https://www.cafe2by2.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 11:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Su 11:00-22:00\"; the shop's own source wins. Read: Locations & Hours / 84 E 10th Street, 2nd FL, New York NY 10003 / Opening Hours / Monday-Thursday 11:00 AM-9:00 PM / Friday -Saturday 11:00 AM-10:00 PM / Sunday 11:00 AM-9:00 PM Differs from OSM (Mo-Su 11-22); page wins."
+}

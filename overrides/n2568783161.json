@@ -1,0 +1,54 @@
+{
+ "id": "n2568783161",
+ "name": "Mockingbird",
+ "hours": [
+  [
+   [
+    540,
+    960
+   ]
+  ],
+  [
+   [
+    540,
+    960
+   ]
+  ],
+  [
+   [
+    540,
+    960
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 09:00-16:00; Th-Fr 09:00-22:00; Sa 10:00-22:00; Su 10:00-21:00",
+ "src": "shop",
+ "source": "https://mockingbird.nyc/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-We 09:00-16:00, Th-Fr 09:00-22:00, Sa 10:00-22:00, Su 20:00-21:00",
+ "note": "OpenStreetMap said \"Mo-We 09:00-16:00, Th-Fr 09:00-22:00, Sa 10:00-22:00, Su 20:00-21:00\"; the shop's own source wins. Read: MOCKINGBIRD / 213 7th Ave / Hours / Monday-Wednesday - 9am-4pm / Thursday-Friday - 9am-10pm / Saturday - 10am-10pm / Sunday - 10am-9pm Coffee/tea café with evening N/A-cocktail service in the same venue; footer hours block used. schema.org (Mo off; Tu-Th 17:00-22:00 ...) is stale and disagrees."
+}

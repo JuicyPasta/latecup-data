@@ -1,0 +1,53 @@
+{
+ "id": "n5891774859",
+ "name": "Gran Caffé de Martini",
+ "hours": [
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 08:00-17:00; Sa-Su 09:00-18:00",
+ "src": "shop",
+ "source": "https://www.caffedemartini.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: We are open everyday! / Weekdays 8 to 5 pm / Weekends 9 to 6pm / 609 vanderbilt avenue"
+}

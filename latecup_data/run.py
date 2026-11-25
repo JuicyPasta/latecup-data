@@ -44,6 +44,12 @@ def now_iso():
     return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
 
+def load_report():
+    """The manifest's `report` block: report.json in the repository root, or None."""
+    f = ROOT / "report.json"
+    return json.loads(f.read_text()) if f.exists() else None
+
+
 def make(elements, site, *, now=None, allow_shrink=False, log=print):
     """Build and validate; write into `site` only when everything passes.
     Returns the manifest. Raises validate.Invalid or RuntimeError."""
@@ -89,10 +95,7 @@ def make(elements, site, *, now=None, allow_shrink=False, log=print):
         "count": n, "confirmed": sum(p["src"] != "osm" for p in places), "updated": doc["generated"],
         "tag_coverage": {t: round(sum(t in p.get("tags", ()) for p in places) / n, 3) for t in TAGS},
     })
-    report = None
-    report_file = ROOT / "report.json"
-    if report_file.exists():
-        report = json.loads(report_file.read_text())
+    report = load_report()
     manifest = {
         "format": FORMAT, "generated": now, "min_build": MIN_BUILD, "cities": [city], "map": MAP,
         "holidays": holidays.upcoming(datetime.strptime(now, "%Y-%m-%dT%H:%M:%SZ").date()),

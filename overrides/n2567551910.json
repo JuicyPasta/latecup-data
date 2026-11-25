@@ -1,0 +1,54 @@
+{
+ "id": "n2567551910",
+ "name": "Bake Culture",
+ "hours": [
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1170
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 08:00-19:30; Fr-Sa 08:00-20:00",
+ "src": "shop",
+ "source": "https://bakecultureusa.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 09:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 09:00-20:00\"; the shop's own source wins. Read: 48 Bowery / Located in the historic bustle of the Bowery … / Sunday - Thursday 8:00 AM - 7:30 PM / Friday - Saturday 8:00 AM - 8:00 PM / (646) 858-2898 Multi-location page; the 48 Bowery block is labelled. OSM (09:00-20:00) differs; page text used."
+}

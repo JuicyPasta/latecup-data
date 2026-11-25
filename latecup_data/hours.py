@@ -312,18 +312,21 @@ def is_24_7(table):
 
 def latest_close(table):
     """The latest closing time of the week in minutes from the stretch's own
-    service day (05:00 -> 05:00): 1320 = 22:00, 1500 = 01:00. A stretch that
-    is still open at 05:00 the next morning counts as 1740 (all night).
-    None for an empty table."""
+    service day (05:00 -> 05:00): 1320 = 22:00, 1500 = 01:00, capped at 1740
+    (05:00 the next morning: open all night). None for an empty table.
+
+    The app's rule (SPEC "Closes tonight"): a stretch that starts after
+    midnight and ends by 05:00 belongs to the night before; one that starts
+    after midnight and runs past 05:00 is that day's own opening (a shop open
+    04:30-22:30 closes at 22:30)."""
     best = None
     for _day, start, end in stretches(table):
         if end - start >= DAY_MIN:
             close = 1740
+        elif start < 300 and end <= 300:
+            close = end + DAY_MIN          # 00:00-02:00: the tail of the night before
         else:
-            if start < 300:            # starts before 05:00: belongs to the previous night
-                start += DAY_MIN
-                end += DAY_MIN
-            close = min(end, 1740)     # 05:00 the next morning
+            close = min(end, 1740)
         best = close if best is None else max(best, close)
     return best
 

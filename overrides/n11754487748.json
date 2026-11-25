@@ -1,0 +1,54 @@
+{
+ "id": "n11754487748",
+ "name": "Conwell Coffee Hall",
+ "hours": [
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-21:00; Sa-Su 09:00-21:00",
+ "src": "shop",
+ "source": "https://conwellhall.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:30-21:00; Sa-Su 09:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: schema.org opening hours published on the shop's own page"
+}

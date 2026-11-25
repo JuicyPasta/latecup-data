@@ -1,0 +1,54 @@
+{
+ "id": "n5861839487",
+ "name": "Mister Cheeks",
+ "hours": [
+  [
+   [
+    450,
+    1140
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-19:00; Sa-Su 08:00-17:00",
+ "src": "shop",
+ "source": "https://www.mistercheeksbk.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 08:00-20:00, Fr-Su 07:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Th 08:00-20:00, Fr-Su 07:00-21:00\"; the shop's own source wins. Read: 347 COURT STREET, BROOKLYN / MON-FRI 7:30am - 7pm / SAT-SUN 8am - 5pm OSM differs; page text used."
+}

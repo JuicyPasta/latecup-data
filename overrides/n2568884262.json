@@ -1,0 +1,52 @@
+{
+ "id": "n2568884262",
+ "name": "Ursula",
+ "hours": [
+  [],
+  [],
+  [
+   [
+    480,
+    840
+   ]
+  ],
+  [
+   [
+    480,
+    840
+   ]
+  ],
+  [
+   [
+    480,
+    840
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    840
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    840
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu off; We-Th 08:00-14:00; Fr 08:00-14:00,17:00-22:00; Sa 09:00-14:00,17:00-22:00; Su 09:00-14:00",
+ "src": "shop",
+ "source": "https://www.ursulabk.com/location/ursula/",
+ "checked": "2026-11-24",
+ "osm_hours": "We,Th 08:00-14:00,17:00-21:00; Fr 08:00-14:00,17:00-22:00; Sa 09:00-14:00,17:00-22:00; Su 09:00-14:00",
+ "note": "OpenStreetMap said \"We,Th 08:00-14:00,17:00-21:00; Fr 08:00-14:00,17:00-22:00; Sa 09:00-14:00,17:00-22:00; Su 09:00-14:00\"; the shop's own source wins. Read: 387A Nostrand Avenue, Brooklyn, NY 11216 / Wednesday - Thursday 8 am - 2 pm / Friday 8 am - 2 pm 5 pm - 10 pm / Saturday 9 am - 2 pm 5 pm - 10 pm / Sunday 9 am - 2 pm Re-fetched the location page to check nothing was cut: hours listed Wednesday through Sunday only, so Mon-Tue closed is implied. OSM's We-Th evening hours are no longer on the site."
+}

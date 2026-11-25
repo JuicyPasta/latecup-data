@@ -1,0 +1,53 @@
+{
+ "id": "n11968161061",
+ "name": "Vanilla Gorilla Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.vanillagorillacafe.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: We are located at 332 W 44th St ... and 525 8th Ave ... / Business Hours / Sunday: 7:00 AM - 7:00 PM ... Saturday: 7:00 AM - 7:00 PM (both location blocks) Extra fetch completed the truncated Saturday line. OSM node has no address, but the site has only two locations and both show identical hours (schema.org also Mo-Su 07:00-19:00 for both)."
+}

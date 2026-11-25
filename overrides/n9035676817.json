@@ -1,0 +1,54 @@
+{
+ "id": "n9035676817",
+ "name": "Tea Makers",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.teamakersnyc.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Su-We 11:00-21:00; Th-Sa 11:00-22:00",
+ "note": "OpenStreetMap said \"Su-We 11:00-21:00; Th-Sa 11:00-22:00\"; the shop's own source wins. Read: 15 West 32nd Street, New York, NY 10001 / Open Hours: / Sunday - Saturday / 11am - 10pm / Brooklyn / Open Hours: / Sunday - Saturday / 11am - 10pm Both location blocks give the same hours, so the block assignment does not matter. Differs from OSM (Su-We 11-21; Th-Sa 11-22); page wins."
+}

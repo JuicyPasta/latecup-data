@@ -1,0 +1,54 @@
+{
+ "id": "n4149654489",
+ "name": "MUD",
+ "hours": [
+  [
+   [
+    450,
+    1380
+   ]
+  ],
+  [
+   [
+    450,
+    1380
+   ]
+  ],
+  [
+   [
+    450,
+    1380
+   ]
+  ],
+  [
+   [
+    450,
+    1380
+   ]
+  ],
+  [
+   [
+    450,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-23:00; Sa-Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://www.mudnyc.com/pages/mudspot",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:30-23:00; Sa-Su 08:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: 307 East 9th Street. (off of 2nd Ave), / Open every Day! ... / Mon-Fri 7:30am til 11pm / Sat & Sun 8am til 11pm"
+}

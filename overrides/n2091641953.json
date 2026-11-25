@@ -1,0 +1,54 @@
+{
+ "id": "n2091641953",
+ "name": "Cafe Amrita",
+ "hours": [
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://amritacafe.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 08:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: 301 W 110th St, New York, NY • (212) 222-0683 / Mon - Sun 8AM - 11 PM 301 W 110th St = 301 Cathedral Pkwy. Daily list (Mon–Sun 8:00 AM - 11:00 PM) agrees."
+}

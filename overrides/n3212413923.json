@@ -1,0 +1,54 @@
+{
+ "id": "n3212413923",
+ "name": "Sunday to Sunday",
+ "hours": [
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 08:00-18:00; Th-Sa 08:00-23:00; Su 08:00-21:00",
+ "src": "shop",
+ "source": "https://sundaytosundaynyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-We, Su 08:00-18:00; Th-Sa 08:00-23:00",
+ "note": "OpenStreetMap said \"Mo-We, Su 08:00-18:00; Th-Sa 08:00-23:00\"; the shop's own source wins. Read: 88 Orchard St, / Restaurant Hours: / Sunday 8:00AM - 9:00PM / Monday - Wednesday 8:00AM - 6:00PM / Thursday - Saturday 8:00AM - 11:00PM Single venue; the site labels its general hours \"Restaurant Hours\" (café by day with evening service Th-Sa). Sunday close differs from OSM (18:00); page wins."
+}

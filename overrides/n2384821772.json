@@ -1,0 +1,54 @@
+{
+ "id": "n2384821772",
+ "name": "The Donut Pub",
+ "hours": [
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "24/7",
+ "src": "shop",
+ "source": "https://www.donutpub.com/location/west-village/",
+ "checked": "2026-11-24",
+ "osm_hours": "24/7",
+ "note": "Agrees with OpenStreetMap. Read: 203 W 14th Street (at 7th Avenue) / Open 24 Hours"
+}

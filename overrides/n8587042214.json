@@ -1,0 +1,53 @@
+{
+ "id": "n8587042214",
+ "name": "Buddy Buddy",
+ "hours": [
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-18:00; Sa-Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://us.buddybuddy.co/pages/new-york",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: OPENING HOURS / Weekdays: 7:30 AM - 6:00 PM / Weekends: 8:00 AM - 6:00 PM"
+}

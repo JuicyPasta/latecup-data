@@ -1,0 +1,53 @@
+{
+ "id": "n2704048091",
+ "name": "WatchHouse",
+ "hours": [
+  [
+   [
+    390,
+    1080
+   ]
+  ],
+  [
+   [
+    390,
+    1080
+   ]
+  ],
+  [
+   [
+    390,
+    1080
+   ]
+  ],
+  [
+   [
+    390,
+    1080
+   ]
+  ],
+  [
+   [
+    390,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:30-18:00; Sa-Su 07:00-18:00",
+ "src": "shop",
+ "source": "https://watchhouse.com/en-us/blogs/locations/park-avenue-south",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 287 Park Ave South, New York, NY 10010 / Hours. / Mon - Fri: 6:30am - 6:00pm / Sat - Sun: 7:00am - 6:00pm Location-specific page."
+}

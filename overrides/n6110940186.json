@@ -1,0 +1,54 @@
+{
+ "id": "n6110940186",
+ "name": "Yaya Tea",
+ "hours": [
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:00-20:00",
+ "src": "shop",
+ "source": "https://yayatea.com/store/little-italy-manhattan-ny/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 10:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: 206 Grand St / Hours / Daily 10:00 AM - 8:00 PM"
+}

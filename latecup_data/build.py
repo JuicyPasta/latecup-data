@@ -1,6 +1,7 @@
 """OSM elements + overrides + additions -> the feed's places and the to-confirm list."""
 import json
 import math
+from difflib import SequenceMatcher
 from collections import Counter
 from pathlib import Path
 
@@ -23,9 +24,9 @@ def load_overrides(folder=None):
         rec = json.loads(f.read_text())
         if rec.get("id") != f.stem:
             raise ValueError(f"{f.name}: the id inside must match the file name")
-        if rec.get("closed"):
+        if rec.get("closed") or rec.get("exclude"):
             if not rec.get("source") or not rec.get("checked"):
-                raise ValueError(f"{f.name}: a closed record needs source and checked")
+                raise ValueError(f"{f.name}: a closed or excluded record needs source and checked")
         else:
             if rec.get("src") not in ("shop", "brand") or not rec.get("source") or not rec.get("checked"):
                 raise ValueError(f"{f.name}: needs src (shop|brand), source and checked")
@@ -58,23 +59,41 @@ def suspicious(table):
     return None
 
 
+def _same_shop(a, b):
+    """Two mappings of one shop: the same name within 60 m, or nearly the same
+    name at the same street address within 150 m."""
+    d = _dist_m(a["pos"], b["pos"])
+    na, nb = norm(a["tags"]["name"]), norm(b["tags"]["name"])
+    if na == nb:
+        return d < 60
+    if d < 150:
+        aa, ab = clean.address(a["tags"]), clean.address(b["tags"])
+        if (aa and aa == ab) or (d < 25 and not (aa and ab)):
+            return SequenceMatcher(None, na, nb).ratio() >= 0.85
+    return False
+
+
 def _dedupe(cands):
     """Drop the second mapping of one shop (a node and a building way, or a
-    double entry): same normalized name within 60 m. Keeps the richer one."""
-    by_name = {}
-    for c in cands:
-        by_name.setdefault(norm(c["tags"]["name"]), []).append(c)
+    double entry). Keeps the richer one."""
+    order = sorted(cands, key=lambda c: ("opening_hours" not in c["tags"], -len(c["tags"]), c["id"][0] != "n",
+                                         c["id"]))
+    cells = {}
     keep, dropped = [], []
-    for group in by_name.values():
-        group.sort(key=lambda c: ("opening_hours" not in c["tags"], -len(c["tags"]), c["id"][0] != "n", c["id"]))
-        kept = []
-        for c in group:
-            twin = next((k for k in kept if _dist_m(c["pos"], k["pos"]) < 60), None)
-            if twin is None:
-                kept.append(c)
-            else:
-                dropped.append((c["id"], twin["id"]))
-        keep.extend(kept)
+    for c in order:
+        cx, cy = int(c["pos"][0] / 0.002), int(c["pos"][1] / 0.002)
+        twin = None
+        for dx in (-1, 0, 1):
+            for dy in (-1, 0, 1):
+                for k in cells.get((cx + dx, cy + dy), ()):
+                    if _same_shop(c, k):
+                        twin = k
+                        break
+        if twin is None:
+            keep.append(c)
+            cells.setdefault((cx, cy), []).append(c)
+        else:
+            dropped.append((c["id"], twin["id"]))
     return keep, dropped
 
 
@@ -153,8 +172,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
                     osm_checked=clean.check_date(tags))
         if ov is not None:
             used_overrides.add(pid)
-            if ov.get("closed"):
-                stats["closed by override"] += 1
+            if ov.get("closed") or ov.get("exclude"):
+                stats["closed by override" if ov.get("closed") else "excluded by override"] += 1
                 continue
             table, src, checked = H.normalize(ov["hours"]), ov["src"], ov["checked"]
         else:
@@ -205,6 +224,14 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
 
     for pid in sorted(set(overrides) - used_overrides):
         warnings.append(f"override {pid} matches no classified OSM place (deleted, re-mapped or re-tagged)")
+
+    # a neighbourhood name belongs to one borough (the app and the web pages group by it)
+    boro_of = {}
+    for p in places:
+        other = boro_of.setdefault(p["hood"], p["boro"])
+        if other != p["boro"]:
+            raise ValueError(f"neighbourhood {p['hood']!r} is in two boroughs ({other} and {p['boro']}): "
+                             f"fix geo.py (FRIENDLY or SUB_AREAS)")
 
     places.sort(key=lambda p: p["id"])
     to_confirm.sort(key=lambda p: p["id"])

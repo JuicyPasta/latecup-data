@@ -1,0 +1,54 @@
+{
+ "id": "n3233781193",
+ "name": "Stumptown",
+ "hours": [
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:30-19:00; Sa-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.stumptowncoffee.com/pages/new-york-greenwich-village-cafe",
+ "checked": "2026-11-24",
+ "osm_hours": "07:00-20:00",
+ "note": "OpenStreetMap said \"07:00-20:00\"; the shop's own source wins. Read: 30 W 8TH STREET / NEW YORK, NY 10011 / WEEKDAYS 6:30AM-7PM / WEEKENDS 7AM-7PM Chain location page."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n4330787300",
+ "name": "Frisson Espresso",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 07:00-19:00; We-Fr 07:00-20:00; Sa 07:30-20:00; Su 07:30-19:00",
+ "src": "shop",
+ "source": "https://frissonespresso.co/hours/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo,Tu 07:00-19:00; We-Fr 07:00-20:00; Sa 07:30-20:00; Su 07:30-19:00",
+ "note": "Agrees with OpenStreetMap. Read: Hours: / 7am-7pm Monday,Tuesday, / 7am-8pm Wednesday,Thursday,Friday / 7:30am-8pm Saturday / 7:30am-7pm Sunday / ... 326 W 47th St Two location blocks on the hours page are identical, so the 326 W 47th St hours are unambiguous. Matches OSM."
+}

@@ -1,0 +1,53 @@
+{
+ "id": "n13980008580",
+ "name": "Qahwah Valley",
+ "hours": [
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1500
+   ]
+  ],
+  [
+   [
+    480,
+    1500
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-23:00; Fr 07:00-01:00; Sa 08:00-01:00; Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://www.qahwahvalley.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Sunday / 8:00 AM - 11:00 PM / Monday / 7:00 AM - 11:00 PM / Tuesday / 7:00 AM - 11:00 PM / Wednesday / 7:00 AM - 11:00 PM / Thursday / 7:00 AM - 11:00 PM / Friday / 7:00 AM - 1:00 AM / Saturday / 8:00 AM - 1:00 AM Bundle address is null; the page's schema.org location is \"Qahwah Valley 1st avenue\", 630 1st Avenue (Murray Hill), with exactly the same hours as the visible text."
+}

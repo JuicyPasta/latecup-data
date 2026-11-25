@@ -1,0 +1,54 @@
+{
+ "id": "w1182743758",
+ "name": "Hex & Co",
+ "hours": [
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-23:00; Fr 11:00-24:00; Sa 10:00-24:00; Su 10:00-23:00",
+ "src": "shop",
+ "source": "https://www.hexnyc.com/east/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th, Su 10:00-23:00; Fr, Sa 10:00-24:00",
+ "note": "OpenStreetMap said \"Mo-Th, Su 10:00-23:00; Fr, Sa 10:00-24:00\"; the shop's own source wins. Read: Hex&Co. East / 646-833-7574 / 1462 1st Ave, New York, NY, 10075 / Monday 11:00 AM - 11:00 PM ... Thursday 11:00 AM - 11:00 PM / Friday 11:00 AM - 12:00 AM / Saturday 10:00 AM - 12:00 AM / Sunday 10:00 AM - 11:00 PM Extra fetch confirmed block structure: page lists West (2911 Broadway), East, Union Square, each name+address followed by its hours; used the East block. Differs from OSM on weekday opening."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n3805991016",
+ "name": "Fortunato Brothers",
+ "hours": [
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 08:00-22:00; Fr-Sa 08:00-24:00",
+ "src": "shop",
+ "source": "https://www.fortunatobrothers.com/location/fortunato-brothers/",
+ "checked": "2026-11-24",
+ "osm_hours": "08:00-23:00",
+ "note": "OpenStreetMap said \"08:00-23:00\"; the shop's own source wins. Read: 289 Manhattan Avenue, / Sunday - Thursday / 8 AM - 10 PM / Friday & Saturday / 8 AM - Midnight"
+}

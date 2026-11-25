@@ -1,0 +1,54 @@
+{
+ "id": "n14216453501",
+ "name": "Kerber's Farm",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 07:00-20:00; Fr-Sa 07:00-22:00",
+ "src": "shop",
+ "source": "https://kerbersfarm.com/pages/nyc",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-20:00\"; the shop's own source wins. Read: Kerber's Farm - NYC / 264 Bleecker St. / New York City / (212) 837-2702 / Open 7 days / 7am - 8pm Sun. - Thurs. / 7am - 10pm Fri. - Sat. The \"Open 7 days / 7am - 8pm\" block belongs to the Huntington farm (309 W. Pulaski Rd.). OSM (Mo-Su 07:00-20:00) differs on Fr-Sa; page text used. Extra fetch made."
+}

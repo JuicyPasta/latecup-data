@@ -1,0 +1,54 @@
+{
+ "id": "n11860537157",
+ "name": "Nana's Green Tea",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-22:00; Fr-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://www.nanasgreenteaus.com/blank-3",
+ "checked": "2026-11-24",
+ "osm_hours": "Fr-Su 11:00-21:00, Mo-Th 11:00-20:00",
+ "note": "OpenStreetMap said \"Fr-Su 11:00-21:00, Mo-Th 11:00-20:00\"; the shop's own source wins. Read: Address: 1250 Broadway, New York, NY 10001, USA / OPENING HOURS / Come Visit / Mon - Thur: 11am - 10pm / Fri - Sun: 11am - 11pm Page text used per rule, but OSM says two hours earlier (Mo-Th 20:00, Fr-Su 21:00) and the page footer is ©2023; worth a second look if this one matters for late listings."
+}

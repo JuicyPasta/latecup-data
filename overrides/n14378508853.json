@@ -1,0 +1,53 @@
+{
+ "id": "n14378508853",
+ "name": "Urban Backyard",
+ "hours": [
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    510,
+    1080
+   ]
+  ],
+  [
+   [
+    510,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-18:00; Sa-Su 08:30-18:00",
+ "src": "shop",
+ "source": "https://www.urbanbackyardnyc.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Hudson Square / 161 6th Avenue / New York, NY 10013 / Store Hours / Weekdays 7:30am – 6pm / Weekend 8:30am - 6pm The weekend-to-7pm block belongs to Nolita (180 Mulberry St). Extra fetch made to tie blocks to addresses."
+}

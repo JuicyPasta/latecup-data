@@ -1,0 +1,54 @@
+{
+ "id": "n2569964222",
+ "name": "Tangscape",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-21:00; Sa-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://www.tangscapeny.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 08:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 08:00-21:00\"; the shop's own source wins. Read: 63-44 108th St, Forest Hills, NY 11375 / Hours: / Mon - Fri: 7 AM - 9 PM / Sat - Sun: 11 AM - 11 PM Differs from OSM (Mo-Su 08-21); page wins."
+}

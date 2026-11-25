@@ -1,0 +1,54 @@
+{
+ "id": "n13510354134",
+ "name": "Xing Fu Tang",
+ "hours": [
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1410
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-22:30; Fr 12:00-23:30; Sa-Su 11:00-22:30",
+ "src": "shop",
+ "source": "https://xingfutang.com/koreatown",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 12:00-22:30;Fr 12:00-23:30;Sa-Su 11:00-22:30",
+ "note": "Agrees with OpenStreetMap. Read: HOURS: 12PM-10:30PM MONDAY / 12PM-10:30PM TUESDAY / 12PM-10:30PM WEDNESDAY / 12PM-10:30PM THURSDAY / 12PM-11-30PM FRIDAY / 11AM-10:30PM SATURDAY / 11AM-10:30PM SUNDAY Location page for 325 5th Ave. Each time precedes its day label in the page layout. Friday reads \"12PM-11-30PM\" (typo for 11:30PM); OSM independently has Fr 12:00-23:30."
+}

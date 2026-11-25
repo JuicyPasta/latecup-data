@@ -1,0 +1,54 @@
+{
+ "id": "n4747210026",
+ "name": "Chipped Cup Coffee & Victuals",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-17:00; Sa-Su 08:00-17:00",
+ "src": "shop",
+ "source": "https://www.chippedcupcoffee.com/location/the-chipped-cup/",
+ "checked": "2026-11-24",
+ "osm_hours": "Su, Sa 08:00-20:00; Mo-Fr 07:00-20:00",
+ "note": "OpenStreetMap said \"Su, Sa 08:00-20:00; Mo-Fr 07:00-20:00\"; the shop's own source wins. Read: 3610 Broadway, / Monday - Friday / 7am-5pm / Saturday & Sunday / 8am-5pm / (kitchen closes at 2pm daily) OSM (to 20:00) is stale per the site."
+}

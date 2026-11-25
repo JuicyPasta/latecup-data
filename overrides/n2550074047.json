@@ -1,0 +1,48 @@
+{
+ "id": "n2550074047",
+ "name": "Atelier Ariana",
+ "hours": [
+  [
+   [
+    420,
+    1050
+   ]
+  ],
+  [],
+  [
+   [
+    420,
+    1050
+   ]
+  ],
+  [
+   [
+    420,
+    1050
+   ]
+  ],
+  [
+   [
+    420,
+    1050
+   ]
+  ],
+  [
+   [
+    510,
+    1050
+   ]
+  ],
+  [
+   [
+    510,
+    1050
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:00-17:30; Tu off; We-Fr 07:00-17:30; Sa-Su 08:30-17:30",
+ "src": "shop",
+ "source": "https://www.atelierariana.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 478 Smith St / Open: / Monday 7AM to 5:30PM / Wednesday through Friday 7AM to 5:30PM / Saturday through Sunday 8:30AM to 5:30PM Tuesday is skipped in an otherwise complete list, so read as closed."
+}

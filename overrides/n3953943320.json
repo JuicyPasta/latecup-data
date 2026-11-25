@@ -1,0 +1,54 @@
+{
+ "id": "n3953943320",
+ "name": "Runner & Stone",
+ "hours": [
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:30-18:00; Tu-Th 07:30-21:00; Fr 07:30-22:00; Sa 08:00-22:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.runnerandstone.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo 07:30-18:00; Tu-Th 07:30-21:00; Fr 07:30-22:00; Sa 08:00-22:00; Su 08:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: 285 Third Avenue, Brooklyn, NY 11215 / … Monday 7:30AM-6PM / Tuesday, Wednesday, Thursday 7:30AM - 9PM / Friday 7:30AM - 10PM / Saturday 8AM-10PM / Sunday 8AM - 6PM schema.org (one hour later Tu-Sa) disagrees; visible text used, and it matches OSM exactly."
+}

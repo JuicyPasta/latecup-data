@@ -1,0 +1,53 @@
+{
+ "id": "n1999231230",
+ "name": "The West",
+ "hours": [
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-02:00",
+ "src": "shop",
+ "source": "http://www.thewestbrooklyn.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: 379 Union Ave / Williamsburg, Brooklyn NY / Open 7AM - 2AM / everyday Coffee shop and bar in one venue; open as one venue all day."
+}

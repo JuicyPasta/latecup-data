@@ -1,0 +1,53 @@
+{
+ "id": "n9051252639",
+ "name": "Butler",
+ "hours": [
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:30-17:00; Sa-Su 07:30-18:00",
+ "src": "shop",
+ "source": "https://www.butler-nyc.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: HOURS … STH WILLIAMSBURG / 6.30am-5pm weekdays / 7.30am-6pm weekends … SOUTH WILLIAMSBURG / 95 SOUTH 5TH STREET, , / BROOKLYN, NY. 11249 Multi-location; the \"Come visit\" section names 95 South 5th Street as South Williamsburg (North Williamsburg is the 101 N 8th St kiosk). Extra fetch made."
+}

@@ -1,0 +1,38 @@
+{
+ "id": "n13643792686",
+ "name": "Opening Move Cafe",
+ "hours": [
+  [],
+  [],
+  [],
+  [
+   [
+    630,
+    1020
+   ]
+  ],
+  [
+   [
+    630,
+    1080
+   ]
+  ],
+  [
+   [
+    630,
+    1080
+   ]
+  ],
+  [
+   [
+    630,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We off; Th 10:30-17:00; Fr-Sa 10:30-18:00; Su 10:30-17:00",
+ "src": "shop",
+ "source": "https://openingmovecafe.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Opening Hours / Thursday • 10:30am - 5:00pm / Friday • 10:30am - 6:00pm / Saturday • 10:30am - 6:00pm / Sunday • 10:30am - 5:00pm / 208 East 87th Street Extra fetch confirmed the hours list has only Thursday-Sunday (nothing truncated), so Mon-Wed read as closed."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n2713490449",
+ "name": "Nûrish",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-20:00; Su 07:00-18:00",
+ "src": "shop",
+ "source": "https://www.nurishbk.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Sa 07:00-20:00; Su 07:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: 637 Washington Avenue / Hours of Operation: / Monday - Saturday: 7 AM - 8 PM / Sunday: 7 AM - 6 PM Matches OSM."
+}

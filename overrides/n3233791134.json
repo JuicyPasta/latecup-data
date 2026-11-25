@@ -1,0 +1,54 @@
+{
+ "id": "n3233791134",
+ "name": "The Uncommons",
+ "hours": [
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:00-23:00; Fr-Sa 10:00-24:00; Su 10:00-23:00",
+ "src": "shop",
+ "source": "https://uncommonsnyc.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 10:00-23:00, Fr-Sa 10:00-24:00, Su 10:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: 230 Thompson St / Hours: / Mon-Thur: 10AM-11PM / Fri/Sat: 10AM-Midnight / Sun: 10AM-11PM Board-game café. Matches OSM."
+}

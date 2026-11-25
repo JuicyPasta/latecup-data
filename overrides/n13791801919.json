@@ -1,0 +1,54 @@
+{
+ "id": "n13791801919",
+ "name": "Teapulse",
+ "hours": [
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1380
+   ]
+  ],
+  [
+   [
+    630,
+    1380
+   ]
+  ],
+  [
+   [
+    630,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:30-22:00; Fr-Su 10:30-23:00",
+ "src": "shop",
+ "source": "https://www.teapulseusa.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 10:30-22:00, Fr-Su 10:30-23:00",
+ "note": "Agrees with OpenStreetMap. Read: FLUSHING / 37-17 Prince St / Flushing, NY 11354 / (929) 369-7915 / HOURS / MON - THUR / FRI - SUN / 10:30AM - 10:00PM / 10:30AM - 11:00PM Two-column layout (labels then times in the same order); matches OSM exactly. Extra fetch made to recover the MON - THUR label."
+}

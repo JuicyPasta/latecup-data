@@ -1,0 +1,53 @@
+{
+ "id": "n6689923801",
+ "name": "Dän Bakery",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://danbakery.us/pages/location-nyc",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Hours / Monday - Friday 7:00 AM - 8:00 PM / Saturday - Sunday 8:00 AM - 8:00 PM"
+}

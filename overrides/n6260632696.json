@@ -1,0 +1,53 @@
+{
+ "id": "n6260632696",
+ "name": "Mille-Feuille Bakery Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-18:00",
+ "src": "shop",
+ "source": "https://www.millefeuille-nyc.com/",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Upper West Side / 2173 Broadway / 7am - 6pm daily"
+}

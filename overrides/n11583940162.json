@@ -1,0 +1,54 @@
+{
+ "id": "n11583940162",
+ "name": "Irving Farm Coffee Roasters",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-18:00; Sa-Su 07:30-18:00",
+ "src": "shop",
+ "source": "https://irvingfarmcoffee.com/pages/upper-west-side",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-22:00; Sa-Su 08:00-22:00\"; the shop's own source wins. Read: 224 W 79th St / HOURS / Monday - Friday: 7:00 AM - 6:00 PM / Saturday - Sunday: 7:30 AM - 6:00 PM"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n4320014581",
+ "name": "Bar Pisellino",
+ "hours": [
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-23:00",
+ "src": "shop",
+ "source": "https://barpisellino.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Su 08:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: INDIRIZZO / 52 Grove Street & 92 Seventh Avenue … ORARI / Tutti Giorni • 8am to 11pm One venue on the corner (two street addresses). Italian espresso/aperitivo bar: \"classic, morning-till-late Italian bar … from espresso\". Matches OSM. Extra fetch made."
+}

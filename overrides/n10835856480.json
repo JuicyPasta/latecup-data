@@ -1,0 +1,54 @@
+{
+ "id": "n10835856480",
+ "name": "I'Milky",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:30-21:00; Fr-Su 11:30-21:30",
+ "src": "shop",
+ "source": "https://www.imilkyusa.com/locations",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 11:30-21:00; Fr-Su 11:30-21:30",
+ "note": "Agrees with OpenStreetMap. Read: Address: 142 N6 Street, Brooklyn NY 11249 / Phone No.: (585) 421-7795 / Open Hours: / Mon-Thurs: 11:30am-9:00pm / Fri-Sun: 11:30am-9:30pm Re-fetched to settle the block order: each block is Address, Phone, Open Hours. Matches OSM."
+}

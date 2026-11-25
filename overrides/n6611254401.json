@@ -1,0 +1,53 @@
+{
+ "id": "n6611254401",
+ "name": "Stumptown Coffee Roasters",
+ "hours": [
+  [
+   [
+    360,
+    1020
+   ]
+  ],
+  [
+   [
+    360,
+    1020
+   ]
+  ],
+  [
+   [
+    360,
+    1020
+   ]
+  ],
+  [
+   [
+    360,
+    1020
+   ]
+  ],
+  [
+   [
+    360,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-17:00; Sa-Su 06:30-17:00",
+ "src": "shop",
+ "source": "https://www.stumptowncoffee.com/pages/locations",
+ "checked": "2026-11-24",
+ "note": "OpenStreetMap had no hours. Read: Ace Hotel New York Cafe / 18 W 29TH STREET / NEW YORK, NY 10001 / WEEKDAYS 6AM-5PM / WEEKENDS 6:30AM-5PM Extra fetch of the chain locator. OSM node has no address; matched by neighbourhood: Ace Hotel (18 W 29th St) is the only Stumptown in NoMad (the other Manhattan one is 30 W 8th St)."
+}

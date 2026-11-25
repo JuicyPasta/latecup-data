@@ -1,0 +1,54 @@
+{
+ "id": "n4348628442",
+ "name": "Cup of Brooklyn",
+ "hours": [
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-16:00; Fr 08:00-17:00; Sa-Su 09:00-17:00",
+ "src": "shop",
+ "source": "https://www.cupofbrooklyn.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo-Th 08:00-16:00; Fr 08:00-17:00; Sa-Su 09:00-05:00",
+ "note": "OpenStreetMap said \"Mo-Th 08:00-16:00; Fr 08:00-17:00; Sa-Su 09:00-05:00\"; the shop's own source wins. Read: 1071 Gates Ave, Brooklyn NY 11221 / Hours / Mon–Thu 8–4 / Fri 8-5 / Sat 9–5 / Sun 9–5 Extra fetch (bundle lines cut off after \"Hours\"). No AM/PM on page; café, so 8–4 read as 08:00-16:00. Single location. OSM \"Sa-Su 09:00-05:00\" is a typo for 17:00."
+}

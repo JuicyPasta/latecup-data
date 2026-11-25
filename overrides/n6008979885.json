@@ -1,0 +1,54 @@
+{
+ "id": "n6008979885",
+ "name": "St Kilda Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:00-18:00; Tu-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.stkildacoffee.com/",
+ "checked": "2026-11-24",
+ "osm_hours": "Mo 07:00-18:00; Tu-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: Mon 7am-6pm / Tue-Friday 7am-8pm / Sat 8am-8pm / Sunday 8am-6pm / Hells Kitchen 44 / 328 West 44 Street Both hours blocks on the page are identical. Matches OSM."
+}
