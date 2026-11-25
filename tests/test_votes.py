@@ -120,3 +120,112 @@ def test_make_writes_only_aggregates(tmp_path):
     assert "aaaaaaaa-0000" not in published and "iid" not in published
     recheck = json.loads((site / "ops" / "recheck.json").read_text())["places"]
     assert [r["id"] for r in recheck] == ["n2", "n1", "n3"] and recheck[0]["reports"] == 2
+
+
+# ---------------------------------------------------------------- quarantine
+
+from datetime import date  # noqa: E402
+
+import pytest  # noqa: E402
+
+LATER = datetime(2026, 12, 20, 5, 0, tzinfo=timezone.utc)
+
+
+def platform_rows():
+    text = (Path(__file__).parent / "fixtures" / "reports-platforms.csv").read_text().replace("HH1", HH)
+    return votes.read_rows(text, NY)
+
+
+def counted(rules, now=LATER):
+    rows = [r for r in platform_rows() if not votes.quarantined(r, rules, NY)]
+    return votes.count(rows, PLACES, SINCE, now, NY), len(platform_rows()) - len(rows)
+
+
+def rule(platform="android", start="2026-11-24", until=None):
+    return {"platform": platform, "from": date.fromisoformat(start),
+            "until": date.fromisoformat(until) if until else None, "why": "test"}
+
+
+def test_platform_column_is_read_and_optional():
+    rows = platform_rows()
+    assert [r[4] for r in rows] == ["android", "android", "ios", "web", "", "android", "", "android", "ios",
+                                    "android", "android", "web", "android", "android"]
+    # an older export with four columns: every platform is blank, nothing is quarantined
+    old = votes.read_rows(fixture(), NY)
+    assert old and all(r[4] == "" for r in old)
+    assert not any(votes.quarantined(r, [rule()], NY) for r in old)
+    # columns are found by name, whatever their order
+    text = "platform,note,place_id,type,timestamp\nandroid,,n2,hours,2026-11-25 22:00:00"
+    assert [(r[1], r[2], r[4]) for r in votes.read_rows(text, NY)] == [("hours", "n2", "android")]
+
+
+def test_no_rule_counts_everything():
+    out, held = counted([])
+    assert held == 0
+    assert out["n1"]["ok"] == [7, "2026-11-25"] and out["n1"]["stars"] == [3.0, 2]
+    assert out["n2"] == {"ok": [2, "2026-12-11"], "bad": [2, "2026-11-25"]} and out["n3"] == {"bad": [1, "2026-11-25"]}
+
+
+def test_android_rule_with_no_end_drops_every_android_row_from_its_first_day():
+    out, held = counted([rule()])
+    # dropped: the 11-24 and " Android " confirmations, the 1-star rating, both reports on n2, both December rows.
+    # kept: the android row of 23:30 on 11-23 New York time (the day before the rule), ios, web, blank, "windows"
+    assert held == 7
+    assert out["n1"] == {"ok": [5, "2026-11-25"], "stars": [5.0, 1]}
+    assert "n2" not in out                                  # no totals and no place on the recheck list
+    assert out["n3"] == {"bad": [1, "2026-11-25"]}
+
+
+def test_closing_the_window_keeps_the_test_period_out_for_good():
+    # at Play production the rule gets its last day; rows of the test period stay out, later ones count
+    out, held = counted([rule(until="2026-12-10")])
+    assert held == 6
+    assert out["n1"] == {"ok": [5, "2026-11-25"], "stars": [5.0, 1]}
+    assert out["n2"] == {"ok": [1, "2026-12-11"]}           # the 23:59 row of the last day is still out
+    # deleting the rule instead would count the paid testers' rows again: that is why a rule is never deleted
+    assert counted([])[0]["n2"]["bad"] == [2, "2026-11-25"]
+
+
+def test_rules_apply_per_platform():
+    out, held = counted([rule("web", "2026-11-25", "2026-11-25")])
+    assert held == 2 and "n3" not in out and out["n1"]["ok"][0] == 6
+
+
+def test_make_logs_the_quarantined_count_and_keeps_them_off_the_recheck_list(tmp_path):
+    site = tmp_path / "site"
+    (site / "v1").mkdir(parents=True)
+    (site / "ops").mkdir()
+    (site / "v1" / "nyc.json").write_text(json.dumps({"places": list(PLACES.values())}))
+    (site / "ops" / "hh-since.json").write_text(json.dumps(SINCE))
+    text = (Path(__file__).parent / "fixtures" / "reports-platforms.csv").read_text().replace("HH1", HH)
+    lines = []
+    votes.make(site, text, now="2026-12-20T05:00:00Z", log=lines.append, rules=[rule()])
+    assert "14 usable rows, 7 quarantined (1 rule(s)), 7 counted" in lines[0]
+    recheck = json.loads((site / "ops" / "recheck.json").read_text())["places"]
+    assert [r["id"] for r in recheck] == ["n3"]
+    doc = json.loads((site / "v1" / "nyc-votes.json").read_text())
+    assert "n2" not in doc["votes"] and "android" not in json.dumps(doc)
+
+
+def test_the_shipped_config_has_the_android_rule():
+    rules = votes.load_quarantine()
+    assert any(r["platform"] == "android" and r["from"] == date(2026, 11, 24) and r["until"] is None for r in rules)
+
+
+@pytest.mark.parametrize("content", [
+    "not json", '{"rules": {}}', '[]',
+    '{"rules": [{"platform": "android", "until": null, "why": "x"}]}',                      # no from
+    '{"rules": [{"platform": "symbian", "from": "2026-11-24", "until": null, "why": "x"}]}',
+    '{"rules": [{"platform": "android", "from": "24/11/2026", "until": null, "why": "x"}]}',
+    '{"rules": [{"platform": "android", "from": "2026-11-24", "until": "2026-11-01", "why": "x"}]}',
+    '{"rules": [{"platform": "android", "from": "2026-11-24", "until": null, "why": ""}]}',
+])
+def test_a_broken_quarantine_file_stops_the_run(tmp_path, content):
+    f = tmp_path / "quarantine.json"
+    f.write_text(content)
+    with pytest.raises(ValueError, match="quarantine.json"):
+        votes.load_quarantine(f)
+
+
+def test_no_quarantine_file_means_no_rules(tmp_path):
+    assert votes.load_quarantine(tmp_path / "missing.json") == []

@@ -16,6 +16,11 @@ Counting rules (Latecup SPEC, "Visitor confirmations and ratings"):
     date and newer than the last change of its hours.
 Every field is hostile input: an unknown place, a malformed note, stars
 outside 1-5 or a duplicate key skips the row; nothing in a row is fatal.
+
+Quarantine (quarantine.json in the repository root): rows from a platform in a
+date window are dropped before anything is counted, so they reach neither the
+totals nor the recheck list. Used for periods when the taps are not real
+visits (a store's closed test with paid testers).
 """
 import argparse
 import csv
@@ -25,12 +30,12 @@ import os
 import re
 import sys
 from collections import defaultdict
-from datetime import datetime, timedelta, timezone
+from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from . import FORMAT, http, validate
-from .run import CITY, _dump, now_iso
+from .run import CITY, ROOT, _dump, now_iso
 
 MAX_AGE_DAYS = 120
 MAX_VOTES_A_DAY = 30
@@ -38,6 +43,48 @@ MAX_ROWS = 500_000
 _UUID = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 _HH = re.compile(r"^[0-9A-Za-z_-]{1,40}$")
 _FORMATS = ("%m/%d/%Y %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%S", "%m/%d/%Y %H:%M")
+
+
+PLATFORMS = ("ios", "android", "web")
+
+
+def load_quarantine(path=None):
+    """The rules of quarantine.json, checked. A broken file stops the run:
+    counting rows that should have been dropped is worse than counting none."""
+    path = Path(path or ROOT / "quarantine.json")
+    if not path.exists():
+        return []
+    try:
+        rules = json.loads(path.read_text())["rules"]
+    except (ValueError, KeyError, TypeError):
+        raise ValueError("quarantine.json is not {\"rules\": [...]}") from None
+    if not isinstance(rules, list):
+        raise ValueError("quarantine.json: rules must be a list")
+    out = []
+    for r in rules:
+        try:
+            start = date.fromisoformat(r["from"])
+            end = date.fromisoformat(r["until"]) if r.get("until") is not None else None
+            ok = r["platform"] in PLATFORMS and isinstance(r["why"], str) and r["why"].strip() \
+                and (end is None or end >= start)
+        except (KeyError, TypeError, ValueError, AttributeError):
+            ok = False
+        if not ok:
+            raise ValueError(f"quarantine.json: bad rule {r!r} (platform ios|android|web, from YYYY-MM-DD, "
+                             f"until YYYY-MM-DD or null, why)")
+        out.append({"platform": r["platform"], "from": start, "until": end, "why": r["why"]})
+    return out
+
+
+def quarantined(row, rules, tz):
+    """True when a row falls under a rule: its platform, and its day in the
+    city's time zone inside the rule's window (both ends included)."""
+    when, platform = row[0], row[4]
+    if not platform:
+        return False
+    day = when.astimezone(tz).date()
+    return any(r["platform"] == platform and r["from"] <= day and (r["until"] is None or day <= r["until"])
+               for r in rules)
 
 
 def parse_time(text, tz):
@@ -78,7 +125,9 @@ def parse_note(note):
 
 
 def read_rows(text, tz):
-    """CSV text -> list of (time, type, place_id, fields). Bad rows are skipped."""
+    """CSV text -> list of (time, type, place_id, fields, platform). Bad rows
+    are skipped. Columns are found by header name; `platform` (ios, android,
+    web or blank) is optional: older exports have four columns."""
     reader = csv.reader(io.StringIO(text))
     try:
         header = [h.strip().lower() for h in next(reader)]
@@ -88,6 +137,7 @@ def read_rows(text, tz):
         col = {name: header.index(name) for name in ("timestamp", "type", "place_id", "note")}
     except ValueError:
         raise ValueError("the reports CSV needs the columns timestamp, type, place_id, note") from None
+    pcol = header.index("platform") if "platform" in header else None
     rows = []
     for n, row in enumerate(reader):
         if n >= MAX_ROWS:
@@ -101,8 +151,11 @@ def read_rows(text, tz):
             continue
         if when is None or len(pid) > 80:
             continue
+        platform = row[pcol].strip().lower() if pcol is not None and pcol < len(row) else ""
+        if platform not in PLATFORMS:
+            platform = ""
         if kind in ("hours", "closed"):
-            rows.append((when, kind, pid, {}))
+            rows.append((when, kind, pid, {}, platform))
         elif kind in ("attest", "rate"):
             f = parse_note(note)
             if f is None:
@@ -118,7 +171,7 @@ def read_rows(text, tz):
             else:
                 if f.get("stars") not in ("1", "2", "3", "4", "5") or set(f) != {"v", "iid", "stars"}:
                     continue
-            rows.append((when, kind, pid, f))
+            rows.append((when, kind, pid, f, platform))
     return rows
 
 
@@ -130,13 +183,13 @@ def count(rows, places, hh_since, now, tz):
     rows = [r for r in rows if r[0] <= now + timedelta(minutes=10)]      # nothing from the future
     # an install with more than 30 votes in one (city) day is dropped whole
     per_day = defaultdict(int)
-    for when, kind, _pid, f in rows:
+    for when, kind, _pid, f, *_ in rows:
         if kind in ("attest", "rate"):
             per_day[(f["iid"], when.astimezone(tz).date())] += 1
     flooders = {iid for (iid, _day), n in per_day.items() if n > MAX_VOTES_A_DAY}
 
     ok, stars, bad = {}, {}, defaultdict(list)
-    for when, kind, pid, f in sorted(rows, key=lambda r: r[0]):
+    for when, kind, pid, f, *_ in sorted(rows, key=lambda r: r[0]):
         p = places.get(pid)
         if p is None:
             continue
@@ -177,8 +230,9 @@ def empty(now=None):
     return {"format": FORMAT, "city": CITY["id"], "generated": now or now_iso(), "votes": {}}
 
 
-def make(site, csv_text, now=None, tz_name=None, log=print):
-    """Rebuild the votes file in `site`. Returns True when it changed."""
+def make(site, csv_text, now=None, tz_name=None, log=print, rules=None):
+    """Rebuild the votes file in `site`. Returns True when it changed.
+    `rules`: quarantine rules (default: quarantine.json)."""
     site = Path(site)
     v1 = site / "v1"
     now = now or now_iso()
@@ -188,7 +242,11 @@ def make(site, csv_text, now=None, tz_name=None, log=print):
         hh_since = json.loads((site / "ops" / "hh-since.json").read_text())
     except (OSError, ValueError):
         hh_since = {}
+    rules = load_quarantine() if rules is None else rules
     rows = read_rows(csv_text, tz) if csv_text else []
+    usable = len(rows)
+    rows = [r for r in rows if not quarantined(r, rules, tz)]
+    held = usable - len(rows)
     when = datetime.strptime(now, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
     votes = count(rows, places, hh_since, when, tz)
     doc = {"format": FORMAT, "city": CITY["id"], "generated": now, "votes": votes}
@@ -198,7 +256,8 @@ def make(site, csv_text, now=None, tz_name=None, log=print):
         old = json.loads(path.read_text())
     except (OSError, ValueError):
         old = None
-    log(f"{len(rows)} usable rows; votes for {len(votes)} places "
+    log(f"{usable} usable rows, {held} quarantined ({len(rules)} rule(s)), {len(rows)} counted; "
+        f"votes for {len(votes)} places "
         f"({sum('ok' in v for v in votes.values())} with confirmations, "
         f"{sum('bad' in v for v in votes.values())} reported wrong, "
         f"{sum('stars' in v for v in votes.values())} rated)")

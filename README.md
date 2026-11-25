@@ -55,6 +55,8 @@ python tools/override.py n1234567890 "Mo-Th 08:00-24:00; Fr-Sa 08:00-02:00; Su 0
 git add overrides/ && git commit -m "Confirm Example Coffee House" && git push
 ```
 
+**Quarantined votes.** [`quarantine.json`](quarantine.json) lists periods whose votes and reports must never be counted: `{"platform": "android", "from": "2026-11-24", "until": null, "why": "…"}`. The hourly `votes` step drops every row of that platform whose New York date is from `from` through `until` (both included; `null` = still running) before it counts anything, and its log line says how many it dropped. The platform comes from the reports CSV's optional fifth column (`ios`, `android`, `web` or blank). **To end a rule, set `until` to its last day. Never delete a rule:** the rows of that period would be counted again.
+
 **The publish guard.** Confirmed hours that leave a place closed four or more days a week, or open on other days than OpenStreetMap has, are not published as confirmed on the first reading: the place keeps its OpenStreetMap hours and appears under `recheck` in `ops/to-confirm.json`. Look at the source again, then add `--second-look YYYY-MM-DD` to the command (or `"second_look": "YYYY-MM-DD"` to the record).
 
 The push starts the `refresh` workflow, which rebuilds and publishes. The hours argument is OSM `opening_hours` syntax; the tool refuses a string the parser is not certain about.
@@ -99,5 +101,6 @@ tools/publish.sh work/site                                                      
 | `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings and wrong-hours reports |
 | `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools |
 | `overrides/`, `additions/` | Hours we confirmed; places we added |
+| `quarantine.json`, `report.json` | Vote periods that are never counted; the manifest's report endpoint |
 | `data/` | Neighbourhood polygons; the cache of looked-up street addresses |
 | `styles/` | The dark and light MapLibre styles |

@@ -1,0 +1,6 @@
+{
+  "about": "Votes and reports that must never be counted. A row is dropped when its platform matches a rule and its New York date is from `from` through `until` (both included; `until` null = still running). To end a rule, set `until` to its last day: never delete it, or the rows of that period would count again.",
+  "rules": [
+    {"platform": "android", "from": "2026-11-24", "until": null, "why": "Google Play closed test with paid testers"}
+  ]
+}

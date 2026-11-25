@@ -129,6 +129,8 @@ Dates are days in the city's time zone. An id here may briefly be missing from t
 
 **Counting rules.** A confirmation counts when its `hh` equals the place's current `hh` and it is under 120 days old; one per install per place (the newest). A rating: the newest per install per place. An install that sends more than 30 votes in one day is dropped whole. `bad` counts `hours` and `closed` reports dated after the place's `checked` date and made after its hours last changed; so a report disappears when we re-check the place or its hours change. Malformed rows are skipped.
 
+**Quarantine.** Rows from a platform in a date window listed in the repository's `quarantine.json` are dropped before anything is counted: they reach neither `ok`, `stars`, `bad` nor the re-check list. This is for periods when the taps are not real visits (the Google Play closed test with paid testers, Android, from 2026-11-24). A rule that has ended keeps its window, so those rows never count later.
+
 **What clients send** (to the manifest's `report` endpoint): `type` `attest` with `note` `v=1;iid=<uuid>;hh=<hh>`, or `type` `rate` with `note` `v=1;iid=<uuid>;stars=<1-5>`, plus `place_id`. `iid` is a random UUID the client makes once and keeps. The pipeline publishes counts only: no rows and no install ids. Nothing about where the visitor was is sent or counted (the first form of the note ended in `;onsite=0|1`; the pipeline still accepts it and ignores the flag).
 
 ## How the feed is made

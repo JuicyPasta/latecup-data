@@ -1,0 +1,15 @@
+timestamp,type,place_id,note,platform
+2026-11-23 23:30:00,attest,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000001;hh=HH1,android
+2026-11-24 00:10:00,attest,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000002;hh=HH1,android
+2026-11-25 20:00:00,attest,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000003;hh=HH1,ios
+2026-11-25 20:05:00,attest,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000004;hh=HH1,web
+2026-11-25 20:10:00,attest,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000005;hh=HH1,
+2026-11-25 20:15:00,attest,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000006;hh=HH1, Android 
+2026-11-25 20:20:00,attest,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000007;hh=HH1,windows
+2026-11-25 21:00:00,rate,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000002;stars=1,android
+2026-11-25 21:00:00,rate,n1,v=1;iid=eeeeeeee-0000-4000-8000-000000000003;stars=5,ios
+2026-11-25 22:00:00,hours,n2,,android
+2026-11-25 22:05:00,closed,n2,,android
+2026-11-25 22:10:00,hours,n3,,web
+2026-12-10 23:59:00,attest,n2,v=1;iid=eeeeeeee-0000-4000-8000-000000000008;hh=HH1,android
+2026-12-11 00:01:00,attest,n2,v=1;iid=eeeeeeee-0000-4000-8000-000000000009;hh=HH1,android
