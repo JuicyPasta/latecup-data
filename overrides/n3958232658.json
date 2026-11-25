@@ -1,0 +1,8 @@
+{
+ "id": "n3958232658",
+ "exclude": true,
+ "source": "https://www.starbucks.com/apiproxy/v1/locations?lat=40.74358&lng=-73.99208",
+ "checked": "2026-11-25",
+ "osm_hours": "Mo-Th 06:00-21:00; Fr 06:00-21:30; Sa 05:30-22:00; Su 06:00-21:00",
+ "note": "Not on Starbucks' own store locator on 2026-11-25: store 11203 (24th & 6th, 750 6th Ave) is not among the 50 stores the locator returns at its own coordinates (27th & 6th and 22nd & 6th are). Left off the map."
+}

@@ -1,6 +1,5 @@
 {
  "id": "n5603534984",
- "name": "Boris and Horton",
  "hours": [
   [
    [
@@ -23,32 +22,33 @@
   [
    [
     480,
-    1080
+    1320
    ]
   ],
   [
    [
     480,
-    1080
+    1320
    ]
   ],
   [
    [
     480,
-    1080
+    1320
    ]
   ],
   [
    [
     480,
-    1080
+    1200
    ]
   ]
  ],
- "hours_text": "Mo-We 08:00-20:00; Th-Su 08:00-18:00",
+ "hours_text": "Mo-We 08:00-20:00; Th-Sa 08:00-22:00; Su 08:00-20:00",
  "src": "shop",
  "source": "https://www.borisandhorton.com/",
- "checked": "2026-11-24",
+ "checked": "2026-11-25",
  "osm_hours": "Tu-Su 08:00-20:00",
- "note": "OpenStreetMap said \"Tu-Su 08:00-20:00\"; the shop's own source wins. Read: 195 Avenue A / Daytime Cafe Hours / Mon-Wed: 8am-8pm Thurs-Sun: 8am-6pm / \"After Dark\" Hours / Thurs-Sat: 6pm-10pm Sun: 6pm-8pm Dog café. Daytime Cafe hours used; the \"After Dark\" evening hours (bar-style; banner also says Thurs-Sun 6pm-10pm, inconsistent with the block) are not stated to be the same café service."
+ "note": "Second look 2026-11-25: Daytime Cafe Hours Mon-Wed 8am-8pm, Thurs-Sun 8am-6pm, plus its own 'After Dark' hours Thurs-Sat 6pm-10pm, Sun 6pm-8pm in the same space; open Mondays.",
+ "second_look": "2026-11-25"
 }

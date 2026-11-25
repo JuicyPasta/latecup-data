@@ -1,0 +1,53 @@
+{
+ "id": "n2556218501",
+ "hours": [
+  [
+   [
+    840,
+    1440
+   ]
+  ],
+  [
+   [
+    840,
+    1440
+   ]
+  ],
+  [
+   [
+    840,
+    1440
+   ]
+  ],
+  [
+   [
+    840,
+    1440
+   ]
+  ],
+  [
+   [
+    720,
+    1500
+   ]
+  ],
+  [
+   [
+    720,
+    1500
+   ]
+  ],
+  [
+   [
+    840,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 14:00-24:00; Fr-Sa 12:00-01:00; Su 14:00-24:00",
+ "src": "shop",
+ "source": "https://www.nextmovecafe.com/",
+ "checked": "2026-11-25",
+ "osm_hours": "Mo-Th 12:00-22:00; Fr-Sa 12:00-01:00; Su 12:00-22:00",
+ "note": "Board game café; the site's Hours block: Mon-Thu and Sun 2pm-12am, Fri-Sat 12pm-1am."
+}

@@ -1,0 +1,52 @@
+{
+ "id": "n6177508886",
+ "hours": [
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    540,
+    1560
+   ]
+  ],
+  [
+   [
+    540,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-24:00; Fr 08:00-02:00; Sa 09:00-02:00; Su 09:00-24:00",
+ "src": "shop",
+ "source": "https://www.judysbk.com/",
+ "checked": "2026-11-25",
+ "note": "Coffee by day, beer and wine at night (its FAQ: 'During the day the vibe is more coffee shop'). Hours block: Mon-Thurs 8am-12am, Fri 8am-2am, Sat 9am-2am, Sun 9am-12am."
+}

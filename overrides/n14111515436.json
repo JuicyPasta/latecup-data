@@ -1,0 +1,52 @@
+{
+ "id": "n14111515436",
+ "hours": [
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 00:00-24:00",
+ "src": "shop",
+ "source": "https://www.corgicafe.com/locations",
+ "checked": "2026-11-25",
+ "note": "Its locations page lists New York (NoMad), 121 E 27th St, as open 24/7."
+}

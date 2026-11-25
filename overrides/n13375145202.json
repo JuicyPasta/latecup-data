@@ -1,0 +1,52 @@
+{
+ "id": "n13375145202",
+ "hours": [
+  [
+   [
+    960,
+    1320
+   ]
+  ],
+  [
+   [
+    960,
+    1320
+   ]
+  ],
+  [
+   [
+    960,
+    1320
+   ]
+  ],
+  [
+   [
+    960,
+    1320
+   ]
+  ],
+  [
+   [
+    840,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 16:00-22:00; Fr 14:00-22:00; Sa 11:00-22:00; Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.recessgrove.com/visit",
+ "checked": "2026-11-25",
+ "note": "Regular hours from its visit page ('10pm ish' Fri-Sat read as 22:00). The page also says it is closed Wed 2026-11-25 through Sat 2026-11-28 for the holiday, reopening Sun 2026-11-29."
+}

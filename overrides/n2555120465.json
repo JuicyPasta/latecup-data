@@ -1,0 +1,52 @@
+{
+ "id": "n2555120465",
+ "hours": [
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:00-22:00; Fr-Sa 10:00-23:00; Su 10:00-22:00",
+ "src": "shop",
+ "source": "https://www.bibliothequenyc.com/",
+ "checked": "2026-11-25",
+ "note": "Bookstore and café by day, wine bar by night: 'Sun to Thu 10am-10pm, Fri & Sat 10am-11pm'."
+}

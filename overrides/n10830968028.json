@@ -1,0 +1,52 @@
+{
+ "id": "n10830968028",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-21:00",
+ "src": "brand",
+ "source": "https://joejuice.com/store/214",
+ "checked": "2026-11-25",
+ "note": "Read from Joe & The Juice's own store data (joepay-api.joejuice.com/stores, store 214 '161 Prince Street [Soho]'), the same hours on each weekday 2026-11-20 through 2026-12-03 (Thanksgiving 2026-11-26 not used)."
+}

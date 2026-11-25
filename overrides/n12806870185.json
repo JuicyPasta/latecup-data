@@ -1,0 +1,52 @@
+{
+ "id": "n12806870185",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-22:00",
+ "src": "brand",
+ "source": "https://joejuice.com/store/1023",
+ "checked": "2026-11-25",
+ "note": "Read from Joe & The Juice's own store data (joepay-api.joejuice.com/stores, store 1023 '296 Wythe Avenue [Williamsburg], 49 m from the OSM pin (OSM says 302 Wythe Ave; no other Joe & The Juice nearby)'), the same hours on each weekday 2026-11-20 through 2026-12-03 (Thanksgiving 2026-11-26 not used)."
+}
