@@ -36,7 +36,7 @@ MAX_AGE_DAYS = 120
 MAX_VOTES_A_DAY = 30
 MAX_ROWS = 500_000
 _UUID = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
-_HH = re.compile(r"^[0-9a-f]{8}$")
+_HH = re.compile(r"^[0-9A-Za-z_-]{1,40}$")
 _FORMATS = ("%m/%d/%Y %H:%M:%S", "%Y-%m-%d %H:%M:%S", "%Y-%m-%dT%H:%M:%S", "%m/%d/%Y %H:%M")
 
 
@@ -105,7 +105,10 @@ def read_rows(text, tz):
             rows.append((when, kind, pid, {}))
         elif kind in ("attest", "rate"):
             f = parse_note(note)
-            if f is None or not _UUID.match(f.get("iid", "")):
+            if f is None:
+                continue
+            f["iid"] = f.get("iid", "").lower()          # iOS writes UUIDs in capitals
+            if not _UUID.match(f["iid"]):
                 continue
             if kind == "attest":
                 if not _HH.match(f.get("hh", "")) or f.get("onsite") not in ("0", "1") or set(f) != {"v", "iid", "hh", "onsite"}:

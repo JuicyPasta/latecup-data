@@ -51,6 +51,24 @@ def test_an_install_with_more_than_30_votes_in_a_day_is_dropped_whole():
     assert out == {"n1": {"stars": [3.0, 1]}}
 
 
+def test_the_published_sheet_shape():
+    # the sanitised tab: `yyyy-mm-dd hh:mm:ss` in New York time, test rows with place_id "test",
+    # unknown types already turned into "other", install ids in either case
+    text = "\n".join([
+        "timestamp,type,place_id,note",
+        "2026-11-24 21:13:05,attest,test,v=1;iid=AAAAAAAA-0000-4000-8000-00000000000A;hh=abc;onsite=1",
+        f"2026-11-24 21:14:00,attest,n1,v=1;iid=AAAAAAAA-0000-4000-8000-00000000000A;hh={HH};onsite=1",
+        f"2026-11-25 23:50:00,attest,n1,v=1;iid=aaaaaaaa-0000-4000-8000-00000000000a;hh={HH};onsite=0",
+        "2026-11-24 21:15:00,rate,n1,v=1;iid=AAAAAAAA-0000-4000-8000-00000000000A;stars=4",
+        "2026-11-24 21:16:00,other,n1,",
+        "2026-11-24 21:17:00,hours,test,",
+        "2026-11-24 21:18:00,rate,n1,",
+    ])
+    out = votes.count(votes.read_rows(text, NY), PLACES, SINCE, NOW, NY)
+    # one install (capitals and lower case are the same id), its newest confirmation; the date is the New York day
+    assert out == {"n1": {"ok": [1, "2026-11-25", 0], "stars": [4.0, 1]}}
+
+
 def test_hostile_input_never_raises():
     nasty = "timestamp,type,place_id,note\n" + "\n".join([
         ',,,', '"', '11/22/2026 10:00:00,attest,' + "n" * 5000 + ',x', "11/22/2026 10:00:00,rate,n1," + "v=1;" * 500,
