@@ -1,0 +1,44 @@
+{
+ "id": "n6666722028",
+ "name": "The People's Forum",
+ "hours": [
+  [],
+  [
+   [
+    960,
+    1260
+   ]
+  ],
+  [
+   [
+    960,
+    1260
+   ]
+  ],
+  [
+   [
+    960,
+    1260
+   ]
+  ],
+  [
+   [
+    960,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Tu-Fr 16:00-21:00; Sa 10:00-21:00",
+ "src": "shop",
+ "source": "https://peoplesforum.org/",
+ "checked": "2026-11-26",
+ "osm_hours": "Tu-Th 11:00-21:00; Fr-Sa 10:00-22:00",
+ "note": "OpenStreetMap said \"Tu-Th 11:00-21:00; Fr-Sa 10:00-22:00\"; the shop's own source wins. Read: Hours: Tuesday - Friday 4:00pm - 9:00pm / Saturday 10am - 9pm / Closed on Sundays (Monday not listed)."
+}

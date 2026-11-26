@@ -1,0 +1,54 @@
+{
+ "id": "n2826581781",
+ "name": "The Doughnut Plant",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-21:00",
+ "src": "shop",
+ "source": "https://www.doughnutplant.com/location/lower-east-side/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Th, Su 06:30-20:00; Fr-Sa 06:30-21:00",
+ "note": "OpenStreetMap said \"Mo-Th, Su 06:30-20:00; Fr-Sa 06:30-21:00\"; the shop's own source wins. Read: 379 GRAND STREET: HOURS MONDAY-SUNDAY 7AM-9PM (same in the site's store data)."
+}

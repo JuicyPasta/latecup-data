@@ -1,0 +1,54 @@
+{
+ "id": "n11532552941",
+ "name": "Baked by Melissa",
+ "hours": [
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-19:00",
+ "src": "brand",
+ "source": "https://www.bakedbymelissa.com/pages/storelocator",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Fr 09:00-20:00; Sa-Su 10:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Fr 09:00-20:00; Sa-Su 10:00-21:00\"; the shop's own source wins. Read: Upper West Side, 2325 Broadway: MON - SUN: 11am - 7pm (holiday hours 11-25 11am-8pm, 11-26 8am-1pm, closed 12-25)."
+}

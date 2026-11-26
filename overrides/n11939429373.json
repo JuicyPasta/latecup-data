@@ -1,0 +1,55 @@
+{
+ "id": "n11939429373",
+ "name": "Do Not Feed Alligators",
+ "hours": [
+  [
+   [
+    480,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Su-We 08:00-19:00; Th-Sa 08:00-18:00",
+ "src": "shop",
+ "source": "https://donotfeedalligators.com/pages/west-village",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-We 08:00-21:00; Th-Sa 08:00-21:00",
+ "note": "Coffee Hours on the shop's West Village page (read twice 2026-11-26): Sunday - Wednesday 8am - 7pm, Thursday - Saturday 8am - 6pm. The same page lists Bar Hours Thursday - Saturday 6pm - Midnight; bar service is not used (café hours only, as for Little Canal and Cordelia). The site's hidden store data (Thu-Sun to 9 pm) disagrees with the page; the visible page is used. OpenStreetMap said \"Mo-We 08:00-21:00; Th-Sa 08:00-21:00\"; the shop's own page wins.",
+ "second_look": "2026-11-26"
+}

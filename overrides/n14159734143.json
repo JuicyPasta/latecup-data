@@ -1,0 +1,9 @@
+{
+ "id": "n14159734143",
+ "name": "Le Botaniste",
+ "exclude": true,
+ "source": "https://lebotaniste.us/locations",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Su 11:00-21:00",
+ "note": "A plant-based restaurant by its own site ('Find a Restaurant Near You'), not a café."
+}

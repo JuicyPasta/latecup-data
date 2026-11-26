@@ -1,0 +1,54 @@
+{
+ "id": "n13631309602",
+ "name": "Cup of Joe",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-22:00; Su 07:30-19:00",
+ "src": "shop",
+ "source": "https://www.cupofjoecoffeeco.com/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Sa 07:00-21:45, Su 07:30-18:45",
+ "note": "OpenStreetMap said \"Mo-Sa 07:00-21:45, Su 07:30-18:45\"; the shop's own source wins. Read: The shop's own Square site, location 8823 3rd Ave: business hours MON-SAT 07:00-22:00, SUN 07:30-19:00. The site's visible hours block still shows Square's 9-5 placeholder for every day; the store's business hours are used."
+}

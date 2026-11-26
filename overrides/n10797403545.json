@@ -1,0 +1,54 @@
+{
+ "id": "n10797403545",
+ "name": "Cup of Joe",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-20:00; Fr-Sa 07:00-21:00; Su 07:30-19:00",
+ "src": "shop",
+ "source": "https://www.cupofjoecoffeeco.com/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Th 07:00-20:00; Fr-Sa 07:00-21:00; Su 07:30-19:00",
+ "note": "Agrees with OpenStreetMap. Read: The shop's own Square site, location 7407 5th Ave: business hours MON-THU 07:00-20:00, FRI-SAT 07:00-21:00, SUN 07:30-19:00. The site's visible hours block still shows Square's 9-5 placeholder for every day; the store's business hours are used."
+}

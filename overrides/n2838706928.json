@@ -1,0 +1,49 @@
+{
+ "id": "n2838706928",
+ "name": "Muz Muz Shop & Cafe",
+ "hours": [
+  [],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Tu-Fr 14:00-21:00; Sa-Su 12:00-21:00; Mo off",
+ "src": "shop",
+ "source": "https://bksoftserve.square.site/",
+ "checked": "2026-11-26",
+ "osm_hours": "Tu-Fr 14:00-21:00; Sa,Su 12:00-21:00; Mo off",
+ "note": "Agrees with OpenStreetMap. Read: The shop's own Square site, 296 Graham Ave: business hours and pickup hours SUN 12:00-21:00, MON closed, TUE-FRI 14:00-21:00, SAT 12:00-21:00."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n4950995921",
+ "name": "The Roost",
+ "hours": [
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    1560
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-02:00; Su 07:00-14:00",
+ "src": "shop",
+ "source": "https://theroostnyc.square.site/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Th 07:00-02:00; Fr, Sa 08:00-03:30; Su 07:00-01:30",
+ "note": "OpenStreetMap said \"Mo-Th 07:00-02:00; Fr, Sa 08:00-03:30; Su 07:00-01:30\"; the shop's own source wins. Read: The shop's own Square site, location 'The Roost Cafe NYC, 222 Avenue B': business hours MON-SAT 07:00-24:00 plus 00:00-02:00 the next morning (TUE-SUN), SUN 07:00-14:00. Café hours. The same site lists a separate 'The Roost Bar NYC' (bar hours from 13:00/16:00); the bar is not used."
+}

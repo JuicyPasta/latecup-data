@@ -1,0 +1,54 @@
+{
+ "id": "n3887161496",
+ "name": "Culture",
+ "hours": [
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-22:30; Fr-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://www.cultureny.com/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Fr 11:30-22:30; Sa-Su 11:00-22:30",
+ "note": "OpenStreetMap said \"Mo-Fr 11:30-22:30; Sa-Su 11:00-22:30\"; the shop's own source wins. Read: Brooklyn, 331 5th Avenue: Monday-Thursday 11am-10:30pm, Friday-Sunday 11:00am-11:00pm (the site's location block)."
+}

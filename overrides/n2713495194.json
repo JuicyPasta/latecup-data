@@ -1,0 +1,54 @@
+{
+ "id": "n2713495194",
+ "name": "Stocked Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 11:00-21:00; Sa-Su 10:00-21:00",
+ "src": "shop",
+ "source": "https://stockedbrooklyn.com/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Th 12:00-22:00; Fr-Sa 12:00-23:00; Su 12:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th 12:00-22:00; Fr-Sa 12:00-23:00; Su 12:00-22:00\"; the shop's own source wins. Read: Hours: Monday-Friday 11am-9pm / Saturday & Sunday 10am-9pm"
+}

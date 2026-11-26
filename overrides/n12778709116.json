@@ -1,0 +1,54 @@
+{
+ "id": "n12778709116",
+ "name": "The Healing Bean",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-21:00; Sa-Su 09:00-21:00",
+ "src": "shop",
+ "source": "https://www.healingbeancafe.com/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Fr 07:00-21:00; Sa-Su 09:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Location block, 7904 3rd Avenue: Monday-Friday 07:00 am - 09:00 pm, Saturday-Sunday 09:00 am - 09:00 pm; the site's Square business hours say the same."
+}

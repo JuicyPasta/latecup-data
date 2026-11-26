@@ -1,0 +1,49 @@
+{
+ "id": "n12505709615",
+ "name": "Meadow Dessert",
+ "hours": [
+  [],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1380
+   ]
+  ],
+  [
+   [
+    690,
+    1380
+   ]
+  ],
+  [
+   [
+    690,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Tu-Th 11:30-22:00; Fr-Sa 11:30-23:00; Su 11:30-20:30; Mo off",
+ "src": "shop",
+ "source": "https://meadow-dessert.square.site/",
+ "checked": "2026-11-26",
+ "osm_hours": "Tu-Th 11:30-22:00; Fr, Sa 11:30-23:00; Su 11:30-20:30",
+ "note": "Agrees with OpenStreetMap. Read: The shop's own Square site, 3112 Steinway St: business hours SUN 11:30-20:30, MON closed, TUE-THU 11:30-22:00, FRI-SAT 11:30-23:00."
+}

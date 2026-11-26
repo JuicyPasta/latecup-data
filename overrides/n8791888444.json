@@ -1,0 +1,54 @@
+{
+ "id": "n8791888444",
+ "name": "Grace Street",
+ "hours": [
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1410
+   ]
+  ],
+  [
+   [
+    660,
+    1410
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 11:00-23:00; Fr-Sa 11:00-23:30",
+ "src": "shop",
+ "source": "https://grace-street.square.site/",
+ "checked": "2026-11-26",
+ "osm_hours": "Su-Th 11:00-23:00; Fr, Sa 11:00-23:30",
+ "note": "Agrees with OpenStreetMap. Read: The shop's own Square ordering site (linked from bygracestreet.com as Order): store business hours SUN-THU 11:00-23:00, FRI-SAT 11:00-23:30. Its main site disagreed with itself (body: Sun-Wed 11-23, Thu 11-23:30, Fri-Sat 11-24; footer: Thu-Sun 11-18/19, an old block). The ordering site's business hours decide it; they agree with OpenStreetMap and with the body block's late closes within 30 min."
+}

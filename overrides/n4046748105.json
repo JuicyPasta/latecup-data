@@ -1,0 +1,54 @@
+{
+ "id": "n4046748105",
+ "name": "Sunrise Sunset",
+ "hours": [
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1500
+   ]
+  ],
+  [
+   [
+    480,
+    1500
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-24:00; Fr-Sa 08:00-01:00; Su 08:00-24:00",
+ "src": "shop",
+ "source": "https://www.sunrisesunsetbk.com/",
+ "checked": "2026-11-26",
+ "osm_hours": "Mo-Fr 08:00-00:00; Sa-Su 00:00-01:00, 08:00-00:00",
+ "note": "OpenStreetMap said \"Mo-Fr 08:00-00:00; Sa-Su 00:00-01:00, 08:00-00:00\"; the shop's own source wins. Read: The shop's own Square site, Sunrise/Sunset 351 Evergreen Ave: business hours every day 08:00-24:00, plus SAT and SUN 00:00-01:00 (Friday and Saturday nights to 1 AM). The site's visible hours block still shows Square's 9-5 placeholder; the store's business hours are used."
+}
