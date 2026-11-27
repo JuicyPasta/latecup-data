@@ -247,3 +247,62 @@ def test_the_hourly_job_asks_for_what_it_needs_and_nothing_more():
         ['git push --quiet --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" gh-pages']
     assert text.count("git add -A") == 1 and text.index("cd site") < text.index("git add -A")
     assert "pull_request" not in text and text.count("secrets.") == 1          # the CSV's address, and only in the count step
+
+
+# ---------------------------------------------------------------- the whole job, twice
+
+def test_a_record_a_person_removed_stays_out_through_the_whole_job(world, tmp_path, monkeypatch, capsys):
+    """Count, commit, push; a person deletes the record; count again from the
+    same rows: nothing. New rows after the removal: the record is written again."""
+    from latecup_data import votes
+    origin, job, desk = world
+    hh = H.table_hash(OSM)
+    site = tmp_path / "site"
+    (site / "v1").mkdir(parents=True)
+    (site / "ops" / "chicago").mkdir(parents=True)
+    place = {"id": "n1001", "name": "Loop Owl", "lat": 41.8781, "lon": -87.6298, "addr": "1 Example St", "hours": OSM, "hh": hh,
+             "src": "osm", "checked": None}
+    (site / "v1" / "nyc.json").write_text(json.dumps({"places": []}))
+    (site / "v1" / "chicago.json").write_text(json.dumps({"places": [place]}))
+    (site / "ops" / "chicago" / "hh-since.json").write_text(json.dumps({"n1001": [hh, "2026-11-01T00:00:00Z"]}))
+    (site / "v1" / "manifest.json").write_text(json.dumps({"cities": [
+        {"id": "nyc", "tz": "America/New_York", "places": "nyc.json", "votes": "nyc-votes.json"},
+        {"id": "chicago", "tz": "America/Chicago", "places": "chicago.json", "votes": "chicago-votes.json"}]}))
+
+    def row(when, n):
+        return f'{when},fix,n1001,"v=2;iid={n:08x}-0000-4000-8000-{n:012x};hh={hh};t={V.encode(EARLIER)}",ios'
+
+    rows = ["timestamp,type,place_id,note,platform", row("2026-11-20 20:00:00", 1), row("2026-11-21 20:00:00", 2)]
+    plan = tmp_path / "plan.json"
+    monkeypatch.setenv("REPORTS_CSV_URL", "https://docs.example/pub?output=csv")
+    monkeypatch.setattr(votes.http, "get", lambda url, **_: "\n".join(rows).encode())
+    monkeypatch.setattr(votes, "load_quarantine", lambda path=None: [])
+
+    def hourly(now):
+        monkeypatch.setattr(votes, "now_iso", lambda: now)
+        assert votes.main(["--site", str(site), "--repo", str(job), "--plan", str(plan)]) == 0
+        written = json.loads(plan.read_text())
+        assert ledger.main([str(plan), "--repo", str(job)]) == 0
+        return [w["path"] for w in written]
+
+    assert hourly("2026-11-26T17:00:00Z") == ["visitors/chicago/n1001.json"]
+    assert files(origin, "main") == ["overrides/n1.json", "visitors/chicago/n1001.json"]
+    assert hourly("2026-11-26T18:00:00Z") == []                         # an hour later: nothing new
+
+    # a person takes the record out
+    git(desk, "pull", "--quiet", "--rebase", "origin", "main")
+    git(desk, "rm", "--quiet", "visitors/chicago/n1001.json")
+    git(desk, "commit", "--quiet", "-m", "Hours desk: not so", when="2026-11-27T12:00:00+00:00")
+    git(desk, "push", "--quiet", "origin", "main")
+
+    # the next run starts from a fresh checkout of main: the same rows do not write it again, and no longer ask
+    git(job, "pull", "--quiet", "--rebase", "origin", "main")
+    assert hourly("2026-11-28T17:00:00Z") == [] and "visitors/chicago/n1001.json" not in files(origin, "main")
+    assert json.loads((site / "v1" / "chicago-votes.json").read_text())["votes"] == {}
+
+    # what visitors send after the removal counts as it always did
+    rows += [row("2026-11-29 20:00:00", 3), row("2026-11-30 09:00:00", 4)]
+    assert hourly("2026-11-30T17:00:00Z") == ["visitors/chicago/n1001.json"]
+    assert json.loads((job / "visitors" / "chicago" / "n1001.json").read_text())["checked"] == "2026-11-30"
+    assert log(origin, "main")[0] == "Visitors: Loop Owl closes 23:00 Fri-Sat, 2 installs"
+    assert "0000-4000" not in capsys.readouterr().out + git(origin, "log", "--format=%B", "main")

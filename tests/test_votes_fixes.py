@@ -644,3 +644,16 @@ def test_a_failure_in_the_rules_for_visitors_hours_never_stops_the_other_counts(
     assert out.read_text().endswith("ledger=false\nproblem=true\n")
     said = capsys.readouterr()
     assert "::error::visitors' hours, chicago: KeyError" in said.out and not UUID.search(said.out + said.err)
+
+
+def test_an_area_file_can_say_whether_visitors_hours_are_published(tmp_path, monkeypatch):
+    from latecup_data import areas
+    monkeypatch.setattr(areas, "FOLDER", tmp_path)
+    (tmp_path / "nyc.json").write_text('{"id": "nyc", "visitors": true}')
+    (tmp_path / "chicago.json").write_text('{"id": "chicago", "visitors": false}')
+    (tmp_path / "austin.json").write_text('{"id": "austin"}')
+    (tmp_path / "boston.json").write_text('{"id": "boston", "visitors": "yes"}')            # not true or false: as if unsaid
+    (tmp_path / "dc.json").write_text("not json")
+    assert [votes.allows(a) for a in ("nyc", "chicago", "austin", "boston", "dc")] == [True, False, True, True, True]
+    (tmp_path / "nyc.json").write_text('{"id": "nyc"}')
+    assert votes.allows("nyc") is False
