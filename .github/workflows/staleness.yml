@@ -1,7 +1,10 @@
 name: staleness
 
 # Fails (GitHub emails the owner) if the published feed is older than 36 hours,
-# does not match its manifest, or no longer validates.
+# does not match its manifest, or no longer validates. Area by area: an area
+# that could not be built is kept while the others move on, so each one's own
+# age is read from its run statistics, and the area that is stale or broken
+# is named in the error and in the job summary.
 on:
   schedule:
     - cron: "41 */6 * * *"
@@ -13,7 +16,7 @@ permissions:
 jobs:
   check:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6

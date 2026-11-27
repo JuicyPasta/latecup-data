@@ -4,6 +4,11 @@ name: brand
 # Starbucks' locator data) and commit the hours to overrides/ with src
 # "brand". The Starbucks pass skips a week that has a holiday in it. The
 # daily `refresh` run at 09:17 UTC publishes what this commits.
+#
+# One reader per chain: this pass turns itself off the day the chain layer
+# goes on (switches.json, "chain_layer"). From then the layer reads these
+# chains from their locators by way of All The Places, and a store's hours
+# must not flip between two readers. Nothing here needs editing on that day.
 on:
   schedule:
     - cron: "7 7 * * 1"
@@ -27,13 +32,25 @@ jobs:
           python-version: "3.12"
           cache: pip
       - run: pip install -r requirements.txt
+      - name: Is the chain layer on?
+        id: layer
+        run: |
+          on="$(python -m latecup_data.switches chain_layer)"
+          echo "on=$on" >> "$GITHUB_OUTPUT"
+          if [ "$on" = "true" ]; then
+            echo "The chain layer is on (switches.json): it reads these chains itself. Nothing to do." >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: OSM pull
+        if: steps.layer.outputs.on != 'true'
         run: python -m latecup_data.osm work/osm.json
       - name: Starbucks
+        if: steps.layer.outputs.on != 'true'
         run: python tools/confirm_brand.py starbucks --refresh --pause 2
       - name: Dunkin'
+        if: steps.layer.outputs.on != 'true'
         run: python tools/confirm_brand.py dunkin --refresh --pause 2
       - name: Commit
+        if: steps.layer.outputs.on != 'true'
         run: |
           git config user.name "latecup-data pipeline"
           git config user.email "actions@users.noreply.github.com"
