@@ -1,0 +1,54 @@
+{
+ "id": "n4909832653",
+ "name": "Finjan Qahwa",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-22:00; Fr-Sa 07:00-23:00; Su 07:00-21:00",
+ "src": "shop",
+ "source": "https://finjanqahwa.netlify.app",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 07:00-22:00; Fr-Sa 07:00-23:00; Su 07:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th 07:00-22:00; Fr-Sa 07:00-23:00; Su 07:00-22:00\"; the shop's own source wins. Read: Hours Mon - Thu 7:00 AM - 10:00 PM Fri - Sat 7:00 AM - 11:00 PM Sunday 7:00 AM - 9:00 PM Visit Us 3188 Mission Street OSM's site finjanqahwa.com redirects to this page."
+}

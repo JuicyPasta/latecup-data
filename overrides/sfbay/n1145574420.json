@@ -1,0 +1,54 @@
+{
+ "id": "n1145574420",
+ "name": "Orchard Valley Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-18:00; Fr-Sa 07:00-19:00; Su 07:00-18:00",
+ "src": "shop",
+ "source": "http://www.orchardvalleycoffee.net/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 06:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 06:00-21:00\"; the shop's own source wins. Read: Downtown Campbell 349 E. Campbell Ave. Campbell, CA 95008 Sunday - Thursday 7 a.m. to 6 p.m. Friday - Saturday 7 a.m. to 7 p.m. * Holiday Hours * 12/25 & 1/1: 7 a.m. to 2 p.m. Closes before 20:00 every day: leaves the late map. Holiday line ignored."
+}

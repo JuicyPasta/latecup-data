@@ -1,0 +1,54 @@
+{
+ "id": "n6501304753",
+ "name": "E Tea",
+ "hours": [
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:30",
+ "src": "shop",
+ "source": "https://eteasf.com/san-francisco-richmond/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:30-21:30",
+ "note": "Agrees with OpenStreetMap. Read: (415) 668-5344 5344 Geary Blvd Hours: Monday- Sunday: 11:30 am - 9:30 pm Open 7 days a week The store's own page; matched by address (its phone differs from OSM's)."
+}

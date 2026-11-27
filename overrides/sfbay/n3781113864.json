@@ -1,0 +1,54 @@
+{
+ "id": "n3781113864",
+ "name": "Victory Point Cafe",
+ "hours": [
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1500
+   ]
+  ],
+  [
+   [
+    600,
+    1500
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 09:00-23:00; Fr 09:00-01:00; Sa 10:00-01:00; Su 10:00-22:00",
+ "src": "shop",
+ "source": "https://www.victorypointcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 08:00-23:00; Fr 08:00-24:00; Sa 10:00-24:00; Su 10:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Th 08:00-23:00; Fr 08:00-24:00; Sa 10:00-24:00; Su 10:00-23:00\"; the shop's own source wins. Read: Regular Hours MON-THURS: 9am-11pm FRI: 9am-1am SAT: 10am-1am SUN: 10am-10pm Holiday Hours THURS 11/26: CLOSED (Normal hours the rest of the week) Holiday hours ignored; regular hours used. A board-game cafe."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n13629174372",
+ "name": "Pour Decisions Craft",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 07:00-17:00; We-Th 07:00-19:00; Fr-Sa 07:00-20:00; Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.pourdecisionscraft.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,Tu 07:00-17:00; We 07:00-19:00; Th,Su 07:00-20:00; Fr,Sa 07:00-21:00",
+ "note": "OpenStreetMap said \"Mo,Tu 07:00-17:00; We 07:00-19:00; Th,Su 07:00-20:00; Fr,Sa 07:00-21:00\"; the shop's own source wins. Read: 3530 Beacon Ave Mon - Tue 7am - 5pm Wed - Thu 7am - 7pm Fri - Sat 7am - 8pm Sun 7am - 7pm Four shops on the page; the page's schema.org for '3530 Beacon Ave Fremont' gives the same table, which confirms which block is Fremont's."
+}

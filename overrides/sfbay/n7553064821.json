@@ -1,0 +1,54 @@
+{
+ "id": "n7553064821",
+ "name": "Tpumps",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:00",
+ "src": "shop",
+ "source": "https://www.tpumps.com/fremont",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 11:00-21:30; Fr,Sa 11:00-22:00",
+ "note": "OpenStreetMap said \"Su-Th 11:00-21:30; Fr,Sa 11:00-22:00\"; the shop's own source wins. Read: Fremont 42130 Blacow Rd Fremont, CA 94538 Store Hours: Open 11:30AM-9PM Daily Holiday Hours: ... Nov 26th Closed Nov 27th 2PM-7PM Holiday hours ignored."
+}

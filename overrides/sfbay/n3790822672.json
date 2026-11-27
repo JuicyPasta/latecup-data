@@ -1,0 +1,54 @@
+{
+ "id": "n3790822672",
+ "name": "Double Black",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-17:00",
+ "src": "shop",
+ "source": "https://yardsale.day/pages/double-black",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,Tu,We,Fr,Sa,Su 07:00-17:00; Th 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo,Tu,We,Fr,Sa,Su 07:00-17:00; Th 07:00-20:00\"; the shop's own source wins. Read: What are your hours? Our hours are 7 am - 5 pm every day. ... We're located at 925 Cole Street, San Francisco, CA 94117 ... 925 Cole Street is our first and only location. Closes before 20:00 every day: leaves the late map."
+}

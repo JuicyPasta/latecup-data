@@ -1,0 +1,54 @@
+{
+ "id": "n7818293652",
+ "name": "Elaichi",
+ "hours": [
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-21:00; Sa 08:00-21:00; Su 08:00-19:00",
+ "src": "shop",
+ "source": "https://www.elaichico.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:30-21:00; Sa 08:00-21:00; Su 08:00-19:00",
+ "note": "Agrees with OpenStreetMap. Read: 2161 allston way ste c, berkeley mon-fri 7:30am-9pm · sat 8am-9pm · sun 8am-7pm Two shops on the page (SF 360 3rd St); matched by address."
+}

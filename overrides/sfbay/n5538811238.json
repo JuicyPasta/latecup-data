@@ -1,0 +1,54 @@
+{
+ "id": "n5538811238",
+ "name": "Le Marché Cezanne",
+ "hours": [
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://www.lemarchecezanne.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Le Marche Cezanne 1426 18th street San Francisco, CA 94107 (415)-316-4448 Open Everyday from 8am to 8pm A French market with an in-store coffee & breakfast menu; could be a deli. The page's phone differs from OSM's."
+}

@@ -1,0 +1,55 @@
+{
+ "id": "n3667880725",
+ "name": "Holy Crepe",
+ "hours": [
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-21:00; Fr 12:00-21:30; Sa-Su 11:00-21:30",
+ "src": "shop",
+ "source": "https://www.holycrepesf.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 12:00-21:00; Sa-Su 11:00-21:30",
+ "note": "OpenStreetMap said \"Mo-Th 12:00-21:00; Sa-Su 11:00-21:30\"; the shop's own source wins. Read: 715 Irving St, San Francisco, CA 94122 HOURS Mon - Thurs 12:00pm - 9:00 pm Fri 12:00pm - 9:30 pm Sat - Sun 11:00 am - 9:30 pm OSM has Friday closed; the shop's page lists Friday. OSM tags it amenity=restaurant (crepe;coffee_shop). Held by the publish guard (open days differ from OpenStreetMap's: Fr). Second look 2026-11-27: the page still lists 'Fri 12:00pm - 9:30 pm'; OSM leaves Friday out.",
+ "second_look": "2026-11-27"
+}

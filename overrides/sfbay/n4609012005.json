@@ -1,0 +1,54 @@
+{
+ "id": "n4609012005",
+ "name": "Boba Bliss",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-21:00; Fr-Sa 11:30-21:30; Su 11:30-21:00",
+ "src": "shop",
+ "source": "https://www.bobablissofficial.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-21:00; Fr-Sa 11:30-21:30; Su 11:30-21:00",
+ "note": "Agrees with OpenStreetMap. Read: 685 San Antonio Rd Business Hours Mon 11:00AM - 9:00 PM ... Thu 11:00 AM - 9:00 PM Fri 11:30 AM - 9:30 PM Sat 11:30 AM- 9:30 PM Sun 11:30 AM - 9:00 PM"
+}

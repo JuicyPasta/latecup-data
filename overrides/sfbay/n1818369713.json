@@ -1,0 +1,54 @@
+{
+ "id": "n1818369713",
+ "name": "Green Bakery & Café",
+ "hours": [
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-20:00",
+ "src": "shop",
+ "source": "https://www.greenbakeryandcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 09:00-20:00; Su 09:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: 692 FREMONT AVE Business Hours Mon - Sun: 9:00 AM - 8:00 PM"
+}

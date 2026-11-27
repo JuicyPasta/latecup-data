@@ -1,0 +1,54 @@
+{
+ "id": "n10969972609",
+ "name": "Purple Kow",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 12:00-22:00; Su 12:00-19:00",
+ "src": "shop",
+ "source": "https://purplekow.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 12:00-22:00; Su 12:00-19:00",
+ "note": "Agrees with OpenStreetMap. Read: Berkeley, CA 2508 Channing Way Berkeley, CA 94704 Hours: Monday - Saturday: 12PM - 10PM Sunday: 12PM - 7PM Three shops on the page; matched by street address."
+}

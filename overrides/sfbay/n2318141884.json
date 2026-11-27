@@ -1,0 +1,54 @@
+{
+ "id": "n2318141884",
+ "name": "Castro Coffee Company",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.castro-coffee.com/pages/contact",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00\"; the shop's own source wins. Read: 419 Castro St Opening hours Every day 7 AM - 8 PM"
+}

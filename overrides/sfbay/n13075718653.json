@@ -1,0 +1,54 @@
+{
+ "id": "n13075718653",
+ "name": "Molly Tea",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.mollyteaus.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: HOURS MON-SUN 11am-10:00pm 669-248-5834 Address: Molly Tea, 605 E El Camino Real Suite 1, Sunnyvale, CA 94087"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n13683500048",
+ "name": "Doppio Cafe",
+ "hours": [
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 06:30-17:00; Th-Fr 06:30-20:00; Sa-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://doppiosf.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 06:30-17:00; Th-Fr 06:30-20:00; Sa-Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: 1551 Mission Street ... Mon - Wed: 6:30am - 5:00pm Thurs - Fri: 6:30am - 8:00pm Sat - Sun: 8:00am - 8:00pm"
+}

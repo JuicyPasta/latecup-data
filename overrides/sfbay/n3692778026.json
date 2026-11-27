@@ -1,0 +1,55 @@
+{
+ "id": "n3692778026",
+ "name": "Momo Tea",
+ "hours": [
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-19:00; Fr-Su 12:00-20:00",
+ "src": "shop",
+ "source": "https://www.momoteaus.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo off; Tu-Th,Su 11:00-19:00; Fr-Sa 11:00-20:00",
+ "note": "OpenStreetMap said \"Mo off; Tu-Th,Su 11:00-19:00; Fr-Sa 11:00-20:00\"; the shop's own source wins. Read: 549 Irving street San Francisco ... Phone: 4155718372 HOURS Mon-Thurs : 11am-7p.m. Fri-Sun:12pm-8pm OSM has Monday closed; the shop's page lists Monday. The page's schema.org says Mo-Th 11:00-19:30; the visible text wins. Held by the publish guard (open days differ from OpenStreetMap's: Mo). Second look 2026-11-27: the page still says 'Mon-Thurs : 11am-7p.m.', so Monday is open; OSM has 'Mo off'.",
+ "second_look": "2026-11-27"
+}

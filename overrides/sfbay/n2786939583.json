@@ -1,0 +1,54 @@
+{
+ "id": "n2786939583",
+ "name": "The Mill",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-17:00",
+ "src": "shop",
+ "source": "https://www.themillsf.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo 07:00-21:00, Tu-Su 07:00-19:00",
+ "note": "OpenStreetMap said \"Mo 07:00-21:00, Tu-Su 07:00-19:00\"; the shop's own source wins. Read: THE MILL HOURS THE MILL 736 Divisadero Street San Francisco CA - 94117 ... EVERYDAY: 7am - 5pm Closes before 20:00 every day: leaves the late map. The page's schema.org still says Monday 07:00-20:00; the visible text wins."
+}

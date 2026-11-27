@@ -1,0 +1,9 @@
+{
+ "id": "n9704672158",
+ "name": "Van Ness Cafe & Gyros",
+ "exclude": true,
+ "source": "https://www.ordervannesscafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 10:00-21:50; Sa 10:00-26:00; Su 10:00-21:50",
+ "note": "A restaurant, by its own page: 'a beloved spot for Mediterranean and Greek cuisine', cuisines Mediterranean, Greek, Gyro. Its page gives Mo-We 10:00-24:00, Th-Sa 10:00-02:00, Su 10:00-24:00."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n9153766717",
+ "name": "Twisted St. Café",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://www.twistedstcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Location & Hours 2320 LOMBARD ST. - SAN FRANCISCO, CA ... Monday - Sunday 7AM - 10PM The page's schema.org leaves Monday out; the visible text wins and equals OSM."
+}

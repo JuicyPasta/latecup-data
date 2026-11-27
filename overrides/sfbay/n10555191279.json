@@ -1,0 +1,54 @@
+{
+ "id": "n10555191279",
+ "name": "Heyma Yemeni Coffee",
+ "hours": [
+  [
+   [
+    450,
+    1410
+   ]
+  ],
+  [
+   [
+    450,
+    1410
+   ]
+  ],
+  [
+   [
+    450,
+    1410
+   ]
+  ],
+  [
+   [
+    450,
+    1410
+   ]
+  ],
+  [
+   [
+    450,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1410
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:30-23:30; Fr 07:30-24:00; Sa 08:00-24:00; Su 08:00-23:30",
+ "src": "shop",
+ "source": "https://ua.heymacoffeeca.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 07:30-23:30; Fr 07:30-00:00; Sa 08:00-00:00; Su 08:00-23:30",
+ "note": "Agrees with OpenStreetMap. Read: schema.org on the shop's own ordering page for 1122 University Avenue Berkeley: Mo-Th 07:30-23:30, Fr 07:30-24:00, Sa 08:00-24:00, Su 08:00-23:30 No visible hours on the site; schema.org only, accepted because it equals OpenStreetMap's hours (docs/accuracy.md). Address matched."
+}

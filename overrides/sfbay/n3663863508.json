@@ -1,0 +1,54 @@
+{
+ "id": "n3663863508",
+ "name": "Mario's Bohemian Cigar Store Cafe",
+ "hours": [
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:00-21:00; Fr-Sa 10:00-22:00; Su 10:00-21:00",
+ "src": "shop",
+ "source": "https://mariosbohemian.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 11:00-21:00\"; the shop's own source wins. Read: 566 Columbus Avenue Hours Mon-Thu 10:00 AM - 9:00 PM Fri, Sat 10:00 AM - 10:00 PM Sun 10:00 AM - 9:00 PM The page's schema.org agrees."
+}

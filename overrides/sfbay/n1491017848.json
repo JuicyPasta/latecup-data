@@ -1,0 +1,9 @@
+{
+ "id": "n1491017848",
+ "name": "Wally's Cafe",
+ "exclude": true,
+ "source": "https://www.wallys.cafe/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 11:00-15:00,17:00-21:00",
+ "note": "A restaurant, by its own page: its title reads 'Award-Winning Lebanese & Mediterranean Restaurant | Wally's Cafe'."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n3516403893",
+ "name": "T-Bear",
+ "hours": [
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-20:00; Fr-Sa 12:00-20:30; Su 12:00-20:00",
+ "src": "shop",
+ "source": "https://tibearbk.kwickmenu.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 12:00-20:00\"; the shop's own source wins. Read: 1938 Shattuck Ave, Berkeley, CA 94704 Business Hours Sun 12:00 - 20:00 Mon 12:00 - 20:00 ... Thu 12:00 - 20:00 Fri 12:00 - 20:30 Sat 12:00 - 20:30 The shop's own ordering page; its 'Online Business Hours', 'Business Hours' and schema.org all agree."
+}

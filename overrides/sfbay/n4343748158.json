@@ -1,0 +1,54 @@
+{
+ "id": "n4343748158",
+ "name": "Plentea",
+ "hours": [
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://plentea.net/contact/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: 341 Kearny Street (415) 757-0223 Monday-Sunday: 11 a.m. - 11 p.m. Two shops on the page (Berkeley 12-22); matched by address and phone."
+}

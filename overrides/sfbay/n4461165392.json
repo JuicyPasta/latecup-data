@@ -1,0 +1,45 @@
+{
+ "id": "n4461165392",
+ "name": "Comforts",
+ "hours": [
+  [],
+  [],
+  [
+   [
+    480,
+    870
+   ]
+  ],
+  [
+   [
+    480,
+    870
+   ]
+  ],
+  [
+   [
+    480,
+    870
+   ]
+  ],
+  [
+   [
+    480,
+    870
+   ]
+  ],
+  [
+   [
+    480,
+    870
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu off; We-Su 08:00-14:30",
+ "src": "shop",
+ "source": "https://comfortscafe.com/visit/",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Fr 20:00-02:30; Sa-Su 20:00-15:00",
+ "note": "OpenStreetMap said \"Tu-Fr 20:00-02:30; Sa-Su 20:00-15:00\"; the shop's own source wins. Read: Hours & Location 335 San Anselmo Ave. ... Marketplace Monday to Friday 8:00am to 5:00pm - Saturday & Sunday 8:00am to 3:00pm Cafe Wednesday to Sunday 8:00am to 2:30pm - Breakfast, Lunch & Weekend Brunch Two sets of hours: the sit-down Cafe's are used; the Marketplace (deli counter) keeps Mo-Fr 08:00-17:00, Sa-Su 08:00-15:00. Either way it closes before 20:00 every day and leaves the late map. OSM's 20:00-02:30 / 20:00-15:00 was a slip. Held by the publish guard (open days differ from OpenStreetMap's: Tu). Second look 2026-11-27: the page still gives the Cafe 'Wednesday to Sunday 8:00am to 2:30pm'; OSM has Tuesday open (at 20:00-02:30, a slip).",
+ "second_look": "2026-11-27"
+}

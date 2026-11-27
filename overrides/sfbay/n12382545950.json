@@ -1,0 +1,54 @@
+{
+ "id": "n12382545950",
+ "name": "Bobalicious",
+ "hours": [
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-19:00; Fr-Sa 12:00-20:00; Su 12:00-19:00",
+ "src": "shop",
+ "source": "https://www.bobaliciousrwc.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th, Su 12:00-19:00; Fr, Sa 12:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Opening Hours Sunday - Thursday 12:00 PM - 07:00 PM Friday - Saturday 12:00 PM - 08:00 PM. 2202 Broadway Street, Redwood, CA 94063"
+}

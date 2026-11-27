@@ -1,0 +1,54 @@
+{
+ "id": "n11839722678",
+ "name": "Pekoe",
+ "hours": [
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:00-24:00",
+ "src": "shop",
+ "source": "https://www.pekoeteabar.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 10:00-24:00",
+ "note": "Agrees with OpenStreetMap. Read: 939 W El Camino Real Suite 117, Sunnyvale, CA, 94087, US 408-962-0164 Sunday: 10:00 AM - 12:00 AM ... Saturday: 10:00 AM - 12:00 AM Matched by address and phone. The page's schema.org says 23:30; the visible text says 12:00 AM and wins."
+}

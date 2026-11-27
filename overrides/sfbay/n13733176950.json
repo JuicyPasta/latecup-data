@@ -1,0 +1,54 @@
+{
+ "id": "n13733176950",
+ "name": "Gratitude Coffee Bar",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 07:00-19:00; We-Sa 07:00-22:00; Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.gratitudecoffeebar.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Sa 07:00-22:00, Su-Mo 07:00-17:00",
+ "note": "OpenStreetMap said \"Tu-Sa 07:00-22:00, Su-Mo 07:00-17:00\"; the shop's own source wins. Read: HOURS Sun - Tue : 7am - 7pm Wed - Sat : 7am -10pm ADDRESS 1655 Willow Pass Rd, Suite B Concord, CA 94521 Stated twice on the page, the same both times."
+}

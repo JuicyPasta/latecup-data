@@ -1,0 +1,54 @@
+{
+ "id": "n410845445",
+ "name": "Another Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.anothercafesf.com/about-us/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Hours Everyday from 7:00 am to 8:00 pm (site address: 1191 Pine Street, San Francisco, CA 94109) The harvest could not reach the site; read by hand on the second try."
+}

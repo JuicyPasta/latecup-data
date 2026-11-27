@@ -1,0 +1,54 @@
+{
+ "id": "n3520889350",
+ "name": "Crepes a Go Go",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 11:00-22:00; Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.ordercrepesagogo.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 11:00-20:00\"; the shop's own source wins. Read: 2055 CENTER ST STE A Business Hours Mon - Sat: 11:00 AM - 10:00 PM Sun: 11:00 AM - 8:00 PM The shop's own ordering page. A creperie; could be a restaurant (OSM cuisine=crepes)."
+}

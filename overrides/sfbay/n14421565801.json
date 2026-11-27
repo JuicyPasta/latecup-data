@@ -1,0 +1,54 @@
+{
+ "id": "n14421565801",
+ "name": "MoonTea",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:00",
+ "src": "shop",
+ "source": "https://www.moontea.xyz/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:30-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Cupertino Store Daily 11:30 am - 9:00 pm Cupertino Store 19620 Stevens Creek Blvd #180, Cupertino, CA 95014 Two shops on the page (Sunnyvale 11-20); Cupertino matched by address."
+}

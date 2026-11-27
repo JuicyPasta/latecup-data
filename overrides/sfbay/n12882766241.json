@@ -1,0 +1,54 @@
+{
+ "id": "n12882766241",
+ "name": "Chicha San Chen 吃茶三千",
+ "hours": [
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:30-21:30; Fr-Sa 11:30-22:00; Su 11:30-21:30",
+ "src": "shop",
+ "source": "https://chichasanchennorcal.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 11:30-21:30; Sa-Su 11:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 11:30-21:30; Sa-Su 11:00-20:00\"; the shop's own source wins. Read: CUPERTINO 20688 Stevens Creek Blvd, Cupertino, CA 95014 Brewing Hours: Sun - Thurs 11:30 am - 9:30 pm Fri - Sat 11:30 am - 10 pm The home page's 'Serving Hours' are mocktail hours, not the shop's; the locations page's 'Brewing Hours' are used."
+}

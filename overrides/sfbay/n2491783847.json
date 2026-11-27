@@ -1,0 +1,54 @@
+{
+ "id": "n2491783847",
+ "name": "Gadani",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 11:00-22:00; Sa-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://www.gadanicafe.com/contact-us",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 11:00-22:00; Sa-Su 11:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: Location-U.S. 139 Berkeley Sq, Berkeley, California, 94704 HOURS Monday to Friday: 11am to 10pm Saturday to Sunday: 11am to 11pm The second block on the page (weekends to 10pm) is the U.K. shop at 154 Westferry Rd, not a contradiction."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "w237813574",
+ "name": "Copenhagen Bakery & Cafe",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-21:00",
+ "src": "shop",
+ "source": "https://copenhagenbakery.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,Tu 06:00-18:00; We,Th 06:00-21:00; Fr,Sa 06:00-22:00; Su 07:00-21:00",
+ "note": "OpenStreetMap said \"Mo,Tu 06:00-18:00; We,Th 06:00-21:00; Fr,Sa 06:00-22:00; Su 07:00-21:00\"; the shop's own source wins. Read: Bakery Hours 6:00am-9:00pm daily ... Restaurant Hours Breakfast and Lunch: 7:00am-4:00pm daily Dinner: Tues-Sun: 4:00pm-9:00pm. The bakery is open Monday-Sunday 6am-9pm. The bakery counter's hours are the doors; the restaurant's meal service is the kitchen's. Thanksgiving notice ignored."
+}

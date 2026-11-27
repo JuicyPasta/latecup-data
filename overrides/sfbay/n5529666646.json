@@ -1,0 +1,54 @@
+{
+ "id": "n5529666646",
+ "name": "Martha & Bros. Coffe Company",
+ "hours": [
+  [
+   [
+    300,
+    1170
+   ]
+  ],
+  [
+   [
+    300,
+    1170
+   ]
+  ],
+  [
+   [
+    300,
+    1170
+   ]
+  ],
+  [
+   [
+    300,
+    1170
+   ]
+  ],
+  [
+   [
+    300,
+    1170
+   ]
+  ],
+  [
+   [
+    300,
+    1170
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 05:00-19:30; Su 06:00-19:00",
+ "src": "shop",
+ "source": "https://www.marthabros.com/bernal-heights",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 05:15-20:00; Su 06:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Sa 05:15-20:00; Su 06:00-19:00\"; the shop's own source wins. Read: Bernal Heights 745 Cortland Ave San Francisco, CA 94110 415.642.7585 Mon-Sat: 5:00am - 7:30pm Sunday: 6:00am - 7:00pm Closes before 20:00 every day: leaves the late map. Three shops on the site; the Bernal Heights page matched by address."
+}

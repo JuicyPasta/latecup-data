@@ -1,0 +1,54 @@
+{
+ "id": "w114059831",
+ "name": "Tpumps",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:00",
+ "src": "shop",
+ "source": "https://www.tpumps.com/sanjose",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 11:00-21:30; Fr-Sa 11:00-22:00",
+ "note": "OpenStreetMap said \"Su-Th 11:00-21:30; Fr-Sa 11:00-22:00\"; the shop's own source wins. Read: West San Jose 7290 Bollinger Rd San Jose, CA 95129 Store Hours: Open 11:30AM-9PM Daily Special Hours: Nov 26th Closed Nov 27th 2PM-7PM Holiday hours ignored."
+}

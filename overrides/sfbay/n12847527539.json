@@ -1,0 +1,54 @@
+{
+ "id": "n12847527539",
+ "name": "Teazzi",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.teazzisunnyvale.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 11:00-20:00; Fr-Sa 11:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Sun-Thurs, 11am-8pm Fri-Sat, 11am-9pm 200 W McKinley Ave, Suite 105"
+}

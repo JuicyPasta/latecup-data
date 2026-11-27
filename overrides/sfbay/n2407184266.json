@@ -1,0 +1,50 @@
+{
+ "id": "n2407184266",
+ "name": "Cafe Borrone",
+ "hours": [
+  [
+   [
+    390,
+    1110
+   ]
+  ],
+  [],
+  [
+   [
+    390,
+    1110
+   ]
+  ],
+  [
+   [
+    390,
+    1110
+   ]
+  ],
+  [
+   [
+    390,
+    1110
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo 06:30-18:30; Tu off; We-Fr 06:30-18:30; Sa-Su 07:00-16:00",
+ "src": "shop",
+ "source": "https://www.cafeborrone.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Mo 07:00-17:00; Tu-Sa 07:00-23:00",
+ "note": "OpenStreetMap said \"Su-Mo 07:00-17:00; Tu-Sa 07:00-23:00\"; the shop's own source wins. Read: 1010 El Camino Real, Ste 110, Menlo Park, CA 94025 New Hours: Monday, Wednesday, Thursday, Friday Breakfast | Lunch | Dinner 6:30am - 6:30pm Saturday, Sunday Breakfast & Brunch 7am - 4pm Closed on Tuesdays Closes before 20:00 every day: leaves the late map. A cafe-restaurant. Held by the publish guard (open days differ from OpenStreetMap's: Tu). Second look 2026-11-27: the page still says 'Closed on Tuesdays' and lists Monday, Wednesday, Thursday, Friday 6:30am-6:30pm, Saturday, Sunday 7am-4pm; OSM has Tuesday open to 23:00.",
+ "second_look": "2026-11-27"
+}

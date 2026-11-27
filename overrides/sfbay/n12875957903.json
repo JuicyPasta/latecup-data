@@ -1,0 +1,9 @@
+{
+ "id": "n12875957903",
+ "name": "Cafe Noir",
+ "exclude": true,
+ "source": "https://www.cafenoiroak.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 09:00-15:30, 16:30-20:00; Sa 09:00-16:00, 17:00-20:00; Su 09:00-16:00, 17:00-19:30",
+ "note": "A restaurant, by its own page: 'every dish is a celebration of the African diaspora', breakfast-lunch hours plus 'Dinner 4:30pm-8pm' Tuesday to Sunday. The page also says it becomes 'Heirlume' in January 2027."
+}

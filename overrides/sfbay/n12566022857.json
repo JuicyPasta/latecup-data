@@ -1,0 +1,49 @@
+{
+ "id": "n12566022857",
+ "name": "Yosi's Cafe",
+ "hours": [
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 09:00-23:00; We off; Th-Su 09:00-23:00",
+ "src": "shop",
+ "source": "https://www.yosiscafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Th-Tu 09:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: Thursday - Tuesday: 9:00 AM - 11:00 PM Six days listed, so Wednesday is closed. The site gives no street address but names one shop (\"Oakland's finest bakery & cafe\"); the hours equal OSM's."
+}

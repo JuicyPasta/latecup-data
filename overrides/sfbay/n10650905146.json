@@ -1,0 +1,54 @@
+{
+ "id": "n10650905146",
+ "name": "Mr. Green Bubble",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.mrgreenbubble.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-19:00; Fr-Su 11:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Th 11:00-19:00; Fr-Su 11:00-20:00\"; the shop's own source wins. Read: LOCATIONS: OAKLAND (510)788-4160 Mon - Thur, Sun : 11am - 8pm Fri - Sat : 11am - 9pm OSM's site greenbubblecafe.com redirects here. Matched by phone (510-788-4160); the page says the first shop is on Piedmont Avenue in Oakland."
+}

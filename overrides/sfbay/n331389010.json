@@ -1,0 +1,54 @@
+{
+ "id": "n331389010",
+ "name": "Caffe Trieste",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://caffetrieste.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Caffe Trieste, 601 Vallejo Street, San Francisco CA 94133, (415)392-6739 Our new hours of operation: Now open: Monday - Sunday 7:00 am- 10:00pm The Annex retail store at 609 Vallejo has its own hours; not used."
+}

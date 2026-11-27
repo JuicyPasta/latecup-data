@@ -1,0 +1,55 @@
+{
+ "id": "n9790719931",
+ "name": "Manny's",
+ "hours": [
+  [
+   [
+    540,
+    1170
+   ]
+  ],
+  [
+   [
+    540,
+    1170
+   ]
+  ],
+  [
+   [
+    540,
+    1170
+   ]
+  ],
+  [
+   [
+    540,
+    1170
+   ]
+  ],
+  [
+   [
+    540,
+    1170
+   ]
+  ],
+  [
+   [
+    540,
+    1170
+   ]
+  ],
+  [
+   [
+    540,
+    1170
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-19:30",
+ "src": "shop",
+ "source": "https://welcometomannys.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Fr 11:00-21:00; Sa-Su 10:00-16:00",
+ "note": "OpenStreetMap said \"Tu-Fr 11:00-21:00; Sa-Su 10:00-16:00\"; the shop's own source wins. Read: HOURS- Open daily, 9AM - 7:30PM ... ADDRESS- 3092 16th St, San Francisco, CA 94103-3417 Closes before 20:00 every day: leaves the late map. OSM has Monday closed; the page says open daily. Held by the publish guard (open days differ from OpenStreetMap's: Mo). Second look 2026-11-27: the page still says 'Open daily, 9AM - 7:30PM'; OSM leaves Monday out.",
+ "second_look": "2026-11-27"
+}

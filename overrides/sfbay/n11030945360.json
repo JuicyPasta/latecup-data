@@ -1,0 +1,54 @@
+{
+ "id": "n11030945360",
+ "name": "3Catea",
+ "hours": [
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-20:00; Fr-Su 12:00-20:30",
+ "src": "shop",
+ "source": "https://www.3catea.com/location",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 12:00-20:00; Fr-Su 12:00-20:30",
+ "note": "Agrees with OpenStreetMap. Read: 1777 N MILPITAS BLVD MILPITAS CA 95035 MONDAY-SUNDAY: 12PM - 8PM, 12PM - 8PM, 12PM - 8PM, 12PM - 8PM, 12PM - 8:30PM, 12PM - 8:30PM, 12PM - 8:30PM Multi-store page; matched by street address."
+}
