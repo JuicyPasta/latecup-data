@@ -1,0 +1,54 @@
+{
+ "id": "n5203205582",
+ "name": "Hungry Ghost",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-19:00; Fr-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.hungryghostcoffee.com/location/park-slope/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 07:00-19:00; Fr-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Hours & Location / 156 7th Avenue, Brooklyn, NY 11215 / Mon-Thurs 7am-7pm / Fri-Sun 7am-8pm"
+}

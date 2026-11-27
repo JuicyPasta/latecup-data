@@ -1,0 +1,54 @@
+{
+ "id": "n9875403134",
+ "name": "Möge Tee",
+ "hours": [
+  [
+   [
+    750,
+    1410
+   ]
+  ],
+  [
+   [
+    750,
+    1410
+   ]
+  ],
+  [
+   [
+    750,
+    1410
+   ]
+  ],
+  [
+   [
+    750,
+    1410
+   ]
+  ],
+  [
+   [
+    750,
+    1410
+   ]
+  ],
+  [
+   [
+    750,
+    1440
+   ]
+  ],
+  [
+   [
+    750,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 12:30-23:30; Sa-Su 12:30-24:00",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 12:30-23:30; Sa-Su 12:30-24:00",
+ "note": "Agrees with OpenStreetMap. Read: Moge Tee East Village / 69 Cooper Sq, New York, NY 10003 / Open Hours: Mon-Fri: 12:30AM - 11:30PM / Sat-Sun: 12:30PM - 12:00AM Mon-Fri opening reads \"12:30AM\", a typo for 12:30 PM (Sat-Sun open 12:30 PM; OSM independently has Mo-Fr 12:30-23:30). Closing times are as written."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n3154231943",
+ "name": "Hungry Ghost",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.hungryghostcoffee.com/location/hungry-ghost-fort-greene/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Hours & Location / 781 Fulton St., Brooklyn, NY 11217 / 7am-8pm Daily"
+}

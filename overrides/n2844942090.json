@@ -1,0 +1,54 @@
+{
+ "id": "n2844942090",
+ "name": "Möge Tee",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:00",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 12:00-21:00\"; the shop's own source wins. Read: Moge Tee Sunnyside / 45-18 Queens Blvd, Sunnyside, New York, NY 11104 / Open Hours: Mon-Sun: 11:00AM - 9:00PM"
+}

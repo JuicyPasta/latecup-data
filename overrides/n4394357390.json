@@ -1,0 +1,54 @@
+{
+ "id": "n4394357390",
+ "name": "Le Pain Quotidien",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-21:00; Sa-Su 07:00-21:00",
+ "src": "brand",
+ "source": "https://www.lepainquotidien.com/us/en/locations/127:%20Bryant%20Park/70-W-40th-St",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:00-21:00; Sa-Su 07:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Address: 70 West 40th Street, New York, NY 10018 (between 5th and 6th Avenue) Phone: (212) 354-5224 Hours: Mon-Fri 6am-9pm, Sat-Sun 7am-9pm"
+}

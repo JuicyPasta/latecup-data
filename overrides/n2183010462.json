@@ -1,0 +1,54 @@
+{
+ "id": "n2183010462",
+ "name": "787 Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-20:00",
+ "src": "brand",
+ "source": "https://www.787coffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: schema.org location list on the brand's site: 787 Coffee, 66 Pearl St: openingHours Mo-Su 07:00-20:00 schema.org only (no visible per-store hours; the brand's NY locations page is gone), accepted because it equals OSM's hours exactly."
+}

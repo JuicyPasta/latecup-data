@@ -1,0 +1,54 @@
+{
+ "id": "n11276029552",
+ "name": "Möge Tee",
+ "addr": "61-12 182nd St",
+ "hours": [
+  [
+   [
+    600,
+    1350
+   ]
+  ],
+  [
+   [
+    600,
+    1350
+   ]
+  ],
+  [
+   [
+    600,
+    1350
+   ]
+  ],
+  [
+   [
+    600,
+    1350
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1410
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:00-22:30; Fr-Sa 10:00-24:00; Su 10:00-23:30",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-27",
+ "note": "OpenStreetMap had no hours. Read: Moge Tee Fresh Meadows / 61-12 182nd St, Flushing, NY 11365 / Open Hours: Mon-Thur: 10:00AM - 10:30PM / Fri-Sat: 10:00AM - 12:00AM / Sun: 10:00AM - 11:30PM OSM's node carries no street address in our pull, but OSM's own geocoder places it at 61-12 182nd St, the brand's Fresh Meadows store."
+}

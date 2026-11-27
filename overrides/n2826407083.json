@@ -1,0 +1,9 @@
+{
+ "id": "n2826407083",
+ "name": "Café Grumpy",
+ "closed": true,
+ "source": "https://cafegrumpy.com/locations/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa 07:30-20:00; Su 07:30-19:30",
+ "note": "Café Grumpy's own locations list (Greenpoint, Park Slope, Lower East Side, NoMad, Fashion District, Grand Central Terminal, Rockefeller Center, Manhattan West, Financial District, Coral Gables) no longer has Chelsea, and the Chelsea page OSM links (cafegrumpy.com/locations/chelsea/) returns 404."
+}

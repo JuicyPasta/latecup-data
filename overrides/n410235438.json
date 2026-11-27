@@ -1,0 +1,54 @@
+{
+ "id": "n410235438",
+ "name": "Trudy's Ice Cream",
+ "hours": [
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    840,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 14:00-21:00; Sa-Su 12:00-21:00",
+ "src": "shop",
+ "source": "https://trudysicecream.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 12:00-21:00; Sa-Su 11:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Fr 12:00-21:00; Sa-Su 11:00-21:00\"; the shop's own source wins. Read: Trudy's Ice Cream 975 Columbus Ave New York, NY 10025 ... Monday - Friday 2:00PM - 9:00PM Saturday - Sunday 12:00PM - 9:00PM"
+}

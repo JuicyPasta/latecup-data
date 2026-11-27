@@ -1,0 +1,54 @@
+{
+ "id": "n5990907363",
+ "name": "Xing Fu Tang",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://xingfutang.com/flushing",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Flushing, NY 40-52 Main St, Flushing, NY 11354 / HOURS: 11AM-9PM MONDAY, TUESDAY, WEDNESDAY, THURSDAY / 11AM-10PM FRIDAY, SATURDAY, SUNDAY Location page; each time precedes its day label in the page layout (two columns)."
+}

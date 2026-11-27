@@ -1,0 +1,54 @@
+{
+ "id": "n5797335696",
+ "name": "Möge Tee",
+ "addr": "140 Lawrence St",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-22:00; Fr-Su 11:00-22:30",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-27",
+ "note": "OpenStreetMap had no hours. Read: Moge Tee Downtown Brooklyn / 140 Lawrence St, Brooklyn, NY 11201 / Open Hours: Mon-Thur: 11:00AM - 10:00PM / Fri-Sun: 11:00AM - 10:30PM OSM's node has no address; it sits at 140 Lawrence St (Nominatim puts that address 6 m away), the brand's only Downtown Brooklyn store."
+}

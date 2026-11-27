@@ -1,0 +1,54 @@
+{
+ "id": "n5664814202",
+ "name": "Café Grumpy",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://cafegrumpy.com/locations/grand-central-terminal",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:00-20:00; Sa, Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:00-20:00; Sa, Su 07:00-20:00\"; the shop's own source wins. Read: Café Grumpy Grand Central Terminal ... Hours Daily 7am-7pm Contact 212.661.2198 Closes at 19:00 every day, so it leaves the feed."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n2178336350",
+ "name": "Pause Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-20:00; Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.pausecafenyc.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:00-20:00; Su 07:00-19:00",
+ "note": "Agrees with OpenStreetMap. Read: Location and hours block for 3 Clinton Street, New York, NY 10002: Monday-Saturday 7:00 am - 8:00 pm / Sunday 7:00 am - 7:00 pm The shop's own Square site."
+}

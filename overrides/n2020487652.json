@@ -1,0 +1,54 @@
+{
+ "id": "n2020487652",
+ "name": "Möge Tee",
+ "hours": [
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 10:30-21:00; Fr-Sa 10:30-22:00",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 10:30-22:00; Su 11:00-21:30",
+ "note": "OpenStreetMap said \"Mo-Sa 10:30-22:00; Su 11:00-21:30\"; the shop's own source wins. Read: Moge Tee 1st Ave / 379 1st Ave., New York, NY 10010 / Open Hours: Sun-Thur: 10:30AM - 9:00PM / Fri-Sat: 10:30AM - 10:00PM"
+}

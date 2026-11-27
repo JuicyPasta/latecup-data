@@ -1,0 +1,54 @@
+{
+ "id": "n2573098394",
+ "name": "Hungry Ghost",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-19:00; Fr-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.hungryghostcoffee.com/location/hungry-ghost-prospect-heights/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 07:00-17:00; Fr-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Th 07:00-17:00; Fr-Su 07:00-20:00\"; the shop's own source wins. Read: Hours & Location / 253 Flatbush Ave., Brooklyn, NY 11217 / Mon-Thu 7am-7pm / Fri-Sun 7am-8pm"
+}

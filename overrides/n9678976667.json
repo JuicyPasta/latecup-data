@@ -1,0 +1,54 @@
+{
+ "id": "n9678976667",
+ "name": "Pop Pot Noodle & Tea Spot",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:00",
+ "src": "shop",
+ "source": "https://pop-pot-noodle-tea-spot-inc.square.site/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 12:00-21:00\"; the shop's own source wins. Read: Location and hours block for 7508 Jamaica Ave, Woodhaven: Monday-Sunday 11:30am - 9:00pm The shop's own Square ordering site."
+}
