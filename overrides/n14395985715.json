@@ -1,9 +1,54 @@
 {
  "id": "n14395985715",
  "name": "Dunkin'",
- "exclude": true,
- "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/4-whitehall-st/store-358349/b",
- "checked": "2026-11-24",
+ "hours": [
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ],
+  [
+   [
+    0,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "24/7",
+ "src": "brand",
+ "source": "https://www.dunkindonuts.com/locations/us/ny/new-york/4-whitehall-st/store-358349/",
+ "checked": "2026-11-26",
  "osm_hours": "24/7",
- "note": "Dunkin's own page for this store no longer exists (HTTP 404 on 2026-11-24): the store is no longer on the brand's locator, so it is left off the map until it is seen there again."
+ "note": "Back on the map. The store's page answers (the address OpenStreetMap has for it ends in a stray /b and was 404 on 2026-11-24, which was taken for a closed store): 00:00-00:00 on all seven days at the Staten Island Ferry Terminal, read as open 24 hours because OpenStreetMap says 24/7 too (the rule of tools/confirm_brand.py). Written by hand: OpenStreetMap's link still fails, so the weekly job cannot read this store."
 }

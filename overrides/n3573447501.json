@@ -38,18 +38,13 @@
     900
    ]
   ],
-  [
-   [
-    0,
-    1440
-   ]
-  ]
+  []
  ],
- "hours_text": "Mo 06:00-19:00; Tu 06:00-19:00; We 06:00-19:00; Th 06:00-19:00; Fr 06:00-19:00; Sa 07:00-15:00; Su 00:00-24:00",
+ "hours_text": "Mo-Fr 06:00-19:00; Sa 07:00-15:00; Su off",
  "src": "brand",
  "source": "https://www.dunkindonuts.com/locations/us/ny/long-island-city/3530-36th-st/store-348317/",
- "checked": "2026-11-24",
+ "checked": "2026-11-26",
  "osm_hours": "Mo-Fr 06:00-19:00; Sa 07:00-15:00; Su 00:00-24:00",
- "note": "Agrees with OpenStreetMap. Read from the store page's schema.org opening hours.",
- "by": "confirm_brand"
+ "note": "Sunday is closed, not open 24 hours. The store's page gives Sunday as 00:00-00:00, the same value it showed for Thanksgiving Day (2026-11-26) at a store that keeps 06:00-19:00 on weekdays, and All The Places' reading of the locator on 2026-11-15 has Sunday closed. OpenStreetMap's Sunday 00:00-24:00 repeats the page's 00:00-00:00. Monday to Saturday as read on 2026-11-24; on 2026-11-26 the page carried holiday hours for Thursday and Friday. Written by hand, so the weekly job leaves it alone.",
+ "second_look": "2026-11-26"
 }
