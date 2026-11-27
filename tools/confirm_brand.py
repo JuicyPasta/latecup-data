@@ -1,13 +1,16 @@
 """Confirm chain stores' hours from the chain's own store locator.
 
 usage: python tools/confirm_brand.py <brand slug> [--osm work/osm.json] [--max N] [--pause 1.5] [--refresh]
+                                     [--ignore-holidays]
 
 Store pages (dunkin, ...): for every OSM place of the brand whose `website`
 tag is a per-store page on the brand's own locator, fetch that page once,
 read its schema.org opening hours, and write overrides/<id>.json with src
 "brand". A store is accepted only when the page's address has the place's
 house number (or the place has no address and the page URL carries the
-store's OSM `ref`).
+store's OSM `ref`). A store page shows the current week, holiday hours
+included, so the pass refuses to run when a holiday falls in this week or
+the next six days.
 
 Starbucks: its store locator's own data (starbucks.com/apiproxy/v1/locations,
 what the locator page itself loads) gives each store's next seven days. That
@@ -49,6 +52,19 @@ LOCATORS = {
 
 def _today():
     return override.datetime.now(override.ZoneInfo("America/New_York")).date()
+
+
+def _holiday_near(today):
+    """(date, name) of a holiday from this week's Monday through the next six
+    days, or None. A store page shows the current week, holiday hours included
+    (docs/accuracy.md: on 2026-11-24 two Dunkin' pages already carried
+    Thanksgiving's Thursday, and they were written down as the store's normal
+    Thursday), so a reading in such a week is not a normal week."""
+    start = today - override.timedelta(days=today.weekday())
+    end = today + override.timedelta(days=6)
+    near = [(d, name) for year in sorted({start.year, end.year}) for d, name in holidays.for_year(year)
+            if start <= d <= end]
+    return near[-1] if near else None
 
 
 def _skip(pid, refresh):
@@ -196,6 +212,11 @@ def main(argv):
     if slug == "starbucks":
         return starbucks(osm_file, limit, pause, refresh, "--ignore-holidays" in argv)
     rx = LOCATORS[slug]
+    hol = _holiday_near(_today())
+    if hol and "--ignore-holidays" not in argv:
+        print(f"skipped: {hol[1]} ({hol[0].isoformat()}) is in this week or the next six days, and a store page "
+              f"shows the current week, holiday hours included. Run again in a week without a holiday.")
+        return
     todo = []
     for el in json.loads(osm_file.read_text())["elements"]:
         tags = el.get("tags") or {}
