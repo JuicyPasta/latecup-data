@@ -559,6 +559,35 @@ def test_a_run_with_the_layer_writes_what_it_did(tmp_path, monkeypatch):
     assert stats["chains"]["matched: hours used"] == 1
     assert stats["chain_spiders"] == [{"spider": "starbucks_us", "run": "2026-11-14-13-32-33",
                                        "collected": "2026-11-16", "used": True, "why": None}]
+    # the coverage report says what the layer did, area by area, and which run each chain came from
+    from latecup_data import report
+    md = report.us_markdown(tmp_path / "site")
+    assert "## What the chain layer did" in md
+    assert "| New York City | 1 | 0 | 0 | 0 | 1 | 0 | 0 |" in md and "| Chicago | 1 | 1 | 1 | 0 | 0 | 0 | 0 |" in md
+    assert "| `starbucks_us` | 2026-11-14-13-32-33 | 2026-11-16 | yes |" in md
     # and without it, the statistics are what they were
     run.make(pulls, tmp_path / "plain", areas=[NYC, CHICAGO], now="2026-11-26T23:10:00Z", log=lambda *_: None)
     assert "chains" not in json.loads((tmp_path / "plain" / "ops" / "stats.json").read_text())
+
+
+# ---------------------------------------------------------------- the audit tool
+
+def test_the_audit_counts_agreement_the_way_the_accuracy_document_does():
+    import sys
+    from pathlib import Path
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "tools"))
+    import audit_chain_layer as audit
+    ours = H.parse("Mo-Fr 05:00-22:00; Sa-Su 06:00-22:00")
+    pickup = H.parse("Mo-Fr 05:00-21:45; Sa-Su 06:00-21:45")              # 15 minutes early: inside the 30
+    assert audit.compare(ours, pickup)[:2] == (True, True) and audit.differences(ours, pickup) == []
+    assert audit.closing_offsets(ours, pickup) == [-15] * 7
+    early = H.parse("Mo-Fr 05:00-20:45; Sa 06:00-21:45")
+    assert audit.compare(ours, early)[0] is False
+    assert audit.differences(ours, early) == [f"{d} closes 75 min earlier by All The Places" for d in
+                                              ("Mo", "Tu", "We", "Th", "Fr")] + \
+        ["Su: open by our reading, closed by All The Places"]
+    assert audit.differences(ours, early, skip=(0, 1, 2, 3, 4, 6)) == []    # holiday weekdays are left out
+    rows = [{"closing_agrees": True, "opening_agrees": True, "closing_offsets": [-15] * 7},
+            {"closing_agrees": False, "opening_agrees": False, "closing_offsets": [-75] * 5 + [-15]}]
+    assert audit.score(rows) == {"compared": 2, "closing_within_30_min": 1, "rate": 0.5, "closing_and_opening": 1,
+                                 "usual_closing_offset_min": -15, "store_days_at_that_offset": "8 of 13"}

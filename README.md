@@ -9,6 +9,8 @@ https://juicypasta.github.io/latecup-data/v1/nyc.json
 
 The file format is in [FORMAT.md](FORMAT.md). Current numbers are in [docs/coverage.md](docs/coverage.md); how right the hours are is in [docs/accuracy.md](docs/accuracy.md).
 
+The pipeline can build more than it publishes: 32 US metro areas ([Areas](#areas)), with chain stores' hours read from the chains' own store locators ([The chain layer](#the-chain-layer)). Only New York is published. What the other 31 would hold today is in [docs/coverage-us.md](docs/coverage-us.md).
+
 ## Contributing
 
 Know a café whose hours are wrong here, or a late one that's missing? [CONTRIBUTING.md](CONTRIBUTING.md) has the three ways to fix it: a button on the [web map](https://juicypasta.github.io/latecup/), an issue form, or a pull request with one JSON file.
@@ -68,6 +70,65 @@ The push starts the `refresh` workflow, which rebuilds and publishes. The hours 
 
 Places OpenStreetMap lacks are in [`additions/`](additions/) (`x-<slug>.json`: name, coordinates, address, category, hours, source, date). Each needs hours from an allowed source, like an override.
 
+The files in `overrides/` and `additions/` themselves are New York's. Another area's records go in a subfolder named for it (`overrides/chicago/n1234567890.json`; `tools/override.py --area chicago`), so no folder grows past what GitHub will list.
+
+## Areas
+
+The feed is cut into areas: a rectangle with a time zone, a places file and a votes file. Each is one file in [`areas/`](areas/):
+
+```json
+{
+ "id": "chicago",
+ "name": "Chicago",
+ "tz": "America/Chicago",
+ "center": [41.8781, -87.6298],
+ "zoom": 12,
+ "bbox": [-88.05, 41.6, -87.5, 42.15],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}
+```
+
+| Key | |
+|---|---|
+| `id` | The area's slug. It names its files (`chicago.json`, `chicago-votes.json`) and cannot change once published |
+| `name`, `tz`, `center`, `zoom`, `bbox` | What the manifest says about the area. `tz` is a canonical IANA zone (`America/Phoenix`, `America/Detroit`, `Pacific/Honolulu`), `bbox` is west, south, east, north, `center` is where a map opens |
+| `pull` | How OpenStreetMap is asked: `{"kind": "area", "wikidata": "Q60"}` (New York, by its boundary) or `{"kind": "bbox"}` (the rectangle; several rectangles share one Overpass request) |
+| `clip` | Optional polygon. Only places inside it belong to the area. Detroit's box reaches Windsor, Ontario and San Diego's dips below the border: their `clip` keeps to the US side |
+| `hoods` | Where neighbourhood names come from: `"nta2020"` (New York's polygons, which also give the borough) or `null`. An area with `null` has no `hood` on its places yet |
+| `city` | `"addr:city"`: the place's `city` is the OpenStreetMap tag, when there is one. `null` in New York, which has boroughs |
+| `live` | `true`: a plain run builds it, so the daily job publishes it. Today only New York |
+
+**A plain `python -m latecup_data.run` builds the live areas only.** `--area chicago` (it may be given more than once) builds the named ones and leaves the rest of the site's manifest as it is; `--area all` builds every file in `areas/`. Whatever is built, the manifest lists New York first: the app that is out (1.0.0) reads `cities[0]`, and it reads every other entry closely enough that one wrongly typed field would make it drop the whole manifest. `validate.released_app` is that app's parser as code, and nothing is written unless every entry passes it.
+
+Per area: one places file and one votes file, the chain rule (a brand with 5 or more locations in the area), the 20 % shrink guard, and the working files. New York's working files stay in `ops/` (`ops/to-confirm.json` and the rest); another area's are in `ops/<id>/`. One area that shrinks or fails validation stops the whole run, and nothing is written for any of them.
+
+A place outside New York has no `boro` and, until an area gets polygons of its own, no `hood`. It carries `city` where OpenStreetMap or the chain's locator gives one.
+
+## The chain layer
+
+Chains publish their stores' hours on their own store locators, and [All The Places](https://www.alltheplaces.xyz) reads those locators about once a week and publishes what it read (CC0). `--chains atp` adds them to a build:
+
+```sh
+.venv/bin/python -m latecup_data.run --site work/site-us --area all --osm-dir work/pulls --chains atp
+```
+
+It downloads 19 chains' files into `work/atp/` (not in git; about 4 MB to fetch, 33 MB on disk), matches every store to its OpenStreetMap place in the area, and gives the place the store's hours as `brand`, dated with the day the locator was read. A store OpenStreetMap lacks becomes a place with the id `x-<chain>-<the chain's own store number>`. **It is off unless asked for**, and no workflow asks for it yet.
+
+The rules, in the order they bite (`latecup_data/atp.py`, `build.py`):
+
+- **A week with a holiday in it is not used.** Starbucks' locator shows the next seven days, and it is not alone: Krispy Kreme's and Philz' Thursdays moved in about 90 % of stores in the Thanksgiving and Christmas weeks of 2025, and Dunkin's pages carried Thanksgiving hours on the day. No chain is known to keep a standing week through a holiday, so the rule holds for all of them, with the day after Thanksgiving and Easter added to the manifest's holidays. An earlier week's file is used when there is one within five weeks.
+- **A spider that drops a weekday is not used at all.** Tim Hortons had no Thursday in any of 682 stores, five weeks running.
+- **A store matches a place of the same brand at the same address**: house number and street name, within 250 m, each the nearest of its brand to the other. Two different addresses are never one shop, however close. A store that stays unmatched next to a place of its brand is not added as a second pin.
+- **Our own reading wins when it is newer** (the same day counts), and a place we took off the map stays off.
+- **"Open 24 hours" is not taken on the data's word.** A locator's 00:00–00:00 means closed on some days and all day on others, and by the time it reaches us it has been read one way. A 24-hour day counts only where OpenStreetMap says the same.
+- **The publish guard applies**: a table closed four days a week, or open on other days than OpenStreetMap has, is held back and listed under `recheck`.
+- Hours the strict parser is not certain of, and spans that are not believable, are not used.
+
+Before trusting it: `tools/audit_chain_layer.py` compares the layer with the chain hours we read ourselves, and [docs/accuracy.md](docs/accuracy.md) has the result of 2026-11-26. One thing to know from it: All The Places' Dunkin' closing times are the store page's pick-up hours, 15 minutes before the store's own.
+
 ## How it runs
 
 | Workflow | When | What |
@@ -85,6 +146,10 @@ python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python -m pytest -q
 .venv/bin/python -m latecup_data.run --site work/site --save-osm work/osm.json   # live OSM pull, builds work/site/v1
 .venv/bin/python -m latecup_data.run --site work/site --osm work/osm.json        # the same from a saved pull
+.venv/bin/python -m latecup_data.run --site work/site-us --area all --save-osm-dir work/pulls   # every area, live pulls
+.venv/bin/python -m latecup_data.run --site work/site-us --area all --osm-dir work/pulls --chains atp   # ... from saved pulls, with the chain layer
+.venv/bin/python -m latecup_data.report work/site-us --us docs/coverage-us.md    # coverage of every area in a site
+.venv/bin/python tools/audit_chain_layer.py                                      # the chain layer against our own readings
 REPORTS_CSV_URL=… .venv/bin/python -m latecup_data.votes --site work/site        # the votes file (empty without the URL)
 .venv/bin/python -m latecup_data.report work/site                                # coverage numbers
 .venv/bin/python -m latecup_data.monitor                                         # checks the published feed
@@ -95,17 +160,19 @@ tools/publish.sh work/site                                                      
 
 | Path | |
 |---|---|
-| `latecup_data/osm.py` | The Overpass query and pull |
+| `areas/`, `latecup_data/areas.py` | The areas: one file each; which are live |
+| `latecup_data/osm.py` | The Overpass query and pull, per area |
 | `latecup_data/classify.py`, `chains.py` | What is a café, tea or dessert place; brands and the 5-location chain rule |
 | `latecup_data/hours.py` | The strict `opening_hours` parser and the weekly table |
-| `latecup_data/geo.py` | Neighbourhood and borough for a point |
+| `latecup_data/geo.py` | Neighbourhood and borough for a point (New York) |
+| `latecup_data/atp.py` | The chain layer: All The Places' files, what is refused, stores matched to places |
 | `latecup_data/clean.py` | Addresses, phones (E.164), websites, Instagram handles, tags |
 | `latecup_data/build.py` | Dedupe, overrides, additions, the feed and the to-confirm list |
 | `latecup_data/validate.py` | The format-1 contract as code |
 | `latecup_data/run.py`, `monitor.py`, `report.py` | One pipeline run; the staleness check; the coverage report |
 | `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings and wrong-hours reports |
-| `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools |
-| `overrides/`, `additions/` | Hours we confirmed; places we added |
+| `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools; `tools/audit_chain_layer.py` |
+| `overrides/`, `additions/` | Hours we confirmed; places we added (New York's in the folder, another area's in `<area id>/`) |
 | `quarantine.json`, `report.json` | Vote periods that are never counted; the manifest's report endpoint |
 | `data/` | Neighbourhood polygons; the cache of looked-up street addresses |
 | `styles/` | The dark and light MapLibre styles |

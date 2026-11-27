@@ -412,7 +412,7 @@ def pair(stores, twins):
     (docs/accuracy.md). Each side must also be the nearest of its brand to
     the other, and a second candidate of the same standing must be more than
     twice as far (and 20 m). Anything less is a guess, and a guess is not a
-    match.
+    match. On those 288 stores this pairs 281, each with its own store.
 
     `near`: stores left without a match that are probably a place we already
     have, so they are not added as new places: within 150 m of a still

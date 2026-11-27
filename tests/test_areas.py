@@ -478,3 +478,29 @@ def test_the_staleness_check_reads_every_area(tmp_path, bare):
         assert len(problems) == 1 and problems[0].startswith("chicago.json")
     finally:
         monitor.http.get = orig
+
+
+# ---------------------------------------------------------------- the coverage report
+
+def test_the_report_of_every_area(tmp_path, bare):
+    from latecup_data import report
+    site = tmp_path / "site"
+    run.make({"nyc": nyc_elements(6), "chicago": chicago_elements(9)}, site, areas=[NYC, CHICAGO],
+             now="2026-11-26T23:10:00Z", log=lambda *_: None)
+    md = report.us_markdown(site, note="A note.")
+    lines = md.splitlines()
+    assert lines[0] == "# Latecup feed coverage, every area" and "2 areas" in lines[2] and lines[2].endswith("A note.")
+    rows = [line for line in lines if line.startswith("| ")]
+    assert rows[0].startswith("| Area | Places | Independent | Chain | `shop` | `brand` | `osm` | 20 | 21 | 22 | 23 |")
+    chi, nyc = (site / "v1" / "chicago.json").stat().st_size, (site / "v1" / "nyc.json").stat().st_size
+    # the larger area first; places, independent, chain, shop, brand, osm, the six closing hours, bytes
+    assert rows[1] == f"| Chicago | 9 | 9 | 0 | 0 | 0 | 9 | 0 | 0 | 0 | 9 | 0 | 0 | {chi:,} |"
+    assert rows[2] == f"| New York City | 6 | 6 | 0 | 0 | 0 | 6 | 0 | 0 | 0 | 6 | 0 | 0 | {nyc:,} |"
+    assert rows[3] == f"| **All 2** | 15 | 15 | 0 | 0 | 0 | 15 | 0 | 0 | 0 | 15 | 0 | 0 | {chi + nyc:,} |"
+    size = (site / "v1" / "manifest.json").stat().st_size
+    assert f"The manifest is {size:,} bytes" in md and "What the chain layer did" not in md
+    report.main([str(site), "--us", str(tmp_path / "us.md"), "--note", "A note."])
+    assert (tmp_path / "us.md").read_text() == md
+    # New York's own report is the one it was
+    report.main([str(site), "--out", str(tmp_path / "nyc.md")])
+    assert (tmp_path / "nyc.md").read_text().startswith("# Latecup feed coverage\n\nFeed of 2026-11-26T23:10:00Z (`v1/nyc.json`)")

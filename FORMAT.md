@@ -4,6 +4,8 @@ Base URL: `https://juicypasta.github.io/latecup-data/v1/`
 
 Static files, the same for every client. Fetch `manifest.json`, then the places file each city names. A breaking change gets a new base path (`v2/`); inside `v1/` fields are only ever added. **Ignore fields you do not know.**
 
+The manifest's `cities` are **areas**: a rectangle with a time zone, a places file and a votes file. New York City (`nyc`) is the first entry and stays the first. The pipeline can build 32 areas (`areas/` in the repository); the manifest lists the ones that are published.
+
 Data © OpenStreetMap contributors, [ODbL 1.0](https://opendatacommons.org/licenses/odbl/1-0/). Show "© OpenStreetMap contributors" wherever the data is shown.
 
 ## manifest.json
@@ -37,14 +39,16 @@ Data © OpenStreetMap contributors, [ODbL 1.0](https://opendatacommons.org/licen
 | `format` | int | `1` |
 | `generated` | UTC time `YYYY-MM-DDTHH:MM:SSZ` | When this manifest was built. It changes on every daily run, even when nothing else did |
 | `min_build` | int | The oldest app build that can read this feed. A lower build keeps its last good data and asks for an update |
-| `cities[].id` | string | Stable. `nyc` |
+| `cities` | array | One entry per area, `nyc` first. A client that shows one city reads `cities[0]`. Every entry carries every field below with the type given here: the first app release parses all of them and drops the whole manifest over one it cannot read |
+| `cities[].id` | string | Stable: lower-case letters, digits and dashes. `nyc`, `chicago`, `sfbay`. The area's file names are made from it |
+| `cities[].name` | string | What people call the area: `New York City`, `Dallas-Fort Worth` |
 | `cities[].tz` | IANA zone | Every time in the places file is this zone's wall-clock time |
 | `cities[].center` | `[lat, lon]` | Where the map opens without a location |
 | `cities[].zoom` | number | The opening zoom |
 | `cities[].bbox` | `[west, south, east, north]` | Every place is inside it |
-| `cities[].places` | file name | Relative to the base URL |
+| `cities[].places` | file name | Relative to the base URL. A plain name with no folder in it: `<id>.json` |
 | `cities[].sha256`, `bytes` | hex string, int | Of the places file exactly as served. Check them before replacing a stored copy |
-| `cities[].votes` | file name, may be absent | The city's votes file (below), relative to the base URL. It has its own clock: refresh it at most every 30 minutes with `If-None-Match`, and work without it |
+| `cities[].votes` | file name, may be absent | The area's votes file (below), relative to the base URL: `<id>-votes.json`. It has its own clock: refresh it at most every 30 minutes with `If-None-Match`, and work without it |
 | `cities[].count` | int | Places in the file |
 | `cities[].confirmed` | int | Places whose `src` is `shop` or `brand` |
 | `cities[].updated` | UTC time | When the places last changed (the places file's own `generated`). Unchanged places keep the file, its hash and this time |
@@ -54,6 +58,8 @@ Data © OpenStreetMap contributors, [ODbL 1.0](https://opendatacommons.org/licen
 | `report` | `null` or object | `null`: no endpoint, send the user to the support page. Otherwise `{"kind": "google_form", "url": "https://docs.google.com/forms/d/e/…/formResponse", "fields": {"type": "entry.N", "place_id": "entry.N", "place_name": "entry.N", "note": "entry.N", "app": "entry.N"}}`: POST form-encoded; any 2xx/3xx is "sent" |
 
 ## nyc.json (a places file)
+
+One per area, named in the manifest (`nyc.json`, `chicago.json`). Its `city` is the area's `id`.
 
 ```json
 {"format": 1, "city": "nyc", "generated": "2026-11-24T23:10:00Z", "places": [
@@ -73,17 +79,18 @@ Places are sorted by `id`. The file is one line of compact JSON, UTF-8.
 
 | Field | Always there | Type | Notes |
 |---|---|---|---|
-| `id` | yes | string | Stable across runs. An OpenStreetMap element (`n…` node, `w…` way, `r…` relation, then the OSM id) or `x-<slug>` for a place added by hand |
+| `id` | yes | string | Stable across runs, and unique across areas. An OpenStreetMap element (`n…` node, `w…` way, `r…` relation, then the OSM id) or `x-<slug>` for a place OpenStreetMap lacks: one added by hand, or a chain's store taken from its locator (`x-<chain>-<the chain's own store number>`, as in `x-starbucks-1040242`). Lower-case letters, digits and single dashes; at most 60 characters after `x-` |
 | `name` | yes | string | |
 | `lat`, `lon` | yes | number | WGS84, 5 decimals (about 1 m) |
 | `addr` | yes | string | Street address without city: `13 Carmine St` |
-| `hood` | yes | string | Neighbourhood, a name people use (`West Village`, `Koreatown`, `Astoria`) |
-| `boro` | yes | string | `Manhattan`, `Brooklyn`, `Queens`, `Bronx` or `Staten Island` |
+| `hood` | in `nyc` | string | Neighbourhood, a name people use (`West Village`, `Koreatown`, `Astoria`). Always there in New York. In another area it is there only once the area has a source of neighbourhood names, and none has yet |
+| `boro` | in `nyc` | string | `Manhattan`, `Brooklyn`, `Queens`, `Bronx` or `Staten Island`. New York only: no other area's places carry it |
+| `city` | no | string | The municipality (`Oakland`, `Bellevue`, `Evanston`), from OpenStreetMap's `addr:city` or the chain's locator. Outside New York only; New York's places say it with `boro` |
 | `cat` | yes | string | `coffee`, `tea` (tea houses, bubble tea) or `dessert` (dessert and bakery cafés) |
-| `chain` | yes | string or `null` | A brand slug (`starbucks`, `dunkin`, `gregorys`, `kung-fu-tea`, …) when the brand has 5 or more New York locations, else `null` |
+| `chain` | yes | string or `null` | A brand slug (`starbucks`, `dunkin`, `gregorys`, `kung-fu-tea`, …) when the brand has 5 or more locations in the area, else `null`. The count is made in each area by itself |
 | `hours` | yes | array | The weekly table, below |
 | `src` | yes | string | Where the hours come from: `shop` (we confirmed them on the shop's own website, ordering page or official social account), `brand` (the chain's own store locator), `osm` (the OpenStreetMap tag; **not confirmed by us**) |
-| `checked` | yes | `YYYY-MM-DD` or `null` | `shop`/`brand`: the day we confirmed. `osm`: the day an OpenStreetMap mapper last checked the place, or `null` when OSM does not say |
+| `checked` | yes | `YYYY-MM-DD` or `null` | `shop`/`brand`: the day we confirmed (for `brand` hours that came by way of All The Places, the day it read the chain's locator). `osm`: the day an OpenStreetMap mapper last checked the place, or `null` when OSM does not say |
 | `hh` | yes | string | A short hash of this place's `hours` (8 hex digits). It changes exactly when `hours` changes and is the same on every run otherwise. **Clients echo it and never compute it** (a visitor's "hours are right" carries the `hh` they were looking at) |
 | `phone` | no | string | E.164 (`+12125550123`) |
 | `web` | no | string | `http(s)://…` |
@@ -109,7 +116,7 @@ Holidays are not in the table. `hours` is a normal week.
 
 ## nyc-votes.json (a votes file)
 
-What visitors said, counted about once an hour from the report form. Only places that have anything are listed, so the file is often nearly empty.
+What visitors said, counted about once an hour from the report form. One file per area (`<id>-votes.json`); its `city` is the area's `id`. Only places that have anything are listed, so the file is often nearly empty.
 
 ```json
 {"format": 1, "city": "nyc", "generated": "2026-11-25T02:00:00Z", "votes": {
@@ -125,9 +132,9 @@ What visitors said, counted about once an hour from the report form. Only places
 | `bad` | `[count, date]` | Open "hours wrong" / "closed for good" reports and the date of the newest |
 | `stars` | `[mean, count]` | Mean rating to one decimal (1–5) and the number of ratings |
 
-Dates are days in the city's time zone. An id here may briefly be missing from the places file (the place left the feed since the last count): ignore it.
+Dates are days in the area's time zone. An id here may briefly be missing from the places file (the place left the feed since the last count): ignore it.
 
-**Counting rules.** A confirmation counts when its `hh` equals the place's current `hh` and it is under 120 days old; one per install per place (the newest). A rating: the newest per install per place. An install that sends more than 30 votes in one day is dropped whole. `bad` counts `hours` and `closed` reports dated after the place's `checked` date and made after its hours last changed; so a report disappears when we re-check the place or its hours change. Malformed rows are skipped.
+**Counting rules.** A confirmation counts when its `hh` equals the place's current `hh` and it is under 120 days old; one per install per place (the newest). A rating: the newest per install per place. An install that sends more than 30 votes in one day is dropped whole, in every area. `bad` counts `hours` and `closed` reports dated after the place's `checked` date and made after its hours last changed; so a report disappears when we re-check the place or its hours change. Malformed rows are skipped.
 
 **Quarantine.** Rows from a platform in a date window listed in the repository's `quarantine.json` are dropped before anything is counted: they reach neither `ok`, `stars`, `bad` nor the re-check list. This is for periods when the taps are not real visits (the Google Play closed test with paid testers, Android, from 2026-11-24). A rule that has ended keeps its window, so those rows never count later.
 
@@ -135,13 +142,14 @@ Dates are days in the city's time zone. An id here may briefly be missing from t
 
 ## How the feed is made
 
-1. Cafés, coffee shops, tea and dessert places in the five boroughs are read from OpenStreetMap once a day.
+1. Cafés, coffee shops, tea and dessert places are read from OpenStreetMap once a day, area by area: New York's five boroughs by the city's boundary, another area by its rectangle (cut to a polygon where the rectangle crosses a border).
 2. Rules decide what is a café (`latecup_data/classify.py`); hookah lounges, bars, restaurants, delis, bagel shops and the like are left out.
 3. The OSM `opening_hours` tag is parsed by a strict parser. A string it is not certain about is not guessed: the place waits on a to-confirm list.
 4. Hours we confirmed ourselves (`overrides/`, one file per place, with the source URL and date) replace the OSM hours and survive every refresh. Allowed sources: the shop's own website, its ordering page, its official Instagram or Facebook, a chain's own store locator. Never Google Maps, Yelp or other listing sites.
 5. A place that visitors reported wrong (`bad` in the votes file) goes to the top of the to-confirm list (`ops/to-confirm.json` → `recheck`, and `ops/recheck.json` hourly): it is the first thing re-checked from an allowed source. Re-checking it writes a new `checked` date, which clears the reports.
 6. **A publish guard** holds back confirmed hours of a shape that has been wrong before: a place closed four or more days a week, or one whose open days are not the days OpenStreetMap has. Such a place is published with its OpenStreetMap hours as `osm` (or left out when OSM has none) and listed under `recheck` until someone has looked at the source a second time.
-7. The result is validated against this document (`latecup_data/validate.py`) and published: the manifest (a real IANA time zone, the centre inside the bounding box), the places file against the manifest's hash and counts, and both map styles. A feed that fails any of it, or that lost more than 20 % of its places since the last run, is not published.
+7. **The chain layer**, when a build is run with it (no published build is yet): the chains' own store locators, as [All The Places](https://www.alltheplaces.xyz) read them that week (CC0). A store is matched to the place of its brand at its address and the place gets the store's hours as `brand`; a store OpenStreetMap lacks becomes a place with an `x-` id. Hours we read ourselves win when they are newer. Not used: a week with a holiday in it, a day "open 24 hours" that OpenStreetMap does not also have, anything the publish guard or the strict parser would hold back. The rules are in the README.
+8. The result is validated against this document (`latecup_data/validate.py`) and published: the manifest (every area: a real IANA time zone, the centre inside the bounding box, New York first, and nothing the first app release could not parse), every places file against the manifest's hash and counts, and both map styles. A feed in which any area fails any of it, or lost more than 20 % of its places since the last run, is not published.
 
 ## Caching
 

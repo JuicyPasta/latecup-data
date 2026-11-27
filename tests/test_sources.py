@@ -17,7 +17,7 @@ which the rule allows when the account is the shop's own.
 import re
 from urllib.parse import urlsplit
 
-from latecup_data import build as B
+from latecup_data import areas as A, build as B
 
 _SUB = r"^(?:[a-z0-9-]+\.)*"            # any subdomains: www., m., es.
 _END = r"\.(?:com?\.)?[a-z]{2,}/"       # the site's own name under any country ending: .com, .ca, .co.uk, .com.au
@@ -115,9 +115,13 @@ def test_allowed_sources_pass():
 
 
 def test_every_record_has_a_source_the_rule_allows():
-    # loaded the way the pipeline loads them, so a record it would refuse fails here too
-    records = [("overrides", rec) for rec in B.load_overrides().values()]
-    records += [("additions", rec) for rec in B.load_additions()]
+    # loaded the way the pipeline loads them, so a record it would refuse fails here too:
+    # New York's in the folders themselves, every other area's in its own subfolder
+    records = []
+    for area in A.load():
+        sub = "" if area.id == A.FIRST else f"/{area.id}"
+        records += [(f"overrides{sub}", rec) for rec in B.load_overrides(area=area).values()]
+        records += [(f"additions{sub}", rec) for rec in B.load_additions(area=area)]
     assert records, "found no records in overrides/ and additions/"
     bad = [f"{folder}/{rec['id']}.json: {rec.get('source')!r}: {why}"
            for folder, rec in records if (why := problem(rec.get("source")))]
