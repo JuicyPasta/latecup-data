@@ -670,3 +670,58 @@ def test_an_area_file_can_say_whether_visitors_hours_are_published(tmp_path, mon
     assert [votes.allows(a) for a in ("nyc", "chicago", "austin", "boston", "dc")] == [True, False, True, True, True]
     (tmp_path / "nyc.json").write_text('{"id": "nyc"}')
     assert votes.allows("nyc") is False
+
+
+# ---------------------------------------------------------------- anything at all
+
+@pytest.mark.parametrize("seed", range(12))
+def test_random_and_hostile_rows_never_trip_the_rules(site, repo, seed):
+    """Whatever is sent: nothing fails, every file validates, no install id is
+    written, and a second run over the same rows changes nothing."""
+    import random
+    rng = random.Random(seed)
+    tables = [OSM, EARLIER, LATER, EARLY, H.parse("Mo-Sa 08:00-22:00"), H.parse("Fr-Su 10:00-23:00"), H.parse("24/7"),
+              H.parse("Mo-Su 00:00-02:00,10:00-22:00"), H.parse("Mo-Fr 08:00-12:00,13:00-23:00; Sa-Su 09:00-23:30")]
+    junk = ["", "x", "x.x", "9999-0.x.x.x.x.x.x", "600-540.x.x.x.x.x.x", "480-1380." * 7, "٤٨٠-1380.x.x.x.x.x.x",
+            "480-1380.x.x.x.x.x.x;w=http", "0-1440." * 6 + "0-1441", "1-2,2-3.x.x.x.x.x.x", "a" * 500]
+    hashes = {p["id"]: p["hh"] for p in NYC + CHICAGO}
+    hashes.update({"n2001": "0", "n2002": H.table_hash(EARLY)})
+    ids = list(hashes) + ["n404", "test", "", "x-nope"]
+    rows = []
+    for _ in range(rng.choice([40, 300, 900])):
+        when = f"2026-12-{rng.randrange(1, 10):02d} {rng.randrange(24):02d}:{rng.randrange(60):02d}:00"
+        if rng.random() < 0.03:
+            when = rng.choice(["2026-07-01 10:00:00", "2027-01-01 10:00:00", "soon", ""])
+        who, pid = rng.randrange(1, 40), rng.choice(ids)
+        platform = rng.choice(["ios", "ios", "ios", "android", "android", "web", "", "IOS", "windows"])
+        kind = rng.choice(["fix"] * 10 + ["add"] * 3 + ["attest", "rate", "hours", "closed", "test", "other"])
+        hh = rng.choice([hashes.get(pid, "0")] * 6 + ["deadbeef", "0"])
+        table = V.encode(rng.choice(tables)) if rng.random() < 0.9 else rng.choice(junk)
+        if kind == "fix":
+            note = f"v=2;iid={iid(who)};hh={hh};t={table}"
+            if rng.random() < 0.05:
+                note = rng.choice([note + ";x=1", note.replace("v=2", "v=1"), "v=2;iid=zz;hh=0;t=" + table, note.upper(), note + " "])
+        elif kind == "add":
+            pid = rng.choice(["", "", "", "test", "n1"])
+            where = rng.choice(["40.73012,-73.99555", "41.87810,-87.62980", "41.878,-87.629", "48.85661,2.35222", "91.00000,0.00000", "41.8,-87.6"])
+            note = f"v=2;iid={iid(who)};ll={where};c={rng.choice(['coffee', 'tea', 'dessert', 'bar'])};t={table}"
+        elif kind == "attest":
+            note = f"v=1;iid={iid(who)};hh={hh}"
+        elif kind == "rate":
+            note = f"v=1;iid={iid(who)};stars={rng.randrange(0, 7)}"
+        else:
+            note = rng.choice(["", "free text"])
+        rows.append(f'{when},{kind},{pid},"{note}",{platform}')
+    first, lines = run(site, csv(*rows), repo, allow=lambda _area: True)
+    second, more = run(site, csv(*rows), repo, now="2026-12-10T18:00:00Z", allow=lambda _area: True)
+    assert first.problems == () and second == votes.Result(False, [])
+    for path in list(site.rglob("*.json")) + list(repo.rglob("*.json")):
+        text = path.read_text()
+        assert not UUID.search(text) and "iid" not in text, path
+    validate.votes_file(read(site / "v1" / "nyc-votes.json"), "nyc", {p["id"] for p in NYC})
+    validate.votes_file(read(site / "v1" / "chicago-votes.json"), "chicago", {p["id"] for p in CHICAGO}, {"n2001", "n2002"})
+    for path in repo.rglob("*.json"):
+        V.check(json.loads(path.read_text()), path.stem)
+    for w in first.writes:
+        assert not UUID.search(w["message"])
+    assert not UUID.search("\n".join(lines + more))
