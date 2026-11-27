@@ -18,6 +18,15 @@ from latecup_data import validate  # noqa: E402
 from test_released_app import EVERY_ENTRY  # noqa: E402
 
 
+NEW_FIELDS = [
+    {"indie": 12, "indie_confirmed": 3},
+    {"help": {"file": "area-help.json", "sha256": "a" * 64, "bytes": 10, "count": 1}},
+    {"indie": "12"}, {"indie": None}, {"indie": 1.5}, {"indie_confirmed": [3]}, {"indie_confirmed": True},
+    {"help": None}, {"help": 5}, {"help": "nyc-help.json"}, {"help": []}, {"help": {}},
+    {"help": {"file": "../../nyc.json", "sha256": 5, "bytes": "ten", "count": None}},
+]
+
+
 def main(argv):
     base = json.loads(Path(argv[0]).read_text())
     cases = []
@@ -64,6 +73,12 @@ def main(argv):
         m = copy.deepcopy(base)
         m["cities"][0], m["cities"][1] = m["cities"][1], m["cities"][0]
         add("New York second", m)
+    # The fields 1.1 adds to an entry. 1.0.0 reads none of them, so nothing in them may make it refuse the
+    # manifest: not the values the pipeline writes, and not a broken one either. New York's entry is the one it
+    # runs on; the last is one it only parses.
+    for position in sorted({0, last}):
+        for change in NEW_FIELDS:
+            changed(position, change)
     Path(argv[1]).write_text(json.dumps(cases))
     print(f"{len(cases)} cases, {sum(c['python_accepts'] for c in cases)} of them accepted by validate.released_app")
 
