@@ -1,12 +1,14 @@
 """Coverage numbers for a built feed, as Markdown.
 
-usage: python -m latecup_data.report [site folder] [--out docs/coverage.md]
+usage: python -m latecup_data.report [site folder] [--out docs/coverage.md]             (New York)
+       python -m latecup_data.report [site folder] --us docs/coverage-us.md [--note TEXT]  (every area in the site)
 """
 import json
 import sys
 from collections import Counter
 from pathlib import Path
 
+from . import areas as A
 from .hours import is_24_7, latest_close
 
 BUCKETS = ["20", "21", "22", "23", "24+", "24 h"]
@@ -21,7 +23,7 @@ def bucket(table):
 
 
 def numbers(places):
-    n = {"total": len(places), "boro": Counter(p["boro"] for p in places), "src": Counter(p["src"] for p in places),
+    n = {"total": len(places), "boro": Counter(p.get("boro") for p in places), "src": Counter(p["src"] for p in places),
          "cat": Counter(p["cat"] for p in places), "close": Counter(bucket(p["hours"]) for p in places),
          "chain": sum(p["chain"] is not None for p in places)}
     n["independent"] = n["total"] - n["chain"]
@@ -87,14 +89,103 @@ def markdown(doc, to_confirm=None, stats=None):
     return "\n".join(lines) + "\n"
 
 
+def us_markdown(site, note=None):
+    """Every area in the site's manifest, one row each: places, kind, source,
+    latest closing, the size of its file; then the totals, the manifest's
+    size and, when the site was built with it, what the chain layer did."""
+    site = Path(site)
+    raw = (site / "v1" / "manifest.json").read_bytes()
+    manifest = json.loads(raw)
+    rows, layer, spiders = [], [], None
+    for c in manifest["cities"]:
+        body = (site / "v1" / c["places"]).read_bytes()
+        n = numbers(json.loads(body)["places"])
+        rows.append([c["name"], n["total"], n["independent"], n["chain"], n["src"]["shop"], n["src"]["brand"],
+                     n["src"]["osm"], *[n["close"][b] for b in BUCKETS], len(body)])
+        try:
+            stats = json.loads((A.ops_dir(site, c["id"]) / "stats.json").read_text())
+        except (OSError, ValueError):
+            stats = {}
+        if "chains" in stats:
+            ch = Counter(stats["chains"])
+            held = sum(v for k, v in ch.items() if k.endswith("held back"))
+            layer.append([c["name"], ch["stores in the area"], ch["matched to a place"], ch["matched: hours used"],
+                          ch["matched: our own reading is newer"], ch["new: in the feed"], held,
+                          ch["near a place of the brand, not matched"] + ch["at the spot of another store of the brand"]])
+            spiders = spiders or stats.get("chain_spiders")
+    rows.sort(key=lambda r: -r[1])
+    layer.sort(key=lambda r: -r[1])
+    total = [f"**All {len(rows)}**"] + [sum(r[i] for r in rows) for i in range(1, len(rows[0]))]
+
+    def line(r):
+        return "| " + " | ".join(f"{v:,}" if isinstance(v, int) else str(v) for v in r) + " |"
+
+    lines = [
+        "# Latecup feed coverage, every area",
+        "",
+        f"Feed of {manifest['generated']}, {len(rows)} areas. Written by `python -m latecup_data.report <site> --us "
+        f"docs/coverage-us.md`." + (f" {note}" if note else ""),
+        "",
+        "Every place closes at 20:00 or later on at least one day. Independent and chain are the feed's `chain` "
+        "field: a brand with 5 or more locations in the area is a chain there. The closing columns are the latest "
+        "closing of the week; \"24 h\" is open all week.",
+        "",
+        "| Area | Places | Independent | Chain | `shop` | `brand` | `osm` | 20 | 21 | 22 | 23 | midnight or later | 24 h "
+        "| Bytes |",
+        "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
+        *[line(r) for r in rows],
+        line(total),
+        "",
+        f"The manifest is {len(raw):,} bytes; the places files together are {total[-1]:,} bytes "
+        f"(as served they are gzip-compressed by GitHub Pages).",
+    ]
+    if layer:
+        all_layer = [f"**All {len(layer)}**"] + [sum(r[i] for r in layer) for i in range(1, len(layer[0]))]
+        lines += [
+            "",
+            "## What the chain layer did",
+            "",
+            "Stores are the chains' own locator records inside the area (All The Places). A store is matched when a "
+            "place of its brand stands at its address; its hours are used unless our own reading is newer or a rule "
+            "holds them back (the publish guard, a 24-hour day OpenStreetMap does not confirm). A store with no place "
+            "is added when it is late, has a street address and passes the same rules.",
+            "",
+            "| Area | Stores | Matched to a place | Hours used | Our reading newer | Added as new places | Held back "
+            "| Near a place, not matched |",
+            "|---|---|---|---|---|---|---|---|",
+            *[line(r) for r in layer],
+            line(all_layer),
+        ]
+    if spiders:
+        lines += [
+            "",
+            "| Spider | Run | Collected | Used |",
+            "|---|---|---|---|",
+            *[f"| `{n['spider']}` | {n.get('run') or ''} | {n.get('collected') or ''} | "
+              f"{'yes' if n['used'] else 'no: ' + str(n.get('why'))} |" for n in spiders],
+        ]
+    return "\n".join(lines) + "\n"
+
+
 def main(argv=None):
     argv = list(argv or sys.argv[1:])
-    out = None
+    out = us = note = None
     if "--out" in argv:
         i = argv.index("--out")
         out = argv[i + 1]
         del argv[i:i + 2]
+    if "--us" in argv:
+        i = argv.index("--us")
+        us = argv[i + 1]
+        del argv[i:i + 2]
+    if "--note" in argv:
+        i = argv.index("--note")
+        note = argv[i + 1]
+        del argv[i:i + 2]
     site = Path(argv[0] if argv else "site")
+    if us:
+        Path(us).write_text(us_markdown(site, note))
+        return
     doc = json.loads((site / "v1" / "nyc.json").read_text())
     tc = stats = None
     try:

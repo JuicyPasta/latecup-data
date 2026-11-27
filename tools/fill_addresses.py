@@ -1,8 +1,9 @@
 """Find street addresses for late places that OSM maps without one.
 
-usage: python tools/fill_addresses.py [site folder] [--max N]
+usage: python tools/fill_addresses.py [site folder] [--max N] [--area ID]
 
-Reads <site>/ops/to-confirm.json (written by the pipeline), asks Nominatim
+Reads the to-confirm list the pipeline wrote (<site>/ops/to-confirm.json for
+New York, <site>/ops/<ID>/to-confirm.json for another area), asks Nominatim
 (OpenStreetMap's own geocoder, ODbL) for the address at each point, and stores
 the answers in data/addresses.json, which the pipeline reads. One request a
 second, each point asked once: answers and misses are both remembered.
@@ -17,7 +18,7 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from latecup_data import USER_AGENT, clean  # noqa: E402
+from latecup_data import USER_AGENT, areas, clean  # noqa: E402
 
 CACHE = ROOT / "data" / "addresses.json"
 URL = "https://nominatim.openstreetmap.org/reverse"
@@ -26,10 +27,11 @@ URL = "https://nominatim.openstreetmap.org/reverse"
 def main(argv):
     site = Path(argv[0]) if argv and not argv[0].startswith("--") else ROOT / "work" / "site"
     limit = int(argv[argv.index("--max") + 1]) if "--max" in argv else 150
+    area = areas.get(argv[argv.index("--area") + 1]) if "--area" in argv else areas.first()
     doc = json.loads(CACHE.read_text()) if CACHE.exists() else {
         "source": "Nominatim reverse geocoding of the place's own coordinates; data © OpenStreetMap contributors, ODbL",
         "addresses": {}, "misses": {}}
-    todo = [p for p in json.loads((site / "ops" / "to-confirm.json").read_text())["places"]
+    todo = [p for p in json.loads((areas.ops_dir(site, area.id) / "to-confirm.json").read_text())["places"]
             if p["reason"].startswith("late, but no street address")
             and p["id"] not in doc["addresses"] and p["id"] not in doc["misses"]]
     print(len(todo), "places to look up")

@@ -102,12 +102,16 @@ def street_address(props):
             line = parts[0]                       # the street address alone
         else:
             return None                           # "1 Miller Place Unit D, Smithtown NY 11787": where does the street end?
+    line = re.sub(r"\s*\[[^\]]*\]\s*$", "", line)            # "474 E 17th St [Costa Mesa]"
     line = " ".join(line.replace(" - ", " ").split())
     for _ in range(2):
         line = _UNIT.sub("", line).strip(" ,.-")
     num, _, rest = line.partition(" ")
-    if not rest or not num[0].isdigit() or not re.search(r"[A-Za-z]", rest) or len(line) > 60:
+    if not rest or not num[0].isdigit() or not re.search(r"[A-Za-z]", rest) or len(line) > 60 or \
+            re.search(r"[\[\]{}<>|]", line):
         return None
+    if rest.isupper():                                          # "11840 SANTA MONICA BLVD"; "SW", "US" stay
+        rest = " ".join(w.capitalize() if len(w) > 2 and w.isalpha() else w for w in rest.split())
     return f"{num} {clean.street(rest)}"
 
 
@@ -338,7 +342,7 @@ class Layer:
         stores, notes = [], []
         for spider in spiders:
             note = {"spider": spider.name, "chain": spider.chain, "used": False, "why": "no file in the cache"}
-            passed_over = []
+            passed_over, newest = [], None
             for run in runs:
                 path = cache / run / f"{spider.name}.geojson"
                 if not path.exists():
@@ -348,9 +352,12 @@ class Layer:
                 if note["used"]:
                     stores += got
                     break
+                newest = newest or note
                 passed_over.append(f"{run}: {note['why']}")
             if note["used"] and passed_over:
                 note["passed_over"] = passed_over
+            elif newest is not None:
+                note = dict(newest, runs_tried=len(passed_over))     # say why the newest run is not used
             notes.append(note)
             log(f"chain layer: {spider.name}: " + (
                 f"{note['stores']} stores, {note['with_hours']} with hours, collected {note['collected']} "

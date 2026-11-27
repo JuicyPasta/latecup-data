@@ -175,7 +175,10 @@ def main(argv):
            "matcher": {"pairs_with_a_store_number_in_our_source": len(numbered),
                        "same_store": sum(r["same_store_number_as_our_source"] for r in numbered)},
            "not_compared": dict(unpaired), "found_gone_by_us": gone,
-           "disagreements": [r for r in rows if not r["closing_agrees"]], "pairs": rows}
+           "disagreements": [r for r in rows if not r["closing_agrees"]],
+           # every pair, short: [sample, chain, place, store number, closing agrees, opening agrees, the layer would use it]
+           "pairs": [[r["sample"], r["chain"], r["id"], r["store"], r["closing_agrees"], r["opening_agrees"],
+                      r["the_layer_would_use_it"]] for r in rows]}
     for sample, s in summary.items():
         print(f"{sample}: {s['all']}")
         for chain, v in s["by_chain"].items():
@@ -190,7 +193,11 @@ def main(argv):
               f" [newer: {r['newer']}; layer would use it: {r['the_layer_would_use_it']}]")
     if out_file:
         out_file.parent.mkdir(parents=True, exist_ok=True)
-        out_file.write_text(json.dumps(doc, ensure_ascii=False, indent=1) + "\n")
+        text = json.dumps(doc, ensure_ascii=False, indent=1)
+        # one pair to a line
+        text = re.sub(r"\[\n\s+(\"(?:brand|chain|starbucks)\",)\n\s+(.*?)\n\s+(.*?)\n\s+(.*?)\n\s+(.*?)\n\s+(.*?)\n\s+(.*?)\n\s+\]",
+                      r"[\1 \2 \3 \4 \5 \6 \7]", text)
+        out_file.write_text(text + "\n")
         print("wrote", out_file)
 
 

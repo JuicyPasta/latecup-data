@@ -104,6 +104,9 @@ def test_names_that_only_look_like_those_brands(name):
     ({"addr:street_address": "2230 Field Store Rd Building 1"}, "2230 Field Store Rd"),
     ({"addr:street_address": "500 Old Store Rd"}, "500 Old Store Rd"),          # a street, not a unit
     ({"addr:street_address": "5994 - US Highway 11"}, "5994 US Highway 11"),
+    ({"addr:street_address": "11840 SANTA MONICA BLVD"}, "11840 Santa Monica Blvd"),
+    ({"addr:street_address": "8422 S US 131"}, "8422 S US 131"),
+    ({"addr:full": "474 E 17th St [Costa Mesa]"}, "474 E 17th St"),
     ({"addr:street_address": "689, Fond du Lac"}, None),
     ({"addr:street_address": "Terminal 4"}, None),                              # no house number
     ({"addr:full": "442 6th Ave, New York, NY, 10011"}, "442 6th Ave"),

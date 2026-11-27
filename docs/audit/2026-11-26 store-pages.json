@@ -1,0 +1,633 @@
+{
+ "what": "The chains' own store pages, opened on 2026-11-26 (Thanksgiving Day) for the stores where All The Places and our own reading disagree, and for the stores we had taken off the map as gone that All The Places still lists",
+ "read": "2026-11-26, about 23:15-23:20 America/New_York, with the pipeline's shop User-Agent, one page at a time",
+ "disagreements": [
+  {
+   "id": "n10294003833",
+   "addr": "1700 Church Ave",
+   "store": "342307",
+   "page": "https://www.dunkindonuts.com/locations/us/ny/brooklyn/1700-church-ave/store-342307/",
+   "ours": "Mo 06:00-03:00; Tu 06:00-03:00; We 06:00-03:00; Th 06:00-24:00; Fr 00:00-24:00; Sa 00:00-24:00; Su 06:00-03:00",
+   "ours_read": "2026-11-24",
+   "all_the_places": "Mo 00:00-02:45,06:00-24:00; Tu 00:00-02:45,06:00-24:00; We 00:00-02:45,06:00-24:00; Th 00:00-02:45,06:00-24:00; Fr 00:00-02:45; Sa off; Su 06:00-24:00",
+   "collected": "2026-11-15",
+   "page_on_2026-11-26": {
+    "STORE hours": [
+     [
+      "Mo,Tu,We,Th,Su",
+      "06:00",
+      "03:00"
+     ],
+     [
+      "Fr,Sa",
+      "00:00",
+      "00:00"
+     ]
+    ],
+    "PICKUP hours": [
+     [
+      "Mo,Tu,We,Th,Su",
+      "06:00",
+      "02:45"
+     ],
+     [
+      "Fr,Sa",
+      "00:00",
+      "00:00"
+     ]
+    ],
+    "ORDER_AHEAD hours": [
+     [
+      "Mo,Tu,We,Th,Su",
+      "06:00",
+      "02:45"
+     ],
+     [
+      "Fr,Sa",
+      "00:00",
+      "00:00"
+     ]
+    ],
+    "WALK_IN hours": [
+     [
+      "Mo,Tu,We,Th,Su",
+      "00:00",
+      "23:45"
+     ],
+     [
+      "Fr,Sa",
+      "00:00",
+      "00:00"
+     ]
+    ],
+    "WALK_UP hours": [
+     [
+      "Mo,Tu,We,Th,Su",
+      "06:00",
+      "02:45"
+     ],
+     [
+      "Fr,Sa",
+      "00:00",
+      "00:00"
+     ]
+    ],
+    "DELIVERY hours": [
+     [
+      "Mo,Tu,We,Th,Su",
+      "06:00",
+      "03:00"
+     ],
+     [
+      "Fr,Sa",
+      "06:00",
+      "00:00"
+     ]
+    ]
+   },
+   "right_about_a_normal_week": "ours",
+   "why": "The page's STORE set is ours (06:00-03:00, Friday and Saturday 00:00-00:00). All The Places' table is its overnight hours taken apart: Saturday comes out closed.",
+   "the_layer_would_use_all_the_places": false
+  },
+  {
+   "id": "n2592264889",
+   "addr": "102 8th Ave",
+   "store": "363004",
+   "page": "https://www.dunkindonuts.com/locations/us/ny/new-york/102-8th-ave/store-363004/",
+   "ours": "Mo 05:30-23:00; Tu 05:30-23:00; We 05:30-23:00; Th 05:30-23:00; Fr 05:30-23:00; Sa 05:30-23:00; Su 05:30-23:00",
+   "ours_read": "2026-11-24",
+   "all_the_places": "Mo 05:30-21:45; Tu 05:30-21:45; We 05:30-21:45; Th 05:30-21:45; Fr 05:30-21:45; Sa 05:30-21:45; Su 05:30-21:45",
+   "collected": "2026-11-15",
+   "page_on_2026-11-26": {
+    "STORE hours": [
+     [
+      "Mo,Tu,We,Th,Fr,Sa,Su",
+      "05:30",
+      "23:00"
+     ]
+    ],
+    "PICKUP hours": [
+     [
+      "Mo,Tu,We,Th,Fr,Sa,Su",
+      "05:30",
+      "22:45"
+     ]
+    ],
+    "ORDER_AHEAD hours": [
+     [
+      "Mo,Tu,We,Th,Fr,Sa,Su",
+      "05:30",
+      "22:45"
+     ]
+    ],
+    "WALK_IN hours": [
+     [
+      "Mo,Tu,We,Th,Fr,Sa,Su",
+      "05:30",
+      "22:45"
+     ]
+    ],
+    "DELIVERY hours": [
+     [
+      "Mo,Tu,We,Th,Fr,Sa,Su",
+      "05:30",
+      "23:00"
+     ]
+    ]
+   },
+   "right_about_a_normal_week": "ours",
+   "why": "The page's STORE set closes at 23:00, as we read it; its pick-up set at 22:45. All The Places has 21:45: an hour behind the page, so the store's hours moved after 2026-11-15 or the reading was off.",
+   "the_layer_would_use_all_the_places": true
+  },
+  {
+   "id": "n3573447501",
+   "addr": "3530 36th St",
+   "store": "348317",
+   "page": "https://www.dunkindonuts.com/locations/us/ny/long-island-city/3530-36th-st/store-348317/",
+   "ours": "Mo 06:00-19:00; Tu 06:00-19:00; We 06:00-19:00; Th 06:00-19:00; Fr 06:00-19:00; Sa 07:00-15:00; Su 00:00-24:00",
+   "ours_read": "2026-11-24",
+   "all_the_places": "Mo 06:00-18:45; Tu 06:00-18:45; We 06:00-18:45; Th 06:00-18:45; Fr 06:00-18:45; Sa 07:00-14:45; Su off",
+   "collected": "2026-11-15",
+   "page_on_2026-11-26": {
+    "STORE hours": [
+     [
+      "Mo,Tu,We",
+      "06:00",
+      "19:00"
+     ],
+     [
+      "Th,Su",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr,Sa",
+      "07:00",
+      "15:00"
+     ]
+    ],
+    "PICKUP hours": [
+     [
+      "Mo,Tu,We",
+      "06:00",
+      "18:45"
+     ],
+     [
+      "Th,Su",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr,Sa",
+      "07:00",
+      "14:45"
+     ]
+    ],
+    "ORDER_AHEAD hours": [
+     [
+      "Mo,Tu,We",
+      "06:00",
+      "18:45"
+     ],
+     [
+      "Th,Su",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr,Sa",
+      "07:00",
+      "14:45"
+     ]
+    ],
+    "WALK_IN hours": [
+     [
+      "Mo,Tu,We",
+      "06:00",
+      "18:45"
+     ],
+     [
+      "Th,Su",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr,Sa",
+      "07:00",
+      "14:45"
+     ]
+    ],
+    "DELIVERY hours": [
+     [
+      "Mo,Tu,We",
+      "06:00",
+      "19:00"
+     ],
+     [
+      "Th,Su",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr,Sa",
+      "07:00",
+      "15:00"
+     ]
+    ]
+   },
+   "right_about_a_normal_week": "All The Places",
+   "why": "The page gives Sunday (and, on Thanksgiving, Thursday) as 00:00-00:00 for a store that keeps 06:00-19:00 on weekdays: closed, not open all day. Our record says Sunday 24 hours because OpenStreetMap said so too.",
+   "the_layer_would_use_all_the_places": false
+  },
+  {
+   "id": "n4755575513",
+   "addr": "200 W 54th St",
+   "store": "351866",
+   "page": "https://www.dunkindonuts.com/locations/us/ny/new-york/200-w-54th-st/store-351866/",
+   "ours": "Mo 04:30-24:00; Tu 04:30-24:00; We 04:30-24:00; Th 04:00-21:00; Fr 05:00-24:00; Sa 05:00-24:00; Su 05:00-24:00",
+   "ours_read": "2026-11-24",
+   "all_the_places": "Mo 04:30-23:45; Tu 04:30-23:45; We 04:30-23:45; Th 04:30-23:45; Fr 04:30-23:45; Sa 05:00-23:45; Su 05:00-23:45",
+   "collected": "2026-11-15",
+   "page_on_2026-11-26": {
+    "STORE hours": [
+     [
+      "Mo,Tu,We",
+      "04:30",
+      "00:00"
+     ],
+     [
+      "Th,Fr,Sa,Su",
+      "05:00",
+      "00:00"
+     ]
+    ],
+    "PICKUP hours": [
+     [
+      "Mo,Tu,We",
+      "04:30",
+      "23:45"
+     ],
+     [
+      "Th,Fr,Sa,Su",
+      "05:00",
+      "23:45"
+     ]
+    ],
+    "ORDER_AHEAD hours": [
+     [
+      "Mo,Tu,We",
+      "04:30",
+      "23:45"
+     ],
+     [
+      "Th,Fr,Sa,Su",
+      "05:00",
+      "23:45"
+     ]
+    ],
+    "WALK_IN hours": [
+     [
+      "Mo,Tu,We",
+      "04:30",
+      "23:45"
+     ],
+     [
+      "Th,Fr,Sa,Su",
+      "05:00",
+      "23:45"
+     ]
+    ],
+    "DELIVERY hours": [
+     [
+      "Mo,Tu,We",
+      "04:30",
+      "00:00"
+     ],
+     [
+      "Th,Fr,Sa,Su",
+      "05:00",
+      "00:00"
+     ]
+    ]
+   },
+   "right_about_a_normal_week": "All The Places",
+   "why": "Our Thursday (04:00-21:00, read on 2026-11-24) was that week's Thanksgiving hours; the page had already changed again on 2026-11-26. All The Places' week of 2026-11-15 has the usual Thursday.",
+   "the_layer_would_use_all_the_places": true
+  },
+  {
+   "id": "n5889478638",
+   "addr": "10 W 33rd St",
+   "store": "352670",
+   "page": "https://www.dunkindonuts.com/locations/us/ny/new-york/10-w-33rd-st/store-352670/",
+   "ours": "Mo 05:30-20:00; Tu 05:30-20:00; We 05:30-20:00; Th 04:00-20:00; Fr 05:30-21:00; Sa 06:00-17:00; Su 06:00-16:00",
+   "ours_read": "2026-11-24",
+   "all_the_places": "Mo 05:30-19:45; Tu 05:30-19:45; We 05:30-19:45; Th 05:30-19:45; Fr 05:30-19:45; Sa 06:00-16:45; Su 06:00-15:45",
+   "collected": "2026-11-15",
+   "page_on_2026-11-26": {
+    "STORE hours": [
+     [
+      "Mo,Tu,We",
+      "05:30",
+      "20:00"
+     ],
+     [
+      "Th",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr",
+      "05:30",
+      "21:00"
+     ],
+     [
+      "Sa",
+      "06:00",
+      "17:00"
+     ],
+     [
+      "Su",
+      "06:00",
+      "16:00"
+     ]
+    ],
+    "PICKUP hours": [
+     [
+      "Mo,Tu,We",
+      "05:30",
+      "19:45"
+     ],
+     [
+      "Th",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr",
+      "05:30",
+      "20:45"
+     ],
+     [
+      "Sa",
+      "06:00",
+      "16:45"
+     ],
+     [
+      "Su",
+      "06:00",
+      "15:45"
+     ]
+    ],
+    "ORDER_AHEAD hours": [
+     [
+      "Mo,Tu,We",
+      "05:30",
+      "19:45"
+     ],
+     [
+      "Th",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr",
+      "05:30",
+      "20:45"
+     ],
+     [
+      "Sa",
+      "06:00",
+      "16:45"
+     ],
+     [
+      "Su",
+      "06:00",
+      "15:45"
+     ]
+    ],
+    "WALK_IN hours": [
+     [
+      "Mo,Tu,We",
+      "05:30",
+      "19:45"
+     ],
+     [
+      "Th",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr",
+      "05:30",
+      "20:45"
+     ],
+     [
+      "Sa",
+      "06:00",
+      "16:45"
+     ],
+     [
+      "Su",
+      "06:00",
+      "15:45"
+     ]
+    ],
+    "DELIVERY hours": [
+     [
+      "Mo,Tu,We",
+      "05:30",
+      "20:00"
+     ],
+     [
+      "Th",
+      "00:00",
+      "00:00"
+     ],
+     [
+      "Fr",
+      "05:30",
+      "21:00"
+     ],
+     [
+      "Sa",
+      "06:00",
+      "17:00"
+     ],
+     [
+      "Su",
+      "06:00",
+      "16:00"
+     ]
+    ]
+   },
+   "right_about_a_normal_week": "All The Places",
+   "why": "Our Thursday and Friday were Thanksgiving week's; on 2026-11-26 the page gives Thursday as 00:00-00:00 (closed for the holiday). All The Places' week of 2026-11-15 is the usual one.",
+   "the_layer_would_use_all_the_places": true
+  },
+  {
+   "id": "n6058065758",
+   "addr": "99 E 149th St",
+   "store": "359381",
+   "page": "https://www.dunkindonuts.com/locations/us/ny/bronx/99-east-149th-street/store-359381/",
+   "ours": "Mo 04:30-22:00; Tu 04:30-22:00; We 04:30-23:00; Th 04:30-23:00; Fr 04:30-23:00; Sa 05:30-22:00; Su 05:30-22:00",
+   "ours_read": "2026-11-24",
+   "all_the_places": "Mo 05:00-21:45; Tu 05:00-21:45; We off; Th off; Fr off; Sa 05:30-22:45; Su 05:30-21:45",
+   "collected": "2026-11-15",
+   "page_on_2026-11-26": {
+    "STORE hours": [
+     [
+      "Mo,Tu",
+      "04:30",
+      "22:00"
+     ],
+     [
+      "We,Fr",
+      "04:30",
+      "23:00"
+     ],
+     [
+      "Th",
+      "06:00",
+      "20:00"
+     ],
+     [
+      "Sa,Su",
+      "05:30",
+      "22:00"
+     ]
+    ],
+    "PICKUP hours": [
+     [
+      "Mo,Tu",
+      "04:30",
+      "21:45"
+     ],
+     [
+      "We,Fr",
+      "04:30",
+      "22:45"
+     ],
+     [
+      "Th",
+      "06:00",
+      "19:45"
+     ],
+     [
+      "Sa,Su",
+      "05:30",
+      "21:45"
+     ]
+    ],
+    "ORDER_AHEAD hours": [
+     [
+      "Mo,Tu",
+      "04:30",
+      "21:45"
+     ],
+     [
+      "We,Fr",
+      "04:30",
+      "22:45"
+     ],
+     [
+      "Th",
+      "06:00",
+      "19:45"
+     ],
+     [
+      "Sa,Su",
+      "05:30",
+      "21:45"
+     ]
+    ],
+    "WALK_IN hours": [
+     [
+      "Mo,Tu",
+      "04:30",
+      "21:45"
+     ],
+     [
+      "We,Fr",
+      "04:30",
+      "22:45"
+     ],
+     [
+      "Th",
+      "06:00",
+      "19:45"
+     ],
+     [
+      "Sa,Su",
+      "05:30",
+      "21:45"
+     ]
+    ],
+    "DELIVERY hours": [
+     [
+      "Mo,Tu",
+      "04:30",
+      "22:00"
+     ],
+     [
+      "We,Fr",
+      "04:30",
+      "23:00"
+     ],
+     [
+      "Th",
+      "06:00",
+      "20:00"
+     ],
+     [
+      "Sa,Su",
+      "05:30",
+      "22:00"
+     ]
+    ]
+   },
+   "right_about_a_normal_week": "ours",
+   "why": "The page has every day open. All The Places has Wednesday to Friday closed.",
+   "the_layer_would_use_all_the_places": false
+  }
+ ],
+ "taken_off_the_map_but_still_on_dunkins_site": [
+  {
+   "id": "n14395985715",
+   "store": "358349",
+   "addr": "4 Whitehall St (Staten Island Ferry Terminal)",
+   "our_record": "exclude, 2026-11-24: page 404",
+   "page_that_answers": "https://www.dunkindonuts.com/locations/us/ny/new-york/4-whitehall-st/store-358349/",
+   "hours_on_it": "00:00-00:00 every day"
+  },
+  {
+   "id": "n7070706561",
+   "store": "347530",
+   "addr": "1 E 233rd St (BP)",
+   "our_record": "exclude, 2026-11-24: page 404",
+   "page_that_answers": "https://www.dunkindonuts.com/locations/us/ny/bronx/1-e--233rd-st/store-347530/",
+   "hours_on_it": "00:00-00:00 days"
+  },
+  {
+   "id": "n8930808505",
+   "store": "345867",
+   "addr": "3421 E Tremont Ave",
+   "our_record": "exclude, 2026-11-24: page 404",
+   "page_that_answers": "https://www.dunkindonuts.com/locations/us/ny/bronx/3421-e--tremont-ave/store-345867/",
+   "hours_on_it": "STORE 05:00-19:00 (Thursday 05:00-14:00, Thanksgiving)"
+  },
+  {
+   "id": "w281841598",
+   "store": "344428",
+   "addr": "2973 E Tremont Ave",
+   "our_record": "exclude, 2026-11-24: page 404",
+   "page_that_answers": "https://www.dunkindonuts.com/locations/us/ny/bronx/2973-e--tremont-ave/store-344428/",
+   "hours_on_it": "STORE 05:00-22:00, Sunday to 21:00 (Thursday 05:00-14:00, Thanksgiving)"
+  }
+ ],
+ "what_the_pages_show": [
+  "Every page carries several labelled sets. PICKUP, ORDER_AHEAD and WALK_IN end 15 minutes before STORE. All The Places' Dunkin' closing times are those, not the STORE set.",
+  "The pages show the current week: Thursday 2026-11-26 carried Thanksgiving hours (05:00-14:00, 06:00-20:00, or 00:00-00:00 for closed), and three of the six pages had changed since 2026-11-24.",
+  "00:00-00:00 means closed on some days (Thanksgiving; Sunday at a weekday store) and open 24 hours on others (Friday and Saturday at an overnight store).",
+  "The four stores answer under www.dunkindonuts.com/locations/us/<state>/<city>/<address>/store-<number>/. The addresses our records tried (locations.dunkindonuts.com/en/..., and one with a stray /b) no longer answer; the stores are still there."
+ ]
+}
