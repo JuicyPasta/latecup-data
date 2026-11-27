@@ -25,12 +25,18 @@ sys.path.insert(0, str(ROOT))
 from latecup_data import areas as A, build as B, confirm, hours as H  # noqa: E402
 
 
+def today(area=None):
+    """The area's own date (New York's when none is given), as YYYY-MM-DD."""
+    area = A.get(area) if isinstance(area, str) else (area or A.first())
+    return datetime.now(ZoneInfo(area.tz)).date().isoformat()
+
+
 def write(pid, text=None, *, source, src="shop", checked=None, note=None, osm_hours=None, name=None, closed=False,
           exclude=False, folder=None, addr=None, second_look=None, area=None):
     if not confirm.allowed(source):
         raise SystemExit(f"{source}: not an allowed source (a listing site)")
     area = A.get(area) if isinstance(area, str) else (area or A.first())
-    checked = checked or datetime.now(ZoneInfo(area.tz)).date().isoformat()
+    checked = checked or today(area)
     rec = {"id": pid}
     if name:
         rec["name"] = name
