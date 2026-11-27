@@ -1,5 +1,6 @@
-"""Areas: the files in areas/, the pull per area, a build outside New York,
-one run for several areas, votes per area."""
+"""Areas: the files in areas/, a build outside New York, one run for several
+areas, votes per area. (The pull is in test_pull.py; an area that fails is in
+test_standalone.py.)"""
 import copy
 import importlib.resources
 import json
@@ -8,7 +9,7 @@ from zoneinfo import ZoneInfo
 
 import pytest
 
-from latecup_data import areas as A, build as B, clean, hours as H, osm, run, validate, votes
+from latecup_data import areas as A, build as B, clean, hours as H, run, validate, votes
 
 NYC = A.get("nyc")
 CHICAGO = A.get("chicago")
@@ -44,8 +45,8 @@ def test_area_files_load_with_new_york_first():
     areas = A.load()
     assert len(areas) == 32
     assert areas[0].id == "nyc" and [a.id for a in areas[1:]] == sorted(a.id for a in areas[1:])
-    assert [a.id for a in A.live()] == ["nyc"]             # a plain run builds what is published today, nothing more
-    assert A.select(None) == [NYC] and len(A.select(["all"])) == 32
+    assert NYC.live                                         # whatever else is live, New York is
+    assert A.select(None) == A.live() == [NYC] and len(A.select(["all"])) == 32    # (the tests' default state)
     assert [a.id for a in A.select(["chicago", "nyc"])] == ["nyc", "chicago"]
     with pytest.raises(ValueError, match="no such area"):
         A.select(["atlantis"])
@@ -150,51 +151,6 @@ def test_the_file_name_is_the_id(tmp_path):
     (tmp_path / "boston.json").write_text((A.FOLDER / "chicago.json").read_text())
     with pytest.raises(ValueError, match="must match the file name"):
         A.load(tmp_path)
-
-
-# ---------------------------------------------------------------- the pull
-
-OLD_QUERY = """[out:json][timeout:150];
-area["wikidata"="Q60"]->.nyc;
-(
-  nwr["amenity"="cafe"](area.nyc);
-  nwr["shop"~"^(coffee|tea)$"](area.nyc);
-  nwr["cuisine"~"(^|;) ?(coffee_shop|bubble_tea|tea|dessert)( ?;|$)"](area.nyc);
-);
-out center tags;"""
-
-
-def test_new_yorks_query_is_the_one_it_was():
-    assert osm.query(NYC) == OLD_QUERY == osm.QUERY
-
-
-def test_a_rectangle_is_asked_for_south_west_north_east():
-    q = osm.query(CHICAGO)
-    assert 'nwr["amenity"="cafe"](41.6,-88.05,42.15,-87.5);' in q and "area" not in q
-    assert q.startswith("[out:json][timeout:150];\n(\n") and q.endswith(");\nout center tags;")
-
-
-def test_rectangles_share_a_request_and_each_element_goes_to_its_own():
-    asked = []
-
-    def fetch(query, log=print):
-        asked.append(query)
-        if "area[" in query:
-            return {"osm3s": {"timestamp_osm_base": "t"}, "elements": nyc_elements(2)}
-        return {"osm3s": {"timestamp_osm_base": "t"},
-                "elements": chicago_elements(3) + [el(5001, "Pike Cafe", 47.6062, -122.3321)]
-                + [{"type": "way", "id": 7, "center": {"lat": 47.61, "lon": -122.33}, "tags": {"name": "Way Cafe"}}]}
-
-    docs = osm.pull([NYC, CHICAGO, A.get("seattle")], fetch=fetch, log=lambda *_: None)
-    assert len(asked) == 2                                      # New York's own, and one for both rectangles
-    assert asked[1].count('nwr["amenity"="cafe"]') == 2
-    assert [len(docs[k]["elements"]) for k in ("nyc", "chicago", "seattle")] == [2, 3, 2]
-    assert docs["chicago"]["osm3s"] == {"timestamp_osm_base": "t"}
-
-    def empty(query, log=print):
-        return {"elements": chicago_elements(3)}
-    with pytest.raises(IOError, match="no elements for seattle"):
-        osm.pull([CHICAGO, A.get("seattle")], fetch=empty, log=lambda *_: None)
 
 
 # ---------------------------------------------------------------- a build outside New York
@@ -347,25 +303,6 @@ def test_one_run_builds_several_areas(tmp_path, bare):
     assert since["n1001"][1] == "2026-11-26T23:10:00Z" and since["n1006"][1] == "2026-11-27T23:10:00Z"
 
 
-def test_the_shrink_guard_is_per_area_and_stops_the_whole_run(tmp_path, bare):
-    site = tmp_path / "site"
-    pulls = {"nyc": nyc_elements(10), "chicago": chicago_elements(10)}
-    run.make(pulls, site, areas=[NYC, CHICAGO], now="2026-11-26T23:10:00Z", log=lambda *_: None)
-    before = {p.name: p.read_bytes() for p in (site / "v1").iterdir()}
-    # New York grows, Chicago loses 30 %: nothing is written, New York included
-    pulls = {"nyc": nyc_elements(12), "chicago": chicago_elements(7)}
-    with pytest.raises(RuntimeError, match="shrank from 10 to 7 places in chicago"):
-        run.make(pulls, site, areas=[NYC, CHICAGO], now="2026-11-27T23:10:00Z", log=lambda *_: None)
-    assert {p.name: p.read_bytes() for p in (site / "v1").iterdir()} == before
-    m = run.make(pulls, site, areas=[NYC, CHICAGO], now="2026-11-27T23:10:00Z", allow_shrink=True,
-                 log=lambda *_: None)
-    assert [c["count"] for c in m["cities"]] == [12, 7]
-    # an area with no late place stops the run as well
-    with pytest.raises(validate.Invalid, match="places: empty"):
-        run.make({"nyc": nyc_elements(12), "chicago": []}, site, areas=[NYC, CHICAGO], now="2026-11-28T23:10:00Z",
-                 allow_shrink=True, log=lambda *_: None)
-
-
 def test_naming_an_area_keeps_the_others_as_they_are(tmp_path, bare):
     site = tmp_path / "site"
     run.make({"nyc": nyc_elements(6), "chicago": chicago_elements(5)}, site, areas=[NYC, CHICAGO],
@@ -393,7 +330,7 @@ def test_new_york_is_always_first_and_always_there(tmp_path, bare):
                  log=lambda *_: None)
     assert not (tmp_path / "site" / "v1").exists()
     with pytest.raises(ValueError, match="no OSM pull for chicago"):
-        run.make({"nyc": nyc_elements(5)}, tmp_path / "site", areas=[NYC, CHICAGO], log=lambda *_: None)
+        run.make({}, tmp_path / "site", areas=[CHICAGO], log=lambda *_: None)
     with pytest.raises(ValueError, match="more than one area"):
         run.make(nyc_elements(5), tmp_path / "site", areas=[NYC, CHICAGO], log=lambda *_: None)
 
@@ -401,11 +338,16 @@ def test_new_york_is_always_first_and_always_there(tmp_path, bare):
 def test_saved_pulls_are_read_per_area(tmp_path):
     (tmp_path / "nyc.json").write_text(json.dumps({"elements": nyc_elements(2)}))
     (tmp_path / "chicago.json").write_text(json.dumps({"elements": chicago_elements(3)}))
-    pulls = run.read_pulls([NYC, CHICAGO], osm_dir=tmp_path)
-    assert {k: len(v) for k, v in pulls.items()} == {"nyc": 2, "chicago": 3}
-    assert len(run.read_pulls([NYC], osm_file=tmp_path / "nyc.json")["nyc"]) == 2
+    pulls, failed = run.read_pulls([NYC, CHICAGO], osm_dir=tmp_path)
+    assert {k: len(v) for k, v in pulls.items()} == {"nyc": 2, "chicago": 3} and failed == {}
+    assert len(run.read_pulls([NYC], osm_file=tmp_path / "nyc.json")[0]["nyc"]) == 2
     with pytest.raises(ValueError, match="one area's pull"):
         run.read_pulls([NYC, CHICAGO], osm_file=tmp_path / "nyc.json")
+    # an area with no saved pull, or a broken one, is that area's problem and nobody else's
+    (tmp_path / "seattle.json").write_text("{not json")
+    pulls, failed = run.read_pulls([NYC, CHICAGO, A.get("seattle"), A.get("boston")], osm_dir=tmp_path)
+    assert set(pulls) == {"nyc", "chicago"} and set(failed) == {"seattle", "boston"}
+    assert "no saved pull" in failed["boston"] and "no saved pull" in failed["seattle"]
 
 
 # ---------------------------------------------------------------- votes per area
@@ -461,23 +403,96 @@ def test_an_install_that_floods_is_dropped_in_every_area(tmp_path, bare):
     assert json.loads((site / "v1" / "nyc-votes.json").read_text())["votes"] == {}
 
 
-def test_the_staleness_check_reads_every_area(tmp_path, bare):
+def _published(tmp_path, monkeypatch):
+    """A site of New York and Chicago, built on the 26th, and what the monitor reads it with."""
     from latecup_data import monitor
     site = tmp_path / "site"
     m = run.make({"nyc": nyc_elements(6), "chicago": chicago_elements(5)}, site, areas=[NYC, CHICAGO],
                  now="2026-11-26T23:10:00Z", log=lambda *_: None)
     styles = {m["map"]["style_dark"]: (site / "v1" / "style-dark.json").read_bytes(),
               m["map"]["style_light"]: (site / "v1" / "style-light.json").read_bytes()}
-    orig = monitor.http.get
-    try:
-        monitor.http.get = lambda url, **_: styles[url]
-        now = datetime(2026, 11, 27, 6, tzinfo=timezone.utc)
-        assert monitor.check(m, lambda name: (site / "v1" / name).read_bytes(), now) == []
-        (site / "v1" / "chicago.json").write_bytes(b"{}")
-        problems = monitor.check(m, lambda name: (site / "v1" / name).read_bytes(), now)
-        assert len(problems) == 1 and problems[0].startswith("chicago.json")
-    finally:
-        monitor.http.get = orig
+    monkeypatch.setattr(monitor.http, "get", lambda url, **_: styles[url])
+
+    def check(manifest, now, **kw):
+        return monitor.check(manifest, lambda name: (site / "v1" / name).read_bytes(), now,
+                             fetch_ops=lambda name: (site / "ops" / name).read_bytes(), **kw)
+    return site, m, check
+
+
+def test_the_staleness_check_reads_every_area(tmp_path, bare, monkeypatch):
+    from latecup_data import monitor
+    site, m, check = _published(tmp_path, monkeypatch)
+    now = datetime(2026, 11, 27, 6, tzinfo=timezone.utc)
+    assert check(m, now) == []
+    assert monitor.check(m, lambda name: (site / "v1" / name).read_bytes(), now) == []      # without the ops reader
+    (site / "v1" / "chicago.json").write_bytes(b"{}")
+    problems = check(m, now)
+    assert len(problems) == 1 and problems[0].startswith("chicago.json")
+    # a places file with the right bytes and a wrong place names its file too
+    doc = json.loads((site / "v1" / "nyc.json").read_text())
+    doc["places"][0]["cat"] = "bar"
+    body = json.dumps(doc).encode()
+    (site / "v1" / "nyc.json").write_bytes(body)
+    import hashlib
+    m["cities"][0].update(sha256=hashlib.sha256(body).hexdigest(), bytes=len(body))
+    assert check(m, now)[0] == "nyc.json: n1: bad cat 'bar'"
+
+
+def test_the_staleness_check_names_the_area_that_is_stale(tmp_path, bare, monkeypatch):
+    site, _m, check = _published(tmp_path, monkeypatch)
+    # the next two days Chicago's pull fails: it is kept, New York moves on
+    for day in ("27", "28"):
+        m = run.make({"nyc": nyc_elements(6)}, site, areas=[NYC, CHICAGO], now=f"2026-11-{day}T23:10:00Z",
+                     failed={"chicago": "HTTP 502"}, log=lambda *_: None)
+    assert [c["id"] for c in m["cities"]] == ["nyc", "chicago"]
+    # after a day the kept area is not yet a problem; after two it is, by name, and New York is not
+    assert check(m, datetime(2026, 11, 27, 23, 30, tzinfo=timezone.utc)) == []
+    problems = check(m, datetime(2026, 11, 28, 23, 30, tzinfo=timezone.utc))
+    assert problems == ["chicago is stale: last built 2026-11-26T23:10:00Z, 48 h ago (limit 36 h)"]
+    # the whole feed old: the manifest is named, and every area
+    problems = check(m, datetime(2026, 12, 1, 0, 0, tzinfo=timezone.utc))
+    assert [p.split(":")[0] for p in problems] == ["feed is stale", "nyc is stale", "chicago is stale"]
+    # an area whose run statistics are missing cannot be vouched for
+    (site / "ops" / "chicago" / "stats.json").unlink()
+    problems = check(m, datetime(2026, 11, 28, 23, 30, tzinfo=timezone.utc))
+    assert len(problems) == 1 and problems[0].startswith("chicago: cannot tell when it was last built (ops/chicago/stats.json")
+
+
+def test_the_staleness_check_reads_the_help_files(tmp_path, bare, monkeypatch):
+    site, _m, check = _published(tmp_path, monkeypatch)
+    m = run.make({"nyc": nyc_elements(6), "chicago": chicago_elements(5) + [el(3001, "Mystery Cafe", 41.9, -87.7, None)]},
+                 site, areas=[NYC, CHICAGO], now="2026-11-27T23:10:00Z", fields=True, log=lambda *_: None)
+    now = datetime(2026, 11, 28, 6, tzinfo=timezone.utc)
+    assert check(m, now) == []
+    (site / "v1" / "chicago-help.json").write_bytes(b"{}")
+    assert check(m, now) == [f"chicago-help.json: 2 bytes, the manifest says {m['cities'][1]['help']['bytes']}"]
+
+
+def test_the_monitor_command_reads_ops_beside_v1(monkeypatch, tmp_path, bare, capsys):
+    from latecup_data import monitor
+    site, m, _check = _published(tmp_path, monkeypatch)
+    styles = {m["map"]["style_dark"]: (site / "v1" / "style-dark.json").read_bytes(),
+              m["map"]["style_light"]: (site / "v1" / "style-light.json").read_bytes()}
+    asked = []
+
+    def get(url, **_):
+        asked.append(url.split("?")[0])
+        if url in styles:
+            return styles[url]
+        assert url.startswith("https://feed.example/latecup-data/"), url
+        return (site / url.split("?")[0][len("https://feed.example/latecup-data/"):]).read_bytes()
+    monkeypatch.setattr(monitor.http, "get", get)
+    monkeypatch.setenv("GITHUB_STEP_SUMMARY", str(tmp_path / "summary.md"))
+    base = ["https://feed.example/latecup-data/v1/"]
+    assert monitor.main(base, now=datetime(2026, 11, 27, 6, tzinfo=timezone.utc)) == 0
+    assert "healthy" in (tmp_path / "summary.md").read_text()
+    capsys.readouterr()
+    assert monitor.main(base, now=datetime(2026, 11, 29, 6, tzinfo=timezone.utc)) == 1
+    assert "https://feed.example/latecup-data/ops/stats.json" in asked
+    assert "https://feed.example/latecup-data/ops/chicago/stats.json" in asked
+    out = capsys.readouterr().out
+    assert "::error::nyc is stale: last built 2026-11-26T23:10:00Z" in out and "::error::chicago is stale" in out
+    assert "- chicago is stale" in (tmp_path / "summary.md").read_text()
 
 
 # ---------------------------------------------------------------- the coverage report
