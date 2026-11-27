@@ -733,6 +733,7 @@ def test_a_run_with_the_layer_writes_what_it_did(tmp_path, monkeypatch):
     md = report.us_markdown(tmp_path / "site")
     assert "## What the chain layer did" in md
     assert "| New York City | 1 | 0 | 0 | 0 | 1 | 0 | 0 |" in md and "| Chicago | 1 | 1 | 1 | 0 | 0 | 0 | 0 |" in md
+    assert "| Area | Stores | Matched to a place | Hours used | A reading by hand wins | Added as new places |" in md
     assert "| `starbucks_us` | 2026-11-14-13-32-33 | 2026-11-16 | yes |" in md
     # and without it, the statistics are what they were
     run.make(pulls, tmp_path / "plain", areas=[NYC, CHICAGO], now="2026-11-26T23:10:00Z", log=lambda *_: None)

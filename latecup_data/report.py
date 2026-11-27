@@ -92,20 +92,25 @@ def markdown(doc, to_confirm=None, stats=None):
 def us_markdown(site, note=None):
     """Every area in the site's manifest, one row each: places, kind, source,
     latest closing, the size of its file; then the totals, the manifest's
-    size and, when the site was built with it, what the chain layer did."""
+    size and, when the site was built with them, the independents and the
+    help files, and what the chain layer did."""
     site = Path(site)
     raw = (site / "v1" / "manifest.json").read_bytes()
     manifest = json.loads(raw)
-    rows, layer, spiders = [], [], None
+    rows, layer, spiders, helped = [], [], None, []
     for c in manifest["cities"]:
         body = (site / "v1" / c["places"]).read_bytes()
         n = numbers(json.loads(body)["places"])
         rows.append([c["name"], n["total"], n["independent"], n["chain"], n["src"]["shop"], n["src"]["brand"],
-                     n["src"]["osm"], *[n["close"][b] for b in BUCKETS], len(body)])
+                     n["src"]["visitors"], n["src"]["osm"], *[n["close"][b] for b in BUCKETS], len(body)])
         try:
             stats = json.loads((A.ops_dir(site, c["id"]) / "stats.json").read_text())
         except (OSError, ValueError):
             stats = {}
+        if "indie" in c and "help" in c:
+            why = stats.get("help") or {}
+            helped.append([c["name"], c["indie"], c["indie_confirmed"], c["help"]["count"], why.get("nohours", ""),
+                           why.get("early", ""), c["help"]["bytes"]])
         if "chains" in stats:
             ch = Counter(stats["chains"])
             held = sum(v for k, v in ch.items() if k.endswith("held back"))
@@ -130,15 +135,34 @@ def us_markdown(site, note=None):
         "field: a brand with 5 or more locations in the area is a chain there. The closing columns are the latest "
         "closing of the week; \"24 h\" is open all week.",
         "",
-        "| Area | Places | Independent | Chain | `shop` | `brand` | `osm` | 20 | 21 | 22 | 23 | midnight or later | 24 h "
-        "| Bytes |",
-        "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
+        "| Area | Places | Independent | Chain | `shop` | `brand` | `visitors` | `osm` | 20 | 21 | 22 | 23 "
+        "| midnight or later | 24 h | Bytes |",
+        "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
         *[line(r) for r in rows],
         line(total),
         "",
         f"The manifest is {len(raw):,} bytes; the places files together are {total[-1]:,} bytes "
         f"(as served they are gzip-compressed by GitHub Pages).",
     ]
+    if helped:
+        helped.sort(key=lambda r: -r[1])
+        all_helped = [f"**All {len(helped)}**"] + [sum(r[i] for r in helped if isinstance(r[i], int))
+                                                    for i in range(1, len(helped[0]))]
+        lines += [
+            "",
+            "## Independents, and the cafés that need help",
+            "",
+            "The manifest's own numbers. Late independents are the places with no chain (`indie`); confirmed are those "
+            "of them whose hours are `shop`, `brand` or `visitors` (`indie_confirmed`). A brand with fewer than five "
+            "locations in an area is not a chain there, so its stores count as independents. The help file lists the "
+            "independent cafés that are not on the late map and that nobody has confirmed: with no hours we can use, "
+            "or with OpenStreetMap hours that never reach 20:00.",
+            "",
+            "| Area | Late independents | Confirmed | In the help file | no hours | closes before 20:00 | Help file bytes |",
+            "|---|---|---|---|---|---|---|",
+            *[line(r) for r in helped],
+            line(all_helped),
+        ]
     if layer:
         all_layer = [f"**All {len(layer)}**"] + [sum(r[i] for r in layer) for i in range(1, len(layer[0]))]
         lines += [

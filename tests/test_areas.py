@@ -506,14 +506,25 @@ def test_the_report_of_every_area(tmp_path, bare):
     lines = md.splitlines()
     assert lines[0] == "# Latecup feed coverage, every area" and "2 areas" in lines[2] and lines[2].endswith("A note.")
     rows = [line for line in lines if line.startswith("| ")]
-    assert rows[0].startswith("| Area | Places | Independent | Chain | `shop` | `brand` | `osm` | 20 | 21 | 22 | 23 |")
+    assert rows[0].startswith("| Area | Places | Independent | Chain | `shop` | `brand` | `visitors` | `osm` | 20 | 21 |")
     chi, nyc = (site / "v1" / "chicago.json").stat().st_size, (site / "v1" / "nyc.json").stat().st_size
-    # the larger area first; places, independent, chain, shop, brand, osm, the six closing hours, bytes
-    assert rows[1] == f"| Chicago | 9 | 9 | 0 | 0 | 0 | 9 | 0 | 0 | 0 | 9 | 0 | 0 | {chi:,} |"
-    assert rows[2] == f"| New York City | 6 | 6 | 0 | 0 | 0 | 6 | 0 | 0 | 0 | 6 | 0 | 0 | {nyc:,} |"
-    assert rows[3] == f"| **All 2** | 15 | 15 | 0 | 0 | 0 | 15 | 0 | 0 | 0 | 15 | 0 | 0 | {chi + nyc:,} |"
+    # the larger area first; places, independent, chain, shop, brand, visitors, osm, the six closing hours, bytes
+    assert rows[1] == f"| Chicago | 9 | 9 | 0 | 0 | 0 | 0 | 9 | 0 | 0 | 0 | 9 | 0 | 0 | {chi:,} |"
+    assert rows[2] == f"| New York City | 6 | 6 | 0 | 0 | 0 | 0 | 6 | 0 | 0 | 0 | 6 | 0 | 0 | {nyc:,} |"
+    assert rows[3] == f"| **All 2** | 15 | 15 | 0 | 0 | 0 | 0 | 15 | 0 | 0 | 0 | 15 | 0 | 0 | {chi + nyc:,} |"
     size = (site / "v1" / "manifest.json").stat().st_size
     assert f"The manifest is {size:,} bytes" in md and "What the chain layer did" not in md
+    assert "cafés that need help" not in md
+    # with the new fields on, the manifest's own counts and the help files get a table
+    run.make({"nyc": nyc_elements(6), "chicago": chicago_elements(9) + [el(3001, "Mystery Cafe", 41.9, -87.7, None),
+                                                                         el(3002, "Day Cafe", 41.91, -87.7, "Mo-Su 08:00-17:00")]},
+             site, areas=[NYC, CHICAGO], now="2026-11-27T23:10:00Z", fields=True, log=lambda *_: None)
+    more = report.us_markdown(site)
+    size = (site / "v1" / "chicago-help.json").stat().st_size
+    assert "| Area | Late independents | Confirmed | In the help file | no hours | closes before 20:00 | Help file bytes |" in more
+    assert f"| Chicago | 9 | 0 | 2 | 1 | 1 | {size:,} |" in more and "| **All 2** | 15 | 0 | 2 | 1 | 1 |" in more
+    run.make({"nyc": nyc_elements(6), "chicago": chicago_elements(9)}, site, areas=[NYC, CHICAGO],
+             now="2026-11-26T23:10:00Z", fields=False, log=lambda *_: None)
     report.main([str(site), "--us", str(tmp_path / "us.md"), "--note", "A note."])
     assert (tmp_path / "us.md").read_text() == md
     # New York's own report is the one it was
