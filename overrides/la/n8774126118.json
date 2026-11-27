@@ -1,0 +1,54 @@
+{
+ "id": "n8774126118",
+ "name": "Teapot Bakery & Cafe",
+ "hours": [
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1230
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    510,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:30-20:30; Fr-Sa 07:30-21:00; Su 08:30-20:00",
+ "src": "shop",
+ "source": "https://www.teapotbakeryandcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 07:30-20:30; Fr-Sa 07:30-21:00; Su 08:30-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Location & Hours: Teapot Bakery and Cafe, 1427 W. Glenoaks, Blvd, GLENDALE, California 91201, (818) 533-6000 ... Monday-Thursday 7:30 am - 8:30 pm, Friday-Saturday 7:30 am - 9:00 pm, Sunday 8:30 am - 8:00 pm Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Square's sample office sits in the page's data, not in this block. The ordering data has pickup 09:00-18:00, which is not the door."
+}

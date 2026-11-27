@@ -1,0 +1,54 @@
+{
+ "id": "n12269824275",
+ "name": "MeloMelo",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th,Su 11:00-22:00; Fr-Sa 11:00-23:00",
+ "src": "shop",
+ "source": "https://www.melomelo.us/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 11:00-22:00; Fr-Sa 11:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: San Gabriel, 529 E Valley Blvd #178b, San Gabriel, CA 91776, (626) 782-7955, Sun - Thurs: 11:00 AM - 10:00 PM, Fri - Sat: 11:00 AM - 11:00 PM Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Matched by street address and phone on the brand's locations page."
+}

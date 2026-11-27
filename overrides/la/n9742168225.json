@@ -1,0 +1,54 @@
+{
+ "id": "n9742168225",
+ "name": "Melo Melo",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.melomelo.us/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Sawtelle, 2002 Sawtelle Blvd, Los Angeles, CA 90025, (310) 235-1101, Mon - Fri: 11:00 AM - 10:00 PM, Sat - Sun: 11:00 AM - 10:00 PM Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Matched by street address and phone on the brand's locations page. A dessert café (bingsu); OpenStreetMap tags it a restaurant."
+}

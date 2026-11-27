@@ -693,12 +693,51 @@ def test_a_store_of_a_chain_the_layer_reads_is_a_chains_store_however_few_there_
                  el(3, "Tim Hortons", lat=LAT + 0.04)], [])
     assert [p["chain"] for p in out["places"]] == ["peets", "caribou", "tim-hortons"]
     # a brand the layer does not read is still a chain from five locations on, and a name of nobody's stays nobody's
-    gong = [el(i, "Gong Cha", lat=LAT + i * 0.01, number=str(i)) for i in range(1, 5)]
-    assert {p["chain"] for p in build(gong + [el(9, "Halsted Coffee Co", lat=LAT - 0.01)], [])["places"]} == {None}
-    assert {p["chain"] for p in build(gong + [el(5, "Gong Cha", lat=LAT + 0.05, number="5")], [])["places"]} == {"gong-cha"}
+    joe = [el(i, "Joe Coffee", lat=LAT + i * 0.01, number=str(i)) for i in range(1, 5)]
+    assert {p["chain"] for p in build(joe + [el(9, "Halsted Coffee Co", lat=LAT - 0.01)], [])["places"]} == {None}
+    assert {p["chain"] for p in build(joe + [el(5, "Joe Coffee", lat=LAT + 0.05, number="5")], [])["places"]} == {"joe-coffee"}
     # and with the layer off the count by fives is all there is: New York's file today
     assert {p["chain"] for p in B.build([el(1, "Peet's Coffee"), el(2, "Starbucks", lat=LAT + 0.01)],
                                         area=CHICAGO)["places"]} == {None}
+
+
+@pytest.mark.parametrize("name,brand,slug", [
+    ("Gong Cha", None, "gong-cha"), ("Happy Lemon", "Happy Lemon", "happy-lemon"), ("Yifang Taiwan Tea", None, "yi-fang"),
+    ("Corner Spot", "Chagee", "chagee"), ("Capital One Café", None, "capital-one-cafe"),
+    ("Capital One 360 Cafe", None, "capital-one-cafe"), ("Nordstrom Ebar Artisan Coffee", None, "nordstrom-ebar"),
+    ("Sana'a Cafe", None, "sanaa"), ("Urth Caffé - Melrose", None, "urth-caffe"), ("Milksha", None, "milksha"),
+    ("Macu Tea", None, "macu"), ("La Monarca Bakery & Cafe", None, "la-monarca"), ("Mochinut", None, "mochinut"),
+    ("Junbi Matcha & Tea", None, "junbi"), ("Lollicup Fresh", None, "lollicup"),
+    ("Mixue", "Mixue Ice Cream & Tea", "mixue"), ("Cha For Tea", None, "cha-for-tea"),
+    ("Sunright Tea Studio - Milpitas", None, "sunright"), ("Chicha San Chen 吃茶三千", None, "chicha-san-chen"),
+    ("T-Swirl Crêpe", None, "t-swirl"), ("CoCo Fresh Tea", "CoCo", "coco"), ("7 Leaves Cafe", None, "7-leaves"),
+])
+def test_a_brand_that_is_a_chain_across_the_country_carries_its_slug_with_the_layer_on(name, brand, slug):
+    tags = {"brand": brand} if brand else {}
+    one = el(1, name, **tags)
+    out = build([one], [])
+    assert [(p["id"], p["chain"]) for p in out["places"]] == [("n1", slug)]
+    assert out["help"] == []                                         # a chain's store, not a visitor's to fill in
+    # with the layer off, one store is one independent café, as it always was
+    assert B.build([one], area=CHICAGO)["places"][0]["chain"] is None
+
+
+@pytest.mark.parametrize("name", ["The Yard Milkshake Bar", "Coco Donuts", "Ebar", "Macumba Cafe", "Fourth Wall",
+                                  "Capitol One Coffee", "San Chen", "Junbird Coffee", "Teaspoon of Joy"])
+def test_names_that_only_look_like_a_national_brand(name):
+    assert chains.national({"name": name}) is None
+
+
+def test_the_national_list_moves_nothing_while_the_layer_is_off():
+    # New York with switches.json as it is: the layer off, so chains.national is never asked
+    asked = []
+    real = chains.national
+    try:
+        chains.national = lambda tags: asked.append(tags) or real(tags)
+        B.build([el(1, "Gong Cha"), el(2, "Chagee", lat=LAT + 0.01, number="2")], area=CHICAGO)
+    finally:
+        chains.national = real
+    assert asked == []
 
 
 def test_a_chains_store_is_not_an_independent_and_not_on_the_help_list():

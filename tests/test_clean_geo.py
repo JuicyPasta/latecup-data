@@ -147,3 +147,33 @@ def test_holidays_thirteen_months():
 ])
 def test_address_matches(candidate, addr, same):
     assert confirm.address_matches(candidate, addr) is same
+
+
+# ---------------------------------------------------------------- a house number that repeats its street
+
+@pytest.mark.parametrize("number,street_,out", [
+    ("42 W 28th St", "West 28th Street", "42 W 28th St"),          # n12453689094, in New York's help file
+    ("265 w", "West 37th Street", "265 W 37th St"),                 # n4230588256
+    ("3320 N 7th Ave", "North 7th Avenue", "3320 N 7th Ave"),
+    ("665 Halekauwila", "Halekauwila St", "665 Halekauwila St"),
+    ("877 South", "South 1300 East", "877 S 1300 East"),            # Salt Lake's grid
+    ("42", "West 28th Street", "42 W 28th St"),
+    ("37-11", "35th Avenue", "37-11 35th Ave"),
+    ("4299 Suite D", "Piedmont Avenue", "4299 Suite D Piedmont Ave"),   # a unit, not the street: left alone
+    ("12 Main St", "Broadway", "12 Main St Broadway"),              # another street: not guessed at
+])
+def test_a_house_number_that_repeats_its_street_is_written_once(number, street_, out):
+    tags = {"addr:housenumber": number, "addr:street": street_}
+    assert clean.address(tags, fix_doubled=True) == out
+    # without the fix, the address is what it always was
+    assert clean.address(tags) == f"{number} {clean.street(street_)}"
+
+
+def test_the_build_writes_it_once_only_with_the_chain_layer_on():
+    from latecup_data import areas as A, build as B
+    el = {"type": "node", "id": 12453689094, "lat": 40.74558, "lon": -73.98976,
+          "tags": {"amenity": "cafe", "name": "Angelina Bakery Nomad", "addr:housenumber": "42 W 28th St",
+                   "addr:street": "West 28th Street", "opening_hours": "Mo-Su 08:00-22:00"}}
+    nyc = A.first()
+    assert B.build([el], area=nyc)["places"][0]["addr"] == "42 W 28th St W 28th St"       # switches as they are
+    assert B.build([el], area=nyc, stores=[])["places"][0]["addr"] == "42 W 28th St"

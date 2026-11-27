@@ -1,0 +1,458 @@
+[
+ {
+  "id": "n10560594652",
+  "name": "Turn Café x Little Sweet",
+  "area": "sfbay",
+  "status": "confirmed",
+  "source": "https://little-sweet.square.site/",
+  "evidence": "Location & Hours: Turn Café x Little Sweet, 17 Powell St Frnt Door, San Francisco, California 94102, (628) 242-0310 ... Monday 7:00 am - 10:00 pm ... Sunday 7:00 am - 10:00 pm",
+  "hours": "Mo-Su 07:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Little Sweet's own Square site lists five shops; this block matched by street address and phone. Square's sample office hours sit in the page's data, not in this block. The ordering data has pickup from 07:15 to 21:45, inside these hours."
+ },
+ {
+  "id": "n1256185225",
+  "name": "La Stazione",
+  "area": "sfbay",
+  "status": "confirmed",
+  "source": "https://www.lastazionesf.com/",
+  "evidence": "Location & Hours: We are located at 701 Pennsylvania Ave (at 22nd St.) ... Come visit us during the regular hours 7-9 on weekdays and 8-9 on weekends. In the afternoons, cannoli ordering and pickup till 9pm via the pickup window only.",
+  "hours": "Mo-Fr 07:00-21:00; Sa-Su 08:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The page's Square location data says the same (Mo-Fr 07:00-21:00, Sa-Su 08:00-21:00). After 1 pm (2 pm at weekends) it serves from the pickup window."
+ },
+ {
+  "id": "n1296650491",
+  "name": "MeloMelo",
+  "area": "sfbay",
+  "status": "confirmed",
+  "source": "https://www.melomelo.us/locations",
+  "evidence": "Cupertino, 19652 Stevens Creek Blvd, Cupertino, CA 95014, 408-898-2963, Mon - Thu: 12:30 PM - 9:30 PM, Fri - Sun: 12:00 PM - 9:30 PM",
+  "hours": "Mo-Th 12:30-21:30; Fr-Su 12:00-21:30",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The brand's locations page lists about 15 shops; this one matched by street address. Its front page is a placeholder ('Coming Soon'); the locations page is not. OpenStreetMap's Thursday 00:30 was a slip."
+ },
+ {
+  "id": "n13301796768",
+  "name": "Kiss of Matcha",
+  "area": "sfbay",
+  "status": "confirmed",
+  "source": "https://www.kissofmatcha.com/",
+  "evidence": "Location data of the shop's own Square site for 2127 Irving St: MON-THU open 11:00 close 20:00, FRI 11:00-21:00, SAT 10:00-21:00, SUN 10:00-20:00",
+  "hours": "Mo-Th 11:00-20:00; Fr 11:00-21:00; Sa 10:00-21:00; Su 10:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). No hours in the visible text. The page's data alone is taken because it equals OpenStreetMap's hours, the rule docs/accuracy.md has for schema.org. The other shop on the site (612 Broadway) was left alone."
+ },
+ {
+  "id": "n13424836850",
+  "name": "Yummy Future",
+  "area": "sfbay",
+  "status": "confirmed",
+  "source": "https://yummy-future.com/",
+  "evidence": "yummy-future.com/data/stores.json for 170 University Ave, Palo Alto, CA 94301: mon-sun 08:00, 22:00; the page shows 'OPEN NOW · UNTIL 10PM'",
+  "hours": "Mo-Su 08:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The week is in the site's own store data, not in its visible text, which shows today only. Taken because it equals OpenStreetMap's hours (docs/accuracy.md); today's 10 PM agrees."
+ },
+ {
+  "id": "n10933394803",
+  "name": "Melo Melo",
+  "area": "la",
+  "status": "confirmed",
+  "source": "https://www.melomelo.us/locations",
+  "evidence": "Ktown, 3470 W 6th St #2B, Los Angeles, CA 90020, (213) 375-7757, Sun - Thurs: 11:00 AM - 10:00 PM, Fri - Sat: 11:00 AM - 11:00 PM",
+  "hours": "Mo-Th,Su 11:00-22:00; Fr-Sa 11:00-23:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Matched by street address and phone on the brand's locations page."
+ },
+ {
+  "id": "n12269824275",
+  "name": "MeloMelo",
+  "area": "la",
+  "status": "confirmed",
+  "source": "https://www.melomelo.us/locations",
+  "evidence": "San Gabriel, 529 E Valley Blvd #178b, San Gabriel, CA 91776, (626) 782-7955, Sun - Thurs: 11:00 AM - 10:00 PM, Fri - Sat: 11:00 AM - 11:00 PM",
+  "hours": "Mo-Th,Su 11:00-22:00; Fr-Sa 11:00-23:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Matched by street address and phone on the brand's locations page."
+ },
+ {
+  "id": "n9742168225",
+  "name": "Melo Melo",
+  "area": "la",
+  "status": "confirmed",
+  "source": "https://www.melomelo.us/locations",
+  "evidence": "Sawtelle, 2002 Sawtelle Blvd, Los Angeles, CA 90025, (310) 235-1101, Mon - Fri: 11:00 AM - 10:00 PM, Sat - Sun: 11:00 AM - 10:00 PM",
+  "hours": "Mo-Su 11:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Matched by street address and phone on the brand's locations page. A dessert café (bingsu); OpenStreetMap tags it a restaurant."
+ },
+ {
+  "id": "n11378679126",
+  "name": "Stories Cafe",
+  "area": "la",
+  "status": "confirmed",
+  "source": "https://www.storiesla.com/",
+  "evidence": "Contact & Hours ... (213) 413-3733, 1716 W Sunset Blvd, Los Angeles CA 90026, Open 7 Days a Week, 9am - 9pm",
+  "hours": "Mo-Su 09:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Stories Books & Cafe, a bookshop with a café. OpenStreetMap had Friday to 22:00."
+ },
+ {
+  "id": "n11795942187",
+  "name": "Hisaya",
+  "area": "la",
+  "status": "confirmed",
+  "source": "https://hisaya-chestnuts.square.site/",
+  "evidence": "Location & Hours: Hisaya Kyoto Chestnuts (Torrance Store), 1757 W Carson St Ste F, Torrance, California 90501-2828, (310) 328-6788 ... Monday-Thursday 12:00 pm - 9:00 pm, Friday-Saturday 12:00 pm - 9:30 pm, Sunday 12:00 pm - 9:00 pm. Holiday Hours: ... Thanksgiving: 12:00 PM - 6:00 PM",
+  "hours": "Mo-Th 12:00-21:00; Fr-Sa 12:00-21:30; Su 12:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). OSM's kyotochestnuts.com leads to this Square site. The holiday lines were ignored. The page's data also holds an older table (11:00-21:30) and pickup hours (12:30-20:30) that are not shown; the visible block wins."
+ },
+ {
+  "id": "n8774126118",
+  "name": "Teapot Bakery & Cafe",
+  "area": "la",
+  "status": "confirmed",
+  "source": "https://www.teapotbakeryandcafe.com/",
+  "evidence": "Location & Hours: Teapot Bakery and Cafe, 1427 W. Glenoaks, Blvd, GLENDALE, California 91201, (818) 533-6000 ... Monday-Thursday 7:30 am - 8:30 pm, Friday-Saturday 7:30 am - 9:00 pm, Sunday 8:30 am - 8:00 pm",
+  "hours": "Mo-Th 07:30-20:30; Fr-Sa 07:30-21:00; Su 08:30-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Square's sample office sits in the page's data, not in this block. The ordering data has pickup 09:00-18:00, which is not the door."
+ },
+ {
+  "id": "n10560824582",
+  "name": "i-Tea Milpitas",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The page renders no text at all.",
+  "page": "https://www.itea-usa.com/"
+ },
+ {
+  "id": "n10983331024",
+  "name": "Da Vien Coffee",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "only today's hours",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The locator lists 279 West Calaveras Boulevard and says 'Opening hours vary by store: check live hours'; a store card showed today's IN-STORE 6:00AM - 10:00PM, no week.",
+  "page": "https://www.davien.com/store-locator"
+ },
+ {
+  "id": "n1116384571",
+  "name": "RareTea",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "two spots disagree",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). rareteasm.square.site/store-hours gives 'Monday - Wednesday (12PM - 8PM) / Thursday - Sunday (11AM - 8PM)' and, below it, 'RareTea San Mateo :) Everyday (12-8PM) closed 11/25-27'; the location data has Monday to 19:30.",
+  "page": "https://rareteasm.square.site/store-hours"
+ },
+ {
+  "id": "n1306273777",
+  "name": "Olympus Caffè & Bakery",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "only today's hours",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). GoDaddy contact page: 'HOURS Open today 11:00 am - 11:00 pm'; the week opens only on a click.",
+  "page": "https://cafeolympus.com/contact"
+ },
+ {
+  "id": "n13301796769",
+  "name": "Kiss of Matcha",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "data only, disagrees with OpenStreetMap",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). No visible hours. The site's location data for 612 Broadway has two tables (10:00-20:45 daily and 00:00-23:59 daily); OSM says Tu-Th 11:00-19:00, Fr-Su 10:00-21:00.",
+  "page": "https://www.kissofmatcha.com/"
+ },
+ {
+  "id": "n13646623298",
+  "name": "Boba Pup",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "data only, disagrees with OpenStreetMap",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). No visible hours (an event 'EVERY THURSDAY 4PM-8PM' only). The location data has 12:00-19:30 and 12:00-19:00 daily; OSM says 12:00-20:00.",
+  "page": "https://www.bobapup.com/"
+ },
+ {
+  "id": "n13915669397",
+  "name": "Mochinut",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The front page shows links and an app banner, no stores or hours. OSM tags it fast_food; probably not a café.",
+  "page": "https://www.mochinut.com/"
+ },
+ {
+  "id": "n14317288172",
+  "name": "Arisan",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "data only, disagrees with OpenStreetMap",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The visible card hides the hours behind 'Store info' (not clicked). The data has 09:00-20:00 (Thursday 17:00) and 09:30-21:00; OSM says 09:00-21:00.",
+  "page": "https://arisandrinks.square.site/"
+ },
+ {
+  "id": "n2494531136",
+  "name": "Breaktime Tea",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "the site is only an ordering link",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). breaktimetea.com leads to bit.ly/breaktimeorder, which shows nothing in the browser.",
+  "page": "http://breaktimetea.com/"
+ },
+ {
+  "id": "n4833597321",
+  "name": "Breaktime Tea",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "the site is only an ordering link",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). breaktimetea.com leads to bit.ly/breaktimeorder, which shows nothing in the browser.",
+  "page": "http://breaktimetea.com/"
+ },
+ {
+  "id": "n4001273405",
+  "name": "Oishii Matcha",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "data only, disagrees with OpenStreetMap",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The page says 'LOCATION & HOURS' with the address and no hours. The location data has Su-Th 11:00-19:00, Fr-Sa 11:00-20:30; OSM says Mo-Su 11:00-20:30.",
+  "page": "https://www.oishiimatcha.com/home"
+ },
+ {
+  "id": "n5695221990",
+  "name": "Truewin",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The Wix location and contact pages render a menu and a newsletter form, no address or hours.",
+  "page": "https://www.truewinteausa.com/location"
+ },
+ {
+  "id": "n8388606979",
+  "name": "Kung Fu Tea",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "store page not reached",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The chain's locator (Storepoint) lists 457 Saratoga Ave with no hours and loads every store's hours as data; the reader followed the wrong store's link and kept only the first 30 groups of that data (both fixed after this run, harvest.py). Next pass: read it again with the fixed reader. Would be src brand.",
+  "page": "https://www.kungfutea.com/locations/usa/"
+ },
+ {
+  "id": "n9898120411",
+  "name": "Cozy Tea Loft",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "data only, disagrees with OpenStreetMap",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). No visible store hours ('Available 12:00 pm - 8:44 pm' is a menu section's). The data has 12:00-20:45 and 11:45-22:00; OSM says 12:00-22:00.",
+  "page": "https://www.cozytealoftsj.com/"
+ },
+ {
+  "id": "n10160932449",
+  "name": "Capital One 360 Cafe",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "this week's hours only",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Capital One's page shows Friday 7:00 AM - 10:00 PM; its schema.org and location data hold this week: Thursday closed (Thanksgiving), Friday 07:00-22:00, the other days 10:00-21:00. OSM has Su 11:00-20:00. A normal week cannot be told.",
+  "page": "https://www.capitalone.com/local/santaclara-westfield-valleyfair/"
+ },
+ {
+  "id": "n10138374555",
+  "name": "Gong Cha",
+  "area": "la",
+  "status": "skipped",
+  "reason": "a consent banner, not clicked",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). gong-cha-usa.com leads to www.gong-cha.com/usa/us-en, which shows a cookie banner and best sellers only; the store finder did not render behind it.",
+  "page": "https://www.gong-cha.com/usa/us-en"
+ },
+ {
+  "id": "n11026272490",
+  "name": "Capital One Cafe",
+  "area": "la",
+  "status": "skipped",
+  "reason": "this week's hours only",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Capital One's page shows Friday 9:00 AM - 10:00 PM; its schema.org and location data hold this week: Thursday closed (Thanksgiving), the rest 09:00-21:00 and Fr-Sa to 22:00, which is OSM's except Thursday. A normal week cannot be told from the page.",
+  "page": "https://www.capitalone.com/local/irvine-spectrum/"
+ },
+ {
+  "id": "n11040543205",
+  "name": "Miss Cheese",
+  "area": "la",
+  "status": "skipped",
+  "reason": "data only, disagrees with OpenStreetMap",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The ordering page shows no hours. Its data holds a post 'LITTLE TOKYO - NOW OPEN TILL 12AM DAILY!' and location hours 09:00-23:55 daily; OSM says Mo-Th,Su 09:00-22:00, Fr-Sa 09:00-23:00. Worth a look on its Instagram.",
+  "page": "https://order.misscheese.com/"
+ },
+ {
+  "id": "n13392025563",
+  "name": "R&B Tea",
+  "area": "la",
+  "status": "skipped",
+  "reason": "only today's hours",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). rbteausa.com/locations: 'R&B Tea Rosemead, 8526 Valley Blvd #110, Rosemead, CA 91770' with 'Open till 9:30 pm' (today).",
+  "page": "https://www.rbteausa.com/locations"
+ },
+ {
+  "id": "n13414900909",
+  "name": "Happy Lemon",
+  "area": "la",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). happylemonusa.com/locations draws a map and a numbered list from Arizona on; the Alhambra store was not in what rendered.",
+  "page": "https://www.happylemonusa.com/locations/"
+ },
+ {
+  "id": "n13525087309",
+  "name": "Coffee Signal",
+  "area": "la",
+  "status": "skipped",
+  "reason": "site not serving",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). coffeesignal.twupro.com shows the host's default page (Plesk 'Domain Default page'). Not evidence the shop closed.",
+  "page": "https://coffeesignal.twupro.com/"
+ },
+ {
+  "id": "n13898956719",
+  "name": "Nordstrom Ebar Artisan Coffee",
+  "area": "la",
+  "status": "skipped",
+  "reason": "site refused",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). nordstrom.com sent the browser to siteclosed.nordstrom.com/invitation.html (a block page).",
+  "page": "https://www.nordstrom.com/store-details/united-states/ca/arcadia/nordstrom-santa-anita"
+ },
+ {
+  "id": "n14159891001",
+  "name": "Boba Cucue",
+  "area": "la",
+  "status": "skipped",
+  "reason": "hours behind an outside link",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). bobacucue.com/locations lists 24301 Muirlands Blvd Ste F with 'View map & opening hours' pointing off the site.",
+  "page": "https://bobacucue.com/locations"
+ },
+ {
+  "id": "n5439054329",
+  "name": "Tapioca Express",
+  "area": "la",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). tapiocaexpress.com/locations shows region tabs and text, no store list or hours.",
+  "page": "https://tapiocaexpress.com/locations/"
+ },
+ {
+  "id": "n6768265247",
+  "name": "Tea Brick",
+  "area": "la",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The Square ordering site shows 'Now accepting In-Store Pickup order!' and no hours; its data has only another address (501 W Garvey Ave).",
+  "page": "http://www.teabrick.online/"
+ },
+ {
+  "id": "n8505580177",
+  "name": "Lollicup Fresh Westminster",
+  "area": "la",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The page renders no text.",
+  "page": "https://lollicupfresh.com/"
+ },
+ {
+  "id": "n9161232116",
+  "name": "Teaspoon",
+  "area": "la",
+  "status": "skipped",
+  "reason": "nothing on the page in a browser either",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). teaspoonlife.com/locations (StoreRocket) lists the stores nearest the reader, three in New Jersey; the Sawtelle store did not show without a search.",
+  "page": "https://www.teaspoonlife.com/locations"
+ },
+ {
+  "id": "n9752592885",
+  "name": "Bestea",
+  "area": "la",
+  "status": "skipped",
+  "reason": "only today's hours",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). GoDaddy page: '12885 Beach Boulevard Suite. 1, Stanton ... Hours Open today 11:00 am - 10:00 pm'; the week opens only on a click.",
+  "page": "https://besteabar.com/"
+ },
+ {
+  "id": "n10128628588",
+  "name": "Sunright Tea Studio - Milpitas",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Toast answered HTTP 403 with a bot check; it was not gone through.",
+  "page": "https://www.toasttab.com/sunright-tea-studio-milpitas/v3"
+ },
+ {
+  "id": "n3380661474",
+  "name": "Beach Monkey Cafe",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). HTTP 403 with a bot check; it was not gone through.",
+  "page": "https://beachmonkeycafe.com/"
+ },
+ {
+  "id": "n5233334640",
+  "name": "Cafe LaTTea",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "site refused",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). HTTP 429 to the browser, twice.",
+  "page": "https://cafelattea.com/"
+ },
+ {
+  "id": "n9725659670",
+  "name": "Mr. Sun",
+  "area": "sfbay",
+  "status": "skipped",
+  "reason": "site refused",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). HTTP 403 to the browser.",
+  "page": "https://www.mrsuntea.com/en/"
+ },
+ {
+  "id": "n14006996433",
+  "name": "Cyclops Coffee",
+  "area": "la",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). HTTP 403 with a bot check; it was not gone through.",
+  "page": "https://lbcyclops.com/"
+ },
+ {
+  "id": "n14145080198",
+  "name": "Junbi Matcha & Tea",
+  "area": "la",
+  "status": "skipped",
+  "reason": "site gone",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). junbimatcha.com: HTTP 404 on the front page itself.",
+  "page": "https://www.junbimatcha.com/"
+ },
+ {
+  "id": "n9658416562",
+  "name": "Boba Story",
+  "area": "la",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). HTTP 403 with a bot check; it was not gone through.",
+  "page": "https://bobastory.com/"
+ },
+ {
+  "id": "w636364649",
+  "name": "Orange Nutrition",
+  "area": "la",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). HTTP 403 with a bot check; it was not gone through.",
+  "page": "https://www.orangenutrition.com/"
+ }
+]

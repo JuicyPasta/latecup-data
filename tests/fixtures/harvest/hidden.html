@@ -1,0 +1,23 @@
+<!doctype html>
+<html><head><title>Example Tea House</title>
+<style>
+  .sqs-block-hidden { display: none; }
+  .promo.is-off { display:none !important }
+  @media (max-width: 640px) { .desktop-only { display: none } }
+</style></head>
+<body>
+<header><nav><a href="/menu">Menu</a> <a href="/visit">Visit</a></nav></header>
+<section class="sqs-block-hidden">
+  <h2>Hours</h2><p>Monday - Friday 9:00 am - 5:00 pm</p><p>1455 Market St, San Francisco, CA 94103</p>
+</section>
+<div hidden><p>Sunday 10am - 4pm (old hours)</p></div>
+<p style="display: none">Saturday 6am - 7am</p>
+<div class="promo is-off">Open late Fridays until 3am!</div>
+<main>
+  <h2>Visit us</h2>
+  <address>24 Carmine St, New York, NY 10014</address>
+  <p>Monday - Thursday 8 am - 11 pm</p>
+  <p class="desktop-only">Friday - Saturday 8 am - 1 am</p>
+  <p>Sunday 9 am - 10 pm</p>
+</main>
+</body></html>

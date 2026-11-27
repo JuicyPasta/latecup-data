@@ -25,11 +25,34 @@ def street(name):
     return " ".join(words)
 
 
-def address(tags):
+_NUMBER = re.compile(r"^(\d+[A-Za-z]?(?:-\d+[A-Za-z]?)?)\s+(.+)$")
+
+
+def house_number(num, st):
+    """The house number without the street when OSM has it in both tags:
+    addr:housenumber "42 W 28th St" with addr:street "West 28th Street" is
+    42, and so is "42 West 28th" (the street's first words). Anything else
+    is left as it is: "4299 Suite D" names a unit, not the street."""
+    m = _NUMBER.match(num)
+    if not m:
+        return num
+    rest = [_DIRECTION.get(w, w) for w in street(m.group(2)).split()]
+    full = street(st).split()
+    return m.group(1) if rest and [w.lower() for w in rest] == [w.lower() for w in full[:len(rest)]] else num
+
+
+def address(tags, fix_doubled=False):
+    """'42 W 28th St' from addr:housenumber and addr:street. `fix_doubled`:
+    take the street out of a house number that repeats it (house_number).
+    The build asks for it only with the chain layer on: it changes two of New
+    York's addresses ("42 W 28th St W 28th St", "265 w W 37th St") on the
+    published to-confirm list and in the help file, though not in nyc.json."""
     num = (tags.get("addr:housenumber") or "").strip()
     st = (tags.get("addr:street") or "").strip()
     if not st:
         return None
+    if fix_doubled and num:
+        num = house_number(num, st)
     st = street(st)
     return f"{num} {st}".strip() if num else None
 

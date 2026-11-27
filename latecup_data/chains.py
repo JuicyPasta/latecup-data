@@ -168,6 +168,53 @@ _KNOWN = [
 ]
 _KNOWN = [(slug, cat, re.compile(rx)) for slug, cat, rx in _KNOWN]
 
+# Brands that are chains across the country but often have fewer than five stores in one metro, and that the
+# chain layer does not read (seen on the desk's first passes outside New York, 2026-11-27). With the layer on they
+# carry their slug wherever they are, as the layer's own chains do: three Gong Cha in a metro are three stores of
+# a chain, not three independent cafés. With the layer off nothing reads this list, so New York's file is as it
+# was. The brands of the table above, by slug:
+NATIONAL = frozenset({
+    "gong-cha", "happy-lemon", "tapioca-express", "meet-fresh", "beard-papas", "better-buzz", "kung-fu-tea",
+    "teaspoon", "boba-guys", "xing-fu-tang", "coco", "sharetea", "ding-tea", "tiger-sugar", "yi-fang", "7-leaves",
+})
+# ... and the ones the table does not have, matched on the brand tag or the name. They are kept out of the table
+# on purpose: a brand there gets a fixed category and is counted under one key, which would change New York's
+# file with the layer off.
+_NATIONAL_MORE = [(slug, re.compile(rx)) for slug, rx in [
+    ("chagee", r"^chagee\b"),
+    ("capital-one-cafe", r"^capital one\b"),
+    ("nordstrom-ebar", r"^nordstrom (ebar|e bar|espresso bar|expresso bar|coffee)\b"),
+    ("sanaa", r"^sanaa( cafe)?$|^sanaa cafe\b"),
+    ("urth-caffe", r"^urth caffe\b"),
+    ("milksha", r"^milksha\b"),
+    ("macu", r"^macu( tea)?\b"),
+    ("la-monarca", r"^la monarca\b"),
+    ("mochinut", r"^mochinut\b"),
+    ("junbi", r"^junbi\b"),
+    ("lollicup", r"^lollicup\b"),
+    ("mixue", r"^mixue\b"),
+    ("cha-for-tea", r"^cha for tea\b"),
+    ("sunright", r"^sunright( tea)?\b"),
+    ("chicha-san-chen", r"^chicha san chen\b"),
+    ("t-swirl", r"^t swirl\b"),
+]]
+
+
+def national(tags):
+    """The slug of the national chain a place is a store of (NATIONAL,
+    _NATIONAL_MORE), or None. Read only with the chain layer on."""
+    b = known_brand(tags)
+    if b:
+        return b.slug if b.slug in NATIONAL else None
+    for text in (norm(tags.get("brand", "")), norm(tags.get("name", ""))):
+        if not text:
+            continue
+        for slug, rx in _NATIONAL_MORE:
+            if rx.search(text):
+                return slug
+    return None
+
+
 # names too generic to group places by
 _GENERIC = {"cafe", "coffee", "coffee shop", "the coffee shop", "bakery", "cafe and bakery", "coffee house",
             "espresso", "tea", "bubble tea", "tea house", "coffee and tea", "cafeteria", "cafe bar", "espresso bar",

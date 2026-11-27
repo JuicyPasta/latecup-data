@@ -1,0 +1,17 @@
+<!doctype html><html><head><title>Example Matcha</title>
+<style>.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}</style></head>
+<body>
+<h1>Example Matcha</h1>
+<p>1693 N. Milpitas Blvd, Milpitas, CA 95035</p>
+<div id="hours">Checking hours…</div>
+<p class="sr-only">Monday 1am - 2am (for screen readers only)</p>
+<p style="position:absolute;left:-9999px">Tuesday 3am - 4am (off the page)</p>
+<p style="opacity:0">Wednesday 5am - 6am (transparent)</p>
+<script>
+  setTimeout(function () {
+    document.getElementById("hours").innerHTML =
+      "<p>Mon - Thu 12pm - 9pm</p><p>Fri - Sat 12pm - 11pm</p><p>Sun 11am - 9pm</p>";
+  }, 1200);
+  fetch("store-hours.json").then(function (r) { return r.json(); });
+</script>
+</body></html>

@@ -1,0 +1,54 @@
+{
+ "id": "n13424836850",
+ "name": "Yummy Future",
+ "hours": [
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-22:00",
+ "src": "shop",
+ "source": "https://yummy-future.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "08:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: yummy-future.com/data/stores.json for 170 University Ave, Palo Alto, CA 94301: mon-sun 08:00, 22:00; the page shows 'OPEN NOW · UNTIL 10PM' Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The week is in the site's own store data, not in its visible text, which shows today only. Taken because it equals OpenStreetMap's hours (docs/accuracy.md); today's 10 PM agrees."
+}

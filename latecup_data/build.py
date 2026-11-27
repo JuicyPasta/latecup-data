@@ -190,21 +190,22 @@ def _gives_way(rec, st, raw):
     return not (_all_day(st.table, osm_table) or guard(st.table, osm_table))
 
 
-def _same_shop(a, b, lon_m=84400):
+def _same_shop(a, b, lon_m=84400, fix=False):
     """Two mappings of one shop: the same name within 60 m, or nearly the same
-    name at the same street address within 150 m."""
+    name at the same street address within 150 m. `fix`: clean.address's
+    fix_doubled."""
     d = _dist_m(a["pos"], b["pos"], lon_m)
     na, nb = norm(a["tags"]["name"]), norm(b["tags"]["name"])
     if na == nb:
         return d < 60
     if d < 150:
-        aa, ab = clean.address(a["tags"]), clean.address(b["tags"])
+        aa, ab = clean.address(a["tags"], fix), clean.address(b["tags"], fix)
         if (aa and aa == ab) or (d < 25 and not (aa and ab)):
             return SequenceMatcher(None, na, nb).ratio() >= 0.85
     return False
 
 
-def _dedupe(cands, lon_m=84400):
+def _dedupe(cands, lon_m=84400, fix=False):
     """Drop the second mapping of one shop (a node and a building way, or a
     double entry). Keeps the richer one."""
     order = sorted(cands, key=lambda c: ("opening_hours" not in c["tags"], -len(c["tags"]), c["id"][0] != "n",
@@ -217,7 +218,7 @@ def _dedupe(cands, lon_m=84400):
         for dx in (-1, 0, 1):
             for dy in (-1, 0, 1):
                 for k in cells.get((cx + dx, cy + dy), ()):
-                    if _same_shop(c, k, lon_m):
+                    if _same_shop(c, k, lon_m, fix):
                         twin = k
                         break
         if twin is None:
@@ -318,7 +319,10 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         cands.append({"id": osm.element_id(el), "tags": tags, "pos": pos, "cat": cat, "why": why,
                       "hood": loc[0], "boro": loc[1],
                       "city": clean.city(tags.get("addr:city")) if area.city == "addr:city" else None})
-    cands, dropped = _dedupe(cands, area.lon_m)
+    # A house number that repeats its street ("42 W 28th St" on West 28th Street) is written once: only with the
+    # chain layer on, because the fix changes two of New York's addresses on the to-confirm list and in the help file
+    fix = stores is not None
+    cands, dropped = _dedupe(cands, area.lon_m, fix)
     stats["duplicates dropped"] = len(dropped)
 
     # a hand-added place replaces its OSM twin
@@ -341,7 +345,7 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
                                       chains.known_brand({"name": c["tags"]["name"]})) if b}
             for slug in sorted(slugs):
                 twins.append({"key": c["id"], "chain": slug, "pos": c["pos"],
-                              "addr": (overrides.get(c["id"]) or {}).get("addr") or clean.address(c["tags"])})
+                              "addr": (overrides.get(c["id"]) or {}).get("addr") or clean.address(c["tags"], fix)})
         for add in additions:
             brand = chains.known_brand({"name": add["name"]})
             if brand:
@@ -360,8 +364,10 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         # With the chain layer on, a store of a chain the layer reads is a chain's store however few of them the
         # area has. The five-location count would call three Krispy Kreme in one metro three independent cafés,
         # confirmed ones at that, and put a Peet's with no hours on the list of cafés that visitors are asked about
+        # The same goes for a brand that is a chain across the country (chains.NATIONAL): one slug wherever it is
         of_the_layer = {spider.chain for spider in atp.SPIDERS}
-        chain_slugs = [slug or (key if (key := chains.group_key(tags)) in of_the_layer else None)
+        chain_slugs = [chains.national(tags) or slug or
+                       (key if (key := chains.group_key(tags)) in of_the_layer else None)
                        for slug, tags in zip(chain_slugs, known)]
     stats["classified places"] = len(cands)
 
@@ -377,7 +383,7 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         ov = overrides.get(pid)
         st = store_of.get(pid)
         raw = tags.get("opening_hours")
-        addr = (ov or {}).get("addr") or clean.address(tags) or (st.addr if st else None) or addr_cache.get(pid)
+        addr = (ov or {}).get("addr") or clean.address(tags, fix) or (st.addr if st else None) or addr_cache.get(pid)
         base = dict(id=pid, name=" ".join(tags["name"].split()), lat=round(c["pos"][0], 5), lon=round(c["pos"][1], 5),
                     addr=addr, hood=c["hood"], boro=c["boro"], cat=c["cat"], chain=chain,
                     web=clean.website(tags), ig=clean.instagram(tags), phone=clean.phone(tags), osm_hours=raw,

@@ -1,0 +1,54 @@
+{
+ "id": "n1296650491",
+ "name": "MeloMelo",
+ "hours": [
+  [
+   [
+    750,
+    1290
+   ]
+  ],
+  [
+   [
+    750,
+    1290
+   ]
+  ],
+  [
+   [
+    750,
+    1290
+   ]
+  ],
+  [
+   [
+    750,
+    1290
+   ]
+  ],
+  [
+   [
+    720,
+    1290
+   ]
+  ],
+  [
+   [
+    720,
+    1290
+   ]
+  ],
+  [
+   [
+    720,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:30-21:30; Fr-Su 12:00-21:30",
+ "src": "shop",
+ "source": "https://www.melomelo.us/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 12:30-21:30; Th 00:30-21:30; Fr-Su 12:00-21:30",
+ "note": "OpenStreetMap said \"Mo-We 12:30-21:30; Th 00:30-21:30; Fr-Su 12:00-21:30\"; the shop's own source wins. Read: Cupertino, 19652 Stevens Creek Blvd, Cupertino, CA 95014, 408-898-2963, Mon - Thu: 12:30 PM - 9:30 PM, Fri - Sun: 12:00 PM - 9:30 PM Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The brand's locations page lists about 15 shops; this one matched by street address. Its front page is a placeholder ('Coming Soon'); the locations page is not. OpenStreetMap's Thursday 00:30 was a slip."
+}
