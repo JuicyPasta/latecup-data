@@ -110,13 +110,13 @@
  {
   "id": "n12865670527",
   "name": "Chip Cookies",
-  "status": "confirmed",
+  "status": "not_a_cafe",
   "source": "https://www.chipcookies.co/pages/gourmet-cookies-in-dublin-ca",
   "evidence": "Visit Chip Dublin 6851 Amador Plaza Rd, Dublin, CA 94568 Store Hours: Sun - Thu | 10 AM - 10 PM Fri - Sat | 10 AM - 12 AM",
   "hours": "Mo-Th 10:00-22:00; Fr-Sa 10:00-24:00; Su 10:00-22:00",
   "src": "shop",
   "late": true,
-  "note": "Store page matched by address. Probably not a cafe: the page sells cookies to order ahead and pick up, no coffee mentioned. Left for the coordinator."
+  "note": "Store page matched by address. Probably not a cafe: the page sells cookies to order ahead and pick up, no coffee mentioned. Left for the coordinator. Taken off by the coordinator after the pass: a cookie shop for pick-up and delivery, with no coffee or seats on its own page. The hours read on the page were right."
  },
  {
   "id": "n12882766241",
