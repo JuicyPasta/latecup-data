@@ -161,6 +161,8 @@ and under it the place, the table before and after, the count and the date. The 
 
 **What the count cannot know.** The platform of a row is whatever the sender wrote, and an install is any UUID. Until there is device proof, "two app installs" can be two requests from a script, and the fast direction (earlier hours) is also the one that takes a café off the map. So no more than ten records are written in one area for one day (the rest wait for the desk, and the list says why), every change is a commit with the table in it, and `quarantine.json` drops a platform's rows for a window of days.
 
+**When these rules fail.** They are new, and they read what anybody can send. If anything in them goes wrong, the run leaves that part out (no `prop`, no record, the desk's list as it was), counts and publishes the confirmations, ratings and reports as always, and fails at the end, so that somebody hears of it.
+
 **The app that is out.** Latecup 1.0.0 reads New York's votes file. `tools/released_app_check/votes.sh` runs that app's own parser on a votes file with `prop` in it and on the same file without: it must read both the same.
 
 ## How it runs

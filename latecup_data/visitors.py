@@ -25,7 +25,7 @@ import re
 from collections import Counter, namedtuple
 from datetime import timedelta
 
-from . import build as B, hours as H, validate
+from . import areas as A, build as B, hours as H, validate
 
 MAX_AGE_DAYS = 120    # a fix or an add older than this is forgotten (the same as a confirmation)
 SLACK = 30            # minutes two tables may differ by, opening by opening and closing by closing, and still agree
@@ -37,7 +37,6 @@ MAX_LISTED = 5        # tables listed for one place on the desk's list, and for 
 MAX_ADDS = 500        # cafés on the desk's list of adds (the most asked-for)
 APPS = ("ios", "android")
 DAYS = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
-FIRST_AREA = "nyc"
 LEDGER_KEYS = ("id", "hours", "src", "visitors", "checked", "by")
 
 # ---------------------------------------------------------------- the table, as clients write it
@@ -229,7 +228,7 @@ def dump(rec):
 def folder(root, area_id):
     """New York's records are the files in visitors/ itself; another area's
     are in visitors/<area id>/ (as in overrides/)."""
-    return root if area_id == FIRST_AREA else root / area_id
+    return root if area_id == A.FIRST else root / area_id
 
 
 def load(root, area_id, warn=None):

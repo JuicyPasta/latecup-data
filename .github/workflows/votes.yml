@@ -87,3 +87,12 @@ jobs:
           done
           echo "::error::the records are on main but refresh could not be started; the next daily run builds them"
           exit 1
+
+      # When something in the rules for visitors' hours fails, the count leaves
+      # that part out and goes on, so the confirmations and ratings above are
+      # published all the same. This is what tells the owner.
+      - name: Fail when visitors' hours were left out
+        if: steps.count.outputs.problem == 'true'
+        run: |
+          echo "::error::visitors' hours were left out of this run; the Count step says where"
+          exit 1

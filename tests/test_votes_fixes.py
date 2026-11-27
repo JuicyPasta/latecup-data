@@ -499,7 +499,7 @@ def test_no_install_id_in_any_output_file(site, repo, tmp_path, monkeypatch, cap
     monkeypatch.setattr(votes, "now_iso", lambda: NOW)
     assert votes.main(["--site", str(site), "--repo", str(repo), "--plan", str(plan)]) == 0
     said = capsys.readouterr()
-    assert out.read_text() == "changed=true\nledger=true\n"
+    assert out.read_text() == "changed=true\nledger=true\nproblem=false\n"
     assert json.loads(plan.read_text()) == [{"path": "visitors/chicago/n1001.json",
                                              "message": V.message({"record": V.record("n1001", EARLIER, 2, "2026-12-04"),
                                                                    "kind": "new", "was": OSM, "src": "osm", "name": "Loop Owl"},
@@ -594,3 +594,53 @@ def test_the_list_of_adds_is_cut_at_a_length_and_says_so(site, repo):
 def read_after(site, repo, rows):
     run(site, csv(*rows), repo, now="2026-12-10T19:00:00Z")
     return read(site / "ops" / "adds.json")
+
+
+# ---------------------------------------------------------------- when the new rules fail
+
+def test_a_failure_in_the_rules_for_visitors_hours_never_stops_the_other_counts(site, repo, tmp_path, monkeypatch, capsys):
+    rows = [fix_row("2026-12-03 20:00", "n1001", 1, EARLIER), fix_row("2026-12-04 20:00", "n1001", 2, EARLIER),
+            add_row("2026-12-04 22:00", 3, "41.87812", "-87.62983"),
+            f"2026-12-04 22:00:00,attest,n1,v=1;iid={iid(4)};hh={HH},ios", f"2026-12-04 22:00:00,rate,n1002,v=1;iid={iid(5)};stars=4,web",
+            "2026-12-04 22:00:00,hours,n1003,,web"]
+    counted = {"nyc": {"n1": {"ok": [1, "2026-12-04"]}}, "chicago": {"n1002": {"stars": [4.0, 1]}, "n1003": {"bad": [1, "2026-12-04"]}}}
+
+    def boom(*_args, **_more):
+        raise KeyError(iid(1))                                  # an error whose text quotes a row
+
+    # one area's fixes: that area goes without, the cafés to add are still listed
+    monkeypatch.setattr(V, "assess", boom)
+    result, lines = run(site, csv(*rows), repo)
+    assert result.writes == [] and len(result.problems) == 1 and result.changed is True
+    assert result.problems[0].startswith("visitors' hours, chicago: KeyError at test_votes_fixes.py:")
+    assert read(site / "v1" / "nyc-votes.json")["votes"] == counted["nyc"]
+    assert read(site / "v1" / "chicago-votes.json")["votes"] == counted["chicago"]
+    assert len(read(site / "ops" / "adds.json")["adds"]) == 1 and not (repo / "visitors").exists()
+    assert any(line.startswith("::error::visitors' hours, chicago: KeyError") for line in lines)
+    assert not UUID.search("\n".join(lines) + " ".join(result.problems))
+    monkeypatch.undo()
+
+    # the scores: no area's fixes are weighed without them, and nothing else is lost
+    monkeypatch.setattr(V, "scores", boom)
+    result, lines = run(site, csv(*rows), repo, now="2026-12-10T18:00:00Z")
+    assert result.writes == [] and [p.split(":")[0] for p in result.problems] == ["visitors' hours, every area"]
+    assert read(site / "v1" / "chicago-votes.json")["votes"] == counted["chicago"]
+    monkeypatch.undo()
+
+    # the cafés to add
+    monkeypatch.setattr(V, "adds", boom)
+    result, lines = run(site, csv(*rows), repo, now="2026-12-10T19:00:00Z")
+    assert [p.split(":")[0] for p in result.problems] == ["the cafés visitors would add"]
+    assert [w["path"] for w in result.writes] == ["visitors/chicago/n1001.json"]           # the fixes were counted
+    monkeypatch.undo()
+
+    # the job step still succeeds, so the counts are published, and says there was a problem
+    out = tmp_path / "github-output"
+    monkeypatch.setenv("REPORTS_CSV_URL", "https://docs.example/secret-address/pub?output=csv")
+    monkeypatch.setenv("GITHUB_OUTPUT", str(out))
+    monkeypatch.setattr(votes.http, "get", lambda url, **_: csv(*rows).encode())
+    monkeypatch.setattr(V, "assess", boom)
+    assert votes.main(["--site", str(site), "--repo", str(repo)]) == 0
+    assert out.read_text().endswith("ledger=false\nproblem=true\n")
+    said = capsys.readouterr()
+    assert "::error::visitors' hours, chicago: KeyError" in said.out and not UUID.search(said.out + said.err)

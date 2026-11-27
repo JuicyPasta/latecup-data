@@ -40,6 +40,7 @@ import json
 import os
 import re
 import sys
+import traceback
 from collections import defaultdict, namedtuple
 from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
@@ -438,7 +439,7 @@ def _desk_list(path, key, items, now, more=0):
     return True
 
 
-Result = namedtuple("Result", "changed writes")
+Result = namedtuple("Result", "changed writes problems", defaults=((),))
 
 
 def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=None, removed=None, allow=allows,
@@ -456,7 +457,14 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
     cap: visitors' records written in one area for one day (None: no brake).
 
     -> Result(changed: something in `site` changed and wants publishing,
-              writes: [{"path", "message", ...}], the ledger files written)
+              writes: [{"path", "message", ...}], the ledger files written,
+              problems: what went wrong in the rules for visitors' hours)
+
+    The rules for visitors' hours are new and read what anybody can send.
+    Whatever goes wrong in them must not stop the counts that were there
+    before: the part that failed is left out of this run (no `prop`, no
+    record, the desk's list as it was), the run says so, and the
+    confirmations, ratings and reports are counted and published as always.
     """
     site = Path(site)
     v1 = site / "v1"
@@ -480,6 +488,14 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
     def warn(text):
         log(f"::warning::{text}")
 
+    problems = []
+
+    def trouble(what, e):
+        # the kind of error and where, never its text: that can quote a row
+        at = traceback.extract_tb(e.__traceback__)[-1]
+        problems.append(f"{what}: {type(e).__name__} at {Path(at.filename).name}:{at.lineno}")
+        log(f"::error::{problems[-1]}. The confirmations, ratings and reports are counted without it")
+
     areas = []
     for e in todo:
         places = {p["id"]: p for p in json.loads((v1 / e["places"]).read_text())["places"]}
@@ -490,29 +506,38 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
             hh_since = {}
         areas.append(dict(e, tz=ZoneInfo(e["tz"]), places=places, ops=ops, hh_since=hh_since))
 
-    weights = {}
+    weights, sound = {}, True
     if fixes or added:
-        for a in areas:
-            a["known"] = _known(a["places"], _help(v1, a["help"]))
-            a["changed"] = _changed(a["places"], a["hh_since"]) if isinstance(a["hh_since"], dict) else {}
-        recent = [(r[0], r[2], r[3]["iid"], r[3]["hh"], r[3]["table"]) for r in fixes
-                  if r[4] in visitors.APPS and r[0] <= when + timedelta(minutes=10)
-                  and when - r[0] < timedelta(days=MAX_AGE_DAYS)]
-        weights = visitors.scores(recent, _readings(areas, repo, warn)) if recent else {}
+        try:
+            for a in areas:
+                a["known"] = _known(a["places"], _help(v1, a["help"]))
+                a["changed"] = _changed(a["places"], a["hh_since"]) if isinstance(a["hh_since"], dict) else {}
+            recent = [(r[0], r[2], r[3]["iid"], r[3]["hh"], r[3]["table"]) for r in fixes
+                      if r[4] in visitors.APPS and r[0] <= when + timedelta(minutes=10)
+                      and when - r[0] < timedelta(days=MAX_AGE_DAYS)]
+            weights = visitors.scores(recent, _readings(areas, repo, warn)) if recent else {}
+        except Exception as e:      # noqa: BLE001 (see the docstring: nothing here may stop the count)
+            sound = False
+            trouble("visitors' hours, every area", e)
 
     changed = False
     writes = []
     for a in areas:
         area_id, tz, places, ops, hh_since = a["id"], a["tz"], a["places"], a["ops"], a["hh_since"]
-        mine = [(r[0], r[2], r[3]["iid"], r[3]["hh"], r[3]["table"], r[4]) for r in fixes if r[2] in a["known"]]
         fx = None
-        if mine or (ops / "proposals.json").exists():
-            if "known" not in a:
-                a["known"] = _known(places, _help(v1, a["help"]))
-                a["changed"] = _changed(places, hh_since) if isinstance(hh_since, dict) else {}
-            fx = visitors.assess(mine, a["known"], now=when, tz=tz, weights=weights, changed=a["changed"],
-                                 records=visitors.load(ledger, area_id, warn), removed=removed,
-                                 allowed=bool(allow(area_id)), cap=cap)
+        try:
+            mine = [(r[0], r[2], r[3]["iid"], r[3]["hh"], r[3]["table"], r[4]) for r in fixes if r[2] in a["known"]] \
+                if sound else []
+            if sound and (mine or (ops / "proposals.json").exists()):
+                if "known" not in a:
+                    a["known"] = _known(places, _help(v1, a["help"]))
+                    a["changed"] = _changed(places, hh_since) if isinstance(hh_since, dict) else {}
+                fx = visitors.assess(mine, a["known"], now=when, tz=tz, weights=weights, changed=a["changed"],
+                                     records=visitors.load(ledger, area_id, warn), removed=removed,
+                                     allowed=bool(allow(area_id)), cap=cap)
+        except Exception as e:      # noqa: BLE001
+            fx = None
+            trouble(f"visitors' hours, {area_id}", e)
         votes = count(rows, places, hh_since, when, tz, dropped, fx and fx["flags"], fx and fx["props"])
         doc = {"format": FORMAT, "city": area_id, "generated": now, "votes": votes}
         validate.votes_file(doc, area_id, set(places), set(a["known"]) - set(places) if fx else None)
@@ -560,19 +585,22 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
         changed = True
 
     # cafés the feed does not have at all: for the desk, never published from here
-    if added or (site / "ops" / "adds.json").exists():
-        where = [{"id": a["id"], "tz": a["tz"], "bbox": a["bbox"], "center": a["center"],
-                  "places": [(pid, p["lat"], p["lon"]) for pid, p in
-                             (a.get("known") or _known(a["places"], _help(v1, a["help"]))).items()
-                             if isinstance(p["lat"], (int, float)) and isinstance(p["lon"], (int, float))]}
-                 for a in areas if a["bbox"] and a["center"]]
-        cafes = visitors.adds([(r[0], r[3]["iid"], r[3]["lat"], r[3]["lon"], r[3]["cat"], r[3]["table"], r[4])
-                               for r in added], where, now=when, tz=sheet_tz, weights=weights)
-        changed |= _desk_list(site / "ops" / "adds.json", "adds", cafes[:visitors.MAX_ADDS], now,
-                              max(len(cafes) - visitors.MAX_ADDS, 0))
-        if cafes:
-            log(f"{len(cafes)} café(s) visitors would add, on the desk's list")
-    return Result(changed, writes)
+    if sound and (added or (site / "ops" / "adds.json").exists()):
+        try:
+            where = [{"id": a["id"], "tz": a["tz"], "bbox": a["bbox"], "center": a["center"],
+                      "places": [(pid, p["lat"], p["lon"]) for pid, p in
+                                 (a.get("known") or _known(a["places"], _help(v1, a["help"]))).items()
+                                 if isinstance(p["lat"], (int, float)) and isinstance(p["lon"], (int, float))]}
+                     for a in areas if a["bbox"] and a["center"]]
+            cafes = visitors.adds([(r[0], r[3]["iid"], r[3]["lat"], r[3]["lon"], r[3]["cat"], r[3]["table"], r[4])
+                                   for r in added], where, now=when, tz=sheet_tz, weights=weights)
+            changed |= _desk_list(site / "ops" / "adds.json", "adds", cafes[:visitors.MAX_ADDS], now,
+                                  max(len(cafes) - visitors.MAX_ADDS, 0))
+            if cafes:
+                log(f"{len(cafes)} café(s) visitors would add, on the desk's list")
+        except Exception as e:      # noqa: BLE001
+            trouble("the cafés visitors would add", e)
+    return Result(changed, writes, tuple(problems))
 
 
 def make(site, csv_text, now=None, tz_name=None, log=print, rules=None, **more):
@@ -620,6 +648,7 @@ def main(argv=None):
         with open(out, "a") as f:
             f.write(f"changed={'true' if result.changed else 'false'}\n")
             f.write(f"ledger={'true' if result.writes and args.repo else 'false'}\n")
+            f.write(f"problem={'true' if result.problems else 'false'}\n")
     print("changed" if result.changed else "unchanged")
     for w in result.writes:
         print(w["message"].splitlines()[0])

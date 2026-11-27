@@ -800,7 +800,7 @@ def test_a_point_belongs_to_the_containing_area_whose_centre_is_nearest():
 
 
 def test_the_numbers_of_the_rules():
-    assert V.MAX_AGE_DAYS == 120 and V.SLACK == 30 and V.APPS == ("ios", "android") and V.FIRST_AREA == "nyc"
+    assert V.MAX_AGE_DAYS == 120 and V.SLACK == 30 and V.APPS == ("ios", "android") and V.MAX_A_DAY == 10
 
 
 def test_the_desks_lists_stay_readable_whatever_is_sent():
