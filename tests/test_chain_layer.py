@@ -321,6 +321,15 @@ def test_download_fetches_what_is_missing_and_looks_back_past_a_holiday_week(tmp
     served[atp.LATEST] = {"run_id": "../../etc"}
     with pytest.raises(IOError, match="unexpected run id"):
         atp.download(tmp_path, [STARBUCKS], get, lambda *_: None)
+    # All The Places does not answer: the run goes on with what the cache holds, and says so
+    def down(url, **_):
+        raise IOError(f"GET failed: {url}: HTTP 503")
+    logged = []
+    layer = atp.Layer.open(tmp_path, spiders=[STARBUCKS, STANDING], get=down, log=logged.append)
+    assert len(layer.stores) == 3 and logged[0].startswith("All The Places: GET failed")
+    # with nothing in the cache there is nothing to go on with
+    with pytest.raises(IOError, match="no downloads"):
+        atp.Layer.open(tmp_path / "fresh", spiders=[STARBUCKS], get=down, log=lambda *_: None)
 
 
 # ---------------------------------------------------------------- a store and its OpenStreetMap twin

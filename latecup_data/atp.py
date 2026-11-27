@@ -334,7 +334,12 @@ class Layer:
         spiders = [sp for sp in spiders if sp.name not in skip]
         cache = Path(cache)
         if not offline:
-            download(cache, spiders, get, log)
+            try:
+                download(cache, spiders, get, log)
+            except (IOError, ValueError, KeyError, TypeError) as e:
+                # All The Places does not answer: what is already in the cache is still what its spiders read.
+                # With an empty cache the lines below stop the run, and the last good feed stays up
+                log(f"All The Places: {e}; going on with the downloads in {cache}")
         runs = sorted((p.name for p in cache.iterdir() if p.is_dir() and _RUN.fullmatch(p.name)),
                       reverse=True)[:LOOK_BACK] if cache.exists() else []
         if not runs:
