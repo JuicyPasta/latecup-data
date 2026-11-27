@@ -52,6 +52,12 @@ def test_area_files_load_with_new_york_first():
         A.select(["atlantis"])
 
 
+def test_an_area_is_one_object_whoever_asks():
+    assert A.load() is A.load(None) is A.load(A.FOLDER)
+    assert A.get("chicago") is CHICAGO is next(a for a in A.load() if a.id == "chicago")
+    assert A.first() is NYC is A.load()[0] and A.select(["chicago"])[0] is CHICAGO
+
+
 def test_new_york_is_what_it_was():
     # the constant this replaced (run.CITY on main): the manifest entry must not move
     assert NYC.entry() == {"id": "nyc", "name": "New York City", "tz": "America/New_York",

@@ -148,10 +148,15 @@ def check(rec):
     need(type(rec.get("live", False)) is bool, "live is true or false")
 
 
-@lru_cache(maxsize=None)
 def load(folder=None):
-    """Every area, New York first, the others by id."""
-    folder = Path(folder or FOLDER)
+    """Every area, New York first, the others by id. Read once per folder:
+    whoever asks, with a folder or without, gets the same Area objects."""
+    return _load(str(folder or FOLDER))
+
+
+@lru_cache(maxsize=None)
+def _load(folder):
+    folder = Path(folder)
     out = []
     for f in sorted(folder.glob("*.json")):
         rec = json.loads(f.read_text())
