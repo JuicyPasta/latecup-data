@@ -153,10 +153,10 @@ def us_markdown(site, note=None):
             "## Independents, and the cafés that need help",
             "",
             "The manifest's own numbers. Late independents are the places with no chain (`indie`); confirmed are those "
-            "of them whose hours are `shop`, `brand` or `visitors` (`indie_confirmed`). A brand with fewer than five "
-            "locations in an area is not a chain there, so its stores count as independents. The help file lists the "
-            "independent cafés that are not on the late map and that nobody has confirmed: with no hours we can use, "
-            "or with OpenStreetMap hours that never reach 20:00.",
+            "of them whose hours are `shop`, `brand` or `visitors` (`indie_confirmed`). A brand the chain layer does "
+            "not read is a chain in an area only from five locations on, so a few stores of small chains count as "
+            "independents. The help file lists the independent cafés that are not on the late map and that nobody "
+            "has confirmed: with no hours we can use, or with OpenStreetMap hours that never reach 20:00.",
             "",
             "| Area | Late independents | Confirmed | In the help file | no hours | closes before 20:00 | Help file bytes |",
             "|---|---|---|---|---|---|---|",

@@ -1,6 +1,6 @@
 # Latecup feed coverage, every area
 
-Feed of 2026-11-27T19:05:01Z, 32 areas. Written by `python -m latecup_data.report <site> --us docs/coverage-us.md`. Built into `work/site-us/` on 2026-11-27 and not published: the saved OpenStreetMap pulls (New York by its own area query, data of 2026-11-25; the 31 rectangles, data of 2026-11-27 UTC), every override and addition in the repository, and both switches on: the chain layer, with a reading written by hand over it and the weekly pass's records under it, and the manifest's `indie`, `indie_confirmed` and `help`. No visitors' records exist yet.
+Feed of 2026-11-27T19:15:00Z, 32 areas. Written by `python -m latecup_data.report <site> --us docs/coverage-us.md`. Built into `work/site-us/` on 2026-11-27 and not published: the saved OpenStreetMap pulls (New York by its own area query, data of 2026-11-25; the 31 rectangles, data of 2026-11-27 UTC), every override and addition in the repository, and both switches on: the chain layer, with a reading written by hand over it and the weekly pass's records under it, and the manifest's `indie`, `indie_confirmed` and `help`. No visitors' records exist yet.
 
 Every place closes at 20:00 or later on at least one day. Independent and chain are the feed's `chain` field: a brand with 5 or more locations in the area is a chain there. The closing columns are the latest closing of the week; "24 h" is open all week.
 
@@ -8,79 +8,79 @@ Every place closes at 20:00 or later on at least one day. Independent and chain 
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Los Angeles + Orange County | 1,247 | 236 | 1,011 | 0 | 936 | 0 | 311 | 374 | 357 | 277 | 178 | 58 | 3 | 497,647 |
 | New York City | 1,150 | 334 | 816 | 128 | 678 | 0 | 344 | 301 | 429 | 194 | 84 | 83 | 59 | 466,886 |
-| Dallas-Fort Worth | 666 | 93 | 573 | 0 | 540 | 0 | 126 | 208 | 223 | 132 | 83 | 20 | 0 | 259,993 |
+| Dallas-Fort Worth | 666 | 91 | 575 | 0 | 540 | 0 | 126 | 208 | 223 | 132 | 83 | 20 | 0 | 260,007 |
 | SF Bay Area | 660 | 187 | 473 | 0 | 369 | 0 | 291 | 219 | 255 | 106 | 51 | 26 | 3 | 258,045 |
-| Chicago | 618 | 79 | 539 | 0 | 429 | 0 | 189 | 199 | 229 | 64 | 14 | 21 | 91 | 249,943 |
+| Chicago | 618 | 75 | 543 | 0 | 429 | 0 | 189 | 199 | 229 | 64 | 14 | 21 | 91 | 249,981 |
 | Phoenix | 461 | 49 | 412 | 0 | 394 | 0 | 67 | 125 | 211 | 35 | 73 | 14 | 3 | 186,823 |
-| Houston | 444 | 67 | 377 | 0 | 366 | 0 | 78 | 126 | 148 | 105 | 50 | 14 | 1 | 177,798 |
-| Detroit + Dearborn + Ann Arbor | 357 | 58 | 299 | 0 | 237 | 0 | 120 | 147 | 127 | 45 | 18 | 12 | 8 | 136,697 |
-| Atlanta | 354 | 73 | 281 | 0 | 263 | 0 | 91 | 157 | 95 | 50 | 29 | 14 | 9 | 143,258 |
-| Boston | 338 | 62 | 276 | 0 | 224 | 0 | 114 | 127 | 130 | 35 | 21 | 12 | 13 | 133,128 |
-| Washington DC | 333 | 82 | 251 | 0 | 218 | 0 | 115 | 143 | 112 | 39 | 16 | 20 | 3 | 136,855 |
-| Miami-Fort Lauderdale | 321 | 43 | 278 | 0 | 268 | 0 | 53 | 71 | 156 | 59 | 19 | 14 | 2 | 130,418 |
-| Seattle + Eastside | 313 | 167 | 146 | 0 | 119 | 0 | 194 | 149 | 89 | 43 | 13 | 14 | 5 | 123,424 |
-| San Diego | 301 | 87 | 214 | 0 | 213 | 0 | 88 | 119 | 89 | 55 | 25 | 11 | 2 | 121,563 |
-| Las Vegas | 261 | 31 | 230 | 0 | 231 | 0 | 30 | 57 | 105 | 45 | 39 | 13 | 2 | 103,000 |
-| Denver | 252 | 82 | 170 | 0 | 166 | 0 | 86 | 110 | 77 | 24 | 29 | 11 | 1 | 101,689 |
-| Philadelphia | 243 | 42 | 201 | 0 | 176 | 0 | 67 | 123 | 74 | 18 | 12 | 8 | 8 | 96,851 |
-| Orlando | 238 | 44 | 194 | 0 | 180 | 0 | 58 | 64 | 110 | 32 | 26 | 2 | 4 | 95,363 |
-| Portland | 221 | 79 | 142 | 0 | 118 | 0 | 103 | 76 | 74 | 21 | 35 | 7 | 8 | 89,789 |
-| Tampa-St. Pete | 202 | 31 | 171 | 0 | 167 | 0 | 35 | 89 | 74 | 14 | 11 | 10 | 4 | 81,679 |
-| Minneapolis-St. Paul | 192 | 64 | 128 | 0 | 127 | 0 | 65 | 112 | 52 | 11 | 10 | 7 | 0 | 76,267 |
-| Austin | 182 | 57 | 125 | 0 | 122 | 0 | 60 | 47 | 67 | 31 | 25 | 9 | 3 | 72,387 |
-| San Antonio | 175 | 19 | 156 | 0 | 154 | 0 | 21 | 43 | 61 | 25 | 43 | 1 | 2 | 71,047 |
-| Sacramento | 167 | 25 | 142 | 0 | 140 | 0 | 27 | 65 | 43 | 15 | 30 | 12 | 2 | 67,558 |
-| Raleigh-Durham | 141 | 43 | 98 | 0 | 103 | 0 | 38 | 54 | 65 | 10 | 8 | 4 | 0 | 57,255 |
-| Columbus | 137 | 38 | 99 | 0 | 103 | 0 | 34 | 64 | 46 | 14 | 8 | 3 | 2 | 56,609 |
-| Charlotte | 117 | 26 | 91 | 0 | 91 | 0 | 26 | 49 | 38 | 14 | 9 | 6 | 1 | 47,045 |
-| Salt Lake City | 117 | 52 | 65 | 0 | 61 | 0 | 56 | 48 | 32 | 13 | 16 | 8 | 0 | 46,054 |
-| Nashville | 94 | 10 | 84 | 0 | 87 | 0 | 7 | 29 | 40 | 8 | 17 | 0 | 0 | 37,534 |
-| Honolulu | 88 | 36 | 52 | 0 | 49 | 0 | 39 | 39 | 37 | 9 | 0 | 3 | 0 | 34,080 |
-| Pittsburgh | 79 | 24 | 55 | 0 | 52 | 0 | 27 | 38 | 31 | 5 | 5 | 0 | 0 | 32,026 |
-| New Orleans | 62 | 19 | 43 | 0 | 40 | 0 | 22 | 13 | 28 | 6 | 5 | 8 | 2 | 24,843 |
-| **All 32** | 10,531 | 2,339 | 8,192 | 128 | 7,421 | 0 | 2,982 | 3,585 | 3,704 | 1,554 | 1,002 | 445 | 241 | 4,213,554 |
+| Houston | 444 | 59 | 385 | 0 | 366 | 0 | 78 | 126 | 148 | 105 | 50 | 14 | 1 | 177,880 |
+| Detroit + Dearborn + Ann Arbor | 357 | 48 | 309 | 0 | 237 | 0 | 120 | 147 | 127 | 45 | 18 | 12 | 8 | 136,811 |
+| Atlanta | 354 | 64 | 290 | 0 | 263 | 0 | 91 | 157 | 95 | 50 | 29 | 14 | 9 | 143,326 |
+| Boston | 338 | 60 | 278 | 0 | 224 | 0 | 114 | 127 | 130 | 35 | 21 | 12 | 13 | 133,152 |
+| Washington DC | 333 | 77 | 256 | 0 | 218 | 0 | 115 | 143 | 112 | 39 | 16 | 20 | 3 | 136,905 |
+| Miami-Fort Lauderdale | 321 | 41 | 280 | 0 | 268 | 0 | 53 | 71 | 156 | 59 | 19 | 14 | 2 | 130,442 |
+| Seattle + Eastside | 313 | 159 | 154 | 0 | 119 | 0 | 194 | 149 | 89 | 43 | 13 | 14 | 5 | 123,510 |
+| San Diego | 301 | 76 | 225 | 0 | 213 | 0 | 88 | 119 | 89 | 55 | 25 | 11 | 2 | 121,700 |
+| Las Vegas | 261 | 25 | 236 | 0 | 231 | 0 | 30 | 57 | 105 | 45 | 39 | 13 | 2 | 103,066 |
+| Denver | 252 | 78 | 174 | 0 | 166 | 0 | 86 | 110 | 77 | 24 | 29 | 11 | 1 | 101,733 |
+| Philadelphia | 243 | 38 | 205 | 0 | 176 | 0 | 67 | 123 | 74 | 18 | 12 | 8 | 8 | 96,891 |
+| Orlando | 238 | 33 | 205 | 0 | 180 | 0 | 58 | 64 | 110 | 32 | 26 | 2 | 4 | 95,478 |
+| Portland | 221 | 76 | 145 | 0 | 118 | 0 | 103 | 76 | 74 | 21 | 35 | 7 | 8 | 89,821 |
+| Tampa-St. Pete | 202 | 25 | 177 | 0 | 167 | 0 | 35 | 89 | 74 | 14 | 11 | 10 | 4 | 81,743 |
+| Minneapolis-St. Paul | 192 | 57 | 135 | 0 | 127 | 0 | 65 | 112 | 52 | 11 | 10 | 7 | 0 | 76,331 |
+| Austin | 182 | 51 | 131 | 0 | 122 | 0 | 60 | 47 | 67 | 31 | 25 | 9 | 3 | 72,449 |
+| San Antonio | 175 | 12 | 163 | 0 | 154 | 0 | 21 | 43 | 61 | 25 | 43 | 1 | 2 | 71,111 |
+| Sacramento | 167 | 22 | 145 | 0 | 140 | 0 | 27 | 65 | 43 | 15 | 30 | 12 | 2 | 67,592 |
+| Raleigh-Durham | 141 | 34 | 107 | 0 | 103 | 0 | 38 | 54 | 65 | 10 | 8 | 4 | 0 | 57,345 |
+| Columbus | 137 | 24 | 113 | 0 | 103 | 0 | 34 | 64 | 46 | 14 | 8 | 3 | 2 | 56,741 |
+| Charlotte | 117 | 21 | 96 | 0 | 91 | 0 | 26 | 49 | 38 | 14 | 9 | 6 | 1 | 47,101 |
+| Salt Lake City | 117 | 44 | 73 | 0 | 61 | 0 | 56 | 48 | 32 | 13 | 16 | 8 | 0 | 46,110 |
+| Nashville | 94 | 4 | 90 | 0 | 87 | 0 | 7 | 29 | 40 | 8 | 17 | 0 | 0 | 37,588 |
+| Honolulu | 88 | 35 | 53 | 0 | 49 | 0 | 39 | 39 | 37 | 9 | 0 | 3 | 0 | 34,092 |
+| Pittsburgh | 79 | 22 | 57 | 0 | 52 | 0 | 27 | 38 | 31 | 5 | 5 | 0 | 0 | 32,050 |
+| New Orleans | 62 | 14 | 48 | 0 | 40 | 0 | 22 | 13 | 28 | 6 | 5 | 8 | 2 | 24,869 |
+| **All 32** | 10,531 | 2,171 | 8,360 | 128 | 7,421 | 0 | 2,982 | 3,585 | 3,704 | 1,554 | 1,002 | 445 | 241 | 4,215,226 |
 
-The manifest is 20,022 bytes; the places files together are 4,213,554 bytes (as served they are gzip-compressed by GitHub Pages).
+The manifest is 20,017 bytes; the places files together are 4,215,226 bytes (as served they are gzip-compressed by GitHub Pages).
 
 ## Independents, and the cafés that need help
 
-The manifest's own numbers. Late independents are the places with no chain (`indie`); confirmed are those of them whose hours are `shop`, `brand` or `visitors` (`indie_confirmed`). A brand with fewer than five locations in an area is not a chain there, so its stores count as independents. The help file lists the independent cafés that are not on the late map and that nobody has confirmed: with no hours we can use, or with OpenStreetMap hours that never reach 20:00.
+The manifest's own numbers. Late independents are the places with no chain (`indie`); confirmed are those of them whose hours are `shop`, `brand` or `visitors` (`indie_confirmed`). A brand the chain layer does not read is a chain in an area only from five locations on, so a few stores of small chains count as independents. The help file lists the independent cafés that are not on the late map and that nobody has confirmed: with no hours we can use, or with OpenStreetMap hours that never reach 20:00.
 
 | Area | Late independents | Confirmed | In the help file | no hours | closes before 20:00 | Help file bytes |
 |---|---|---|---|---|---|---|
-| New York City | 334 | 128 | 1,382 | 790 | 592 | 341,305 |
+| New York City | 334 | 128 | 1,381 | 789 | 592 | 341,114 |
 | Los Angeles + Orange County | 236 | 0 | 1,295 | 904 | 391 | 252,631 |
 | SF Bay Area | 187 | 0 | 1,402 | 909 | 493 | 285,275 |
-| Seattle + Eastside | 167 | 8 | 768 | 354 | 414 | 189,939 |
-| Dallas-Fort Worth | 93 | 2 | 364 | 251 | 113 | 70,827 |
-| San Diego | 87 | 11 | 383 | 280 | 103 | 74,240 |
-| Washington DC | 82 | 5 | 400 | 252 | 148 | 92,502 |
-| Denver | 82 | 4 | 295 | 157 | 138 | 70,654 |
-| Chicago | 79 | 4 | 702 | 509 | 193 | 154,707 |
-| Portland | 79 | 3 | 545 | 329 | 216 | 126,445 |
-| Atlanta | 73 | 5 | 228 | 140 | 88 | 48,889 |
-| Houston | 67 | 4 | 281 | 229 | 52 | 48,744 |
-| Minneapolis-St. Paul | 64 | 5 | 250 | 110 | 140 | 63,095 |
-| Boston | 62 | 2 | 348 | 188 | 160 | 79,688 |
-| Detroit + Dearborn + Ann Arbor | 58 | 10 | 244 | 160 | 84 | 49,843 |
-| Austin | 57 | 6 | 222 | 135 | 87 | 47,839 |
-| Salt Lake City | 52 | 8 | 164 | 67 | 97 | 41,711 |
-| Phoenix | 49 | 0 | 324 | 191 | 133 | 73,725 |
-| Orlando | 44 | 11 | 137 | 110 | 27 | 24,230 |
-| Miami-Fort Lauderdale | 43 | 2 | 218 | 158 | 60 | 42,146 |
-| Raleigh-Durham | 43 | 9 | 129 | 72 | 57 | 30,361 |
-| Philadelphia | 42 | 4 | 272 | 136 | 136 | 66,173 |
-| Columbus | 38 | 14 | 122 | 72 | 50 | 25,362 |
-| Honolulu | 36 | 1 | 111 | 70 | 41 | 24,066 |
-| Tampa-St. Pete | 31 | 6 | 154 | 108 | 46 | 31,109 |
-| Las Vegas | 31 | 6 | 145 | 114 | 31 | 28,872 |
-| Charlotte | 26 | 5 | 102 | 77 | 25 | 20,124 |
-| Sacramento | 25 | 3 | 139 | 100 | 39 | 26,279 |
-| Pittsburgh | 24 | 2 | 115 | 59 | 56 | 27,984 |
-| New Orleans | 19 | 4 | 121 | 93 | 28 | 21,007 |
-| San Antonio | 19 | 7 | 101 | 73 | 28 | 19,861 |
-| Nashville | 10 | 6 | 104 | 82 | 22 | 19,942 |
-| **All 32** | 2,339 | 285 | 11,567 | 7,279 | 4,288 | 2,519,575 |
+| Seattle + Eastside | 159 | 0 | 766 | 352 | 414 | 189,726 |
+| Dallas-Fort Worth | 91 | 0 | 362 | 249 | 113 | 70,606 |
+| Denver | 78 | 0 | 293 | 155 | 138 | 70,361 |
+| Washington DC | 77 | 0 | 399 | 252 | 147 | 92,116 |
+| Portland | 76 | 0 | 544 | 328 | 216 | 126,285 |
+| San Diego | 76 | 0 | 383 | 280 | 103 | 74,240 |
+| Chicago | 75 | 0 | 702 | 509 | 193 | 154,707 |
+| Atlanta | 64 | 0 | 226 | 138 | 88 | 48,664 |
+| Boston | 60 | 0 | 348 | 188 | 160 | 79,688 |
+| Houston | 59 | 0 | 280 | 228 | 52 | 48,640 |
+| Minneapolis-St. Paul | 57 | 0 | 248 | 108 | 140 | 62,878 |
+| Austin | 51 | 0 | 219 | 132 | 87 | 47,388 |
+| Phoenix | 49 | 0 | 321 | 188 | 133 | 73,399 |
+| Detroit + Dearborn + Ann Arbor | 48 | 0 | 242 | 158 | 84 | 49,631 |
+| Salt Lake City | 44 | 0 | 162 | 65 | 97 | 41,489 |
+| Miami-Fort Lauderdale | 41 | 0 | 216 | 156 | 60 | 41,932 |
+| Philadelphia | 38 | 0 | 272 | 136 | 136 | 66,173 |
+| Honolulu | 35 | 0 | 111 | 70 | 41 | 24,066 |
+| Raleigh-Durham | 34 | 0 | 129 | 72 | 57 | 30,361 |
+| Orlando | 33 | 0 | 136 | 110 | 26 | 23,871 |
+| Tampa-St. Pete | 25 | 0 | 154 | 108 | 46 | 31,109 |
+| Las Vegas | 25 | 0 | 142 | 112 | 30 | 28,250 |
+| Columbus | 24 | 0 | 122 | 72 | 50 | 25,362 |
+| Pittsburgh | 22 | 0 | 114 | 58 | 56 | 27,820 |
+| Sacramento | 22 | 0 | 139 | 100 | 39 | 26,279 |
+| Charlotte | 21 | 0 | 101 | 76 | 25 | 20,017 |
+| New Orleans | 14 | 0 | 121 | 93 | 28 | 21,007 |
+| San Antonio | 12 | 0 | 101 | 73 | 28 | 19,861 |
+| Nashville | 4 | 0 | 102 | 80 | 22 | 19,672 |
+| **All 32** | 2,171 | 128 | 11,533 | 7,248 | 4,285 | 2,514,618 |
 
 ## What the chain layer did
 
