@@ -151,12 +151,52 @@ The rules, in the order they bite (`latecup_data/atp.py`, `build.py`):
 
 Before trusting it: `tools/audit_chain_layer.py` compares the layer with the chain hours we read ourselves, and [docs/accuracy.md](docs/accuracy.md) has the result of 2026-11-26. One thing to know from it: All The Places' Dunkin' closing times are the store page's pick-up hours, 15 minutes before the store's own.
 
+## Visitors' hours
+
+A visitor can do more than say "these hours are right". The app and the web map send the week as the visitor says it is (a `fix`), or a café the feed does not have at all (an `add`), and the hourly `votes` job reads those rows with the rest. The rules are in [FORMAT.md](FORMAT.md#visitors-hours). In one line: one visitor flags; where an area has publishing on, two app installs that agree change the hours when nothing gets later, and three when a night ends later or the café had no hours; hours we read on the shop's own page are never changed by visitors.
+
+**The ledger.** A change is a file in `visitors/`, one per place: `visitors/<id>.json` for New York, `visitors/<area id>/<id>.json` for another area.
+
+```json
+{"id": "n1234567890", "hours": [[[480,1380]],[[480,1380]],[[480,1380]],[[480,1380]],[[480,1500]],[[480,1500]],[[540,1320]]], "src": "visitors", "visitors": 2, "checked": "2026-12-03", "by": "votes"}
+```
+
+`visitors` is how many installs agree and `checked` the day of the newest of them, in the area's time zone. An install id is never written: not in the file, not in the commit, not in a log line. Only the hourly job writes these files, one commit per record, with a message that says what changed:
+
+```
+Visitors: Example Coffee House closes 23:00 Fri-Sat, 2 installs
+```
+
+and under it the place, the table before and after, the count and the date. A change that takes a place off the late map says `off the late map` in that first line, and one that would put a café on it says `new on the late map`. The job then starts `refresh`, which builds the record into the feed as `src` `visitors`: under a reading written by hand and under the chain layer, over OpenStreetMap's hours or none, and only in an area whose file says so (`"visitors": true` in `areas/<id>.json`).
+
+- A record is rewritten when more installs agree, or when visitors agree on other hours. For the same hours its count never goes down.
+- **To take a record out, delete the file and push.** Nothing else removes one, and it stays out: the job reads the history, and rows older than the deletion never write that record again. What visitors send after it counts as always. If the hours were simply wrong, the lasting fix is the usual one: read the shop's own page and write an override.
+- Pull requests may not add or edit files in `visitors/`.
+
+**The desk's lists.** Written by the same job when they change, and published with the votes files:
+
+| File | What |
+|---|---|
+| `ops/proposals.json` (another area's in `ops/<area id>/`) | Every place with hours from visitors that are not published: the tables, how many app installs agree on each, how many flags came from the web, the newest date, and what it is waiting for. That is `1 more install`, `2 more installs`, `the next build` (the record is written) or `the desk`, with the reason: the hours are the shop's own, the publish guard, two groups that disagree, an area that does not publish visitors' hours, the daily limit, a run that would have written too many. What only the desk can settle comes first, and `off_map` marks hours that would take the place off the late map. Five tables a place at most (`more_tables`: how many more there are) |
+| `ops/recheck.json` | As before, with the places a visitor sent hours for at the top (`fix`: how many installs agree on the leading table) |
+| `ops/adds.json` | The cafés visitors would add, grouped within about 50 m: where, which area, the category, the tables, how many app installs (`n`) and how many others (`web`), the newest date, and the places we already have within 50 m (`near`). No names, because the report sheet does not pass them on. Never published as places: a café goes into `additions/` once someone has found it on its own page. The 500 most asked-for (`more`: how many the list leaves out) |
+
+**Off by default.** No area publishes visitors' hours unless its file says `"visitors": true`, because the platform of a row is whatever the sender writes, so "two installs" can be two scripted posts. That holds until reports carry proof that they come from the real app on a real device.
+
+With it off, everything else goes on as described: a fix flags the place, the leading table is the place's `prop`, and the desk's lists say what each place is waiting for. No record is written.
+
+**Where it is on**, the count still cannot know who sent a row, and the fast direction (earlier hours) is also the one that takes a café off the map. So no more than ten records are written in one area for one day; the rest wait for the desk, and the list says why. A run that would write more than 25 records across all areas writes none of them, lists them for the desk with the reason, and fails: so many at once is far likelier an attack than a crowd. Every change is a commit with the table in it, and `quarantine.json` drops a platform's rows for a window of days.
+
+**When these rules fail.** They are new, and they read what anybody can send. If anything in them goes wrong, the run leaves that part out (no `prop`, no record, the desk's list as it was), counts and publishes the confirmations, ratings and reports as always, and fails at the end, so that somebody hears of it.
+
+**The app that is out.** Latecup 1.0.0 reads New York's votes file. `tools/released_app_check/votes.sh` runs that app's own parser on a votes file with `prop` in it and on the same file without: it must read both the same.
+
 ## How it runs
 
 | Workflow | When | What |
 |---|---|---|
 | [`refresh`](.github/workflows/refresh.yml) | Daily at 09:17 UTC, on a push that changes the data or the pipeline, or by hand | Tests → OSM pull (Overpass) → classify → hours → overrides and additions → validate → publish as one commit on `gh-pages`. **Refuses to publish** a feed that fails validation or that lost more than 20 % of its places; the job fails and the last good feed stays up |
-| [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings and "hours wrong" reports from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into `v1/nyc-votes.json`. No OSM pull. Publishes only when the counts changed. With no secret it writes an empty, valid file. Only counts are published: no rows, no install ids |
+| [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings, "hours wrong" reports and visitors' own hours from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into each area's votes file (`v1/nyc-votes.json`). No OSM pull. Publishes only when something changed. With no secret it writes an empty, valid file. Only counts and tables are published: no rows, no install ids. When visitors' hours have earned it, it commits the records to `visitors/` on `main` (on top of whatever was pushed in the meantime, never forced) and starts `refresh` |
 | [`brand`](.github/workflows/brand.yml) | Mondays 07:07 UTC, or by hand | Reads the chains' own store locators again (Dunkin' store pages, Starbucks' locator data) and commits the hours to `overrides/` as `brand`. Starbucks' locator shows the next seven days, so that pass skips any week with a holiday in it |
 | [`staleness`](.github/workflows/staleness.yml) | Every 6 hours | Fails if the published feed is older than 36 hours, does not match its manifest's hash, or no longer validates |
 | [`tests`](.github/workflows/tests.yml) | On every push | `pytest`: the hours parser, the classifier, the validator, the build rules |
@@ -249,9 +289,11 @@ tools/publish.sh work/site                                                      
 | `latecup_data/build.py` | Dedupe, which source wins, the feed, the to-confirm list and the help list |
 | `latecup_data/validate.py` | The format-1 contract as code |
 | `latecup_data/run.py`, `monitor.py`, `report.py` | One pipeline run; the staleness check; the coverage report |
-| `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings and wrong-hours reports |
+| `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings, wrong-hours reports and visitors' own hours |
+| `latecup_data/visitors.py`, `ledger.py` | The rules for visitors' hours; the commit and push of `visitors/` |
 | `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools; `tools/audit_chain_layer.py` |
 | `overrides/`, `additions/` | Hours we confirmed; places we added (New York's in the folder, another area's in `<area id>/`) |
+| `visitors/` | Hours that visitors agreed on, written by the hourly job and by nothing else (the folder appears with the first record) |
 | `quarantine.json`, `report.json` | Vote periods that are never counted; the manifest's report endpoint |
 | `data/` | Neighbourhood polygons; the cache of looked-up street addresses |
 | `styles/` | The dark and light MapLibre styles |
