@@ -312,25 +312,45 @@ def is_24_7(table):
     return len(s) == 1 and s[0][2] - s[0][1] >= 7 * DAY_MIN
 
 
-def latest_close(table):
-    """The latest closing time of the week in minutes from the stretch's own
-    service day (05:00 -> 05:00): 1320 = 22:00, 1500 = 01:00, capped at 1740
-    (05:00 the next morning: open all night). None for an empty table.
+def closes(table):
+    """The closing time a person reads for each night of the week, Monday
+    first, in minutes from that night's own service day (05:00 -> 05:00):
+    1320 = 22:00, 1500 = 01:00, capped at 1740 (05:00 the next morning: open
+    all night). None for a night with nothing open.
 
     The app's rule (SPEC "Closes tonight"): a stretch that starts after
     midnight and ends by 05:00 belongs to the night before; one that starts
     after midnight and runs past 05:00 is that day's own opening (a shop open
-    04:30-22:30 closes at 22:30)."""
-    best = None
-    for _day, start, end in stretches(table):
-        if end - start >= DAY_MIN:
-            close = 1740
-        elif start < 300 and end <= 300:
-            close = end + DAY_MIN          # 00:00-02:00: the tail of the night before
-        else:
-            close = min(end, 1740)
-        best = close if best is None else max(best, close)
-    return best
+    04:30-22:30 closes at 22:30). A stretch still open after 05:00 on a later
+    morning counts for that night too, with the time it ends there. A stretch
+    of 24 hours or more reads as open all night on the night it starts."""
+    nights = [None] * 7
+
+    def put(day, close):
+        day %= 7
+        if nights[day] is None or close > nights[day]:
+            nights[day] = close
+
+    for day, start, end in stretches(table):
+        if end - start >= 7 * DAY_MIN:
+            return [1740] * 7              # never closes
+        if start < 300 and end <= 300:
+            put(day - 1, end + DAY_MIN)    # 00:00-02:00: the tail of the night before
+            continue
+        put(day, 1740 if end - start >= DAY_MIN else min(end, 1740))
+        later = 1
+        while end - later * DAY_MIN > 300:
+            put(day + later, min(end - later * DAY_MIN, 1740))
+            later += 1
+    return nights
+
+
+def latest_close(table):
+    """The latest closing time of the week, as `closes` gives it for each
+    night: 1320 = 22:00, 1500 = 01:00, 1740 = open all night. None for an
+    empty table."""
+    nights = [c for c in closes(table) if c is not None]
+    return max(nights) if nights else None
 
 
 def is_late(table, threshold=1200):
