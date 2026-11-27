@@ -20,3 +20,25 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - run: python -m pytest -q
+
+  # visitors/ is the ledger of the hours that visitors agreed on. Only the
+  # hourly job writes it, with a push to main, so this runs on pull requests
+  # and on nothing else: one that adds, edits or deletes a file there fails.
+  ledger:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # the merge of the pull request into its base, and the base under it
+          fetch-depth: 2
+      - name: A pull request leaves visitors/ alone
+        run: |
+          changed="$(git diff --no-renames --name-only HEAD^1 HEAD -- visitors/)"
+          if [ -n "$changed" ]; then
+            echo "::error::This pull request changes files in visitors/. Only the hourly job writes them. To correct a café's hours, send the shop's own page as an override or an issue (CONTRIBUTING.md)."
+            echo "$changed"
+            exit 1
+          fi
+          echo "visitors/ is untouched"
