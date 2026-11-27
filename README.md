@@ -82,14 +82,7 @@ The push starts the `refresh` workflow, which rebuilds and publishes. The hours 
 
 Places OpenStreetMap lacks are in [`additions/`](additions/) (`x-<slug>.json`: name, coordinates, address, category, hours, source, date). Each needs hours from an allowed source, like an override.
 
-**Visitors' hours** are in `visitors/`, one file per place, written by the hourly `votes` job when enough visitors sent the same table for a place (the rules are with the votes file in FORMAT.md). The build only reads them:
-
-```json
-{"id": "n1234567890", "hours": [[[480,1380]],[[480,1380]],[[480,1380]],[[480,1380]],[[480,1500]],[[480,1500]],[[540,1320]]],
- "src": "visitors", "visitors": 2, "checked": "2026-12-03", "by": "votes"}
-```
-
-Such a table stands over OpenStreetMap's hours, or over none, and under everything we or a chain's locator read. The publish guard applies to it. It is used only in an area whose file says `"visitors": true`. A file that is not a valid record is left out and named in the area's `ops/…/stats.json`. The folder does not exist until the first one is written.
+**Visitors' hours** are in `visitors/`, one file per place, written by the hourly `votes` job and by nothing else. The build only reads them. Such a table stands over OpenStreetMap's hours, or over none, and under everything we or a chain's locator read. The publish guard applies to it. It is used only in an area whose file says `"visitors": true`. A file that is not a valid record is left out and named in the area's run statistics (`ops/stats.json`, `ops/<id>/stats.json`). The folder does not exist until the first record is written.
 
 The files in `overrides/`, `additions/` and `visitors/` themselves are New York's. Another area's records go in a subfolder named for it (`overrides/chicago/n1234567890.json`; `tools/override.py --area chicago`), so no folder grows past what GitHub will list.
 
@@ -157,6 +150,26 @@ The rules, in the order they bite (`latecup_data/atp.py`, `build.py`):
 
 Before trusting it: `tools/audit_chain_layer.py` compares the layer with the chain hours we read ourselves, and [docs/accuracy.md](docs/accuracy.md) has the result of 2026-11-26. One thing to know from it: All The Places' Dunkin' closing times are the store page's pick-up hours, 15 minutes before the store's own.
 
+## How it runs
+
+| Workflow | When | What |
+|---|---|---|
+| [`refresh`](.github/workflows/refresh.yml) | Daily at 09:17 UTC, on a push that changes the data or the pipeline, or by hand | Tests → OSM pull (Overpass) → classify → hours → overrides and additions → validate → publish as one commit on `gh-pages`. **Refuses to publish** a feed that fails validation or that lost more than 20 % of its places; the job fails and the last good feed stays up |
+| [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings and "hours wrong" reports from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into `v1/nyc-votes.json`. No OSM pull. Publishes only when the counts changed. With no secret it writes an empty, valid file. Only counts are published: no rows, no install ids |
+| [`brand`](.github/workflows/brand.yml) | Mondays 07:07 UTC, or by hand | Reads the chains' own store locators again (Dunkin' store pages, Starbucks' locator data) and commits the hours to `overrides/` as `brand`. Starbucks' locator shows the next seven days, so that pass skips any week with a holiday in it |
+| [`staleness`](.github/workflows/staleness.yml) | Every 6 hours | Fails if the published feed is older than 36 hours, does not match its manifest's hash, or no longer validates |
+| [`tests`](.github/workflows/tests.yml) | On every push | `pytest`: the hours parser, the classifier, the validator, the build rules |
+
+**Area by area.** `refresh` builds each live area by itself: several Overpass servers, at most 20 minutes for the pull, then overrides, additions, visitors' records and, when switched on, the chain layer. An area that fails is kept as it was and named in the job summary, and the others are published. The job fails when New York was kept, when no area could be built, or when the manifest as a whole does not validate; in the last two cases nothing is published and the last good feed stays up. Started by hand it can build a few areas only (`areas`) and leave the rest as they are.
+
+**One reader per chain.** `brand` does nothing once `chain_layer` is on ([The switches](#the-switches)).
+
+**The stale area is named.** `staleness` reads each area's own age from its run statistics, so an area that was kept shows up there, by name, after a day and a half.
+
+**The pull.** The public Overpass servers are busy for hours at a time, so the pull asks several (`latecup_data/osm.py` has the list and why it is in that order), leaves one that failed alone for 15 seconds, then 30, and so on up to 5 minutes, and gives up after 20 minutes in all. New York is one request and the other 31 areas are four. A request that every server turned down is asked again in halves. What nobody answered for is kept as it was, and the second daily run tries again. An answer the server gave up on half way, or one from data more than three days old, is not used. The `User-Agent` says what the client is and what it does; a fork sets `LATECUP_USER_AGENT` to its own name.
+
+A push made by a workflow with the repository's own token starts no other workflow. So a job that commits a record to `visitors/` has to start `refresh` itself: `gh workflow run refresh.yml`, with `-f areas="chicago seattle"` to build only the areas it changed.
+
 ## The switches
 
 [`switches.json`](switches.json) holds the two things that are off while New York is the only area:
@@ -198,20 +211,6 @@ To go back, undo the two edits. The run then lists the live areas only, drops th
 
 Not part of it: New York's `"visitors": true` and `min_build`. Those wait for the app release that knows the `visitors` source.
 
-## How it runs
-
-| Workflow | When | What |
-|---|---|---|
-| [`refresh`](.github/workflows/refresh.yml) | Daily at 09:17 and 15:17 UTC, on a push that changes the data or the pipeline, or by hand | Tests → OSM pull (several Overpass servers, at most 20 minutes) → classify → hours → overrides, additions, visitors' records and, when switched on, the chain layer → validate → publish as one commit on `gh-pages`. Each area by itself: one that fails is **kept as it was** and named in the job summary, the others are published. The job fails when New York was kept, when no area could be built, or when the manifest as a whole does not validate; in the last two cases nothing is published and the last good feed stays up. By hand it can build a few areas only (`areas`) |
-| [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings and "hours wrong" reports from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into `v1/nyc-votes.json`. No OSM pull. Publishes only when the counts changed. With no secret it writes an empty, valid file. Only counts are published: no rows, no install ids |
-| [`brand`](.github/workflows/brand.yml) | Mondays 07:07 UTC, or by hand | Reads the chains' own store locators again (Dunkin' store pages, Starbucks' locator data) and commits the hours to `overrides/` as `brand`. Starbucks' locator shows the next seven days, so that pass skips any week with a holiday in it. **Does nothing once `chain_layer` is on** |
-| [`staleness`](.github/workflows/staleness.yml) | Every 6 hours | Fails if the published feed, or any one area of it, is older than 36 hours, does not match its manifest's hash, or no longer validates. It names the area: a kept area shows up here after a day and a half |
-| [`tests`](.github/workflows/tests.yml) | On every push | `pytest`: the hours parser, the classifier, the validator, the build rules |
-
-**The pull.** The public Overpass servers are busy for hours at a time, so the pull asks several (`latecup_data/osm.py` has the list and why it is in that order), leaves one that failed alone for 15 seconds, then 30, and so on up to 5 minutes, and gives up after 20 minutes in all. New York is one request and the other 31 areas are four. A request that every server turned down is asked again in halves. What nobody answered for is kept as it was, and the second daily run tries again. An answer the server gave up on half way, or one from data more than three days old, is not used. The `User-Agent` says what the client is and what it does; a fork sets `LATECUP_USER_AGENT` to its own name.
-
-A push made by a workflow with the repository's own token does not start another workflow. So a record the hourly job commits to `visitors/` reaches the feed with the next `refresh` run, not at once, unless that job starts `refresh` itself.
-
 ## Run it locally
 
 ```sh
@@ -246,10 +245,10 @@ tools/publish.sh work/site                                                      
 | `latecup_data/clean.py` | Addresses, phones (E.164), websites, Instagram handles, tags |
 | `latecup_data/build.py` | Dedupe, which source wins, the feed, the to-confirm list and the help list |
 | `latecup_data/validate.py` | The format-1 contract as code |
-| `latecup_data/run.py`, `monitor.py`, `report.py` | One pipeline run, area by area; the staleness check; the coverage report |
+| `latecup_data/run.py`, `monitor.py`, `report.py` | One pipeline run; the staleness check; the coverage report |
 | `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings and wrong-hours reports |
-| `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools; `tools/audit_chain_layer.py`, `tools/compare_builds.py`, `tools/released_app_check/` |
-| `overrides/`, `additions/`, `visitors/` | Hours we confirmed; places we added; hours visitors agreed on (New York's in the folder, another area's in `<area id>/`) |
+| `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools; `tools/audit_chain_layer.py` |
+| `overrides/`, `additions/` | Hours we confirmed; places we added (New York's in the folder, another area's in `<area id>/`) |
 | `quarantine.json`, `report.json` | Vote periods that are never counted; the manifest's report endpoint |
 | `data/` | Neighbourhood polygons; the cache of looked-up street addresses |
 | `styles/` | The dark and light MapLibre styles |
