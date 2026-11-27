@@ -1,11 +1,23 @@
-"""OSM elements + overrides + additions -> the feed's places and the to-confirm list."""
+"""OSM elements + overrides + additions -> the feed's places and the to-confirm list.
+
+Where a place's hours come from, first to last (Latecup SPEC, "Sources"):
+  1. a `closed` or `exclude` record takes the place off the map;
+  2. a reading written by hand (overrides/, additions/);
+  3. the chain layer: the chain's own store locator, by way of All The Places;
+  4. what the weekly store-page pass wrote ("by": "confirm_brand"), only for a
+     store the layer has no hours for;
+  5. hours that visitors agreed on (visitors/), where the area takes them;
+  6. OpenStreetMap.
+The publish guard stands in front of 2 to 5: a table it holds back falls
+through to the next source and is listed for a second look.
+"""
 import json
 import math
 from difflib import SequenceMatcher
 from collections import Counter
 from pathlib import Path
 
-from . import areas as A, atp, chains, clean, hours as H, osm
+from . import areas as A, atp, chains, clean, hours as H, osm, validate
 from .classify import classify, norm
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,6 +68,29 @@ def load_additions(folder=None, area=None):
     return out
 
 
+def load_visitors(folder=None, area=None):
+    """({place id: record}, [a line for each file that was left out]) for an
+    area that publishes visitors' hours (areas/<id>.json, "visitors");
+    nothing for one that does not, New York for now. One JSON file per place
+    in visitors/ (New York) or visitors/<area id>/, written by the hourly
+    job. A missing folder is the normal case. A file that is not a valid
+    record is left out and named: one bad file must not take an area down."""
+    area = area or A.first()
+    if not area.visitors:
+        return {}, []
+    base = Path(folder or ROOT / "visitors")
+    out, left_out = {}, []
+    for f in sorted(_folder(base, area).glob("*.json")):
+        try:
+            rec = json.loads(f.read_text())
+            validate.visitors_record(rec, f.stem)
+        except (OSError, ValueError) as e:
+            left_out.append(f"{f.relative_to(base.parent)}: not used: {e}")
+            continue
+        out[rec["id"]] = rec
+    return out, left_out
+
+
 def suspicious(table):
     """A reason the table is not believable, or None."""
     for day in table:
@@ -94,29 +129,57 @@ def _all_day(table, osm_table):
     return None
 
 
-def _store_hours(st, record, raw, counts):
+def _osm_table(raw):
+    """The weekly table of an OpenStreetMap opening_hours string, or None when there is none we are certain of."""
+    try:
+        return H.parse(raw) if raw else None
+    except H.Unparsed:
+        return None
+
+
+def _store_hours(st, by_hand, raw, counts):
     """(table, None) when the matched store's hours are to be used for the
     place; (None, why) when they are held back for a second look; (None,
-    None) when there is nothing to use. `record`: the hand-written override
-    or addition for the place, when it has one that passed the guard; `raw`:
-    the place's OpenStreetMap opening_hours."""
+    None) when there is nothing to use. `by_hand`: the place has a reading
+    written by hand that passed the guard (an override that the weekly
+    store-page pass did not write, or an addition): it wins, whatever the
+    dates. `raw`: the place's OpenStreetMap opening_hours."""
     if st.table is None:
         counts["matched: " + st.why.split(":")[0]] += 1
         return None, None
-    # a hand-written record newer than the locator reading wins (the same day counts as newer)
-    if record is not None and record["checked"] >= st.checked:
-        counts["matched: our own reading is newer"] += 1
+    if by_hand:
+        counts["matched: a reading written by hand wins"] += 1
         return None, None
-    try:
-        osm_table = H.parse(raw) if raw else None
-    except H.Unparsed:
-        osm_table = None
+    osm_table = _osm_table(raw)
     why = _all_day(st.table, osm_table) or guard(st.table, osm_table)
     if why:
         counts["matched: held back"] += 1
         return None, why
     counts["matched: hours used"] += 1
     return st.table, None
+
+
+def _gives_way(rec, st, raw):
+    """True when an `exclude` record gives way to the chain layer.
+
+    The weekly store-page pass took stores off the map because their page
+    no longer answered, and a dead link is not a closed store: four of the
+    five Dunkin' it took off on 2026-11-24 were still on Dunkin's site
+    (docs/accuracy.md). Such a record gives way when the chain's locator
+    lists the store at that address with hours the layer may use, in a
+    reading newer than the record ("left off the map until it is seen there
+    again", the records say). Every other exclude holds, and so does every
+    `closed`. A record is the pass's when it says so ("by":
+    "confirm_brand"), or when its source is the store's own page on the
+    chain's locator: the records of 2026-11-24 carry no "by"."""
+    if st is None or st.table is None or not rec.get("exclude") or rec.get("closed"):
+        return False
+    if rec.get("by") != "confirm_brand" and not chains.store_page(st.chain, rec.get("source")):
+        return False
+    if not st.checked > rec["checked"]:
+        return False
+    osm_table = _osm_table(raw)
+    return not (_all_day(st.table, osm_table) or guard(st.table, osm_table))
 
 
 def _same_shop(a, b, lon_m=84400):
@@ -157,7 +220,8 @@ def _dedupe(cands, lon_m=84400):
     return keep, dropped
 
 
-def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, phone, web, ig, tags, city=None):
+def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, phone, web, ig, tags, city=None,
+            visitors=None):
     p = {"id": pid, "name": name, "lat": round(float(pos[0]), 5), "lon": round(float(pos[1]), 5), "addr": addr}
     # an optional field is left out when unknown: outside New York there is no `boro` and, so far, no `hood`
     if hood:
@@ -166,7 +230,10 @@ def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, p
         p["boro"] = boro
     if city:
         p["city"] = city
-    p.update({"cat": cat, "chain": chain, "hours": table, "src": src, "checked": checked, "hh": H.table_hash(table)})
+    p.update({"cat": cat, "chain": chain, "hours": table, "src": src})
+    if visitors:
+        p["visitors"] = visitors                # how many visitors agreed on the table: with src "visitors" only
+    p.update({"checked": checked, "hh": H.table_hash(table)})
     if phone:
         p["phone"] = phone
     if web:
@@ -178,19 +245,43 @@ def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, p
     return p
 
 
-def build(elements, overrides=None, additions=None, addr_cache=None, area=None, stores=None):
-    """-> dict(places, to_confirm, stats, warnings) for one area (New York
-    when none is given).
+def _help_place(base, why, table=None, checked=None):
+    """A place of the help file (FORMAT.md): a café that is not on the late
+    map and that nobody has confirmed. `why`: "nohours" (no hours we can
+    use) or "early" (OpenStreetMap's unconfirmed hours never reach 20:00;
+    the place carries them)."""
+    p = {"id": base["id"], "name": base["name"], "lat": round(float(base["lat"]), 5),
+         "lon": round(float(base["lon"]), 5)}
+    for key in ("addr", "hood", "boro", "city"):
+        if base.get(key):
+            p[key] = base[key]
+    p.update({"cat": base["cat"], "why": why})
+    if why == "early":
+        p.update({"hours": table, "src": "osm", "checked": checked, "hh": H.table_hash(table)})
+    for key in ("phone", "web", "ig"):
+        if base.get(key):
+            p[key] = base[key]
+    return p
+
+
+def build(elements, overrides=None, additions=None, addr_cache=None, area=None, stores=None, visitors=None):
+    """-> dict(places, to_confirm, help, stats, warnings) for one area (New
+    York when none is given).
 
     places: feed records (late, hours known), sorted by id.
     to_confirm: classified places whose hours are unknown or not certain.
+    help: the help file's places: independent cafés that are not on the map
+        and that nobody has confirmed (no usable hours, or unconfirmed
+        OpenStreetMap hours that never reach 20:00), sorted by id.
     stores: the chain layer's stores inside the area (atp.Store), or None
         to build without it.
+    visitors: {place id: record} of visitors/ (load_visitors), or None.
     """
     area = area or A.first()
     overrides = overrides or {}
     additions = additions or []
     addr_cache = addr_cache or {}
+    visitors = visitors or {}
     stats = Counter()
     reasons = Counter()
     warnings = []
@@ -255,8 +346,13 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
                                 + [{"name": s.name} for s in new_stores])
     stats["classified places"] = len(cands)
 
-    places, to_confirm, recheck = [], [], []
-    used_overrides = set()
+    places, to_confirm, recheck, helped = [], [], [], []
+    used_overrides, from_layer = set(), set()
+
+    def help_wanted(base, chain, why, table=None, checked=None):
+        if chain is None:                       # chains' stores are the chain layer's business, not the visitors'
+            helped.append(_help_place(base, why, table, checked))
+
     for c, chain in zip(cands, chain_slugs):
         tags, pid = c["tags"], c["id"]
         ov = overrides.get(pid)
@@ -275,51 +371,76 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         if ov is not None:
             used_overrides.add(pid)
             if ov.get("closed") or ov.get("exclude"):
-                stats["closed by override" if ov.get("closed") else "excluded by override"] += 1
-                continue
-            table = H.normalize(ov["hours"])
-            try:
-                osm_table = H.parse(raw) if raw else None
-            except H.Unparsed:
-                osm_table = None
-            # the publish guard: an odd shape is not shown as confirmed until someone has looked twice
-            # (`second_look` in the override). Until then the place falls back to its OSM hours.
-            why = None if ov.get("second_look") else guard(table, osm_table)
-            if why:
-                recheck.append(dict(base, reason=f"confirmed hours held back: {why}", source=ov.get("source"),
-                                    read=ov.get("hours_text") or H.fmt(table)))
-                stats["confirmed but held back by the guard"] += 1
+                if not _gives_way(ov, st, raw):
+                    stats["closed by override" if ov.get("closed") else "excluded by override"] += 1
+                    continue
+                # a store the weekly pass took off the map over a dead link, and the chain's locator lists it again
+                layer["matched: an exclude gave way"] += 1
                 ov = None
-        took = None
+            else:
+                table = H.normalize(ov["hours"])
+                # the publish guard: an odd shape is not shown as confirmed until someone has looked twice
+                # (`second_look` in the override). Until then the place falls back to the next source.
+                why = None if ov.get("second_look") else guard(table, _osm_table(raw))
+                if why:
+                    recheck.append(dict(base, reason=f"confirmed hours held back: {why}", source=ov.get("source"),
+                                        read=ov.get("hours_text") or H.fmt(table)))
+                    stats["confirmed but held back by the guard"] += 1
+                    ov = None
+        # a reading written by hand wins over the chain layer; what the weekly store-page pass wrote does not
+        by_hand = ov is not None and ov.get("by") != "confirm_brand"
+        took = agreed = None
         if st is not None:
-            took, why = _store_hours(st, ov, raw, layer)
+            took, why = _store_hours(st, by_hand, raw, layer)
             if why:
                 recheck.append(dict(base, reason=f"chain-locator hours held back: {why}", source=st.web,
                                     read=H.fmt(st.table)))
         if took is not None:
             table, src, checked = took, "brand", st.checked
+            from_layer.add(pid)
         elif ov is not None:
             # hours read on a chain's own site are `brand`, on an independent shop's `shop`
             src, checked = ("brand" if chain else "shop"), ov["checked"]
         else:
-            src, checked = "osm", clean.check_date(tags)
-            if not raw:
-                to_confirm.append(dict(base, reason="no opening_hours in OSM"))
-                continue
-            try:
-                table = H.parse(raw)
-            except H.Unparsed as e:
-                to_confirm.append(dict(base, reason=f"opening_hours not certain: {e}"))
-                continue
-            bad = suspicious(table)
-            if bad:
-                to_confirm.append(dict(base, reason=f"opening_hours not believable: {bad}"))
-                continue
+            table = None
+            vis = visitors.get(pid)
+            if vis is not None:
+                # what visitors agreed on stands over OpenStreetMap's hours or none, and under everything else
+                why = guard(vis["hours"], _osm_table(raw))
+                if why:
+                    recheck.append(dict(base, reason=f"visitors' hours held back: {why}", read=H.fmt(vis["hours"])))
+                    stats["visitors' hours held back by the guard"] += 1
+                else:
+                    table, src, checked = [[list(span) for span in day] for day in vis["hours"]], "visitors", \
+                        vis["checked"]
+                    agreed = vis["visitors"]
+                    stats["hours from visitors"] += 1
+            if table is None:
+                src, checked = "osm", clean.check_date(tags)
+                if not raw:
+                    to_confirm.append(dict(base, reason="no opening_hours in OSM"))
+                    help_wanted(base, chain, "nohours")
+                    continue
+                try:
+                    table = H.parse(raw)
+                except H.Unparsed as e:
+                    to_confirm.append(dict(base, reason=f"opening_hours not certain: {e}"))
+                    help_wanted(base, chain, "nohours")
+                    continue
+                bad = suspicious(table)
+                if bad:
+                    to_confirm.append(dict(base, reason=f"opening_hours not believable: {bad}"))
+                    help_wanted(base, chain, "nohours")
+                    continue
         if not any(table):
             to_confirm.append(dict(base, reason="hours table is empty"))
+            if src == "osm":
+                help_wanted(base, chain, "nohours")
             continue
         if not H.is_late(table):
             stats["hours known, closes before 20:00"] += 1
+            if src == "osm":
+                help_wanted(base, chain, "early", table, checked)
             continue
         if not addr:
             to_confirm.append(dict(base, reason="late, but no street address"))
@@ -330,7 +451,7 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
             pid, ov.get("name") or base["name"], c["pos"], ov.get("addr") or addr, c["hood"], c["boro"],
             ov.get("cat") or c["cat"], chain, table, src, checked,
             ov.get("phone") or base["phone"], ov.get("web") or base["web"], ov.get("ig") or base["ig"],
-            clean.place_tags(tags), city=c["city"]))
+            clean.place_tags(tags), city=c["city"], visitors=agreed))
 
     for add, chain in zip(additions, chain_slugs[len(cands):]):
         if add.get("closed"):
@@ -343,12 +464,14 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         st = store_of.get(add["id"])
         took = None
         if st is not None:
-            took, held = _store_hours(st, None if why else add, None, layer)
+            # a hand-added place is a reading written by hand: it wins unless the guard holds it back
+            took, held = _store_hours(st, not why, None, layer)
             if held:
                 recheck.append({"id": add["id"], "name": add["name"], "addr": add["addr"], "source": st.web,
                                 "reason": f"chain-locator hours held back: {held}", "read": H.fmt(st.table)})
         if took is not None:
             table, src, checked = took, "brand", st.checked
+            from_layer.add(add["id"])
         else:
             src, checked = ("brand" if chain else "shop"), add["checked"]
             if why:
@@ -395,10 +518,14 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         taken.add(s.id)
         places.append(_record(s.id, s.name, (s.lat, s.lon), addr, loc[0], loc[1], s.cat, chain, s.table, "brand",
                               s.checked, s.phone, s.web, None, None, city=s.city if area.city else None))
+        from_layer.add(s.id)
         layer["new: in the feed"] += 1
 
     for pid in sorted(set(overrides) - used_overrides):
         warnings.append(f"override {pid} matches no classified OSM place (deleted, re-mapped or re-tagged)")
+    known = {c["id"] for c in cands} | {a["id"] for a in additions} | {s.id for s in new_stores}
+    for pid in sorted(set(visitors) - known):
+        warnings.append(f"visitors record {pid} matches no place of the area (deleted, re-mapped or re-tagged)")
 
     # a neighbourhood name belongs to one borough (the app and the web pages group by it)
     boro_of = {}
@@ -412,14 +539,14 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
 
     places.sort(key=lambda p: p["id"])
     to_confirm.sort(key=lambda p: p["id"])
+    helped.sort(key=lambda p: p["id"])
     stats["feed places"] = len(places)
     stats["to confirm"] = len(to_confirm)
     recheck.sort(key=lambda p: p["id"])
-    out = {"places": places, "to_confirm": to_confirm, "recheck": recheck, "stats": dict(stats),
+    out = {"places": places, "to_confirm": to_confirm, "recheck": recheck, "help": helped, "stats": dict(stats),
            "excluded": dict(reasons), "warnings": warnings}
     if layer is not None:
-        layer["places with the chain's hours"] = sum(1 for p in places if p["id"] in store_of and p["src"] == "brand"
-                                                     and p["checked"] == store_of[p["id"]].checked)
+        layer["places with the chain's hours"] = sum(1 for p in places if p["id"] in from_layer)
         out["chains"] = dict(layer)
         out["store_of"] = store_of          # {place id: the matched store}, for the audit tool
     return out

@@ -332,6 +332,44 @@ def test_download_fetches_what_is_missing_and_looks_back_past_a_holiday_week(tmp
         atp.Layer.open(tmp_path / "fresh", spiders=[STARBUCKS], get=down, log=lambda *_: None)
 
 
+def test_the_downloads_stop_at_their_budget_and_the_run_goes_on_with_the_cache(tmp_path):
+    served = {
+        atp.LATEST: {"run_id": "2026-11-28-13-32-30"},
+        atp.OUTPUT.format(run="2026-11-28-13-32-30", spider="starbucks_us"): doc([feature("1")], when="2026-11-30T04:00:00"),
+        atp.OUTPUT.format(run="2026-11-28-13-32-30", spider="example_us"): doc([feature("9")], when="2026-11-30T04:00:00"),
+    }
+    clock = {"t": 0.0}
+    asked = []
+
+    def slow(url, timeout=None, **_):
+        asked.append((url, timeout))
+        clock["t"] += 200                                         # a server that takes more than three minutes a file
+        return json.dumps(served[url]).encode()
+
+    # last week's files are in the cache
+    cache_run(tmp_path, "2026-11-14-13-32-33", "starbucks_us", doc([feature("1"), feature("2")]))
+    cache_run(tmp_path, "2026-11-14-13-32-33", "example_us", doc([feature("8")]))
+    with pytest.raises(IOError, match="took more than 6 min"):
+        atp.download(tmp_path, [STARBUCKS, STANDING], slow, lambda *_: None, clock=lambda: clock["t"])
+    # the run list, then one file; the second was never asked for, and each request got what was left of the budget
+    assert [u for u, _t in asked] == [atp.LATEST, atp.OUTPUT.format(run="2026-11-28-13-32-30", spider="starbucks_us")]
+    assert [t for _u, t in asked] == [60, 120]
+    assert (tmp_path / "2026-11-28-13-32-30" / "starbucks_us.geojson").exists()
+    # Layer.open says so and builds from what the cache holds: the new Starbucks file, last week's of the other
+    clock["t"] = 0.0
+    logged = []
+    orig = atp.download
+    try:
+        atp.download = lambda cache, spiders, get, log: orig(cache, spiders, get, log, budget=100,
+                                                                clock=lambda: clock["t"])
+        layer = atp.Layer.open(tmp_path, spiders=[STARBUCKS, STANDING], get=slow, log=logged.append)
+    finally:
+        atp.download = orig
+    assert logged[0].startswith("All The Places: the downloads took more than") and "going on with the downloads" in logged[0]
+    assert sorted(s.id for s in layer.stores) == ["x-starbucks-1", "x-starbucks-8"]
+    assert [n["run"] for n in layer.notes] == ["2026-11-28-13-32-30", "2026-11-14-13-32-33"]
+
+
 # ---------------------------------------------------------------- a store and its OpenStreetMap twin
 
 def test_a_store_matches_the_place_at_its_address():
@@ -442,24 +480,138 @@ def test_a_place_with_no_hours_or_no_address_gets_them_from_the_store():
     assert (p["id"], p["src"], p["addr"]) == ("n1", "brand", "100 W Monroe St") and out["to_confirm"] == []
 
 
-def test_our_own_newer_reading_wins_and_an_older_one_gives_way():
+# Which source wins (Latecup SPEC, "Sources"): a closed or exclude record; a reading written by hand; the chain
+# layer; what the weekly store-page pass wrote, only where the layer has no hours for the store; visitors; OSM.
+
+def test_a_reading_written_by_hand_wins_whatever_the_dates():
     table = H.parse("Mo-Su 06:00-23:00")
     rec = {"id": "n1", "hours": table, "src": "brand", "source": "https://www.example.com/store/1"}
-    s = store("1", hours="Mo-Su 06:00-21:30")
-    for checked, src_date, hours in (("2026-11-24", "2026-11-24", table), ("2026-11-16", "2026-11-16", table),
-                                     ("2026-11-10", "2026-11-16", s.table)):
+    s = store("1", hours="Mo-Su 06:00-21:30")                    # the locator was read on 2026-11-16
+    for checked in ("2026-11-24", "2026-11-16", "2026-11-10", "2025-01-01"):
         out = build([el(1, "Starbucks")], [s], overrides={"n1": dict(rec, checked=checked)})
         p = out["places"][0]
-        assert (p["checked"], p["hours"]) == (src_date, hours), checked
-    assert build([el(1, "Starbucks")], [s], overrides={"n1": dict(rec, checked="2026-11-24")})["chains"][
-        "matched: our own reading is newer"] == 1
+        assert (p["checked"], p["hours"]) == (checked, table), checked
+        assert out["chains"]["matched: a reading written by hand wins"] == 1
+        assert "matched: hours used" not in out["chains"] and out["chains"]["places with the chain's hours"] == 0
+
+
+def test_the_layer_wins_over_what_the_weekly_pass_wrote():
+    table = H.parse("Mo-Su 06:00-23:00")
+    rec = {"id": "n1", "hours": table, "src": "brand", "source": "https://www.example.com/store/1",
+           "by": "confirm_brand", "name": "Starbucks Monroe", "phone": "+13125550199"}
+    s = store("1", hours="Mo-Su 06:00-21:30")
+    for checked in ("2026-11-10", "2026-11-16", "2026-11-24"):   # older than the layer's reading, the same day, newer
+        out = build([el(1, "Starbucks")], [s], overrides={"n1": dict(rec, checked=checked)})
+        p = out["places"][0]
+        assert (p["src"], p["checked"], p["hours"]) == ("brand", "2026-11-16", s.table), checked
+        assert out["chains"]["matched: hours used"] == 1 and out["chains"]["places with the chain's hours"] == 1
+        # what the record says about the place itself still stands
+        assert p["name"] == "Starbucks Monroe" and p["phone"] == "+13125550199"
+    # the pass's record, when it closes before 20:00 by the layer, leaves the map with the layer
+    out = build([el(1, "Starbucks")], [store("1", hours="Mo-Su 06:00-19:45")], overrides={"n1": dict(rec, checked="2026-11-24")})
+    assert out["places"] == [] and out["stats"]["hours known, closes before 20:00"] == 1
+
+
+def test_what_the_weekly_pass_wrote_is_used_only_where_the_layer_has_no_hours():
+    table = H.parse("Mo-Su 06:00-23:00")
+    ov = {"n1": {"id": "n1", "hours": table, "src": "brand", "source": "https://www.example.com/store/1",
+                 "by": "confirm_brand", "checked": "2026-11-10"}}
+    osm = [el(1, "Starbucks", hours="Mo-Su 06:00-21:00")]
+    # the locator has the store and gives no hours for it (All The Places gives none for a 24-hour Dunkin')
+    out = build(osm, [store("1", hours=None)], overrides=ov)
+    assert [(p["src"], p["checked"], p["hours"]) for p in out["places"]] == [("shop", "2026-11-10", table)]
+    assert out["chains"]["matched: no hours"] == 1
+    # hours the strict parser is not certain of are no hours
+    out = build(osm, [store("1", hours="Mo-Fr 06:00-22:00+")], overrides=ov)
+    assert out["places"][0]["checked"] == "2026-11-10"
+    # the store's table is held back (open days differ from OpenStreetMap's): the pass's record stands, and the
+    # store is listed for a second look
+    out = build(osm, [store("1", hours="Mo-Fr 06:00-22:00")], overrides=ov)
+    assert out["places"][0]["checked"] == "2026-11-10" and out["chains"]["matched: held back"] == 1
+    assert "chain-locator hours held back" in out["recheck"][0]["reason"]
+    # no store of the layer at the place at all
+    out = build(osm, [store("1", lat=LAT + 0.05, street="900 N Clark St")], overrides=ov)
+    assert out["places"][-1]["id"] == "x-starbucks-1" and out["places"][0]["checked"] == "2026-11-10"
+    # and without the layer nothing has changed
+    out = B.build(osm, ov, area=CHICAGO)
+    assert [(p["src"], p["checked"], p["hours"]) for p in out["places"]] == [("shop", "2026-11-10", table)]
+
+
+def test_a_hand_reading_the_guard_holds_back_gives_the_layer_its_turn():
+    ov = {"n1": {"id": "n1", "hours": H.parse("Fr-Su 12:00-23:00"), "src": "brand", "checked": "2026-11-24",
+                 "source": "https://www.example.com/store/1"}}
+    out = build([el(1, "Starbucks")], [store("1", hours="Mo-Su 06:00-21:30")], overrides=ov)
+    assert (out["places"][0]["src"], out["places"][0]["checked"]) == ("brand", "2026-11-16")
+    assert "confirmed hours held back: closed 4 days" in out["recheck"][0]["reason"]
 
 
 def test_a_place_we_took_off_the_map_stays_off():
     for kind in ("closed", "exclude"):
-        ov = {"n1": {"id": "n1", kind: True, "source": "https://www.example.com/locations", "checked": "2026-10-01"}}
-        out = build([el(1, "Starbucks")], [store("1")], overrides=ov)
-        assert out["places"] == [] and out["chains"]["matched to a place"] == 1
+        for by in ({}, {"by": "confirm_brand"}):
+            # older than the layer's reading, and the layer has the store with hours: it still stays off,
+            # unless it is the weekly pass's own exclude (below)
+            ov = {"n1": {"id": "n1", kind: True, "source": "https://www.example.com/locations", "checked": "2026-10-01",
+                         **by}}
+            out = build([el(1, "Starbucks")], [store("1")], overrides=ov)
+            gone = not (kind == "exclude" and by)
+            assert (out["places"] == []) is gone and out["chains"]["matched to a place"] == 1, (kind, by)
+
+
+DUNKIN = next(s for s in atp.SPIDERS if s.name == "dunkin_us")
+DEAD_LINK = "https://locations.dunkindonuts.com/en/il/chicago/100-w-monroe-st/344428"
+
+
+def _dunkin(hours="Mo-Su 05:00-21:45", checked="2026-11-29", **kw):
+    return store("344428", hours=hours, spider=DUNKIN, checked=checked, **kw)
+
+
+def _excluded(**more):
+    return {"n1": {"id": "n1", "exclude": True, "source": DEAD_LINK, "checked": "2026-11-24", **more}}
+
+
+def test_an_exclude_the_weekly_pass_wrote_gives_way_when_the_locator_lists_the_store_again():
+    osm = [el(1, "Dunkin'", hours="Mo-Su 05:00-22:00")]
+    out = build(osm, [_dunkin()], overrides=_excluded())
+    p = out["places"][0]
+    assert (p["id"], p["src"], p["checked"], p["hours"]) == ("n1", "brand", "2026-11-29", [[[300, 1305]]] * 7)
+    assert out["chains"]["matched: an exclude gave way"] == 1 and "excluded by override" not in out["stats"]
+    assert out["warnings"] == []
+    # the record says the pass wrote it, whatever its source
+    out = build(osm, [_dunkin()], overrides=_excluded(source="https://www.example.com/", by="confirm_brand"))
+    assert out["places"][0]["src"] == "brand"
+
+
+@pytest.mark.parametrize("why,store_kw,record", [
+    ("the locator's reading is older than the record", {"checked": "2026-11-15"}, {}),
+    ("the locator's reading is of the same day", {"checked": "2026-11-24"}, {}),
+    ("the locator has the store and no hours for it", {"hours": None}, {}),
+    ("the store's hours are held back by the guard", {"hours": "Mo-Fr 05:00-21:45"}, {}),
+    ("the store is at another address", {"street": "55 W Monroe St"}, {}),
+    ("a place closed for good", {}, {"exclude": False, "closed": True}),
+    ("not a café, by its own site", {}, {"source": "https://www.example.com/about"}),
+    ("delisted, read by hand on the brand's list of stores", {}, {"source": "https://www.dunkindonuts.com/"}),
+    ("another brand's page", {}, {"source": "https://www.lepainquotidien.com/us/en/locations/chicago-monroe"}),
+])
+def test_every_other_exclude_holds(why, store_kw, record):
+    out = build([el(1, "Dunkin'", hours="Mo-Su 05:00-22:00")], [_dunkin(**store_kw)], overrides=_excluded(**record))
+    assert out["places"] == [], why
+    assert out["stats"].get("excluded by override", 0) + out["stats"].get("closed by override", 0) == 1
+    assert "matched: an exclude gave way" not in out["chains"]
+
+
+def test_without_the_layer_an_exclude_is_an_exclude():
+    out = B.build([el(1, "Dunkin'", hours="Mo-Su 05:00-22:00")], _excluded(), area=CHICAGO)
+    assert out["places"] == [] and out["stats"]["excluded by override"] == 1
+
+
+def test_a_store_page_is_told_from_a_brands_home_page():
+    assert chains.store_page("dunkin", DEAD_LINK)
+    assert chains.store_page("dunkin", "https://www.dunkindonuts.com/locations/us/ny/new-york/1-example-st/store-1/")
+    for slug, url in [("dunkin", "https://www.dunkindonuts.com/"), ("dunkin", "https://www.dunkindonuts.com/en"),
+                      ("dunkin", "https://locations.dunkindonuts.com.example.net/en/ny/brooklyn/2302-knapp-st/339914"),
+                      ("starbucks", "https://www.starbucks.com/store-locator/store/1234567/"),
+                      ("starbucks", DEAD_LINK), ("dunkin", None), ("dunkin", 5), ("dunkin", "not a link")]:
+        assert not chains.store_page(slug, url), (slug, url)
 
 
 def test_open_24_hours_counts_only_where_openstreetmap_says_so_too():
@@ -486,6 +638,9 @@ def test_the_publish_guard_holds_a_store_back_too():
     # an older reading of ours stands when the store's table is held back
     ov = {"n1": {"id": "n1", "hours": H.parse("Mo-Su 06:00-21:30"), "src": "brand", "checked": "2026-11-01",
                  "source": "https://www.example.com/store/1"}}
+    out = build([el(1, "Starbucks", hours="Mo-Su 06:00-21:00")], [weekdays], overrides=ov)
+    assert (out["places"][0]["src"], out["places"][0]["checked"]) == ("shop", "2026-11-01")
+    ov["n1"]["by"] = "confirm_brand"
     out = build([el(1, "Starbucks", hours="Mo-Su 06:00-21:00")], [weekdays], overrides=ov)
     assert (out["places"][0]["src"], out["places"][0]["checked"]) == ("shop", "2026-11-01")
 
@@ -532,10 +687,15 @@ def test_a_hand_added_place_is_matched_like_any_other():
     add = {"id": "x-starbucks-monroe", "name": "Starbucks", "lat": LAT, "lon": LON, "addr": "100 W Monroe St",
            "cat": "coffee", "hours": H.parse("Mo-Su 06:00-23:00"), "src": "brand", "checked": "2026-11-24",
            "source": "https://www.example.com/store/1"}
-    out = build([], [store("1", hours="Mo-Su 06:00-21:30")], additions=[add])
-    assert [(p["id"], p["checked"], p["hours"]) for p in out["places"]] == \
-        [("x-starbucks-monroe", "2026-11-24", add["hours"])]
-    out = build([], [store("1", hours="Mo-Su 06:00-21:30")], additions=[dict(add, checked="2026-11-01")])
+    # a hand-added place is a reading written by hand: it wins, newer than the locator's reading or older
+    for checked in ("2026-11-24", "2026-11-01"):
+        out = build([], [store("1", hours="Mo-Su 06:00-21:30")], additions=[dict(add, checked=checked)])
+        assert [(p["id"], p["checked"], p["hours"]) for p in out["places"]] == \
+            [("x-starbucks-monroe", checked, add["hours"])]
+        assert out["chains"]["matched: a reading written by hand wins"] == 1
+    # one the guard holds back gives the layer its turn
+    odd = dict(add, hours=H.parse("Fr-Su 12:00-23:00"))
+    out = build([], [store("1", hours="Mo-Su 06:00-21:30")], additions=[odd])
     assert [(p["id"], p["checked"], p["src"]) for p in out["places"]] == [("x-starbucks-monroe", "2026-11-16", "brand")]
 
 

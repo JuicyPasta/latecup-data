@@ -110,7 +110,7 @@ def us_markdown(site, note=None):
             ch = Counter(stats["chains"])
             held = sum(v for k, v in ch.items() if k.endswith("held back"))
             layer.append([c["name"], ch["stores in the area"], ch["matched to a place"], ch["matched: hours used"],
-                          ch["matched: our own reading is newer"], ch["new: in the feed"], held,
+                          ch["matched: a reading written by hand wins"], ch["new: in the feed"], held,
                           ch["near a place of the brand, not matched"] + ch["at the spot of another store of the brand"]])
             spiders = spiders or stats.get("chain_spiders")
     rows.sort(key=lambda r: -r[1])
@@ -146,11 +146,12 @@ def us_markdown(site, note=None):
             "## What the chain layer did",
             "",
             "Stores are the chains' own locator records inside the area (All The Places). A store is matched when a "
-            "place of its brand stands at its address; its hours are used unless our own reading is newer or a rule "
-            "holds them back (the publish guard, a 24-hour day OpenStreetMap does not confirm). A store with no place "
-            "is added when it is late, has a street address and passes the same rules.",
+            "place of its brand stands at its address; its hours are used unless a reading written by hand stands "
+            "for the place or a rule holds them back (the publish guard, a 24-hour day OpenStreetMap does not "
+            "confirm). A store with no place is added when it is late, has a street address and passes the same "
+            "rules.",
             "",
-            "| Area | Stores | Matched to a place | Hours used | Our reading newer | Added as new places | Held back "
+            "| Area | Stores | Matched to a place | Hours used | A reading by hand wins | Added as new places | Held back "
             "| Near a place, not matched |",
             "|---|---|---|---|---|---|---|---|",
             *[line(r) for r in layer],
