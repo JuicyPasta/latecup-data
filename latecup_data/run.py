@@ -213,6 +213,8 @@ def make(pulls, site, *, areas=None, keep_others=False, now=None, allow_shrink=F
                  "held_back": [{"id": r["id"], "name": r["name"], "reason": r["reason"]} for r in result["recheck"]]}
         if result.get("chains") is not None:
             stats["chains"] = result["chains"]
+            stats["chain_spiders"] = [{k: n.get(k) for k in ("spider", "run", "collected", "used", "why")}
+                                      for n in chains.notes]
         (ops / "stats.json").write_bytes(_dump(stats))
         if len(done) > 1:
             log(f"== {area.id}")
@@ -256,6 +258,8 @@ def main(argv=None):
     ap.add_argument("--chains-cache", default=str(ROOT / "work" / "atp"),
                     help="where the chain layer's downloads are kept (default: work/atp)")
     ap.add_argument("--chains-offline", action="store_true", help="use the downloads already in the cache")
+    ap.add_argument("--chains-skip", action="append", default=[], metavar="SPIDER",
+                    help="leave this All The Places spider out (dunkin_us, ...); may be given more than once")
     ap.add_argument("--allow-shrink", action="store_true")
     args = ap.parse_args(argv)
     try:
@@ -264,7 +268,7 @@ def main(argv=None):
         layer = None
         if args.chains == "atp":
             from . import atp
-            layer = atp.Layer.open(args.chains_cache, offline=args.chains_offline)
+            layer = atp.Layer.open(args.chains_cache, offline=args.chains_offline, skip=args.chains_skip)
         manifest = make(pulls, args.site, areas=areas, keep_others=bool(args.area) and "all" not in args.area,
                         allow_shrink=args.allow_shrink, chains=layer)
     except (validate.Invalid, RuntimeError, ValueError, IOError) as e:

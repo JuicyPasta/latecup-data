@@ -24,6 +24,7 @@ areas/<id>.json:
           published by the daily job. false: built only when named
 """
 import json
+import math
 from functools import lru_cache
 from pathlib import Path
 
@@ -65,6 +66,12 @@ class Area:
     def outside(self):
         """The reason a place outside it is left out, as the run statistics name it."""
         return "outside the five boroughs" if self.hoods == "nta2020" else "outside the area"
+
+    @property
+    def lon_m(self):
+        """Metres in a degree of longitude here (a degree of latitude is
+        111,200 everywhere). New York's has always been taken as 84,400."""
+        return 84400 if self.id == FIRST else 111320 * math.cos(math.radians(self.center[0]))
 
     def entry(self):
         """The fixed part of the area's manifest entry."""
