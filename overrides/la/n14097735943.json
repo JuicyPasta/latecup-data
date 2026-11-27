@@ -1,0 +1,54 @@
+{
+ "id": "n14097735943",
+ "name": "One Piece Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.onepiececafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: One Piece Cafe Los Angeles / 241 San Pedro St. Los Angeles, CA 90012 / Mon - Thurs 11:00 AM 9:00 PM / Fri - Sun 11:00 AM 10:00 PM The page also lists Las Vegas (Sun-Thurs 11-8, Fri-Sat 11-9); those are not this place's."
+}

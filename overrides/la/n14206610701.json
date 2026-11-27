@@ -1,0 +1,54 @@
+{
+ "id": "n14206610701",
+ "name": "Sana'a Cafe",
+ "hours": [
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 06:00-24:00; We 06:00-23:00; Th-Su 06:00-24:00",
+ "src": "brand",
+ "source": "https://www.thesanaacafe.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 06:00-24:00",
+ "note": "OpenStreetMap said \"Mo-Su 06:00-24:00\"; the shop's own source wins. Read: Chain locator, schema.org CafeOrCoffeeShop 'Lake Forest', 22621 Lake Forest Dr, +1 949-397-0100: Mo, Tu, Th-Su opens 06:00 closes 00:00; We opens 06:00 closes 23:00. Visible: 'Open today: 6:00 AM - 12:00 AM' (Friday) Read from the chain's own locator (21 stores), per store by address and phone. Only today's hours are visible text; the week is the locator's schema.org. The Wednesday 23:00 is as the locator gives it (no other store has it)."
+}

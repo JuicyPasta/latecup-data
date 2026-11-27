@@ -1,0 +1,54 @@
+{
+ "id": "w186387005",
+ "name": "Better Buzz Coffee",
+ "hours": [
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ],
+  [
+   [
+    270,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 04:30-23:00",
+ "src": "brand",
+ "source": "https://betterbuzzcoffee.com/pages/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 04:30-23:00",
+ "note": "Agrees with OpenStreetMap. Read: Fullerton CAFE + DRIVE THRU / 1329 S. Harbor Blvd. Fullerton, CA 92832 / Thanksgiving: 4:30am-4pm / Daily: 4:30am-11pm / 657-660-1001 The chain's own locator; the Thanksgiving line ignored."
+}

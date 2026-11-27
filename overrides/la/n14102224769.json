@@ -1,0 +1,54 @@
+{
+ "id": "n14102224769",
+ "name": "Jam Jam Tea Lab",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.jamjamtea.com/location",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: IRVINE 92 CORPORATE PARK IRVINE, CA 92606 / Mon.-Thur. 11 AM - 9 PM / Fri.-Sun. 11 AM - 10 PM / ORDER PICK UP - IRVINE Squarespace grid: the hours block sits between the Irvine address and the Irvine pick-up button (rows 9-22 on mobile)."
+}

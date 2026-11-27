@@ -1,0 +1,54 @@
+{
+ "id": "n3840429389",
+ "name": "Follow Your Heart Cafe",
+ "hours": [
+  [
+   [
+    630,
+    1200
+   ]
+  ],
+  [
+   [
+    630,
+    1200
+   ]
+  ],
+  [
+   [
+    630,
+    1200
+   ]
+  ],
+  [
+   [
+    630,
+    1200
+   ]
+  ],
+  [
+   [
+    630,
+    1200
+   ]
+  ],
+  [
+   [
+    630,
+    1200
+   ]
+  ],
+  [
+   [
+    630,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:30-20:00",
+ "src": "shop",
+ "source": "https://www.theheartmarketcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "08:00-21:00",
+ "note": "OpenStreetMap said \"08:00-21:00\"; the shop's own source wins. Read: Our Hours & Address / MARKET Daily 9AM - 9PM / CAFÉ Daily 10:30AM - 8PM / BRUNCH Saturday, Sunday & Select Holidays 9AM - 3PM / 21825 Sherman Way Canoga Park 91303 The café's hours, not the market's. The shop's own site, linked as 'Click here to visit the Follow Your Heart Market & Cafe website' from the OSM link (followyourheart.com). Weekend brunch from 9AM is a menu line and not used for the opening time. A vegetarian café-restaurant inside a grocery."
+}

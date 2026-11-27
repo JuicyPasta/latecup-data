@@ -1,0 +1,45 @@
+{
+ "id": "n6450887874",
+ "name": "Churros Calientes",
+ "hours": [
+  [],
+  [],
+  [
+   [
+    1110,
+    1410
+   ]
+  ],
+  [
+   [
+    1110,
+    1410
+   ]
+  ],
+  [
+   [
+    1110,
+    1440
+   ]
+  ],
+  [
+   [
+    1050,
+    1440
+   ]
+  ],
+  [
+   [
+    1050,
+    1410
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu off; We-Th 18:30-23:30; Fr 18:30-24:00; Sa 17:30-24:00; Su 17:30-23:30",
+ "src": "shop",
+ "source": "https://churroscalientes.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Su 17:00-23:30",
+ "note": "OpenStreetMap said \"Tu-Su 17:00-23:30\"; the shop's own source wins. Read: Open Hours We're open Monday Closed / Tuesday Closed / Wednesday 6:30 PM - 11:30 PM / Thursday 6:30 PM - 11:30 PM / Friday 6:30 PM - 12:00 AM / Saturday 5:30 PM - 12:00 AM / Sunday 5:30 PM - 11:30 PM / located ... at 11521 Santa Monica Blvd Second look 2026-11-27: the page says Tuesday Closed; OpenStreetMap had Tuesday open (Tu-Su 17:00-23:30).",
+ "second_look": "2026-11-27"
+}

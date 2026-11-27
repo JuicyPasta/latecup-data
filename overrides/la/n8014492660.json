@@ -1,0 +1,54 @@
+{
+ "id": "n8014492660",
+ "name": "Boba Truck Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.thebobatruck.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: 8323 Reseda Blvd. Northridge, CA 91324 / OPEN DAILY: 11AM - 8PM"
+}

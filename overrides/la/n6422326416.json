@@ -1,0 +1,54 @@
+{
+ "id": "n6422326416",
+ "name": "Tpumps Boba",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:00",
+ "src": "shop",
+ "source": "https://www.tpumps.com/pasadena",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,We-Th,Su 11:00-21:00; Tu 11:00-21:30; Fr-Sa 11:00-22:00",
+ "note": "OpenStreetMap said \"Mo,We-Th,Su 11:00-21:00; Tu 11:00-21:30; Fr-Sa 11:00-22:00\"; the shop's own source wins. Read: Pasadena 524 S Lake Ave Pasadena, CA 91101 / Store Hours: Open 11:30AM-9PM Daily Holiday hours on the page (Nov 26 closed, Nov 27 2PM-7PM, Dec 24/25/31, Jan 1, July 4) ignored."
+}

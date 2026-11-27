@@ -1,0 +1,54 @@
+{
+ "id": "n5294488109",
+ "name": "Odd One Out Tea",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-22:00",
+ "src": "shop",
+ "source": "https://www.oootea.world/locations.html",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 13:00-22:00; Fr-Su 12:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th 13:00-22:00; Fr-Su 12:00-22:00\"; the shop's own source wins. Read: Sawtelle / 11301 W. Olympic Blvd, Los Angeles, CA 90064 / Mon-Sun: 12pm-10pm"
+}

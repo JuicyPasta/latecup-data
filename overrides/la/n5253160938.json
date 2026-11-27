@@ -1,0 +1,55 @@
+{
+ "id": "n5253160938",
+ "name": "Wonder Bakery",
+ "hours": [
+  [
+   [
+    600,
+    1080
+   ]
+  ],
+  [
+   [
+    600,
+    1080
+   ]
+  ],
+  [
+   [
+    600,
+    1080
+   ]
+  ],
+  [
+   [
+    600,
+    1080
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th,Su 10:00-18:00; Fr-Sa 10:00-21:00",
+ "src": "shop",
+ "source": "https://www.wonderbakery.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 10:00-18:00; Fr-Sa 10:00-21:00; Su off",
+ "note": "OpenStreetMap said \"Mo-Th 10:00-18:00; Fr-Sa 10:00-21:00; Su off\"; the shop's own source wins. Read: OPENING HOURS: Mon - Thur & Sun:10am - 6pm / Fri - Sat: 10am - 9pm / ADDRESS: 943 N Broadway Los Angeles, CA 90012 Tel: 213-680-1111 Second look 2026-11-27: the page still lists Sunday 10am-6pm; OpenStreetMap had Sunday off. A cake bakery; the page says nothing about seats or coffee.",
+ "second_look": "2026-11-27"
+}

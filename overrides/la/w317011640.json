@@ -1,0 +1,54 @@
+{
+ "id": "w317011640",
+ "name": "Literati Cafe",
+ "hours": [
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:00-15:00; Th-Fr 07:00-21:00; Sa 08:00-21:00; Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://www.literaticafe.com/hours-location",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-23:00; Sa,Su 08:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-23:00; Sa,Su 08:00-23:00\"; the shop's own source wins. Read: Hours Mon, Tue, Wed: 7am-3pm / Th, Fri: 7am-9pm / Sat: 8am-9pm / Sun: 8am-8pm / Address 12081 Wilshire Blvd / New Extended Hours: We are now serving dinner Thursday - Sunday! The page gives the same table twice."
+}

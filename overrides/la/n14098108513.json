@@ -1,0 +1,54 @@
+{
+ "id": "n14098108513",
+ "name": "rōk",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-22:00; Fr-Su 07:00-24:00",
+ "src": "shop",
+ "source": "https://rokcoffeeandtea.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "08:00-22:00",
+ "note": "OpenStreetMap said \"08:00-22:00\"; the shop's own source wins. Read: rōk Wilshire / 3435 Wilshire Blvd Ste 123 / Mon - Thurs 7 am - 10 pm / Fri - Sun 7 am - 12 am The page's Thanksgiving (7 am - 7:30 pm) and Black Friday lines are ignored. Eight branches on the page; matched by street address."
+}

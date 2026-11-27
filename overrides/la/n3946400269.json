@@ -1,0 +1,54 @@
+{
+ "id": "n3946400269",
+ "name": "Wonder Cha",
+ "hours": [
+  [
+   [
+    690,
+    1200
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo,Su 11:30-20:00; Tu-Th 11:30-21:00; Fr-Sa 11:30-22:00",
+ "src": "shop",
+ "source": "https://wondercha.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo 11:30-20:00; Tu-Th,Su 11:30-21:00; Fr,Sa 11:30-22:00",
+ "note": "OpenStreetMap said \"Mo 11:30-20:00; Tu-Th,Su 11:30-21:00; Fr,Sa 11:30-22:00\"; the shop's own source wins. Read: 10401 Venice Blvd. #102 / Open Hours Open @ 11:30AM Every Day / Closing Times Sun-Mon @ 8PM / Tues-Thurs @ 9PM / Fri-Sat @ 10pm Visible text; the page's two schema.org blocks disagree with it and with each other (one has Sunday to 21:00, the other 11:30-21:00 daily)."
+}

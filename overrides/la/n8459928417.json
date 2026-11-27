@@ -1,0 +1,54 @@
+{
+ "id": "n8459928417",
+ "name": "La Monarca Bakery & Cafe",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-22:00",
+ "src": "shop",
+ "source": "https://lamonarcabakery.com/pages/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "06:00-20:00",
+ "note": "OpenStreetMap said \"06:00-20:00\"; the shop's own source wins. Read: NEW HOURS: MON-SUN 6AM-10PM / HIGHLAND PARK / PHONE (323) 507-2515 / 5835 North Figueroa St, Los Angeles, CA 90042 The hours line is the card title of the Highland Park card."
+}

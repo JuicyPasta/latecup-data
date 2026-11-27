@@ -1,0 +1,54 @@
+{
+ "id": "w352617106",
+ "name": "Macu Tea",
+ "hours": [
+  [
+   [
+    690,
+    1230
+   ]
+  ],
+  [
+   [
+    690,
+    1230
+   ]
+  ],
+  [
+   [
+    690,
+    1230
+   ]
+  ],
+  [
+   [
+    690,
+    1230
+   ]
+  ],
+  [
+   [
+    690,
+    1230
+   ]
+  ],
+  [
+   [
+    690,
+    1230
+   ]
+  ],
+  [
+   [
+    690,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-20:30",
+ "src": "brand",
+ "source": "https://macutea.com.tw/en/shop.php",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:30-20:30",
+ "note": "Agrees with OpenStreetMap. Read: SoCal Irvine771 ADDRESS 6608 Irvine Center Dr, Irvine, CA 92618 TEL +1(949)418-8001 OPEN 11:30AM-8:30PM The chain's store list gives day ranges where a store's days differ; this store's line has none, so it is read as every day."
+}

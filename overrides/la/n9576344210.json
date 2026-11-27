@@ -1,0 +1,54 @@
+{
+ "id": "n9576344210",
+ "name": "Requiem: Coffee, Tea, and Fantasy",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-22:00; Fr-Sa 12:00-23:00; Su 12:00-21:00",
+ "src": "shop",
+ "source": "https://www.requiemcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 12:00-22:00; Fr, Sa 12:00-23:00; Su 12:00-18:00",
+ "note": "OpenStreetMap said \"Mo-Th 12:00-22:00; Fr, Sa 12:00-23:00; Su 12:00-18:00\"; the shop's own source wins. Read: HOURS MON - THURS 12 PM TO 10PM / FRI - SAT 12PM TO 11PM / SUN 12PM TO 9PM / 280 S CLEMENTINE STREET ANAHEIM, CA 92805 TEL.714-844-2245 Visible text. The page's schema.org disagrees on two days (Monday closed, Sunday to 22:00); the visible hours are used, as docs/accuracy.md says."
+}

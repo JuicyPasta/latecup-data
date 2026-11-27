@@ -1,0 +1,54 @@
+{
+ "id": "n14256514890",
+ "name": "Chamberlain Coffee",
+ "hours": [
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-21:00; Fr-Sa 08:00-22:00; Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://chamberlaincoffee.com/pages/chamberlain-coffee-cafe",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 08:00-21:00; Fr-Sa 08:00-22:00; Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Century City Cafe: 10250 Santa Monica Blvd, Century City, CA 90067 Monday - Thursday, 8am-9pm; Friday - Saturday, 8am-10pm; Sunday 8am-8pm The page says of its newer Abbot Kinney café 'Unlike our first café, the space invites guests to stay', so the Century City café may have little seating."
+}

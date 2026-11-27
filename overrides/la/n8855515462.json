@@ -1,0 +1,54 @@
+{
+ "id": "n8855515462",
+ "name": "Milksha",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:00",
+ "src": "brand",
+ "source": "https://www.milksha.us/pages/locations/in-los-angeles-ca-1009-Broxton-Avenue",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: 1009 Broxton Avenue, Los Angeles, California, 90024 / Service Options and Hours / Monday 11:00 AM - 9:00 PM ... Sunday 11:00 AM - 9:00 PM The chain's own per-store page; one set of hours."
+}

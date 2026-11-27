@@ -1,0 +1,54 @@
+{
+ "id": "n6422143296",
+ "name": "La Monarca Bakery",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-21:00",
+ "src": "shop",
+ "source": "https://lamonarcabakery.com/pages/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 06:00-21:00; Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Sa 06:00-21:00; Su 07:00-20:00\"; the shop's own source wins. Read: NEW HOURS: MON-SUN 6AM-9PM / SOUTH PASADENA / PHONE (626) 403-6860 / 1001 Mission St. South Pasadena, CA 91030 The hours line is the card title of the South Pasadena card (same multicolumn__info element)."
+}

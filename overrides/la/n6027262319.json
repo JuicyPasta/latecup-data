@@ -1,0 +1,54 @@
+{
+ "id": "n6027262319",
+ "name": "Boba Junkie",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.bobajunkie.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 11:00-21:00; Fr-Sa 11:00-22:00",
+ "note": "OpenStreetMap said \"Su-Th 11:00-21:00; Fr-Sa 11:00-22:00\"; the shop's own source wins. Read: Boba Junkie - Santa Ana / 1200 W. Warner Ave Unit B Santa Ana, CA 92707 / (657) 267-0220 / Monday - Sunday: 11:00 am - 10:00 pm The page's schema.org for the same address says the same."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n3013312920",
+ "name": "Bru Coffeebar",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-18:00",
+ "src": "shop",
+ "source": "https://www.brucoffeebar.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-20:00\"; the shop's own source wins. Read: LOCATION 1866 N Vermont Ave. Los Angeles, CA 90027 / HOURS Monday - Sunday 7AM to 6PM"
+}

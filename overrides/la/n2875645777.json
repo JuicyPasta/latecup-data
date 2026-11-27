@@ -1,0 +1,50 @@
+{
+ "id": "n2875645777",
+ "name": "AU79 Tea House",
+ "hours": [
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu,Th,Su 11:00-21:30; We off; Fr-Sa 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.au79teahouse.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 11:00-21:30; Fr-Sa 11:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th,Su 11:00-21:30; Fr-Sa 11:00-22:00\"; the shop's own source wins. Read: Business Hours Change Starting 2026 ... January 1, 2026: Monday 11:00 AM - 9:30 PM, Tuesday 11:00 AM - 9:30 PM, Wednesday: CLOSED, Thursday 11:00 AM - 9:30 PM, Friday 11:00 AM - 10:00 PM, Saturday 11:00 AM - 10:00 PM, Sunday 11:00 AM - 9:30 PM. Kitchen Hour: 11:00 AM - 9:00 PM, daily Store hours, not the kitchen's. The page's older 'OPENING HOURS' block (Sun-Thu 11-9:30, Fri-Sat 11-10) sits under a 'NEW HOURS STARTING 2026 ... Wednesday: CLOSED' block, so the 2026 hours are the current ones. Thanksgiving special hours ignored. Business location in the page data: 815 W Naomi Ave Ste G, Arcadia.",
+ "second_look": "2026-11-27"
+}

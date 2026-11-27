@@ -1,0 +1,54 @@
+{
+ "id": "n14071579641",
+ "name": "Mehfil Chai & Coffee",
+ "hours": [
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 08:00-21:00; Sa-Su 09:00-21:00",
+ "src": "shop",
+ "source": "https://mehfilcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 08:00-20:00, Sa 09:00-20:00, Su 09:00-18:00",
+ "note": "OpenStreetMap said \"Mo-Fr 08:00-20:00, Sa 09:00-20:00, Su 09:00-18:00\"; the shop's own source wins. Read: 82 S Lake Ave, Suite 101 Pasadena, CA 91101 / Monday-Friday · 8am-9pm / Saturday-Sunday · 9am-9pm The page's schema.org block for the same address says the same."
+}

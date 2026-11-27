@@ -1,0 +1,54 @@
+{
+ "id": "n14335299887",
+ "name": "rōk",
+ "hours": [
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th,Su 08:00-22:00; Fr-Sa 08:00-23:00",
+ "src": "shop",
+ "source": "https://rokcoffeeandtea.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 08:00-22:00; Fr-Sa 08:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: rōk Olympic, K-town / 3060 W Olympic Blvd #150 / Sun - Thurs 8 am - 10 pm / Fri - Sat 8 am - 11 pm The page's Thanksgiving and Black Friday lines are ignored. Matched by street address."
+}

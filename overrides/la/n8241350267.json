@@ -1,0 +1,54 @@
+{
+ "id": "n8241350267",
+ "name": "Stirred Roasters Coffee House",
+ "hours": [
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    360,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 06:00-24:00; Su 07:00-24:00",
+ "src": "shop",
+ "source": "https://stirred-roasters-coffee-house.ueniweb.com/contact-us",
+ "checked": "2026-11-27",
+ "osm_hours": "06:00-24:00",
+ "note": "OpenStreetMap said \"06:00-24:00\"; the shop's own source wins. Read: Opening Hours Sunday 7:00 AM - 12:00 AM / Monday 6:00 AM - 12:00 AM / ... / Saturday 6:00 AM - 12:00 AM / 13295 South St A UENI-built site (the OSM website)."
+}

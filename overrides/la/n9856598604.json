@@ -1,0 +1,54 @@
+{
+ "id": "n9856598604",
+ "name": "Howdy's",
+ "hours": [
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-19:00",
+ "src": "shop",
+ "source": "https://howdyscafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 09:00-18:00; Fr-Sa 09:00-20:00",
+ "note": "OpenStreetMap said \"Su-Th 09:00-18:00; Fr-Sa 09:00-20:00\"; the shop's own source wins. Read: 23401 Civic Center Way, Suite 3A / Hours / Howdy's Sonrisa Cafe Mon -Sun 9:00 a.m to 7:00 p.m / Malibu Sushi Mon - Sun 11:00 a.m to 9:00 p.m The café's hours, not the sushi bar's. The page sells it as a Mexican-fusion restaurant ('We are taking online reservations!')."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n8925239716",
+ "name": "3Catea Bubble Tea",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.3catea.com/location",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 11:00-21:00, Fr-Sa 11:00-22:00",
+ "note": "OpenStreetMap said \"Su-Th 11:00-21:00, Fr-Sa 11:00-22:00\"; the shop's own source wins. Read: CITY OF INDUSTRY / 18215 GALE AVE CITY OF INDUSTRY CA 91748 / MONDAY ... SUNDAY / 11AM - 10PM (seven times) The next card (San Gabriel) has the same hours, so the Wix block order cannot pair the wrong ones."
+}

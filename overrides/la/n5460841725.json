@@ -1,0 +1,54 @@
+{
+ "id": "n5460841725",
+ "name": "Pandor Bakery and Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-18:00",
+ "src": "shop",
+ "source": "https://www.pandorbakery.com/location/pandor-bakery-newport-beach/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-20:00\"; the shop's own source wins. Read: Newport Beach Hours & Location / Westcliff Plaza Shopping Center, 1126 Irvine Ave #A, Newport Beach, CA 92660 / 949-209-5099 / Open Daily 7:00 am - 6:00 pm Holiday early closes (Thanksgiving 4 PM etc.) ignored."
+}

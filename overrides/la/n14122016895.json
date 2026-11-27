@@ -1,0 +1,49 @@
+{
+ "id": "n14122016895",
+ "name": "Yolo's Cafe",
+ "hours": [
+  [
+   [
+    690,
+    1200
+   ]
+  ],
+  [],
+  [
+   [
+    690,
+    1200
+   ]
+  ],
+  [
+   [
+    690,
+    1200
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo,We-Th,Su 11:30-20:00; Fr-Sa 11:30-21:00",
+ "src": "shop",
+ "source": "https://yoloscafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Mo 11:30-20:00; We-Th 11:30-20:00; Fr-Sa 11:30-21:00",
+ "note": "Agrees with OpenStreetMap. Read: schema.org CafeOrCoffeeShop, 14220 Bellflower Blvd Bellflower 90706: Monday, Wednesday, Thursday, Sunday 11:30-20:00; Friday, Saturday 11:30-21:00 (six days listed, no Tuesday) schema.org only: the site is a script-rendered app with no hours in its text. Accepted because it equals OpenStreetMap's hours. Its image comes from Yelp's CDN, so the site's maker may have copied the hours from a listing."
+}

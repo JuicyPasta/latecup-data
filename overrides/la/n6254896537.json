@@ -1,0 +1,54 @@
+{
+ "id": "n6254896537",
+ "name": "Porto's Bakery and Cafe",
+ "hours": [
+  [
+   [
+    390,
+    1230
+   ]
+  ],
+  [
+   [
+    390,
+    1230
+   ]
+  ],
+  [
+   [
+    390,
+    1230
+   ]
+  ],
+  [
+   [
+    390,
+    1230
+   ]
+  ],
+  [
+   [
+    390,
+    1230
+   ]
+  ],
+  [
+   [
+    390,
+    1230
+   ]
+  ],
+  [
+   [
+    390,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:30-20:30",
+ "src": "shop",
+ "source": "https://www.portosbakery.com/locations/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 08:30-20:30; Fr,Sa 08:30-21:00; Su 07:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Th 08:30-20:30; Fr,Sa 08:30-21:00; Su 07:00-19:00\"; the shop's own source wins. Read: Glendale / 315 N. Brand Blvd | Glendale, CA 91203 / 818.956.5996 / Daily Preorder Pickup | 7:00a - 7:30p / Dine-in Hours Daily | 6:30a - 8:30p / Holiday Hours Friday, 11/27 | All Bakeries Closed Dine-in hours, not the pre-order pickup window. Today's holiday closure ignored."
+}

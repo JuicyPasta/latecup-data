@@ -1,0 +1,54 @@
+{
+ "id": "n8756620422",
+ "name": "Volcano Tea House",
+ "hours": [
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ],
+  [
+   [
+    630,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:30-24:00",
+ "src": "shop",
+ "source": "https://www.volcanoteahouse2111.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "10:30-24:00",
+ "note": "Agrees with OpenStreetMap. Read: 2111 Sawtelle Blvd, Los Angeles, CA 90025 / Hours Mon - Sun: 10:30 AM - 12 AM"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n7996697201",
+ "name": "The Library",
+ "hours": [
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ],
+  [
+   [
+    360,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-23:00",
+ "src": "shop",
+ "source": "https://thelibrarycoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-23:00\"; the shop's own source wins. Read: 3418 E Broadway (562) 433-2393 / Open Daily • 6:00 AM - 11:00 PM / Opening Hours Monday 6:00 AM - 11:00 PM ... Sunday 6:00 AM - 11:00 PM"
+}

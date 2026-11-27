@@ -1,0 +1,9 @@
+{
+ "id": "n13955712030",
+ "name": "Liu's Cafe",
+ "exclude": true,
+ "source": "https://liuscafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Tu off; We-Su 11:00-21:00",
+ "note": "A Taiwanese / Hong Kong restaurant (Michelin Bib Gourmand). Its hours would have been 'Wed - Sun · 11:00am - 9:00pm' (Mon-Tue not stated). Read: schema.org on the shop's page: \"@type\": \"Restaurant\", \"award\": \"Michelin Bib Gourmand 2024, 2025, 2026\"; menu of rice plates, noodle soups and wontons; 'Dining at Liu's feels nostalgic: the charm of a mid-century American diner'"
+}

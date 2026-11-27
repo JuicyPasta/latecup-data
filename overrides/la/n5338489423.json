@@ -1,0 +1,49 @@
+{
+ "id": "n5338489423",
+ "name": "Yuko Kitchen",
+ "hours": [
+  [
+   [
+    660,
+    1050
+   ]
+  ],
+  [
+   [
+    660,
+    1050
+   ]
+  ],
+  [
+   [
+    660,
+    1050
+   ]
+  ],
+  [
+   [
+    660,
+    1170
+   ]
+  ],
+  [
+   [
+    660,
+    1170
+   ]
+  ],
+  [
+   [
+    660,
+    1170
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Mo-We 11:00-17:30; Th-Sa 11:00-19:30; Su off",
+ "src": "shop",
+ "source": "https://www.yukokitchen.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00\"; the shop's own source wins. Read: Yuko Kitchen DTLA / 101 West 5th St Los Angeles, CA 90013 / (213)-266-0046 / Mondays - Wednessdays 11am - 530pm / Thursdays - Saturdays 11am - 730pm / Sundays CLOSED The page's other branch (Miracle Mile, 5484 Wilshire) keeps later hours; not this place's. 'Serving Japanese Delicious Comfort Food Since 2009': a restaurant more than a café."
+}

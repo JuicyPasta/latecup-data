@@ -1,0 +1,49 @@
+{
+ "id": "n14365996821",
+ "name": "Dreamland Anime Cafe",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo,We-Su 11:30-21:00; Tu off",
+ "src": "shop",
+ "source": "https://dreamlandanimecafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,We-Su 11:30-21:00; PH off",
+ "note": "Agrees with OpenStreetMap. Read: Café hours 11:30 AM to 9 PM Every day except Tuesday / Last seating 8:15 PM · To-go until 8:30 PM / 1281 E. La Habra Blvd. #6 'Closed Thanksgiving, Nov 26' ignored. Doors 21:00 as the page gives them; last seating 20:15."
+}

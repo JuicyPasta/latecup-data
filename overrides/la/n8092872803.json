@@ -1,0 +1,54 @@
+{
+ "id": "n8092872803",
+ "name": "JJ Bakery",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.jjbakeryusa.com/temple-city",
+ "checked": "2026-11-27",
+ "osm_hours": "08:00-20:00",
+ "note": "OpenStreetMap said \"08:00-20:00\"; the shop's own source wins. Read: Temple City / 5755 ROSEMEAD BLVD., TEMPLE CITY, CA 91780 / 626-287-2588 / BAKERY MON-SUN | 8AM - 8PM / CAFE MON-SUN | 11AM - 8PM The café's hours (sit-down); the bakery counter opens at 8AM. Matched by phone: the page's address is 5755 Rosemead Blvd, OpenStreetMap's is 5575."
+}

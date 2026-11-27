@@ -1,0 +1,35 @@
+{
+ "id": "n8569870516",
+ "name": "B Sweet",
+ "hours": [
+  [],
+  [],
+  [],
+  [],
+  [
+   [
+    1080,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th off; Fr 18:00-23:00; Sa 12:00-23:00; Su 12:00-22:00",
+ "src": "shop",
+ "source": "https://www.mybsweet.com/bsweetdessertbar",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th off; Fr 18:00-23:00; Sa 12:00-23:00; Su 12:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 2005 SAWTELLE BLVD. LOS ANGELES, CA 90025 / 424.248.3664 / CURRENT HOURS: MONDAY: CLOSED / TUESDAY: CLOSED / WEDNESDAY: CLOSED / THURSDAY: CLOSED / FRIDAY: 6:00PM - 11:00PM / SATURDAY: 12:00PM - 11:00PM / SUNDAY: 12:00PM - 10:00PM Second look 2026-11-27: Monday to Thursday closed, as OpenStreetMap also has; the page's 'We're open till 11pm Friday and Saturday!' agrees. The Koreatown branch on the same page is closed for the season; not this place.",
+ "second_look": "2026-11-27"
+}

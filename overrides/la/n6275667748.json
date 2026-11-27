@@ -1,0 +1,54 @@
+{
+ "id": "n6275667748",
+ "name": "Odd One Out",
+ "hours": [
+  [
+   [
+    705,
+    1260
+   ]
+  ],
+  [
+   [
+    705,
+    1260
+   ]
+  ],
+  [
+   [
+    705,
+    1260
+   ]
+  ],
+  [
+   [
+    705,
+    1260
+   ]
+  ],
+  [
+   [
+    705,
+    1320
+   ]
+  ],
+  [
+   [
+    705,
+    1320
+   ]
+  ],
+  [
+   [
+    705,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th,Su 11:45-21:00; Fr-Sa 11:45-22:00",
+ "src": "shop",
+ "source": "https://www.oootea.world/locations.html",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 12:00-21:00; Fr-Sa 12:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th,Su 12:00-21:00; Fr-Sa 12:00-22:00\"; the shop's own source wins. Read: Pasadena / 14 South Fair Oaks Ave, Pasadena, CA 91105 / Sun-Thu: 11:45am-9pm; Fri-Sat: 11:45am-10pm The OSM link (www.oootea.world/) has no hours; this is the same site's locations page."
+}

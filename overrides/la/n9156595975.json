@@ -1,0 +1,54 @@
+{
+ "id": "n9156595975",
+ "name": "Oh My Pan Bakery & Tea",
+ "hours": [
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-20:00",
+ "src": "shop",
+ "source": "https://www.ohmypan.com/contact-us",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 09:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: 801 E Valley Blvd #105, San Gabriel, CA 91776 / Monday - Sunday 9:00 AM - 8:00 PM"
+}

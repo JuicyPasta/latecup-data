@@ -1,0 +1,54 @@
+{
+ "id": "n8241879776",
+ "name": "Tea Maru",
+ "hours": [
+  [
+   [
+    690,
+    1350
+   ]
+  ],
+  [
+   [
+    690,
+    1350
+   ]
+  ],
+  [
+   [
+    690,
+    1350
+   ]
+  ],
+  [
+   [
+    690,
+    1350
+   ]
+  ],
+  [
+   [
+    690,
+    1350
+   ]
+  ],
+  [
+   [
+    690,
+    1350
+   ]
+  ],
+  [
+   [
+    690,
+    1350
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-22:30",
+ "src": "shop",
+ "source": "https://teamaru.us/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:30-22:30",
+ "note": "Agrees with OpenStreetMap. Read: Tea maru - San gabriel 709 W Las Tunas Dr, San Gabriel, CA 91776 (626)225-2821 ORDER ONLINE Hours Monday-Sunday 11:30AM - 10:30PM The page's other branches (724 S Spring St, 1951 E Dyer Rd) have their own lines."
+}

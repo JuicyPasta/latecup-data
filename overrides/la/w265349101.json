@@ -1,0 +1,54 @@
+{
+ "id": "w265349101",
+ "name": "Cafe Demitasse",
+ "hours": [
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr,Su 07:00-16:00; Sa 07:00-17:00",
+ "src": "shop",
+ "source": "https://cafedemitasse.com/pages/coffee-bars",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 07:00-20:00, Th-Fr 07:00-22:00; Sa-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-We 07:00-20:00, Th-Fr 07:00-22:00; Sa-Su 08:00-20:00\"; the shop's own source wins. Read: Santa Monica / 1149 Third Street Santa Monica, CA 90403 / Sunday - Friday · 7am - 4pm / Saturday · 7am - 5pm"
+}
