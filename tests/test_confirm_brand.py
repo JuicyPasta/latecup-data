@@ -90,6 +90,33 @@ def test_ignore_holidays_runs_anyway(tmp_path, monkeypatch, capsys):
     assert "1 store pages to read" in capsys.readouterr().out
 
 
+# ------------------------------------------------------------ one reader per chain
+
+def test_the_pass_stands_down_when_the_chain_layer_is_on(tmp_path, monkeypatch, capsys):
+    _no_network(monkeypatch)
+    monkeypatch.setattr(confirm_brand, "_today", lambda: date(2026, 11, 30))            # a normal week
+    monkeypatch.setattr(confirm_brand.switches, "load", lambda path=None: {"chain_layer": True, "area_fields": True})
+    for slug in ("dunkin", "starbucks"):
+        confirm_brand.main([slug, "--osm", str(_one_dunkin(tmp_path)), "--refresh"])
+        out = capsys.readouterr().out
+        assert out.startswith(f"skipped: the chain layer is on (switches.json) and reads {slug}") and \
+            "One reader per chain" in out
+    # a chain the layer does not read is still this tool's to read
+    asked = []
+
+    def failing_fetch(url, _session=None):
+        asked.append(url)
+        raise IOError("offline in the test")
+    monkeypatch.setattr(confirm_brand.C, "fetch", failing_fetch)
+    confirm_brand.main(["blue-bottle", "--osm", str(_one_dunkin(tmp_path))])
+    assert "0 store pages to read" in capsys.readouterr().out and asked == []
+
+
+def test_the_pass_reads_the_same_store_pages_the_build_knows():
+    from latecup_data import chains
+    assert confirm_brand.LOCATORS is chains.STORE_PAGES and set(confirm_brand.LOCATORS) >= {"dunkin"}
+
+
 # ------------------------------------------------------------ the Starbucks pass: which store is this place
 
 def test_a_store_at_another_address_is_another_store_however_close():

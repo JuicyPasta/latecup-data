@@ -22,6 +22,11 @@ Anything not matched with certainty is left alone. One request at a time,
 with a pause. Without --refresh, places that already have an override are
 skipped; with it, overrides this tool wrote earlier are read again (overrides
 written by hand are never touched).
+
+One reader per chain: once the chain layer is on (switches.json,
+"chain_layer"), a chain that the layer reads from All The Places is no
+longer read here, so a store's hours and its `hh` never flip between two
+readers fifteen minutes apart. The pass says so and writes nothing.
 """
 import json
 import re
@@ -35,19 +40,12 @@ import requests
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "tools"))
-from latecup_data import build as B, chains, clean, confirm as C, holidays, hours as H, osm  # noqa: E402
-from latecup_data import SHOP_USER_AGENT  # noqa: E402
+from latecup_data import atp, build as B, chains, clean, confirm as C, holidays, hours as H, osm  # noqa: E402
+from latecup_data import SHOP_USER_AGENT, switches  # noqa: E402
 import override  # noqa: E402
 
 # brand slug -> hosts of its own per-store pages
-LOCATORS = {
-    "dunkin": re.compile(r"^(locations|www)\.dunkindonuts\.com$"),
-    "le-pain-quotidien": re.compile(r"^www\.lepainquotidien\.com$"),
-    "blue-bottle": re.compile(r"^bluebottlecoffee\.com$"),
-    "cafe-grumpy": re.compile(r"^cafegrumpy\.com$"),
-    "gong-cha": re.compile(r"^(www\.)?gongchausa\.com$"),
-    "joe-coffee": re.compile(r"^(www\.)?(joenewyork|joecoffeecompany)\.com$"),
-}
+LOCATORS = chains.STORE_PAGES
 
 
 def _today():
@@ -215,6 +213,10 @@ def starbucks(osm_file, limit, pause, refresh, ignore_holidays=False):
 
 def main(argv):
     slug = argv[0]
+    if switches.load()["chain_layer"] and slug in {sp.chain for sp in atp.SPIDERS}:
+        print(f"skipped: the chain layer is on (switches.json) and reads {slug} from the chain's own locator. "
+              f"One reader per chain.")
+        return
     osm_file = Path(argv[argv.index("--osm") + 1]) if "--osm" in argv else ROOT / "work" / "osm.json"
     limit = int(argv[argv.index("--max") + 1]) if "--max" in argv else 10_000
     pause = float(argv[argv.index("--pause") + 1]) if "--pause" in argv else 1.5

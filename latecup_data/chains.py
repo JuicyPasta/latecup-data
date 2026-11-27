@@ -10,10 +10,34 @@ ones are grouped by normalized name.
 """
 import re
 from collections import Counter, namedtuple
+from urllib.parse import urlsplit
 
 from .classify import norm
 
 MIN_LOCATIONS = 5
+
+# brand slug -> the hosts of its own per-store pages: what the weekly store-page pass reads (tools/confirm_brand.py)
+STORE_PAGES = {
+    "dunkin": re.compile(r"^(locations|www)\.dunkindonuts\.com$"),
+    "le-pain-quotidien": re.compile(r"^www\.lepainquotidien\.com$"),
+    "blue-bottle": re.compile(r"^bluebottlecoffee\.com$"),
+    "cafe-grumpy": re.compile(r"^cafegrumpy\.com$"),
+    "gong-cha": re.compile(r"^(www\.)?gongchausa\.com$"),
+    "joe-coffee": re.compile(r"^(www\.)?(joenewyork|joecoffeecompany)\.com$"),
+}
+
+
+def store_page(slug, url):
+    """True when `url` is one store's own page on the store locator of the
+    brand `slug` (and not the brand's home page)."""
+    rx = STORE_PAGES.get(slug)
+    if rx is None or not isinstance(url, str):
+        return False
+    try:
+        parts = urlsplit(url.strip())
+    except ValueError:
+        return False
+    return bool(rx.match(parts.hostname or "")) and len(parts.path.strip("/")) >= 8
 
 Brand = namedtuple("Brand", "slug cat")
 
