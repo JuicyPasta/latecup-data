@@ -1,0 +1,54 @@
+{
+ "id": "n2327723410",
+ "name": "Lady Yum - Amazon Seattle Campus",
+ "hours": [
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:00-22:00",
+ "src": "shop",
+ "source": "https://ladyyum.com/pages/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 10:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: AMAZON SEATTLE CAMPUS 2130 6th Ave Seattle, WA 98121 OPEN 7 DAYS A WEEK 10AM-10PM Multi-store page (five stores); each block is name, address, hours. Matched by street address; the page's two lists agree."
+}

@@ -1,0 +1,40 @@
+{
+ "id": "n5914739987",
+ "name": "The Kite Café",
+ "hours": [
+  [],
+  [],
+  [],
+  [
+   [
+    660,
+    1080
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We off; Th 11:00-18:00; Fr 11:00-19:00; Sa-Su 09:00-19:00",
+ "src": "shop",
+ "source": "https://www.thekitecafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 11:00-19:00; Th-Fr 11:00-20:00; Sa-Su 09:00-20:00",
+ "note": "OpenStreetMap said \"Mo-We 11:00-19:00; Th-Fr 11:00-20:00; Sa-Su 09:00-20:00\"; the page says \"Hours: Mon - Wed: Closed Thurs: 11am - 6pm Fri: 11am - 7pm Sat & Sun: 9am - 7pm Holiday Hours: Closed 12/20 - 12/30 New Years Day: Open 8am - 4pm The Kite Cafe Golden Gardens Bathhouse 8498 Seaview Pl. NW\". Held by the publish guard (open days differ from OpenStreetMap's: Mo,Tu,We); the page was read a second time on 2026-11-27 and stands. The holiday lines were ignored.",
+ "second_look": "2026-11-27"
+}

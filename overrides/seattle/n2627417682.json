@@ -1,0 +1,54 @@
+{
+ "id": "n2627417682",
+ "name": "Yi Fang Tea",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-20:00; Fr-Sa 11:00-20:30; Su 11:00-20:00",
+ "src": "brand",
+ "source": "https://www.yifangteapnw.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 12:00-20:00\"; the shop's own source wins. Read: Redmond Yifang Located in downtown Redmond, across the street from Trader Joe's. Hours: Sun-Thurs 11AM-8PM Fri-Sat 11AM-8:30PM 8145 161st Avenue Northeast, Redmond, WA 98052, USA +14259688200 The Pacific Northwest franchise's own locations page (Yi Fang is a Taiwanese chain); matched by phone (the page writes 161st Ave NE, OpenStreetMap 160th)."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n4396951017",
+ "name": "Greenlake Boathouse Cafe",
+ "hours": [
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-17:00",
+ "src": "shop",
+ "source": "https://greenlakeboathouse.com/hours/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 08:00-20:00\"; the shop's own source wins. Read: HOURS OF OPERATION Annual Schedule COFFEE SHOP: Fall/Winter • October 1st - February 28th: 9am - 5pm • March: 9am - 6pm ... The coffee shop's own schedule for this season (October 1 to February 28); boat rentals keep other hours."
+}

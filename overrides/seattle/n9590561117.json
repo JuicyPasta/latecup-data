@@ -1,0 +1,54 @@
+{
+ "id": "n9590561117",
+ "name": "Husky Grind Café",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://hfs.uw.edu/eat/dining-hours/husky-grind-cafe-dm-alder/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa,Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Husky Grind Café, District Market Alder ... Special Hours: AUTUMN HOURS Monday-Friday 7 a.m.-8 p.m. Saturday-Sunday 8 a.m.-8 p.m. The page's 'Operating hours' list is this week's (Wed 7-3, Thu and Fri closed, Sat 8-5: Thanksgiving); the autumn-quarter hours are the normal week and were taken. University dining hours change at the quarter break."
+}

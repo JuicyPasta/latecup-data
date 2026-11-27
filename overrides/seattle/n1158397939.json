@@ -1,0 +1,54 @@
+{
+ "id": "n1158397939",
+ "name": "Bobalust",
+ "hours": [
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 13:00-22:00; Fr-Sa 13:00-23:00; Su 13:00-22:00",
+ "src": "shop",
+ "source": "https://www.bobalustteahouse.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 13:00-22:00; Fr,Sa 13:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: UW HOURS Sunday - Thursday: 1 PM - 10 PM Friday & Saturday: 1 PM - 11 PM LOCATION 4553 University Way NE Seattle, WA 98105 Multi-store page (8 stores); each block is name, HOURS, LOCATION, address. The UW block matched by street address."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n11500556110",
+ "name": "Semicolon Cafe",
+ "hours": [
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-17:00",
+ "src": "brand",
+ "source": "https://www.semicoloncafe.com/wa-bellevue",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 08:00-17:00; Fr-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Th 08:00-17:00; Fr-Su 08:00-20:00\"; the shop's own source wins. Read: WA BELLEVUE ADDRESS| 10451 NE 2nd St Ste 3 Bellevue, WA CONTACT| 425.223.5932 HOURS| 8:00-17:00 The chain's own page for this store (Semicolon Cafe has six, in NY, NJ, VA and WA); matched by address and phone. The page gives one range with no days, read as every day (as the LA pass read Macu's store list)."
+}

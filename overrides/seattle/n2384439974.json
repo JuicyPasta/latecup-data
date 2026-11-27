@@ -1,0 +1,55 @@
+{
+ "id": "n2384439974",
+ "name": "Yeobo Cafe and Bar",
+ "hours": [
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 07:00-16:00; We 07:00-21:00; Th-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+ "src": "shop",
+ "source": "https://www.yeobosea.com/about",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Tu, Th-Fr 07:00-21:00; Sa-Su 08:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Tu, Th-Fr 07:00-21:00; Sa-Su 08:00-21:00\"; the page says \"Fall Hours weekdays 7am - 4pm (ish) (open wednesdays till 9) weekends 8am-4pm (ish) ... Upcoming Closures or Adjusted Hours: closed 11/25 - 11/26 HOLIDAY HOURS begin 11/27 mon 7 - 4 closed tues / weds thurs / fri 7 - 4 sat / sun 8 - 4\". Held by the publish guard (open days differ from OpenStreetMap's: We); the page was read a second time on 2026-11-27 and stands. The fall hours are the normal week; the holiday hours that begin 11/27 (closed Tuesday and Wednesday, so no late Wednesday) were not taken. The page writes 4 PM as '(ish)'.",
+ "second_look": "2026-11-27"
+}

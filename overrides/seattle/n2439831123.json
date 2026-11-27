@@ -1,0 +1,54 @@
+{
+ "id": "n2439831123",
+ "name": "Café Happy",
+ "hours": [
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-01:00",
+ "src": "shop",
+ "source": "https://cafe-happy.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-01:00",
+ "note": "Agrees with OpenStreetMap. Read: Cafe Happy Location and Hours (425) 822-9696 1408 Northeast 40th Street, Seattle, WA 98105 Open now • Closes at 1AM; page data businessHours: every day 11:00-01:00 The shop's own Toast site. Its page data also holds an online-ordering schedule (Mon-Fri 11-11, Sat-Sun 11-9, which today's take-out window follows); the business hours are the doors and are what the page shows."
+}

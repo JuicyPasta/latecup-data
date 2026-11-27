@@ -1,0 +1,54 @@
+{
+ "id": "n2434527291",
+ "name": "Oasis Tea Zone",
+ "hours": [
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1560
+   ]
+  ],
+  [
+   [
+    660,
+    1560
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-24:00; Fr-Sa 11:00-02:00; Su 11:00-24:00",
+ "src": "shop",
+ "source": "https://www.oasisteazone.com/chinatown-location",
+ "checked": "2026-11-27",
+ "osm_hours": "Fr-Sa 11:00-02:00; Su-Th 11:00-00:00",
+ "note": "Agrees with OpenStreetMap. Read: Seattle Chinatown Store Hours: Sunday - Thursday: 11am - 12am Friday & Saturday: 11am - 2am 519 6th ave S Seattle, WA 98104 The Chinatown store's own page (the other store is Renton)."
+}

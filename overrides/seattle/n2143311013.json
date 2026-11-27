@@ -1,0 +1,54 @@
+{
+ "id": "n2143311013",
+ "name": "Seattle Meowtropolitan",
+ "hours": [
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1020
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo 10:00-20:00; Tu 10:00-17:00; We-Su 10:00-20:00",
+ "src": "shop",
+ "source": "https://www.seameow.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo 07:00-18:00; Tu-Fr 07:00-21:00; Sa-Su 09:00-21:00",
+ "note": "OpenStreetMap said \"Mo 07:00-18:00; Tu-Fr 07:00-21:00; Sa-Su 09:00-21:00\"; the shop's own source wins. Read: Cafe Hours where the food & drinks are No reservation required Monday, Wednesday - Sunday 10 AM - 8 PM espresso bar closes ~ 7:15PM Tuesday 10 AM - 5 PM espresso bar closes ~ 4:15PM The café's doors, not the cat lounge's or the espresso bar's (which closes about 45 minutes earlier). The schema.org hours disagree and were not used. The page's Holiday Hours list was ignored."
+}

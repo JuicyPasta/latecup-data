@@ -1,0 +1,54 @@
+{
+ "id": "n2464038040",
+ "name": "Tea Republik",
+ "hours": [
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 10:00-22:00; Sa 10:00-23:00; Su 10:00-22:00",
+ "src": "shop",
+ "source": "https://www.tearepublik.com/location.html",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 10:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Su 10:00-22:00\"; the shop's own source wins. Read: Tea Republik on The Ave 4527 University Way NE Seattle, WA 98105 Hours Mon - Fri : 10AM - 10PM Sat : 10AM - 11PM Sun : 10AM - 10PM"
+}

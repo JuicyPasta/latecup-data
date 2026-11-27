@@ -1,0 +1,54 @@
+{
+ "id": "w316480822",
+ "name": "SoulFood Coffee House",
+ "hours": [
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1080
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:30-18:00; Th-Fr 07:30-20:00; Sa 08:00-21:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://soulfoodcoffeehouse.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 07:30-18:00; Th-Fr 07:30-20:00; Sa 08:00-21:00; Su 08:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: HOURS Mon - Wed: 7:30AM - 6PM Thu - Fri: 7:30AM - 8PM Sat: 8AM - 9PM Sun: 8AM - 6PM 15748 Redmond Way, Redmond, WA 98052"
+}

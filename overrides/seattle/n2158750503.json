@@ -1,0 +1,54 @@
+{
+ "id": "n2158750503",
+ "name": "Tea Addicts",
+ "hours": [
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-20:00",
+ "src": "shop",
+ "source": "https://www.teaaddictsboba.com/storeinfo",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: CAPITOL HILL 1527 Harvard Avenue Seattle, WA 98122 (206) 466-6004 Monday to Sunday 12-8 PM The site is a script-drawn app; the 'LOCATION & HOURS' page's text was read from the site's own script bundle. Matched by address and phone."
+}

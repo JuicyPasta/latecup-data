@@ -1,0 +1,54 @@
+{
+ "id": "n2437185436",
+ "name": "Miro Tea",
+ "hours": [
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 08:00-20:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://mirotea.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 08:00-22:00; Sa-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 08:00-22:00; Sa-Su 08:00-20:00\"; the shop's own source wins. Read: 5405 Ballard Ave NW, Seattle, WA 98107 Mon-Sat 8am-8pm / Sun 8am-6pm (206) 782-6832"
+}

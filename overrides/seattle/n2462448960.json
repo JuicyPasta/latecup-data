@@ -1,0 +1,54 @@
+{
+ "id": "n2462448960",
+ "name": "Mainstay Provisions",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-15:00",
+ "src": "shop",
+ "source": "https://www.mainstayprovisions.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-15:00",
+ "note": "Agrees with OpenStreetMap. Read: MAINSTAY PROVISIONS BALLARD MON-FRI 7AM-8PM SAT 8AM-8PM / SUN 8AM-3PM The Ballard store is 612 NW 65th St by the site's own locations page (https://www.mainstayprovisions.com/location-hours), which matches this place's address."
+}

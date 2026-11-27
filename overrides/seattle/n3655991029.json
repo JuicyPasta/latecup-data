@@ -1,0 +1,82 @@
+{
+ "id": "n3655991029",
+ "name": "Pacific Provisions Cafe",
+ "hours": [
+  [
+   [
+    420,
+    840
+   ],
+   [
+    990,
+    1230
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ],
+   [
+    990,
+    1230
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ],
+   [
+    990,
+    1230
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ],
+   [
+    990,
+    1230
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ],
+   [
+    990,
+    1230
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ],
+   [
+    990,
+    1230
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ],
+   [
+    990,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-14:00,16:30-20:30",
+ "src": "shop",
+ "source": "https://www.pacificprovisionscafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-14:00,16:30-20:30",
+ "note": "Agrees with OpenStreetMap. Read: 1100 4th Ave. Seattle Washington 98101 | Open Hours: 7 Days a Week - 7am - 2pm & 4:30pm - 8:30pm Pacific Provisions Cafe and Wine Bar."
+}

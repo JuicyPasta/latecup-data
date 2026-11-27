@@ -1,0 +1,54 @@
+{
+ "id": "n12859930919",
+ "name": "The Rho Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-21:30; Sa-Su 07:00-14:00",
+ "src": "shop",
+ "source": "https://www.innatvirginiamason.com/the-rho-cafe/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-21:00; Sa,Su 07:00-15:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-21:00; Sa,Su 07:00-15:00\"; the shop's own source wins. Read: Hours of Operation ... Monday - Friday Breakfast 7AM - 2PM Lunch 11AM - 4PM Dinner 4PM - 9:30PM Saturday - Sunday Breakfast 7AM - 2PM Lunch 11AM - 2PM The hotel's café ('relaxed, casual dining', breakfast, lunch and dinner); the doors are its meal periods run together."
+}

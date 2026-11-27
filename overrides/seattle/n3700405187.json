@@ -1,0 +1,54 @@
+{
+ "id": "n3700405187",
+ "name": "Bobalust",
+ "hours": [
+  [
+   [
+    780,
+    1260
+   ]
+  ],
+  [
+   [
+    780,
+    1260
+   ]
+  ],
+  [
+   [
+    780,
+    1260
+   ]
+  ],
+  [
+   [
+    780,
+    1260
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 13:00-21:00; Fr-Sa 13:00-22:00; Su 13:00-21:00",
+ "src": "shop",
+ "source": "https://www.bobalustteahouse.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Fr-Sa 14:00-22:00, Su-Th 14:00-21:00",
+ "note": "OpenStreetMap said \"Fr-Sa 14:00-22:00, Su-Th 14:00-21:00\"; the shop's own source wins. Read: BURIEN HOURS Sunday - Thursday: 1 PM - 9 PM Friday & Saturday: 1 PM - 10 PM LOCATION 116 SW 148th St Burien, WA 98166 OpenStreetMap's website tag for this place is starbucks.com, which is wrong; the hours were read on Bobalust's own locations page, the Burien block matched by street address."
+}

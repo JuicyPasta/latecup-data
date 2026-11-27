@@ -1,0 +1,54 @@
+{
+ "id": "n11214850362",
+ "name": "Xing Fu Tang",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-22:00; Fr-Sa 11:00-23:00; Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.xingfutangwa.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 11:00-22:00; Fr,Sa 11:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: Address 1905 4th Ave Seattle, WA 98101 ... Hours Friday & Saturday 11am - 11pm Sunday - Thrusday 11am - 10pm The Washington franchise's own site, one store. Xing Fu Tang is a Taiwanese chain."
+}

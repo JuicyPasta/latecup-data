@@ -1,0 +1,54 @@
+{
+ "id": "n13239679202",
+ "name": "Saigon Drip Café",
+ "hours": [
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1020
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 09:00-17:00; Fr 09:00-22:00; Sa 10:00-22:00; Su 10:00-16:00",
+ "src": "shop",
+ "source": "https://saigondripcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su 10:00-16:00; Mo-Th 09:00-17:00; Fr 09:00-20:00; Sa 10:00-20:00",
+ "note": "OpenStreetMap said \"Su 10:00-16:00; Mo-Th 09:00-17:00; Fr 09:00-20:00; Sa 10:00-20:00\"; the shop's own source wins. Read: Toast site, location 'Pioneer Square' 161 South Washington Street, schedule: monday-thursday 09:00-17:00; friday 09:00-22:00; saturday 10:00-22:00; sunday 10:00-16:00 The page is drawn by script; read from the site's own location block in its page data (businessHours unset, so this schedule is what its 'Locations & Hours' shows). The Thanksgiving override for 11-27 was ignored. The page's private-hire listing has Friday and Saturday evenings unavailable, which fits the late opening."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "w1365269575",
+ "name": "203° Fahrenheit",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-19:00; Fr-Sa 07:00-20:00; Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://203fahrenheitcoffee-szcz7r66.toast.site/order/203degreesfahrenheit-northeastvillageplaza",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 07:00-19:00; Fr-Sa 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Toast ordering site, location 'Northeast Village Plaza' 11901 NORTHEAST VILLAGE PLAZA- B171 Kirkland, 4252859382, schedule: monday-thursday 07:00-19:00; friday-saturday 07:00-20:00; sunday 07:00-19:00 The shop's own ordering page (linked from its cafés page, which has no hours); matched by address and phone. Read from the page's own location data; it equals OpenStreetMap's hours."
+}

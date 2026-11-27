@@ -1,0 +1,54 @@
+{
+ "id": "n2400976351",
+ "name": "Sugar Bakery",
+ "hours": [
+  [
+   [
+    450,
+    1020
+   ]
+  ],
+  [
+   [
+    450,
+    1020
+   ]
+  ],
+  [
+   [
+    450,
+    1020
+   ]
+  ],
+  [
+   [
+    450,
+    1020
+   ]
+  ],
+  [
+   [
+    450,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-17:00; Sa-Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://sugarbakerycafe.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00\"; the shop's own source wins. Read: queen anne 110 Republican St 206-695-2518 Mon-Fri 7:30a-5p, Sat-Sun 8a-6p Multi-store page (four stores), matched by address and phone. The home page's 'Hours' list (Mon-Fri 6:30am to 8pm, Sat-Sun 7am to 8pm) sits under the First Hill address (1014 Madison St), not this one; it also disagrees with the locations page's own First Hill line, which does not bear on this store."
+}

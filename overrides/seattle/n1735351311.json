@@ -1,0 +1,9 @@
+{
+ "id": "n1735351311",
+ "name": "Cafe Arta",
+ "exclude": true,
+ "source": "https://www.cafearta.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 09:00-21:00; Su 09:00-20:00",
+ "note": "Its own page: 'Cafe Arta & Pub ... Greek Mediterranean Restaurant in Seattle' (menus, reservations). Its schema.org hours (Mon-Sat 9-9, Sun 9-8) equal OpenStreetMap's."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n11040205069",
+ "name": "Tea Addicts",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:00",
+ "src": "shop",
+ "source": "https://www.teaaddictsboba.com/storeinfo",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:30-21:00",
+ "note": "Agrees with OpenStreetMap. Read: ROOSEVELT 1410 NE 65th St Seattle, WA 98115 (206) 503-4296 Monday to Sunday 11:30-9 PM The site is a script-drawn app; the 'LOCATION & HOURS' page's text was read from the site's own script bundle (main.21b2114f.chunk.js). Matched by address and phone."
+}

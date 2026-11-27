@@ -1,0 +1,54 @@
+{
+ "id": "n11663016262",
+ "name": "Tiger Sugar",
+ "hours": [
+  [
+   [
+    690,
+    1170
+   ]
+  ],
+  [
+   [
+    690,
+    1170
+   ]
+  ],
+  [
+   [
+    690,
+    1170
+   ]
+  ],
+  [
+   [
+    690,
+    1170
+   ]
+  ],
+  [
+   [
+    690,
+    1200
+   ]
+  ],
+  [
+   [
+    690,
+    1200
+   ]
+  ],
+  [
+   [
+    690,
+    1170
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:30-19:30; Fr-Sa 11:30-20:00; Su 11:30-19:30",
+ "src": "shop",
+ "source": "https://www.tigersugarwa.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr,Su 11:30-20:00; Sa 11:30-20:30",
+ "note": "OpenStreetMap said \"Mo-Fr,Su 11:30-20:00; Sa 11:30-20:30\"; the shop's own source wins. Read: OPENING HOURS (Winter Hours)Sun - Thu: 11:30 AM - 7:30 PM Fri - Sat : 11:30 AM - 8:00 PM ... 1422 2nd Ave, Seattle, Wa 98101 The Seattle franchise's own site, one store. The page labels these its winter hours; they are the hours it shows now. Tiger Sugar is a Taiwanese chain."
+}

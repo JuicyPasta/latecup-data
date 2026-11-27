@@ -1,0 +1,54 @@
+{
+ "id": "n3771994713",
+ "name": "Canarino Gelato Cafe",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-22:00",
+ "src": "shop",
+ "source": "https://www.canarinogelato.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Edmonds' Home-Made Gelato Store Current Hours: 12pm - 10pm Canarino Gelato 203 5th Ave S #4 Edmonds, WA 98020 One range with no days, read as every day; OpenStreetMap says the same."
+}

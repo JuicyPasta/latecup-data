@@ -1,0 +1,54 @@
+{
+ "id": "n1981697601",
+ "name": "Stone's Throw Coffee & Market",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-20:00; Su 07:00-17:00",
+ "src": "shop",
+ "source": "https://www.stonesthrowcoffeemarket.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:00-20:00; Su 07:00-17:00",
+ "note": "Agrees with OpenStreetMap. Read: Since we are open from 7AM until 8PM (5PM on Sundays) ... Wallingford's Family Owned Coffee Shop ... 1218 N 45th St"
+}

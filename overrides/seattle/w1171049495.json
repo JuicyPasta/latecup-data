@@ -1,0 +1,9 @@
+{
+ "id": "w1171049495",
+ "name": "12th Avenue Café",
+ "exclude": true,
+ "source": "https://12thavenuecafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa 07:30-20:00; Su 07:30-15:00",
+ "note": "Its own page: 'Cozy family diner oferring hearty servings of comfort food and American diner classics in Issaquah, WA.' (the page's description; its hours are drawn by script and were not read)."
+}

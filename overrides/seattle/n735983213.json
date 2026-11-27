@@ -1,0 +1,44 @@
+{
+ "id": "n735983213",
+ "name": "Dough Joy",
+ "hours": [
+  [],
+  [],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu off; We-Th 07:00-16:00; Fr-Sa 07:00-19:00; Su 07:00-16:00",
+ "src": "shop",
+ "source": "https://doughjoydonuts.com/locations/",
+ "checked": "2026-11-27",
+ "osm_hours": "We-Th 08:00-16:00; Fr-Sa 07:00-21:00; Su 07:00-16:00",
+ "note": "OpenStreetMap said \"We-Th 08:00-16:00; Fr-Sa 07:00-21:00; Su 07:00-16:00\"; the shop's own source wins. Read: Ballard ... 2052 NW Market St. 98107 Wednesday / 7a-4p Thursday / 7a-4p Friday / 7a-7p Saturday / 7a-7p Sunday / 7a - 4p *Closed Monday & Tuesday* Two stores on the page; the Ballard block matched by address."
+}

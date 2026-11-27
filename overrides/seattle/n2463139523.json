@@ -1,0 +1,54 @@
+{
+ "id": "n2463139523",
+ "name": "Revolutions Coffee",
+ "hours": [
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.revolutionscoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: HOURS Monday through Friday: 6:00am to 8:00pm Saturday and Sunday - 7:00am to 8:00pm ... 7208 East Green Lake Drive North The Christmas and New Year holiday lines were ignored."
+}

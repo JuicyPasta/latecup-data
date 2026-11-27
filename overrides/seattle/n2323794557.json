@@ -1,0 +1,54 @@
+{
+ "id": "n2323794557",
+ "name": "Avole",
+ "hours": [
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-20:00; Sa-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://avolecoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:00-20:00; Sa,Su 08:00-17:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:00-20:00; Sa,Su 08:00-17:00\"; the shop's own source wins. Read: New Cafe Location! We welcome you to experience our new cafe, Avole on the Ave, located at 4555 University Way NE, Seattle WA 98105. Monday through Friday we are opening 6am - 8pm and 8am - 8pm on the weekends. Read from the announcement of this café, matched by address."
+}

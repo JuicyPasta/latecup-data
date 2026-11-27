@@ -1,0 +1,54 @@
+{
+ "id": "n5972424385",
+ "name": "Basecamp Cafe",
+ "hours": [
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:30-20:00; Sa-Su 07:00-19:00",
+ "src": "shop",
+ "source": "https://www.joingearhouse.com/gearhouse-coffee",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:30-20:00; Sa-Su 07:00-19:00",
+ "note": "Agrees with OpenStreetMap. Read: Open to the public 7:30am - 8pm weekdays 7am-7pm weekends ... HOURS Gearhouse Coffee Shop Monday - Friday 7:30am-8pm Saturday - Sunday 7am-7pm ... 800 E Thomas St. The café now goes by Gearhouse Coffee Shop (the Basecamp Cafe link redirects here). The page's schema.org (800 E Thomas St Ste A) says the same; the gear window's hours were not used."
+}

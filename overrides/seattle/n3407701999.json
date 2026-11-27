@@ -1,0 +1,66 @@
+{
+ "id": "n3407701999",
+ "name": "Salt & Sugar",
+ "hours": [
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    930
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    930
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    930
+   ],
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:00-15:00; Th-Sa 07:00-15:30,17:00-22:00; Su 07:00-15:00",
+ "src": "shop",
+ "source": "https://www.saltandsugarcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We,Su 07:00-15:00; Th-Sa 07:00-15:30,17:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: OPENING HOURS Sunday to Wednesday 7:00am - 3pm Thursday to Saturday 7:00am - 3:30pm 5:00pm - 10:00pm WHERE WE ARE 5615 24th Ave NW Suite 102 A café and bakery with a Lebanese menu; the evening hours are the shop's own opening hours on Thursday to Saturday."
+}

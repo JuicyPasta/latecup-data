@@ -1,0 +1,54 @@
+{
+ "id": "n2403884615",
+ "name": "Zoka Coffee - Greenlake",
+ "hours": [
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-18:00",
+ "src": "shop",
+ "source": "https://www.zokacoffee.com/pages/greenlake-zoka",
+ "checked": "2026-11-27",
+ "osm_hours": "Sa-Th 06:00-21:00; Fr 06:00-19:00",
+ "note": "OpenStreetMap said \"Sa-Th 06:00-21:00; Fr 06:00-19:00\"; the shop's own source wins. Read: 2200 N 56th St, Seattle, WA 98103 206.545.4277 DAILY: 6AM TO 6PM ... What are the hours? Daily, 6 AM to 6 PM. The location's own page. Its schema.org entry is the Kirkland store's and was not used."
+}

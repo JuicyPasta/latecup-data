@@ -1,0 +1,49 @@
+{
+ "id": "n2574587278",
+ "name": "Taste & Tell Lounge",
+ "hours": [
+  [],
+  [
+   [
+    720,
+    1020
+   ]
+  ],
+  [
+   [
+    720,
+    1020
+   ]
+  ],
+  [
+   [
+    720,
+    1020
+   ]
+  ],
+  [
+   [
+    720,
+    1020
+   ]
+  ],
+  [
+   [
+    720,
+    1020
+   ]
+  ],
+  [
+   [
+    720,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo off; Tu-Sa 12:00-17:00; Su 12:00-16:00",
+ "src": "shop",
+ "source": "https://www.tasteandtelllounge.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo off; Tu-Fr 11:00-21:30; Sa 11:00-18:00; Su 11:00-17:00",
+ "note": "OpenStreetMap said \"Mo off; Tu-Fr 11:00-21:30; Sa 11:00-18:00; Su 11:00-17:00\"; the shop's own source wins. Read: Taste & Tell Lounge 6015 Phinney Ave N, Seattle, WA 98103 206 604 4775 Tuesday - Saturday: 12:00 PM - 5:00 PM Sunday: 12:00 PM - 4:00 PM Monday: Closed Matched by phone (the page writes 6015 Phinney Ave N; OpenStreetMap has 6013)."
+}

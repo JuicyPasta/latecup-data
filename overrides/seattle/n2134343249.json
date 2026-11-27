@@ -1,0 +1,54 @@
+{
+ "id": "n2134343249",
+ "name": "Hamsa",
+ "hours": [
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:00-20:00",
+ "src": "shop",
+ "source": "https://hamsa.toast.site/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 10:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Open everyday 10am-8pm ... Hamsa Location and Hours 2313 N 45th st, Seattle, WA 98103 Closes at 8PM The shop's own Toast site; its location schedule is every day 10:00-20:00 as well."
+}

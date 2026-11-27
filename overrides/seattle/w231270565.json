@@ -1,0 +1,54 @@
+{
+ "id": "w231270565",
+ "name": "C&P Coffee Company",
+ "hours": [
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1080
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 06:00-18:00; Fr 06:00-20:00; Sa 07:00-20:00; Su 07:00-18:00",
+ "src": "shop",
+ "source": "https://candpcoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00\"; the shop's own source wins. Read: 5612 California Avenue SW Open: Monday - Thursday 6 am to 6 pm Friday 6 am - 8 pm Saturday 7am - 8 pm Sunday 7 am - 6 pm"
+}

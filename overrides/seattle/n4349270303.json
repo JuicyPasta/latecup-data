@@ -1,0 +1,54 @@
+{
+ "id": "n4349270303",
+ "name": "Overcast Coffee Company",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-18:00; Sa-Su 08:00-17:00",
+ "src": "shop",
+ "source": "https://www.overcastcoffee.co/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-20:00; Sa-Su 08:00-19:00\"; the shop's own source wins. Read: Hours & Locations ... 1517 12th ave, suite 100 Seattle, WA 98122 Monday - Friday: 7:00am - 6:00pm Saturday - Sunday: 8:00am - 5:00pm Two stores on the page; each block is address, then hours. The 6:30am-3pm set belongs to the store at 312 15th Ave E (by Kaiser Permanente). The harvest's cut snippet had put that set under this address."
+}

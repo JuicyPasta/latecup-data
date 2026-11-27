@@ -1,0 +1,54 @@
+{
+ "id": "n1973306119",
+ "name": "Thruline Coffee Co.",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-21:00",
+ "src": "shop",
+ "source": "https://www.thrulinecoffee.com/pages/contact",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: 136 Park Lane Kirkland, WA 98033 Mon - Sun, 7:00am - 9:00pm"
+}

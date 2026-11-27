@@ -1,0 +1,54 @@
+{
+ "id": "n2375303480",
+ "name": "Peloton Cafe",
+ "hours": [
+  [
+   [
+    540,
+    840
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    840
+   ]
+  ],
+  [
+   [
+    540,
+    840
+   ]
+  ]
+ ],
+ "hours_text": "Mo 09:00-14:00; Tu-Fr 09:00-21:00; Sa-Su 09:00-14:00",
+ "src": "shop",
+ "source": "https://www.pelotonseattle.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,Sa,Su 09:00-14:00; Tu-Fr 09:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Cafe Bike Shop 1224 East Jefferson Street • Seattle, WA 98122 | Saturday-Monday 9am-2pm • Tuesday-Friday 9am-9pm The contact page says the same."
+}

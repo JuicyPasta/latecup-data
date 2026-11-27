@@ -1,0 +1,1167 @@
+[
+ {
+  "id": "n10096740789",
+  "name": "Husky Grind Café",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+  "source": "https://hfs.uw.edu/eat/dining-hours/husky-grind-cafe-dm-oak/",
+  "src": "shop",
+  "evidence": "Husky Grind Café, District Market Oak ... Special Hours: AUTUMN HOURS Monday-Friday 7 a.m.-8 p.m. Saturday-Sunday 8 a.m.-8 p.m.",
+  "late": true,
+  "note": "The page's 'Operating hours' list is this week's (Wed 7-5, Thu and Fri closed, Sat 8-5: Thanksgiving); the autumn-quarter hours are the normal week and were taken. University dining hours change at the quarter break (mid-December)."
+ },
+ {
+  "id": "n10877007080",
+  "name": "Heytea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.heytea.com/",
+  "note": "The chain's global site is a script-only app; no store or hours in the HTML. Would be src brand."
+ },
+ {
+  "id": "n11040205069",
+  "name": "Tea Addicts",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:30-21:00",
+  "source": "https://www.teaaddictsboba.com/storeinfo",
+  "src": "shop",
+  "evidence": "ROOSEVELT 1410 NE 65th St Seattle, WA 98115 (206) 503-4296 Monday to Sunday 11:30-9 PM",
+  "late": true,
+  "note": "The site is a script-drawn app; the 'LOCATION & HOURS' page's text was read from the site's own script bundle (main.21b2114f.chunk.js). Matched by address and phone."
+ },
+ {
+  "id": "n11214850362",
+  "name": "Xing Fu Tang",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-22:00; Fr-Sa 11:00-23:00; Su 11:00-22:00",
+  "source": "https://www.xingfutangwa.com/",
+  "src": "shop",
+  "evidence": "Address 1905 4th Ave Seattle, WA 98101 ... Hours Friday & Saturday 11am - 11pm Sunday - Thrusday 11am - 10pm",
+  "late": true,
+  "note": "The Washington franchise's own site, one store. Xing Fu Tang is a Taiwanese chain."
+ },
+ {
+  "id": "n11232776280",
+  "name": "Sweet Moon",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.ordertogo.com/restaurants/sweetmoon/mesh",
+  "note": "Ordering page drawn by script; its schema.org openingHours is empty."
+ },
+ {
+  "id": "n11500556110",
+  "name": "Semicolon Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 08:00-17:00",
+  "source": "https://www.semicoloncafe.com/wa-bellevue",
+  "src": "brand",
+  "evidence": "WA BELLEVUE ADDRESS| 10451 NE 2nd St Ste 3 Bellevue, WA CONTACT| 425.223.5932 HOURS| 8:00-17:00",
+  "late": false,
+  "note": "The chain's own page for this store (Semicolon Cafe has six, in NY, NJ, VA and WA); matched by address and phone. The page gives one range with no days, read as every day (as the LA pass read Macu's store list)."
+ },
+ {
+  "id": "n1158383854",
+  "name": "Café On The Ave",
+  "status": "skipped",
+  "reason": "site is no longer the shop's",
+  "page": "http://cafeontheave.com/",
+  "note": "The domain shows 'The domain maybe for sale.' Not proof the café closed."
+ },
+ {
+  "id": "n1158397939",
+  "name": "Bobalust",
+  "status": "confirmed",
+  "hours": "Mo-Th 13:00-22:00; Fr-Sa 13:00-23:00; Su 13:00-22:00",
+  "source": "https://www.bobalustteahouse.com/locations",
+  "src": "shop",
+  "evidence": "UW HOURS Sunday - Thursday: 1 PM - 10 PM Friday & Saturday: 1 PM - 11 PM LOCATION 4553 University Way NE Seattle, WA 98105",
+  "late": true,
+  "note": "Multi-store page (8 stores); each block is name, HOURS, LOCATION, address. The UW block matched by street address."
+ },
+ {
+  "id": "n1159430106",
+  "name": "Seattle Best Tea Co.",
+  "status": "skipped",
+  "reason": "branch could not be matched",
+  "page": "https://www.seattlebesttea.com/contact/",
+  "note": "The page's Winter Hours (every day 10:30-8) and Summer Hours (10-10) follow the King St store's address (506 S King St); the UW store (4505 University Way NE, 206-420-2389) is listed after them with no hours of its own."
+ },
+ {
+  "id": "n11663016262",
+  "name": "Tiger Sugar",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:30-19:30; Fr-Sa 11:30-20:00; Su 11:30-19:30",
+  "source": "https://www.tigersugarwa.com/",
+  "src": "shop",
+  "evidence": "OPENING HOURS (Winter Hours)Sun - Thu: 11:30 AM - 7:30 PM Fri - Sat : 11:30 AM - 8:00 PM ... 1422 2nd Ave, Seattle, Wa 98101",
+  "late": true,
+  "note": "The Seattle franchise's own site, one store. The page labels these its winter hours; they are the hours it shows now. Tiger Sugar is a Taiwanese chain."
+ },
+ {
+  "id": "n12109460170",
+  "name": "Sunright Tea Studio",
+  "status": "skipped",
+  "reason": "no hours on the locator",
+  "page": "https://www.snrtea.com/store-location/",
+  "note": "The chain's own locator lists 'Seattle Capitol Hill 1521 Broadway' with no hours. Sunright is a chain."
+ },
+ {
+  "id": "n12550129812",
+  "name": "Seasmith Coffee",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-21:00",
+  "source": "https://www.seasmith.xyz/",
+  "src": "shop",
+  "evidence": "Seasmith Hours 118 Broadway #1008A Open daily 7am to 9pm",
+  "late": true
+ },
+ {
+  "id": "n12552626033",
+  "name": "Natalie's Sugarcane & Dessert",
+  "status": "confirmed",
+  "hours": "Mo-Th 10:00-19:00; Fr-Sa 10:00-20:00; Su 10:00-19:00",
+  "source": "https://nataliesonalki.wixsite.com/natalies/contact-4",
+  "src": "shop",
+  "evidence": "Located Inside Lam's Seafood - Tukwila ... 17348 Southcenter Pkwy, Tukwila, WA 98188 (206) 666-2675 Opening Hours Sun - Thur 10:00 am - 7:00 pm Friday & Saturday 10:00 am - 8:00 pm",
+  "late": true,
+  "note": "A dessert and sugarcane counter inside Lam's Seafood Market."
+ },
+ {
+  "id": "n12786894083",
+  "name": "Hyson Boba & Tea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://hysonbobateacafe.com/",
+  "note": "No hours on the site ('We're back ... after a few months away'); its ordering page (order.toasttab.com/online/hyson-tra-banh-mi-2207-e-madison-street) refuses fetches (HTTP 403 for Toast's ordering host)."
+ },
+ {
+  "id": "n12790135024",
+  "name": "Cyclops",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "http://www.cyclopsseattle.com/",
+  "note": "Only 'We will be closed on Thanksgiving', 'Weekend BRUNCH STARTS AT NOON!' and trivia; no weekly hours. A bar-restaurant by the look of it."
+ },
+ {
+  "id": "n12851127051",
+  "name": "Fram",
+  "status": "confirmed",
+  "hours": "Mo 06:00-18:00; Tu-Sa 06:00-20:00; Su 06:00-18:00",
+  "source": "https://www.frambrews.com/",
+  "src": "shop",
+  "evidence": "2950 Fairview Ave E. Seattle, WA 98102 OPEN 6AM to 6PM Su, M OPEN 6AM to 8PM T-Sa",
+  "late": true
+ },
+ {
+  "id": "n12859930919",
+  "name": "The Rho Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-21:30; Sa-Su 07:00-14:00",
+  "source": "https://www.innatvirginiamason.com/the-rho-cafe/",
+  "src": "shop",
+  "evidence": "Hours of Operation ... Monday - Friday Breakfast 7AM - 2PM Lunch 11AM - 4PM Dinner 4PM - 9:30PM Saturday - Sunday Breakfast 7AM - 2PM Lunch 11AM - 2PM",
+  "late": true,
+  "note": "The hotel's café ('relaxed, casual dining', breakfast, lunch and dinner); the doors are its meal periods run together."
+ },
+ {
+  "id": "n13085553684",
+  "name": "HEYTEA (South Lake Union)",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.heytea.com/",
+  "note": "The chain's global site is a script-only app; no store or hours in the HTML. Would be src brand."
+ },
+ {
+  "id": "n13201935206",
+  "name": "Hasel Cafe",
+  "status": "needs_browser",
+  "reason": "site refused",
+  "page": "https://www.haselcafe.us/",
+  "note": "HTTP 403 in the harvest and again by hand."
+ },
+ {
+  "id": "n13239679202",
+  "name": "Saigon Drip Café",
+  "status": "confirmed",
+  "hours": "Mo-Th 09:00-17:00; Fr 09:00-22:00; Sa 10:00-22:00; Su 10:00-16:00",
+  "source": "https://saigondripcafe.com/",
+  "src": "shop",
+  "evidence": "Toast site, location 'Pioneer Square' 161 South Washington Street, schedule: monday-thursday 09:00-17:00; friday 09:00-22:00; saturday 10:00-22:00; sunday 10:00-16:00",
+  "late": true,
+  "note": "The page is drawn by script; read from the site's own location block in its page data (businessHours unset, so this schedule is what its 'Locations & Hours' shows). The Thanksgiving override for 11-27 was ignored. The page's private-hire listing has Friday and Saturday evenings unavailable, which fits the late opening."
+ },
+ {
+  "id": "n13311996901",
+  "name": "Cardoon",
+  "status": "confirmed_second_look",
+  "hours": "Mo-Su 08:00-16:00",
+  "source": "https://cardoonseattle.com/",
+  "src": "shop",
+  "evidence": "Cardoon - a cozy Seattle cafe bar 2423 NW Market St Open daily 8a - 4p 🦃 Thanksgiving week: Thu 11/26 · 8a - 1p All other days · 8a - 4p",
+  "late": false,
+  "guard": "open days differ from OpenStreetMap's: Tu",
+  "note": "The Thanksgiving line was ignored."
+ },
+ {
+  "id": "n13431374064",
+  "name": "Nautical Bowls",
+  "status": "confirmed",
+  "hours": "Mo-Fr 10:00-18:00; Sa-Su 09:00-18:00",
+  "source": "https://nauticalbowls.com/store/seattle-wa/",
+  "src": "brand",
+  "evidence": "Ballard, WA Store Hours Open Monday-Friday: 10:00 AM-6:00 PM Saturday-Sunday: 9:00 AM-6:00 PM Phone 206-588-2054 Address 1416 NW 46th Street Seattle, WA 98107",
+  "late": false,
+  "note": "The chain's own store page (Nautical Bowls, an açaí-bowl franchise), matched by street address."
+ },
+ {
+  "id": "n13436987499",
+  "name": "Qamaria Yemeni Coffee Co.",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.qamariacoffee.com/cafes",
+  "note": "The chain's cafés page ('Find a Qamaria Café Near You!') is a map drawn by script; no stores or hours in the HTML. Qamaria is a franchise chain (roastery in Dearborn, MI). Would be src brand."
+ },
+ {
+  "id": "n13600683602",
+  "name": "Molly Tea Bellevue",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://usa.mollytea.com/store-map-address-search/",
+  "note": "The chain's store map is drawn by script; no stores or hours in the HTML. Would be src brand."
+ },
+ {
+  "id": "n13624124455",
+  "name": "Haebing Dessert",
+  "status": "confirmed",
+  "hours": "Mo-Su 12:00-22:00",
+  "source": "https://guitar-lynx-7ajb.squarespace.com/menu",
+  "src": "shop",
+  "evidence": "800 164TH ST SE STE UNIT N, MILL CREEK, WA 98012 (425) 510-3032 HOURS Sunday - Saturday 12 PM - 10 PM",
+  "late": true,
+  "note": "Matched by address and phone."
+ },
+ {
+  "id": "n14134106901",
+  "name": "The Alley",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://thealleyuw.cloveronline.com/menu/all",
+  "note": "The ordering page shows only today's hours ('Open today 11:00 AM - 11:00 PM PST', and today is the day after Thanksgiving). The Alley is a chain."
+ },
+ {
+  "id": "n14250938771",
+  "name": "West Wall Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Fr 08:00-22:00; Sa-Su 08:00-21:00",
+  "source": "https://boulderingproject.com/west-wall-cafe-bar/",
+  "src": "shop",
+  "evidence": "Contact & Hours ... Monday - Friday: 8AM - 10PM (Kitchen closes at 9PM) Saturday - Sunday: 8AM - 9PM (Kitchen closes at 8PM) ... inside Seattle Bouldering Project at 900 Poplar Pl S",
+  "late": true,
+  "note": "The café's doors, not the kitchen's."
+ },
+ {
+  "id": "n14389525801",
+  "name": "Labean",
+  "status": "needs_browser",
+  "reason": "site refused",
+  "page": "https://labeann.com/",
+  "note": "HTTP 403 in the harvest and again by hand."
+ },
+ {
+  "id": "n1733457162",
+  "name": "Jebena Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Tu 11:00-20:30; We off; Th-Fr 11:00-20:30; Sa 11:00-21:00; Su off",
+  "source": "https://jebenacafe.com/",
+  "src": "shop",
+  "evidence": "Regular Hours Mon, Tue, Thu, Fri 11 AM - 8:30 PM Sat 11 AM - 9 PM Wed & Sun Closed",
+  "late": true,
+  "note": "Ethiopian cuisine and coffee ('Ethiopian Cuisine & Artisan Coffee')."
+ },
+ {
+  "id": "n1735351311",
+  "name": "Cafe Arta",
+  "status": "not_a_cafe",
+  "source": "https://www.cafearta.com/",
+  "note": "Its own page: 'Cafe Arta & Pub ... Greek Mediterranean Restaurant in Seattle' (menus, reservations). Its schema.org hours (Mon-Sat 9-9, Sun 9-8) equal OpenStreetMap's."
+ },
+ {
+  "id": "n1766985977",
+  "name": "CommuniTea Kombucha",
+  "status": "skipped",
+  "reason": "schema.org only, disagrees with OpenStreetMap",
+  "page": "https://www.communitea-kombucha.com/",
+  "note": "The page shows only an age gate ('You must be at least 21 to visit this site'). Its schema.org (Mo 12:30-20, Tu 15-20, Th 16:30-20, Fr 12:30-20, We/Sa/Su closed) differs from OpenStreetMap's (Mo,Fr 10-20; Tu-We 15-20; Th 16:30-20)."
+ },
+ {
+  "id": "n1855120128",
+  "name": "Wet Clay Cafe",
+  "status": "skipped",
+  "reason": "two spots on the page disagree",
+  "page": "https://www.wetclaycafe.com/",
+  "note": "Top of the page: 'Open every day 9am to 9pm Saturday 9am to 10pm'; footer: 'Cafe & Studio Hours: Sunday - Thursday 9am-9pm Friday & Saturday 9am-10pm'. They disagree on Friday (schema.org has Monday closed). A paint-your-own-pottery studio with a café."
+ },
+ {
+  "id": "n1887153695",
+  "name": "Greenwood Chocolati Cafe",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://chocolati.com/pages/contact-us",
+  "note": "The 'Cafe Locations' page and the home page are a chocolate shop; no café addresses or hours in the HTML."
+ },
+ {
+  "id": "n1973306119",
+  "name": "Thruline Coffee Co.",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-21:00",
+  "source": "https://www.thrulinecoffee.com/pages/contact",
+  "src": "shop",
+  "evidence": "136 Park Lane Kirkland, WA 98033 Mon - Sun, 7:00am - 9:00pm",
+  "late": true
+ },
+ {
+  "id": "n1981697601",
+  "name": "Stone's Throw Coffee & Market",
+  "status": "confirmed",
+  "hours": "Mo-Sa 07:00-20:00; Su 07:00-17:00",
+  "source": "https://www.stonesthrowcoffeemarket.com/",
+  "src": "shop",
+  "evidence": "Since we are open from 7AM until 8PM (5PM on Sundays) ... Wallingford's Family Owned Coffee Shop ... 1218 N 45th St",
+  "late": true
+ },
+ {
+  "id": "n2130139848",
+  "name": "Makeda & Mingus",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://makedacoffee.com/",
+  "note": "Only a contact form and 'Brewed for You!'."
+ },
+ {
+  "id": "n2134343249",
+  "name": "Hamsa",
+  "status": "confirmed",
+  "hours": "Mo-Su 10:00-20:00",
+  "source": "https://hamsa.toast.site/",
+  "src": "shop",
+  "evidence": "Open everyday 10am-8pm ... Hamsa Location and Hours 2313 N 45th st, Seattle, WA 98103 Closes at 8PM",
+  "late": true,
+  "note": "The shop's own Toast site; its location schedule is every day 10:00-20:00 as well."
+ },
+ {
+  "id": "n2138396731",
+  "name": "Sabine",
+  "status": "confirmed",
+  "hours": "Mo 08:00-15:00; Tu-Th 08:00-21:00; Fr-Sa 08:00-22:00; Su 08:00-15:00",
+  "source": "https://sabinecafe.com/",
+  "src": "shop",
+  "evidence": "ballard 5307 ballard ave nw ... ballard hours - sunday & monday: 8:00am-3:00pm tuesday-thursday: 8:00am-9:00pm friday & saturday: 8:00am-10:00pm",
+  "late": true,
+  "note": "The Ballard block matched by address (the page also has Bellevue's). The page's schema.org (every day 9-4) disagrees and was not used; visible text wins. Counter-service café until 5 PM, table service and dinner reservations after."
+ },
+ {
+  "id": "n2143311013",
+  "name": "Seattle Meowtropolitan",
+  "status": "confirmed",
+  "hours": "Mo 10:00-20:00; Tu 10:00-17:00; We-Su 10:00-20:00",
+  "source": "https://www.seameow.com/",
+  "src": "shop",
+  "evidence": "Cafe Hours where the food & drinks are No reservation required Monday, Wednesday - Sunday 10 AM - 8 PM espresso bar closes ~ 7:15PM Tuesday 10 AM - 5 PM espresso bar closes ~ 4:15PM",
+  "late": true,
+  "note": "The café's doors, not the cat lounge's or the espresso bar's (which closes about 45 minutes earlier). The schema.org hours disagree and were not used. The page's Holiday Hours list was ignored."
+ },
+ {
+  "id": "n2158667123",
+  "name": "Hot Cakes",
+  "status": "confirmed",
+  "hours": "Mo-Fr 16:00-24:00; Sa-Su 15:00-24:00",
+  "source": "https://getyourhotcakes.com/pages/cap",
+  "src": "shop",
+  "evidence": "1650 E Olive Way HOURS Monday - Friday: 4pm - 12am Saturday - Sunday: 3pm - 12am",
+  "late": true,
+  "note": "The Capitol Hill store's own page. The holiday shipping notice is about cake orders, not the shop's hours."
+ },
+ {
+  "id": "n2158750388",
+  "name": "Drip Tea",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://thedriptea.com/contact",
+  "note": "The three stores' addresses (1416 10th Ave, Kent, Bellevue) with no hours on the home or contact page."
+ },
+ {
+  "id": "n2158750424",
+  "name": "Coché Valley Dessert Cafe",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://cochevalleydessertcafe.com/",
+  "note": "Square Online site; its 'Location and hours' page is drawn by script and the fetched HTML holds no hours."
+ },
+ {
+  "id": "n2158750503",
+  "name": "Tea Addicts",
+  "status": "confirmed",
+  "hours": "Mo-Su 12:00-20:00",
+  "source": "https://www.teaaddictsboba.com/storeinfo",
+  "src": "shop",
+  "evidence": "CAPITOL HILL 1527 Harvard Avenue Seattle, WA 98122 (206) 466-6004 Monday to Sunday 12-8 PM",
+  "late": true,
+  "note": "The site is a script-drawn app; the 'LOCATION & HOURS' page's text was read from the site's own script bundle. Matched by address and phone."
+ },
+ {
+  "id": "n2158750791",
+  "name": "Comebuytea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://comebuytea-usa.com/",
+  "note": "The hours widget shows only today ('今日營業 下午12:00 - 下午10:00', today being the day after Thanksgiving); the week opens by script. Comebuy is a chain."
+ },
+ {
+  "id": "n2158768924",
+  "name": "NEKO Cat Cafe",
+  "status": "skipped",
+  "reason": "two spots on the page disagree",
+  "page": "https://www.nekocatcafe.com/seattle",
+  "note": "Both visible for 519 E Pine St: the contact strip says 'MON - THU: 11am - 7:45pm', the footer 'MON - THU: 10am - 7:45pm' (Fri and Sat-Sun agree: 11am-9:45pm, 9am-9:45pm). OpenStreetMap has the footer's."
+ },
+ {
+  "id": "n2159323127",
+  "name": "La Dive",
+  "status": "not_a_cafe",
+  "source": "https://www.ladiveseattle.com/",
+  "note": "Its own page: 'la dive natural wine bar is open daily: 3p to 2a monday-friday, noon to 2a saturday & sunday'; 'wine shop + bar / wine club'."
+ },
+ {
+  "id": "n2323794468",
+  "name": "TP Tea",
+  "status": "skipped",
+  "reason": "no hours on the locator",
+  "page": "https://en.tp-tea.com/store/?index_m_id=10&city=&town=Seattle+City",
+  "note": "The chain's own store list gives 'UW Store 206-327-9811 1312 NE 45th St' with no hours. TP Tea is a chain."
+ },
+ {
+  "id": "n2323794557",
+  "name": "Avole",
+  "status": "confirmed",
+  "hours": "Mo-Fr 06:00-20:00; Sa-Su 08:00-20:00",
+  "source": "https://avolecoffee.com/",
+  "src": "shop",
+  "evidence": "New Cafe Location! We welcome you to experience our new cafe, Avole on the Ave, located at 4555 University Way NE, Seattle WA 98105. Monday through Friday we are opening 6am - 8pm and 8am - 8pm on the weekends.",
+  "late": true,
+  "note": "Read from the announcement of this café, matched by address."
+ },
+ {
+  "id": "n2323842648",
+  "name": "Timeless Tea",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-23:00",
+  "source": "https://www.timelessteaseattle.com/",
+  "src": "shop",
+  "evidence": "1000 NE 50th St, Seattle, WA 98105 Hours: Mon - Sun: 11 AM - 11 PM",
+  "late": true
+ },
+ {
+  "id": "n2327596943",
+  "name": "Tilikum Place Cafe",
+  "status": "skipped",
+  "reason": "two spots on the page disagree",
+  "page": "https://www.tilikumplacecafe.com/",
+  "note": "Twice: 'Lunch Thursday & Friday 10am-2pm, Dinner Thursday, Friday & Saturday 5pm-9pm, Brunch Saturday & Sunday 9am-2pm'; the footer: 'Fri 10am - 2pm, 5pm - 9pm Sat 9am - 2pm, 5pm - 9pm Sun 9am - 2pm' (no Thursday). Also a restaurant by its own page (reservations, candle-lit dinners)."
+ },
+ {
+  "id": "n2327723410",
+  "name": "Lady Yum - Amazon Seattle Campus",
+  "status": "confirmed",
+  "hours": "Mo-Su 10:00-22:00",
+  "source": "https://ladyyum.com/pages/locations",
+  "src": "shop",
+  "evidence": "AMAZON SEATTLE CAMPUS 2130 6th Ave Seattle, WA 98121 OPEN 7 DAYS A WEEK 10AM-10PM",
+  "late": true,
+  "note": "Multi-store page (five stores); each block is name, address, hours. Matched by street address; the page's two lists agree."
+ },
+ {
+  "id": "n2351695734",
+  "name": "Café Paloma",
+  "status": "confirmed",
+  "hours": "Mo-We 11:00-17:00; Th-Fr 11:00-20:00; Sa 17:00-20:00; Su off",
+  "source": "https://cafepaloma.com/",
+  "src": "shop",
+  "evidence": "WE ARE SERVING DINNER THURSDAY-FRIDAY SATURDAY 5-8 LUNCH MONDAY THRU FRIDAY 11-5 CALL US FOR RESERVATION... 206-405-1920",
+  "late": true,
+  "note": "The page lists Monday to Saturday, so Sunday is closed. A small Mediterranean café serving lunch and dinner, with reservations."
+ },
+ {
+  "id": "n2358231307",
+  "name": "Mecca Cafe & Bar",
+  "status": "not_a_cafe",
+  "source": "https://mecca-cafe.com/",
+  "note": "Its own page: title 'Mecca Cafe | A classic diner close to the Space Needle'; menus for happy hour and 'Beer, Wine & Cocktails'; 'all five Hold Fast Hospitality restaurants'. Open 6AM - 2AM DAILY."
+ },
+ {
+  "id": "n2375132080",
+  "name": "Alexandra’s Macarons",
+  "status": "skipped",
+  "reason": "page's hours not certain",
+  "page": "https://alexandrasmacarons.com/",
+  "note": "'Cafe Hours & Location ... Friday, Pizza Queens 5pm-9pm Friday-Sunday 8am-2pm'. Only Friday to Sunday are listed, so Monday to Thursday cannot be read as closed; and the Friday evening is a pizza pop-up, not the café."
+ },
+ {
+  "id": "n2375303480",
+  "name": "Peloton Cafe",
+  "status": "confirmed",
+  "hours": "Mo 09:00-14:00; Tu-Fr 09:00-21:00; Sa-Su 09:00-14:00",
+  "source": "https://www.pelotonseattle.com/",
+  "src": "shop",
+  "evidence": "Cafe Bike Shop 1224 East Jefferson Street • Seattle, WA 98122 | Saturday-Monday 9am-2pm • Tuesday-Friday 9am-9pm",
+  "late": true,
+  "note": "The contact page says the same."
+ },
+ {
+  "id": "n2384439974",
+  "name": "Yeobo Cafe and Bar",
+  "status": "confirmed_second_look",
+  "hours": "Mo-Tu 07:00-16:00; We 07:00-21:00; Th-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+  "source": "https://www.yeobosea.com/about",
+  "src": "shop",
+  "evidence": "Fall Hours weekdays 7am - 4pm (ish) (open wednesdays till 9) weekends 8am-4pm (ish) ... Upcoming Closures or Adjusted Hours: closed 11/25 - 11/26 HOLIDAY HOURS begin 11/27 mon 7 - 4 closed tues / weds thurs / fri 7 - 4 sat / sun 8 - 4",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: We",
+  "note": "The fall hours are the normal week; the holiday hours that begin 11/27 (closed Tuesday and Wednesday, so no late Wednesday) were not taken. The page writes 4 PM as '(ish)'."
+ },
+ {
+  "id": "n2397497102",
+  "name": "Copacabana",
+  "status": "not_a_cafe",
+  "source": "https://www.pikeplacecopa.com/",
+  "note": "Its own page: 'Copacabana Seattle's only Bolivian restaurant. Family owned and operated since 1964'. Hours there: Sunday - Friday 11:30am - 5:00pm, Saturday 10am - 5:00pm."
+ },
+ {
+  "id": "n2400948704",
+  "name": "Far Eats Cafe",
+  "status": "needs_browser",
+  "reason": "site refused",
+  "page": "https://fareatscafe.com/",
+  "note": "HTTP 403 in the harvest and again by hand."
+ },
+ {
+  "id": "n2400976351",
+  "name": "Sugar Bakery",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:30-17:00; Sa-Su 08:00-18:00",
+  "source": "https://sugarbakerycafe.com/locations",
+  "src": "shop",
+  "evidence": "queen anne 110 Republican St 206-695-2518 Mon-Fri 7:30a-5p, Sat-Sun 8a-6p",
+  "late": false,
+  "note": "Multi-store page (four stores), matched by address and phone. The home page's 'Hours' list (Mon-Fri 6:30am to 8pm, Sat-Sun 7am to 8pm) sits under the First Hill address (1014 Madison St), not this one; it also disagrees with the locations page's own First Hill line, which does not bear on this store."
+ },
+ {
+  "id": "n2400976424",
+  "name": "Rabbit Rabbit",
+  "status": "confirmed",
+  "hours": "Mo-Su 12:00-20:00",
+  "source": "https://www.searabbittea.com/",
+  "src": "shop",
+  "evidence": "Address 518 1st Avenue North, Seattle, WA, 98109 Opening Hours Everyday 12PM - 8PM",
+  "late": true,
+  "note": "The page's schema.org says the same."
+ },
+ {
+  "id": "n2403884615",
+  "name": "Zoka Coffee - Greenlake",
+  "status": "confirmed",
+  "hours": "Mo-Su 06:00-18:00",
+  "source": "https://www.zokacoffee.com/pages/greenlake-zoka",
+  "src": "shop",
+  "evidence": "2200 N 56th St, Seattle, WA 98103 206.545.4277 DAILY: 6AM TO 6PM ... What are the hours? Daily, 6 AM to 6 PM.",
+  "late": false,
+  "note": "The location's own page. Its schema.org entry is the Kirkland store's and was not used."
+ },
+ {
+  "id": "n2404211049",
+  "name": "Vietlicious Bakery and Boba",
+  "status": "confirmed",
+  "hours": "Mo-Fr 10:00-20:00; Sa 11:00-20:00; Su 11:00-18:00",
+  "source": "https://vietlicious.site.tryotter.com/",
+  "src": "shop",
+  "evidence": "1629 6th Ave, Seattle, WA 98101, USA Monday 10:00 AM - 8:00 PM ... Friday 10:00 AM - 8:00 PM Saturday 11:00 AM - 8:00 PM Sunday 11:00 AM - 6:00 PM",
+  "late": true,
+  "note": "The shop's own ordering site; its schema.org says the same."
+ },
+ {
+  "id": "n2429641140",
+  "name": "Amy's Merkato",
+  "status": "not_a_cafe",
+  "source": "https://amyscafeseattle.com/",
+  "note": "Its own page: title 'Amy's Merkato | Seattle's Eritrean & Ethiopian Restaurant and Deli'. Hours there: Tue-Thu 11:30 AM to 8 PM, Fri-Sat 10 AM to 8 PM, Sun 10 AM to 6 PM, Mon closed."
+ },
+ {
+  "id": "n2434504399",
+  "name": "Armistice Coffee",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://armisticecoffeeco.com/",
+  "note": "Only the two addresses (Eastlake, Roosevelt). Its schema.org (every day 9-5, no address) differs from OpenStreetMap's and was not used."
+ },
+ {
+  "id": "n2434527291",
+  "name": "Oasis Tea Zone",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-24:00; Fr-Sa 11:00-02:00; Su 11:00-24:00",
+  "source": "https://www.oasisteazone.com/chinatown-location",
+  "src": "shop",
+  "evidence": "Seattle Chinatown Store Hours: Sunday - Thursday: 11am - 12am Friday & Saturday: 11am - 2am 519 6th ave S Seattle, WA 98104",
+  "late": true,
+  "note": "The Chinatown store's own page (the other store is Renton)."
+ },
+ {
+  "id": "n2434527387",
+  "name": "TP Tea",
+  "status": "skipped",
+  "reason": "no hours on the locator",
+  "page": "https://en.tp-tea.com/store/?index_m_id=10&city=&town=Seattle+City",
+  "note": "The chain's own store list gives 'Seattle ID Store 206-485-7481 679 S King Street' with no hours. TP Tea is a chain."
+ },
+ {
+  "id": "n2437185436",
+  "name": "Miro Tea",
+  "status": "confirmed",
+  "hours": "Mo-Sa 08:00-20:00; Su 08:00-18:00",
+  "source": "https://mirotea.com/",
+  "src": "shop",
+  "evidence": "5405 Ballard Ave NW, Seattle, WA 98107 Mon-Sat 8am-8pm / Sun 8am-6pm (206) 782-6832",
+  "late": true
+ },
+ {
+  "id": "n2439831123",
+  "name": "Café Happy",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-01:00",
+  "source": "https://cafe-happy.com/",
+  "src": "shop",
+  "evidence": "Cafe Happy Location and Hours (425) 822-9696 1408 Northeast 40th Street, Seattle, WA 98105 Open now • Closes at 1AM; page data businessHours: every day 11:00-01:00",
+  "late": true,
+  "note": "The shop's own Toast site. Its page data also holds an online-ordering schedule (Mon-Fri 11-11, Sat-Sun 11-9, which today's take-out window follows); the business hours are the doors and are what the page shows."
+ },
+ {
+  "id": "n2462325442",
+  "name": "Mr. West",
+  "status": "confirmed",
+  "hours": "Mo-Th 08:00-20:00; Fr-Sa 08:00-21:00; Su 08:00-20:00",
+  "source": "https://mrwestcafebar.com/locations/university-village",
+  "src": "shop",
+  "evidence": "2685 NE Village Lane | Seattle, WA 98105 HOURS Sun-Thur :: 8am-8pm Fri + Sat :: 8am-9pm",
+  "late": true,
+  "note": "The location's own page."
+ },
+ {
+  "id": "n2462448960",
+  "name": "Mainstay Provisions",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-15:00",
+  "source": "https://www.mainstayprovisions.com/",
+  "src": "shop",
+  "evidence": "MAINSTAY PROVISIONS BALLARD MON-FRI 7AM-8PM SAT 8AM-8PM / SUN 8AM-3PM",
+  "late": true,
+  "note": "The Ballard store is 612 NW 65th St by the site's own locations page (https://www.mainstayprovisions.com/location-hours), which matches this place's address."
+ },
+ {
+  "id": "n2463139504",
+  "name": "Pacha Collective",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 07:00-17:00",
+  "source": "https://www.pacha-collective.com/",
+  "src": "shop",
+  "evidence": "Pacha Collective, 7119 Woodlawn Ave NE ... PACHA M-F 7am to 8pm Sat & Sun 7am to 5pm hellopachaco@gmail.com 206-888-8068",
+  "late": true,
+  "note": "Two spots on the page, and they agree."
+ },
+ {
+  "id": "n2463139523",
+  "name": "Revolutions Coffee",
+  "status": "confirmed",
+  "hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+  "source": "https://www.revolutionscoffee.com/",
+  "src": "shop",
+  "evidence": "HOURS Monday through Friday: 6:00am to 8:00pm Saturday and Sunday - 7:00am to 8:00pm ... 7208 East Green Lake Drive North",
+  "late": true,
+  "note": "The Christmas and New Year holiday lines were ignored."
+ },
+ {
+  "id": "n2464038040",
+  "name": "Tea Republik",
+  "status": "confirmed",
+  "hours": "Mo-Fr 10:00-22:00; Sa 10:00-23:00; Su 10:00-22:00",
+  "source": "https://www.tearepublik.com/location.html",
+  "src": "shop",
+  "evidence": "Tea Republik on The Ave 4527 University Way NE Seattle, WA 98105 Hours Mon - Fri : 10AM - 10PM Sat : 10AM - 11PM Sun : 10AM - 10PM",
+  "late": true
+ },
+ {
+  "id": "n2464038952",
+  "name": "Ding Tea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.clover.com/online-ordering/ding-tea-seattle-seattle-2",
+  "note": "Clover ordering page drawn by script; no hours in the HTML. Ding Tea is a chain."
+ },
+ {
+  "id": "n2574587278",
+  "name": "Taste & Tell Lounge",
+  "status": "confirmed",
+  "hours": "Mo off; Tu-Sa 12:00-17:00; Su 12:00-16:00",
+  "source": "https://www.tasteandtelllounge.com/",
+  "src": "shop",
+  "evidence": "Taste & Tell Lounge 6015 Phinney Ave N, Seattle, WA 98103 206 604 4775 Tuesday - Saturday: 12:00 PM - 5:00 PM Sunday: 12:00 PM - 4:00 PM Monday: Closed",
+  "late": false,
+  "note": "Matched by phone (the page writes 6015 Phinney Ave N; OpenStreetMap has 6013)."
+ },
+ {
+  "id": "n2584438698",
+  "name": "BobaLust",
+  "status": "confirmed",
+  "hours": "Mo-Th 13:00-22:00; Fr-Sa 13:00-23:00; Su 13:00-22:00",
+  "source": "https://www.bobalustteahouse.com/locations",
+  "src": "shop",
+  "evidence": "KIRKLAND HOURS Sunday - Thursday: 1 PM - 10 PM Friday & Saturday: 1 PM - 11 PM LOCATION 6617 132nd Ave NE Kirkland, WA 98033",
+  "late": true,
+  "note": "Multi-store page; the Kirkland block matched by street address. (The harvest's cut snippet put the Burien hours under this address; the whole page shows the order.)"
+ },
+ {
+  "id": "n2627417682",
+  "name": "Yi Fang Tea",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-20:30; Su 11:00-20:00",
+  "source": "https://www.yifangteapnw.com/locations",
+  "src": "brand",
+  "evidence": "Redmond Yifang Located in downtown Redmond, across the street from Trader Joe's. Hours: Sun-Thurs 11AM-8PM Fri-Sat 11AM-8:30PM 8145 161st Avenue Northeast, Redmond, WA 98052, USA +14259688200",
+  "late": true,
+  "note": "The Pacific Northwest franchise's own locations page (Yi Fang is a Taiwanese chain); matched by phone (the page writes 161st Ave NE, OpenStreetMap 160th)."
+ },
+ {
+  "id": "n3013604333",
+  "name": "The Block Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Sa 07:00-20:00; Su 07:00-15:00",
+  "source": "https://www.theblockcafe.com/",
+  "src": "shop",
+  "evidence": "Hours: Mon - Sat: 7AM - 8PM Sun: 7AM-3PM ... 4609 14th Ave NW #108 ... Opening Hours Mon - Saturday 7:00 am - 8:00 pm Sunday 7:00 am - 3:00 pm",
+  "late": true,
+  "note": "Two spots on the page, and they agree."
+ },
+ {
+  "id": "n3311160763",
+  "name": "Retreat",
+  "status": "needs_browser",
+  "reason": "site refused",
+  "page": "https://retreat-greenlake.com/",
+  "note": "HTTP 403 in the harvest and again by hand."
+ },
+ {
+  "id": "n3407701999",
+  "name": "Salt & Sugar",
+  "status": "confirmed",
+  "hours": "Mo-We 07:00-15:00; Th-Sa 07:00-15:30,17:00-22:00; Su 07:00-15:00",
+  "source": "https://www.saltandsugarcafe.com/",
+  "src": "shop",
+  "evidence": "OPENING HOURS Sunday to Wednesday 7:00am - 3pm Thursday to Saturday 7:00am - 3:30pm 5:00pm - 10:00pm WHERE WE ARE 5615 24th Ave NW Suite 102",
+  "late": true,
+  "note": "A café and bakery with a Lebanese menu; the evening hours are the shop's own opening hours on Thursday to Saturday."
+ },
+ {
+  "id": "n3430283347",
+  "name": "Honey Bear Bakery",
+  "status": "skipped",
+  "reason": "site gone",
+  "page": "https://www.honeybearbakery.com/",
+  "note": "HTTP 404 for the home page in the harvest and again by hand. Not proof the bakery closed."
+ },
+ {
+  "id": "n3461919193",
+  "name": "Master Bing",
+  "status": "needs_browser",
+  "reason": "site refused",
+  "page": "https://order.toasttab.com/online/master-bing-uw",
+  "note": "Toast ordering page; HTTP 403 in the harvest and again by hand."
+ },
+ {
+  "id": "n3655991029",
+  "name": "Pacific Provisions Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-14:00,16:30-20:30",
+  "source": "https://www.pacificprovisionscafe.com/",
+  "src": "shop",
+  "evidence": "1100 4th Ave. Seattle Washington 98101 | Open Hours: 7 Days a Week - 7am - 2pm & 4:30pm - 8:30pm",
+  "late": true,
+  "note": "Pacific Provisions Cafe and Wine Bar."
+ },
+ {
+  "id": "n3700405187",
+  "name": "Bobalust",
+  "status": "confirmed",
+  "hours": "Mo-Th 13:00-21:00; Fr-Sa 13:00-22:00; Su 13:00-21:00",
+  "source": "https://www.bobalustteahouse.com/locations",
+  "src": "shop",
+  "evidence": "BURIEN HOURS Sunday - Thursday: 1 PM - 9 PM Friday & Saturday: 1 PM - 10 PM LOCATION 116 SW 148th St Burien, WA 98166",
+  "late": true,
+  "note": "OpenStreetMap's website tag for this place is starbucks.com, which is wrong; the hours were read on Bobalust's own locations page, the Burien block matched by street address."
+ },
+ {
+  "id": "n3771994713",
+  "name": "Canarino Gelato Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 12:00-22:00",
+  "source": "https://www.canarinogelato.com/",
+  "src": "shop",
+  "evidence": "Edmonds' Home-Made Gelato Store Current Hours: 12pm - 10pm Canarino Gelato 203 5th Ave S #4 Edmonds, WA 98020",
+  "late": true,
+  "note": "One range with no days, read as every day; OpenStreetMap says the same."
+ },
+ {
+  "id": "n3825547357",
+  "name": "Rain Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-21:00",
+  "source": "https://raincafetogo.com/",
+  "src": "shop",
+  "evidence": "Working Hours Sunday 11:00 AM - 09:00 PM Monday 11:00 AM - 09:00 PM ... Saturday 11:00 AM - 09:00 PM ... 13200 Aurora Ave N suite c",
+  "late": true,
+  "note": "The page's schema.org says the same."
+ },
+ {
+  "id": "n4115243592",
+  "name": "Jucivana",
+  "status": "skipped",
+  "reason": "cannot tell a normal week",
+  "page": "https://jucivana.com/",
+  "note": "The page is from 2021: 'open for dining ... indoor dining at 75% capacity', 'PROOF OF VACCINE REQUIRED ... In accordance with Seattle mandates'. Its hours (Mon-Thu 8-10, Fri-Sat 8-1, Sun 10-5) are that period's and differ from OpenStreetMap's."
+ },
+ {
+  "id": "n4312276310",
+  "name": "Meetea Cafe",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://meeteacafe.com/",
+  "note": "SSLError in the harvest and by hand (https and http)."
+ },
+ {
+  "id": "n4349270303",
+  "name": "Overcast Coffee Company",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-18:00; Sa-Su 08:00-17:00",
+  "source": "https://www.overcastcoffee.co/",
+  "src": "shop",
+  "evidence": "Hours & Locations ... 1517 12th ave, suite 100 Seattle, WA 98122 Monday - Friday: 7:00am - 6:00pm Saturday - Sunday: 8:00am - 5:00pm",
+  "late": false,
+  "note": "Two stores on the page; each block is address, then hours. The 6:30am-3pm set belongs to the store at 312 15th Ave E (by Kaiser Permanente). The harvest's cut snippet had put that set under this address."
+ },
+ {
+  "id": "n4396951017",
+  "name": "Greenlake Boathouse Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 09:00-17:00",
+  "source": "https://greenlakeboathouse.com/hours/",
+  "src": "shop",
+  "evidence": "HOURS OF OPERATION Annual Schedule COFFEE SHOP: Fall/Winter • October 1st - February 28th: 9am - 5pm • March: 9am - 6pm ...",
+  "late": false,
+  "note": "The coffee shop's own schedule for this season (October 1 to February 28); boat rentals keep other hours."
+ },
+ {
+  "id": "n4583135599",
+  "name": "Macu Tea",
+  "status": "confirmed_second_look",
+  "hours": "Mo-Su 12:00-20:30",
+  "source": "https://macutea.com.tw/en/shop.php",
+  "src": "brand",
+  "evidence": "Seattle,WA Seattle UW ADDRESS 1100 NE 45th St, Seattle, WA 98105 TEL +1(206)806-8875 OPEN 12PM-8:30PM",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: Mo",
+  "note": "The chain's own store list; matched by address and phone. The list gives day ranges where a store's days differ; this store's line has none, so it is read as every day (as the LA pass read Macu's list)."
+ },
+ {
+  "id": "n458623726",
+  "name": "Serendipity Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:30-20:00",
+  "source": "https://www.serendipitycafeandlounge.com/",
+  "src": "shop",
+  "evidence": "3222 West McGraw Street - CAFE HOURS - Daily 7:30am-8 pm - LOUNGE HOURS - Monday- Friday 3pm-CL Saturday-Sunday 12pm-CL",
+  "late": true,
+  "note": "The café's hours, not the lounge's (which stays open to close)."
+ },
+ {
+  "id": "n471973084",
+  "name": "Coco",
+  "status": "needs_browser",
+  "reason": "site refused",
+  "page": "https://www.cocofreshtea.com/",
+  "note": "HTTP 403 in the harvest and again by hand. CoCo is a chain; would be src brand."
+ },
+ {
+  "id": "n4840570427",
+  "name": "Boba Buddies",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.bobabuddiespnw.com/",
+  "note": "Square Online site drawn by script; no hours in the HTML."
+ },
+ {
+  "id": "n4908996127",
+  "name": "Over the Rainbow",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://www.overtherainbowteabar.com/renton-tea-room/",
+  "note": "The page says 'Please see Google for up-to-date store hours'. Its schema.org (phone 425-641-2642, another store's; Mo-Th 12-8, Fr-Sa 12-9, Su 12-8) differs from OpenStreetMap's and was not used."
+ },
+ {
+  "id": "n5327686999",
+  "name": "Chicha San Chen",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.chichasanchen.com/en/store/map.php",
+  "note": "The chain's store map picks stores by region by script; no US store or hours in the HTML. Would be src brand."
+ },
+ {
+  "id": "n5706976227",
+  "name": "Sunlight Cafe",
+  "status": "needs_browser",
+  "reason": "site refused",
+  "page": "https://sunlightcafevegetarian.com/",
+  "note": "HTTP 403 in the harvest and again by hand."
+ },
+ {
+  "id": "n5914739987",
+  "name": "The Kite Café",
+  "status": "confirmed_second_look",
+  "hours": "Mo-We off; Th 11:00-18:00; Fr 11:00-19:00; Sa-Su 09:00-19:00",
+  "source": "https://www.thekitecafe.com/",
+  "src": "shop",
+  "evidence": "Hours: Mon - Wed: Closed Thurs: 11am - 6pm Fri: 11am - 7pm Sat & Sun: 9am - 7pm Holiday Hours: Closed 12/20 - 12/30 New Years Day: Open 8am - 4pm The Kite Cafe Golden Gardens Bathhouse 8498 Seaview Pl. NW",
+  "late": false,
+  "guard": "open days differ from OpenStreetMap's: Mo,Tu,We",
+  "note": "The holiday lines were ignored."
+ },
+ {
+  "id": "n5972424385",
+  "name": "Basecamp Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:30-20:00; Sa-Su 07:00-19:00",
+  "source": "https://www.joingearhouse.com/gearhouse-coffee",
+  "src": "shop",
+  "evidence": "Open to the public 7:30am - 8pm weekdays 7am-7pm weekends ... HOURS Gearhouse Coffee Shop Monday - Friday 7:30am-8pm Saturday - Sunday 7am-7pm ... 800 E Thomas St.",
+  "late": true,
+  "note": "The café now goes by Gearhouse Coffee Shop (the Basecamp Cafe link redirects here). The page's schema.org (800 E Thomas St Ste A) says the same; the gear window's hours were not used."
+ },
+ {
+  "id": "n5996815885",
+  "name": "Nana’s Green Tea",
+  "status": "skipped",
+  "reason": "page's hours not certain",
+  "page": "https://www.nanasgreenteawa.com/locations",
+  "note": "'Seattle 1007 Stewart St. Ste 103 (206) 785-6477 Hours: Fri, Sat 11AM - 9:30AM Sun - Thur 11AM - 9PM': Friday and Saturday read 9:30 AM, a slip the page has to fix before it can be written down. (The harvest's cut snippet showed the Bellevue store's 10AM set next to this address.) Sun-Thu agree with OpenStreetMap."
+ },
+ {
+  "id": "n6136201088",
+  "name": "Third Place Teas",
+  "status": "skipped",
+  "reason": "page's hours not certain",
+  "page": "https://www.thirdplaceteas.com/",
+  "note": "'Wednesday-Thursday, 11AM-8PM Friday-Saturday, 11AM-10PM': only four days listed, so Sunday to Tuesday cannot be read as closed. Same as OpenStreetMap's. The December closure line was ignored."
+ },
+ {
+  "id": "n6238815766",
+  "name": "Just Poké",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://justpoke.com/locations/fremont/",
+  "note": "The store page has the address and 'Order via DoorDash', no hours. A poke and açaí bowl chain ('serves custom poke and acai bowls ... DIY Tea Lab can also be found here')."
+ },
+ {
+  "id": "n6341713485",
+  "name": "Little Oddfellows",
+  "status": "skipped",
+  "reason": "site gone",
+  "page": "https://www.oddfellowscafe.com/little-oddfellows",
+  "note": "HTTP 404. The site's home page is Oddfellows Café and Bar at 1525 10th Ave, a different place; it does not mention Little Oddfellows."
+ },
+ {
+  "id": "n6747240389",
+  "name": "Homegrown",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://eathomegrown.com/locations",
+  "note": "The chain's locations page picks a store by script ('Select a Region'); no Mercer Island hours in the HTML. Homegrown is a sandwich chain."
+ },
+ {
+  "id": "n735983213",
+  "name": "Dough Joy",
+  "status": "confirmed",
+  "hours": "Mo-Tu off; We-Th 07:00-16:00; Fr-Sa 07:00-19:00; Su 07:00-16:00",
+  "source": "https://doughjoydonuts.com/locations/",
+  "src": "shop",
+  "evidence": "Ballard ... 2052 NW Market St. 98107 Wednesday / 7a-4p Thursday / 7a-4p Friday / 7a-7p Saturday / 7a-7p Sunday / 7a - 4p *Closed Monday & Tuesday*",
+  "late": false,
+  "note": "Two stores on the page; the Ballard block matched by address."
+ },
+ {
+  "id": "n7509056637",
+  "name": "Gold Vine",
+  "status": "skipped",
+  "reason": "page's hours not certain",
+  "page": "https://www.goldvinecoffee.com/",
+  "note": "'Open 8am EVERYDAY, Late nights Wednesday - Sunday 9pm': Monday and Tuesday's closing time is not given."
+ },
+ {
+  "id": "n8017361519",
+  "name": "Panino",
+  "status": "not_a_cafe",
+  "source": "https://www.mypanino.com/",
+  "note": "Its own page: 'PANINI BY DAY PIZZA BY NIGHT ... Italian sandwiches ... Beginning at 5:00 PM, Panino transitions to our evening pizza menu'; no coffee anywhere on it. Hours there: Mon - Fri 11am - 2:30pm, 5pm - 10pm; Sat - Sun 12pm - 10pm."
+ },
+ {
+  "id": "n9211179006",
+  "name": "Meetea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.ordertogo.com/MeeteaCafe",
+  "note": "Ordering page drawn by script; no hours in the HTML."
+ },
+ {
+  "id": "n9548198701",
+  "name": "Gong Cha",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.gong-cha.com/store-finder",
+  "note": "The chain's store finder is drawn by script; no stores in the HTML. Gong Cha is a chain; would be src brand."
+ },
+ {
+  "id": "n9590561117",
+  "name": "Husky Grind Café",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+  "source": "https://hfs.uw.edu/eat/dining-hours/husky-grind-cafe-dm-alder/",
+  "src": "shop",
+  "evidence": "Husky Grind Café, District Market Alder ... Special Hours: AUTUMN HOURS Monday-Friday 7 a.m.-8 p.m. Saturday-Sunday 8 a.m.-8 p.m.",
+  "late": true,
+  "note": "The page's 'Operating hours' list is this week's (Wed 7-3, Thu and Fri closed, Sat 8-5: Thanksgiving); the autumn-quarter hours are the normal week and were taken. University dining hours change at the quarter break."
+ },
+ {
+  "id": "n9683712042",
+  "name": "Hui Lau Shan",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://www.redmondhls.com/",
+  "note": "Home and about pages have the address (15120 NE 24th St) and no hours. Hui Lau Shan is a Hong Kong chain (over 260 branches)."
+ },
+ {
+  "id": "w115699732",
+  "name": "Fremont Coffee Company",
+  "status": "confirmed",
+  "hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+  "source": "https://www.fremontcoffee.net/",
+  "src": "shop",
+  "evidence": "459 N 36th St, Seattle, WA 98103 (Map) Hours: M-F: 6am-8pm Sat-Sun: 7am-8pm",
+  "late": true
+ },
+ {
+  "id": "w1171049495",
+  "name": "12th Avenue Café",
+  "status": "not_a_cafe",
+  "source": "https://12thavenuecafe.com/",
+  "note": "Its own page: 'Cozy family diner oferring hearty servings of comfort food and American diner classics in Issaquah, WA.' (the page's description; its hours are drawn by script and were not read)."
+ },
+ {
+  "id": "w1256939013",
+  "name": "Boon Boona Coffee",
+  "status": "confirmed",
+  "hours": "Mo-Su 08:00-20:00",
+  "source": "https://www.boonboonacoffee.com/pages/overlook-walk",
+  "src": "shop",
+  "evidence": "1515 Western Ave, Seattle, WA 98101 MONDAY - SUNDAY 8am - 8pm 206-665-2366",
+  "late": true,
+  "note": "The location's own page."
+ },
+ {
+  "id": "w1365269575",
+  "name": "203° Fahrenheit",
+  "status": "confirmed",
+  "hours": "Mo-Th 07:00-19:00; Fr-Sa 07:00-20:00; Su 07:00-19:00",
+  "source": "https://203fahrenheitcoffee-szcz7r66.toast.site/order/203degreesfahrenheit-northeastvillageplaza",
+  "src": "shop",
+  "evidence": "Toast ordering site, location 'Northeast Village Plaza' 11901 NORTHEAST VILLAGE PLAZA- B171 Kirkland, 4252859382, schedule: monday-thursday 07:00-19:00; friday-saturday 07:00-20:00; sunday 07:00-19:00",
+  "late": true,
+  "note": "The shop's own ordering page (linked from its cafés page, which has no hours); matched by address and phone. Read from the page's own location data; it equals OpenStreetMap's hours."
+ },
+ {
+  "id": "w1365269637",
+  "name": "Lady Yum",
+  "status": "confirmed",
+  "hours": "Mo-Su 10:00-22:00",
+  "source": "https://ladyyum.com/pages/locations",
+  "src": "shop",
+  "evidence": "Totem lake Village 11900 NE Village Plaza Suite 184 Kirkland, WA 98034 OPEN 7 DAYS A WEEK 10AM-10PM",
+  "late": true,
+  "note": "Multi-store page; matched by street address; the page's two lists agree."
+ },
+ {
+  "id": "w1365269639",
+  "name": "Don't Yell At Me",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://it14321.wixsite.com/don-t-yell-at-me",
+  "note": "Only the address, email and phone."
+ },
+ {
+  "id": "w1391221517",
+  "name": "Drip Tea",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "page": "https://thedriptea.com/",
+  "note": "The three stores' addresses (incl. 500 Bellevue Way NE) with no hours on the home or contact page."
+ },
+ {
+  "id": "w228777291",
+  "name": "Cafe Selam",
+  "status": "confirmed",
+  "hours": "Mo-Su 10:00-21:00",
+  "source": "https://www.cafeselam.com/",
+  "src": "shop",
+  "evidence": "Hours & Directions Hours 7 Days a Week 10 AM to 9 PM Address 2715 E. Cherry",
+  "late": true,
+  "note": "An Ethiopian café-restaurant ('Seattle's culinary mainstay for authentic Ethiopian food')."
+ },
+ {
+  "id": "w231270565",
+  "name": "C&P Coffee Company",
+  "status": "confirmed",
+  "hours": "Mo-Th 06:00-18:00; Fr 06:00-20:00; Sa 07:00-20:00; Su 07:00-18:00",
+  "source": "https://candpcoffee.com/",
+  "src": "shop",
+  "evidence": "5612 California Avenue SW Open: Monday - Thursday 6 am to 6 pm Friday 6 am - 8 pm Saturday 7am - 8 pm Sunday 7 am - 6 pm",
+  "late": true
+ },
+ {
+  "id": "w316480822",
+  "name": "SoulFood Coffee House",
+  "status": "confirmed",
+  "hours": "Mo-We 07:30-18:00; Th-Fr 07:30-20:00; Sa 08:00-21:00; Su 08:00-18:00",
+  "source": "https://soulfoodcoffeehouse.com/",
+  "src": "shop",
+  "evidence": "HOURS Mon - Wed: 7:30AM - 6PM Thu - Fri: 7:30AM - 8PM Sat: 8AM - 9PM Sun: 8AM - 6PM 15748 Redmond Way, Redmond, WA 98052",
+  "late": true
+ },
+ {
+  "id": "w325460106",
+  "name": "Midnight Cookie Co.",
+  "status": "not_a_cafe",
+  "source": "https://www.midnightcookieco.com/locations",
+  "note": "A cookie shop for pick-up and delivery: 'Kirkland, WA 9702 NE Juanita Drive (inside Spud Fish & Chips) ... Store and Delivery Hours: Monday - Sunday: 10am - 12am'. No coffee or seats anywhere on its own pages (as Chip Cookies in the Bay Area pass)."
+ },
+ {
+  "id": "w331767017",
+  "name": "Citizen Cafe",
+  "status": "skipped",
+  "reason": "site is no longer the shop's",
+  "page": "https://www.citizencoffee.com/",
+  "note": "The page is a 2010 WordPress post ('Published October 19, 2010', 'Welcome to citizencoffee.com!') with unrelated links added (abukumakawauchi.com, 'amazingnailsspanapa.com'): a lapsed domain dressed with the old content. Its hours (Sun 7am-9pm) were not used. Not proof the café closed."
+ }
+]

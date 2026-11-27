@@ -1,0 +1,54 @@
+{
+ "id": "n3825547357",
+ "name": "Rain Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:00",
+ "src": "shop",
+ "source": "https://raincafetogo.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-21:15",
+ "note": "OpenStreetMap said \"11:00-21:15\"; the shop's own source wins. Read: Working Hours Sunday 11:00 AM - 09:00 PM Monday 11:00 AM - 09:00 PM ... Saturday 11:00 AM - 09:00 PM ... 13200 Aurora Ave N suite c The page's schema.org says the same."
+}

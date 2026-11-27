@@ -1,0 +1,9 @@
+{
+ "id": "n2159323127",
+ "name": "La Dive",
+ "exclude": true,
+ "source": "https://www.ladiveseattle.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 15:00-02:00; Sa,Su 12:00-02:00",
+ "note": "Its own page: 'la dive natural wine bar is open daily: 3p to 2a monday-friday, noon to 2a saturday & sunday'; 'wine shop + bar / wine club'."
+}

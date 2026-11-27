@@ -1,0 +1,54 @@
+{
+ "id": "n2584438698",
+ "name": "BobaLust",
+ "hours": [
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 13:00-22:00; Fr-Sa 13:00-23:00; Su 13:00-22:00",
+ "src": "shop",
+ "source": "https://www.bobalustteahouse.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 13:00-22:00; Fr,Sa 13:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: KIRKLAND HOURS Sunday - Thursday: 1 PM - 10 PM Friday & Saturday: 1 PM - 11 PM LOCATION 6617 132nd Ave NE Kirkland, WA 98033 Multi-store page; the Kirkland block matched by street address. (The harvest's cut snippet put the Burien hours under this address; the whole page shows the order.)"
+}

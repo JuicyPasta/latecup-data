@@ -1,0 +1,55 @@
+{
+ "id": "n4583135599",
+ "name": "Macu Tea",
+ "hours": [
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ],
+  [
+   [
+    720,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-20:30",
+ "src": "brand",
+ "source": "https://macutea.com.tw/en/shop.php",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Sa 12:00-20:30; Su 12:00-18:00",
+ "note": "OpenStreetMap said \"Tu-Sa 12:00-20:30; Su 12:00-18:00\"; the page says \"Seattle,WA Seattle UW ADDRESS 1100 NE 45th St, Seattle, WA 98105 TEL +1(206)806-8875 OPEN 12PM-8:30PM\". Held by the publish guard (open days differ from OpenStreetMap's: Mo); the page was read a second time on 2026-11-27 and stands. The chain's own store list; matched by address and phone. The list gives day ranges where a store's days differ; this store's line has none, so it is read as every day (as the LA pass read Macu's list).",
+ "second_look": "2026-11-27"
+}

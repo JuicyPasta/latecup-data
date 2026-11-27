@@ -1,0 +1,55 @@
+{
+ "id": "n13311996901",
+ "name": "Cardoon",
+ "hours": [
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-16:00",
+ "src": "shop",
+ "source": "https://cardoonseattle.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Mo, We-Fr 08:00-16:00; Sa 08:00-20:00",
+ "note": "OpenStreetMap said \"Su-Mo, We-Fr 08:00-16:00; Sa 08:00-20:00\"; the page says \"Cardoon - a cozy Seattle cafe bar 2423 NW Market St Open daily 8a - 4p 🦃 Thanksgiving week: Thu 11/26 · 8a - 1p All other days · 8a - 4p\". Held by the publish guard (open days differ from OpenStreetMap's: Tu); the page was read a second time on 2026-11-27 and stands. The Thanksgiving line was ignored.",
+ "second_look": "2026-11-27"
+}

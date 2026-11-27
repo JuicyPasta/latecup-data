@@ -1,0 +1,54 @@
+{
+ "id": "n13624124455",
+ "name": "Haebing Dessert",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-22:00",
+ "src": "shop",
+ "source": "https://guitar-lynx-7ajb.squarespace.com/menu",
+ "checked": "2026-11-27",
+ "osm_hours": "12:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 800 164TH ST SE STE UNIT N, MILL CREEK, WA 98012 (425) 510-3032 HOURS Sunday - Saturday 12 PM - 10 PM Matched by address and phone."
+}

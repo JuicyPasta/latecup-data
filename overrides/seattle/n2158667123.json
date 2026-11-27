@@ -1,0 +1,54 @@
+{
+ "id": "n2158667123",
+ "name": "Hot Cakes",
+ "hours": [
+  [
+   [
+    960,
+    1440
+   ]
+  ],
+  [
+   [
+    960,
+    1440
+   ]
+  ],
+  [
+   [
+    960,
+    1440
+   ]
+  ],
+  [
+   [
+    960,
+    1440
+   ]
+  ],
+  [
+   [
+    960,
+    1440
+   ]
+  ],
+  [
+   [
+    900,
+    1440
+   ]
+  ],
+  [
+   [
+    900,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 16:00-24:00; Sa-Su 15:00-24:00",
+ "src": "shop",
+ "source": "https://getyourhotcakes.com/pages/cap",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 16:00-23:00; Fr 16:00-24:00; Sa 15:00-24:00; Su 15:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Th 16:00-23:00; Fr 16:00-24:00; Sa 15:00-24:00; Su 15:00-23:00\"; the shop's own source wins. Read: 1650 E Olive Way HOURS Monday - Friday: 4pm - 12am Saturday - Sunday: 3pm - 12am The Capitol Hill store's own page. The holiday shipping notice is about cake orders, not the shop's hours."
+}

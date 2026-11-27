@@ -1,0 +1,54 @@
+{
+ "id": "n2400976424",
+ "name": "Rabbit Rabbit",
+ "hours": [
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-20:00",
+ "src": "shop",
+ "source": "https://www.searabbittea.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Address 518 1st Avenue North, Seattle, WA, 98109 Opening Hours Everyday 12PM - 8PM The page's schema.org says the same."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n2138396731",
+ "name": "Sabine",
+ "hours": [
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo 08:00-15:00; Tu-Th 08:00-21:00; Fr-Sa 08:00-22:00; Su 08:00-15:00",
+ "src": "shop",
+ "source": "https://sabinecafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su,Mo 08:00-15:00; Tu-Th 08:00-21:00; Fr,Sa 08:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: ballard 5307 ballard ave nw ... ballard hours - sunday & monday: 8:00am-3:00pm tuesday-thursday: 8:00am-9:00pm friday & saturday: 8:00am-10:00pm The Ballard block matched by address (the page also has Bellevue's). The page's schema.org (every day 9-4) disagrees and was not used; visible text wins. Counter-service café until 5 PM, table service and dinner reservations after."
+}

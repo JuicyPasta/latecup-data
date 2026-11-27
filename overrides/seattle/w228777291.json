@@ -1,0 +1,54 @@
+{
+ "id": "w228777291",
+ "name": "Cafe Selam",
+ "hours": [
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 10:00-21:00",
+ "src": "shop",
+ "source": "https://www.cafeselam.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 10:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Hours & Directions Hours 7 Days a Week 10 AM to 9 PM Address 2715 E. Cherry An Ethiopian café-restaurant ('Seattle's culinary mainstay for authentic Ethiopian food')."
+}

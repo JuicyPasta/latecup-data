@@ -1,0 +1,54 @@
+{
+ "id": "n12552626033",
+ "name": "Natalie's Sugarcane & Dessert",
+ "hours": [
+  [
+   [
+    600,
+    1140
+   ]
+  ],
+  [
+   [
+    600,
+    1140
+   ]
+  ],
+  [
+   [
+    600,
+    1140
+   ]
+  ],
+  [
+   [
+    600,
+    1140
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:00-19:00; Fr-Sa 10:00-20:00; Su 10:00-19:00",
+ "src": "shop",
+ "source": "https://nataliesonalki.wixsite.com/natalies/contact-4",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th, Su 10:00-19:00; Fr-Sa 10:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Located Inside Lam's Seafood - Tukwila ... 17348 Southcenter Pkwy, Tukwila, WA 98188 (206) 666-2675 Opening Hours Sun - Thur 10:00 am - 7:00 pm Friday & Saturday 10:00 am - 8:00 pm A dessert and sugarcane counter inside Lam's Seafood Market."
+}

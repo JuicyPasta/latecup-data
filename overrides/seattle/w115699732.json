@@ -1,0 +1,54 @@
+{
+ "id": "w115699732",
+ "name": "Fremont Coffee Company",
+ "hours": [
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.fremontcoffee.net/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:00-20:00; Sa-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: 459 N 36th St, Seattle, WA 98103 (Map) Hours: M-F: 6am-8pm Sat-Sun: 7am-8pm"
+}
