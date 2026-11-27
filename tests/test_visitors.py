@@ -814,3 +814,27 @@ def test_a_point_belongs_to_the_containing_area_whose_centre_is_nearest():
 
 def test_the_numbers_of_the_rules():
     assert V.MAX_AGE_DAYS == 120 and V.SLACK == 30 and V.APPS == ("ios", "android") and V.FIRST_AREA == "nyc"
+
+
+def test_the_desks_lists_stay_readable_whatever_is_sent():
+    # nine installs with nine different weeks for one place: the five best are listed, and how many more there are
+    rows = [fix(n, shifted(EARLIER, 0, -45 * n), f"2026-12-0{n} 20:00") for n in range(1, 10)]
+    entry = judge(rows)["proposals"][0]
+    assert len(entry["tables"]) == V.MAX_LISTED == 5 and entry["more_tables"] == 4 and entry["waiting"] == "1 more install"
+    assert "more_tables" not in judge(rows[:5])["proposals"][0]
+    # a café that nine installs describe nine ways: five tables
+    out = V.adds([add(n, 41.88, -87.63, table=shifted(EARLIER, 0, -45 * n)) for n in range(1, 10)], AREAS, now=NOW, tz=NY)
+    assert len(out) == 1 and out[0]["n"] == 9 and len(out[0]["tables"]) == 5
+
+
+def test_pins_on_two_sides_of_a_grid_line_are_one_cafe():
+    # the adds are filed in squares of 0.002 degrees; a café is not cut in two by the edge of one
+    edge = 41.882                                                   # a multiple of 0.002
+    out = V.adds([add(1, edge - 0.0001, -87.6300), add(2, edge + 0.0001, -87.6300),         # 22 m apart, across the line
+                  add(3, edge + 0.0001, -87.6299), add(4, edge + 0.0010, -87.6300)],       # and one 100 m further
+                 AREAS, now=NOW, tz=NY)
+    assert [a["n"] for a in out] == [3, 1]
+    # ... and the places we already have are found across it too
+    areas = [dict(AREAS[1], places=[("n1", edge + 0.0002, -87.6300), ("n2", edge + 0.0030, -87.6300)])]
+    out = V.adds([add(1, edge - 0.0001, -87.6300)], areas, now=NOW, tz=NY)
+    assert out[0]["near"] == ["n1"]

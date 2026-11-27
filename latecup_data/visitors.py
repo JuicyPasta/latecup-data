@@ -33,6 +33,8 @@ MAX_A_DAY = 10        # visitors' records written in one area for one day. A bra
                       # the platform of a row is whatever the sender says, so two scripted rows are "two installs"
 MAX_TABLES = 24       # distinct tables weighed for one place (the best supported and newest)
 NEAR_M = 50           # `add` rows this close together are one café
+MAX_LISTED = 5        # tables listed for one place on the desk's list, and for one café visitors would add
+MAX_ADDS = 500        # cafés on the desk's list of adds (the most asked-for)
 APPS = ("ios", "android")
 DAYS = ("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
 FIRST_AREA = "nyc"
@@ -421,8 +423,10 @@ def assess(rows, known, *, now, tz, weights=None, changed=None, records=None, re
         groups = _groups(asks, weights)
         entry = {"id": pid, "name": p.get("name"), "addr": p.get("addr"), "src": p["src"], "checked": p["checked"],
                  "web": p.get("web"), "on_map": p["map"], "now": old,
-                 "tables": [{"hours": g["hours"], "n": g["n"], "date": day(g["when"])} for g in groups],
+                 "tables": [{"hours": g["hours"], "n": g["n"], "date": day(g["when"])} for g in groups[:MAX_LISTED]],
                  "web_flags": len(web), "latest": day(max([g["when"] for g in groups] + web))}
+        if len(groups) > MAX_LISTED:
+            entry["more_tables"] = len(groups) - MAX_LISTED
         entries.append(entry)
         if not groups:
             entry["waiting"], entry["why"] = "the desk", "flagged from the web only: a fix from the web is a flag"
@@ -504,6 +508,17 @@ def _metres(a, b):
     return math.hypot((a[1] - b[1]) * 111320 * math.cos(math.radians(a[0])), (a[0] - b[0]) * 111200)
 
 
+def _cell(lat, lon):
+    """A square of 0.002 degrees: two points within 50 m are in the same square or in neighbours."""
+    return math.floor(lat / 0.002), math.floor(lon / 0.002)
+
+
+def _around(grid, lat, lon):
+    """Everything filed in a point's square and the eight around it."""
+    row, col = _cell(lat, lon)
+    return [x for dr in (-1, 0, 1) for dc in (-1, 0, 1) for x in grid.get((row + dr, col + dc), ())]
+
+
 def area_of(lat, lon, areas):
     """The area a point is in: the containing rectangle whose centre is
     nearest (SPEC, "Areas"). None outside every one."""
@@ -524,18 +539,23 @@ def adds(rows, areas, *, now, tz, weights=None):
        asked-for first. No names: they are not in what the pipeline reads.
     """
     weights = weights or {}
-    groups = []
+    groups, grid = [], {}
     for when, iid, lat, lon, cat, table, platform in sorted(rows, key=lambda r: r[0]):
         if when > now + timedelta(minutes=10) or now - when >= timedelta(days=MAX_AGE_DAYS):
             continue
         app = platform in APPS
         if app and weights.get(iid, 1) == 0:
             continue
-        g = next((g for g in groups if _metres(g["at"], (lat, lon)) <= NEAR_M), None)
-        if g is None:
+        # the café this pin belongs to: the first one made within 50 m of it
+        close = [n for n in _around(grid, lat, lon) if _metres(groups[n]["at"], (lat, lon)) <= NEAR_M]
+        if close:
+            g = groups[min(close)]
+        else:
             g = {"at": (lat, lon), "by": {}}
+            grid.setdefault(_cell(lat, lon), []).append(len(groups))
             groups.append(g)
         g["by"][(app, iid)] = (when, lat, lon, cat, table)         # the newest per install
+    have = {}
     out = []
     for g in groups:
         rows_ = sorted(g["by"].values(), key=lambda r: r[0])
@@ -548,15 +568,22 @@ def adds(rows, areas, *, now, tz, weights=None):
             t = tables.setdefault(encode(canon(r[4])), {"hours": r[4], "n": 0, "when": r[0]})
             t["n"] += 1
             t["when"] = max(t["when"], r[0])
-        near = sorted((round(_metres((lat, lon), (plat, plon))), pid) for pid, plat, plon in (area or {}).get("places", ())
-                      if _metres((lat, lon), (plat, plon)) <= NEAR_M)
+        near = []
+        if area is not None:
+            if area["id"] not in have:
+                have[area["id"]] = {}
+                for place in area.get("places", ()):
+                    have[area["id"]].setdefault(_cell(place[1], place[2]), []).append(place)
+            near = sorted((round(_metres((lat, lon), (plat, plon))), pid)
+                          for pid, plat, plon in _around(have[area["id"]], lat, lon)
+                          if _metres((lat, lon), (plat, plon)) <= NEAR_M)
         newest = max(r[0] for r in rows_)
+        listed = sorted(tables.values(), key=lambda t: (-t["n"], -t["when"].timestamp()))
         out.append({"lat": lat, "lon": lon, "area": area["id"] if area else None,
                     "cat": max(cats, key=lambda c: (cats[c], max(r[0] for r in rows_ if r[3] == c))),
                     "n": sum(1 for app, _iid in g["by"] if app), "web": sum(1 for app, _iid in g["by"] if not app),
                     "date": newest.astimezone(area["tz"] if area else tz).date().isoformat(),
-                    "tables": [{"hours": t["hours"], "n": t["n"]}
-                               for t in sorted(tables.values(), key=lambda t: (-t["n"], -t["when"].timestamp()))],
+                    "tables": [{"hours": t["hours"], "n": t["n"]} for t in listed[:MAX_LISTED]],
                     "near": [pid for _m, pid in near[:5]]})
     out.sort(key=lambda a: (-(a["n"] + a["web"]), a["date"], a["lat"], a["lon"]))
     return out

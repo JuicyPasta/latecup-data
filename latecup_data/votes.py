@@ -417,15 +417,21 @@ def _readings(areas, repo, warn):
     return out
 
 
-def _desk_list(path, key, items, now):
+def _desk_list(path, key, items, now, more=0):
     """Write one of the desk's lists when what it says has changed. A list
-    with nothing in it is not created. -> True when the file was written."""
+    with nothing in it is not created. `more`: how many entries the list
+    leaves out (it is cut at a length a person can read and a host can
+    serve, whatever is sent). -> True when the file was written."""
     try:
         old = json.loads(path.read_text())
     except (OSError, ValueError):
         old = None
-    body = _dump({"generated": now, key: items})
-    if (old is None and not items) or (isinstance(old, dict) and old.get(key) == json.loads(body)[key]):
+    doc = {"generated": now, key: items}
+    if more:
+        doc["more"] = more
+    body = _dump(doc)
+    if (old is None and not items) or (isinstance(old, dict) and old.get(key) == json.loads(body)[key]
+                                       and old.get("more", 0) == more):
         return False
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_bytes(body)
@@ -562,7 +568,8 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
                  for a in areas if a["bbox"] and a["center"]]
         cafes = visitors.adds([(r[0], r[3]["iid"], r[3]["lat"], r[3]["lon"], r[3]["cat"], r[3]["table"], r[4])
                                for r in added], where, now=when, tz=sheet_tz, weights=weights)
-        changed |= _desk_list(site / "ops" / "adds.json", "adds", cafes, now)
+        changed |= _desk_list(site / "ops" / "adds.json", "adds", cafes[:visitors.MAX_ADDS], now,
+                              max(len(cafes) - visitors.MAX_ADDS, 0))
         if cafes:
             log(f"{len(cafes)} café(s) visitors would add, on the desk's list")
     return Result(changed, writes)

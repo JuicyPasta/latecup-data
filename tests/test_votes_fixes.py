@@ -577,3 +577,19 @@ def test_new_york_waits_and_the_other_areas_do_not():
 
 def test_the_limits_match_the_counts():
     assert V.MAX_AGE_DAYS == votes.MAX_AGE_DAYS == 120 and votes.MAX_VOTES_A_DAY == 30
+
+
+def test_the_list_of_adds_is_cut_at_a_length_and_says_so(site, repo):
+    # 520 cafés, each asked for once, a kilometre apart
+    rows = [add_row("2026-12-03 20:00", n, f"{41.60 + (n % 26) * 0.01:.5f}", f"{-88.00 + (n // 26) * 0.012:.5f}") for n in range(520)]
+    result, lines = run(site, csv(*rows), repo)
+    adds = read(site / "ops" / "adds.json")
+    assert len(adds["adds"]) == V.MAX_ADDS == 500 and adds["more"] == 20 and result.changed is True
+    assert lines[-1] == "520 café(s) visitors would add, on the desk's list"
+    assert run(site, csv(*rows), repo, now="2026-12-10T18:00:00Z")[0].changed is False
+    assert "more" not in read_after(site, repo, rows[:400])
+
+
+def read_after(site, repo, rows):
+    run(site, csv(*rows), repo, now="2026-12-10T19:00:00Z")
+    return read(site / "ops" / "adds.json")
