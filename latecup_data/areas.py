@@ -20,6 +20,12 @@ areas/<id>.json:
           yet: places carry no `hood`)
   city    where the municipality comes from: "addr:city" (the OSM tag) or
           null (not written; New York has boroughs)
+  visitors  optional. true: hours that visitors agreed on (visitors/, written
+          by the hourly job) are published here as `src` "visitors". Left
+          out, it is false for New York and true everywhere else: the app
+          that is out (1.0.0) reads New York's file and would show a `src`
+          it does not know as OpenStreetMap's, so New York waits for a
+          `min_build` rise
   live    true: built by a plain `python -m latecup_data.run` and so
           published by the daily job. false: built only when named
 """
@@ -49,6 +55,7 @@ class Area:
         self.clip = [tuple(p) for p in rec["clip"]] if rec.get("clip") else None
         self.hoods = rec.get("hoods")
         self.city = rec.get("city")
+        self.visitors = bool(rec["visitors"]) if "visitors" in rec else self.id != FIRST
         self.live = bool(rec.get("live", False))
 
     def __repr__(self):
@@ -61,6 +68,11 @@ class Area:
     @property
     def votes(self):
         return f"{self.id}-votes.json"
+
+    @property
+    def help(self):
+        """The area's help file: the cafés that are not on the late map and that nobody has confirmed."""
+        return f"{self.id}-help.json"
 
     @property
     def outside(self):
@@ -130,6 +142,7 @@ def check(rec):
         need(geo._in_ring(ctr[1], ctr[0], [tuple(p) for p in clip]), "center is outside the clip polygon")
     need(rec.get("hoods") is None or rec["hoods"] in HOODS, f"hoods is null or one of {HOODS}")
     need(rec.get("city") in (None, "addr:city"), "city is null or \"addr:city\"")
+    need(type(rec.get("visitors", False)) is bool, "visitors is true or false")
     need(type(rec.get("live", False)) is bool, "live is true or false")
 
 
@@ -196,3 +209,8 @@ def hoods_of(folder=None):
     """{area id: its `hoods` setting}, for the validator: a places file of an
     area with neighbourhood polygons must carry `hood` and `boro` on every place."""
     return {a.id: a.hoods for a in load(folder)}
+
+
+def visitors_of(folder=None):
+    """{area id: may its places carry `src` "visitors"}, for the validator."""
+    return {a.id: a.visitors for a in load(folder)}
