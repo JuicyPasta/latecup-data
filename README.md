@@ -147,7 +147,7 @@ Visitors: Example Coffee House closes 23:00 Fri-Sat, 2 installs
 
 and under it the place, the table before and after, the count and the date. The job then starts `refresh`, which builds the record into the feed as `src` `visitors`: under a reading written by hand and under the chain layer, over OpenStreetMap's hours or none, and only in an area whose file says so (`"visitors"` in `areas/<id>.json`; left out, it is off for New York and on everywhere else).
 
-- A record is rewritten when more installs agree, or when visitors agree on other hours. Its count never goes down.
+- A record is rewritten when more installs agree, or when visitors agree on other hours. For the same hours its count never goes down.
 - **To take a record out, delete the file and push.** Nothing else removes one, and it stays out: the job reads the history, and rows older than the deletion never write that record again. What visitors send after it counts as always. If the hours were simply wrong, the lasting fix is the usual one: read the shop's own page and write an override.
 - Pull requests may not add or edit files in `visitors/`.
 
