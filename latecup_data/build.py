@@ -360,8 +360,10 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         # With the chain layer on, a store of a chain the layer reads is a chain's store however few of them the
         # area has. The five-location count would call three Krispy Kreme in one metro three independent cafés,
         # confirmed ones at that, and put a Peet's with no hours on the list of cafés that visitors are asked about
+        # The same goes for a brand that is a chain across the country (chains.NATIONAL): one slug wherever it is
         of_the_layer = {spider.chain for spider in atp.SPIDERS}
-        chain_slugs = [slug or (key if (key := chains.group_key(tags)) in of_the_layer else None)
+        chain_slugs = [chains.national(tags) or slug or
+                       (key if (key := chains.group_key(tags)) in of_the_layer else None)
                        for slug, tags in zip(chain_slugs, known)]
     stats["classified places"] = len(cands)
 
