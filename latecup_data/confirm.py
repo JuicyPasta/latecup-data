@@ -2,7 +2,9 @@
 
 Allowed sources (README): the shop's own website, its ordering page, its
 official Instagram/Facebook, a chain's own store locator. Never a listing
-site. This module only ever fetches the URL it is given (the shop's site as
+site. An Instagram or Facebook account counts only when a person says it is
+the shop's own (`allowed(url, official=handle)`); the fetcher never reads
+those hosts. This module only ever fetches the URL it is given (the shop's site as
 tagged in OSM, or one same-site link from it), at most two pages a site, with
 an honest User-Agent.
 
@@ -25,21 +27,76 @@ from . import SHOP_USER_AGENT
 from . import hours as H
 
 LISTING_HOSTS = re.compile(
-    r"(^|\.)(google|goo|yelp|tripadvisor|foursquare|facebook|fb|instagram|doordash|grubhub|seamless|ubereats|"
+    r"(^|\.)(google|goo|yelp|tripadvisor|foursquare|doordash|grubhub|seamless|ubereats|"
     r"postmates|opentable|resy|zomato|mapquest|yellowpages|restaurantji|menupix|allmenus|sirved|wheree|"
     r"nextdoor|linktr|twitter|x|tiktok|wikipedia|apple)\.[a-z.]+$")
+# A shop's own Instagram or Facebook account is an allowed source (README, CONTRIBUTING.md), but only a person
+# can tell whose account it is. So these hosts are a source only when the record says the account is the shop's
+# (`official`, its handle), and never a page the fetcher reads as a shop's website.
+SOCIAL_HOSTS = re.compile(r"(^|\.)(instagram|facebook|fb)\.com$")
+_NOT_AN_ACCOUNT = {"p", "reel", "reels", "explore", "stories", "tv", "accounts", "share", "sharer", "sharer.php",
+                   "events", "groups", "watch", "marketplace", "login", "login.php", "photo", "photo.php",
+                   "story.php", "permalink.php", "hashtag", "search", "l.php", "pages", "dialog", "plugins", "tr"}
 _DAY = {"monday": 0, "tuesday": 1, "wednesday": 2, "thursday": 3, "friday": 4, "saturday": 5, "sunday": 6,
         "mo": 0, "tu": 1, "we": 2, "th": 3, "fr": 4, "sa": 5, "su": 6,
         "mon": 0, "tue": 1, "wed": 2, "thu": 3, "fri": 4, "sat": 5, "sun": 6}
 
 
-def allowed(url):
-    host = (urlsplit(url).hostname or "").lower()
-    return bool(host) and not LISTING_HOSTS.search(host)
+def social(url):
+    """True for a link to Instagram or Facebook."""
+    try:
+        return bool(SOCIAL_HOSTS.search((urlsplit(str(url).strip()).hostname or "").lower()))
+    except ValueError:
+        return False
+
+
+def official_account(url):
+    """The handle of the Instagram or Facebook account a link is the page of
+    ("https://www.instagram.com/examplecoffee/" -> "examplecoffee"), or None
+    for any other link: a post, a search, a share button, another site."""
+    try:
+        parts = urlsplit(str(url).strip())
+    except ValueError:
+        return None
+    host = (parts.hostname or "").lower()
+    if parts.scheme not in ("http", "https") or not SOCIAL_HOSTS.search(host):
+        return None
+    path = [p for p in parts.path.split("/") if p]
+    if host.endswith("facebook.com") or host.endswith("fb.com"):
+        if path == ["profile.php"]:
+            m = re.search(r"(?:^|&)id=(\d+)(?:&|$)", parts.query)
+            return m.group(1) if m else None
+        if len(path) >= 2 and path[0] == "people":           # facebook.com/people/Example-Coffee/100012345/
+            return path[2] if len(path) >= 3 and path[2].isdigit() else None
+    if not path or path[0].lower() in _NOT_AN_ACCOUNT or not re.fullmatch(r"[A-Za-z0-9._-]{1,50}", path[0]):
+        return None
+    return path[0].lower()
+
+
+def allowed(url, official=None):
+    """True when hours may be read on `url`: not a listing site.
+
+    An Instagram or Facebook page is allowed only with `official`, the
+    handle of the account a person read it as the shop's own, and only when
+    the link is that account's page. The fetcher and the harvest never pass
+    it, so they never read those hosts as a shop's website."""
+    try:
+        host = (urlsplit(url).hostname or "").lower()
+    except (ValueError, AttributeError, TypeError):
+        return False
+    if not host or LISTING_HOSTS.search(host):
+        return False
+    if SOCIAL_HOSTS.search(host):
+        handle = str(official or "").strip().lstrip("@").lower()
+        return bool(handle) and official_account(url) == handle
+    return True
 
 
 def fetch(url, session=None, timeout=20):
-    """-> (final url, text) or raises IOError."""
+    """-> (final url, text) or raises IOError. Never a listing site, and never
+    Instagram or Facebook: a shop's account there is read by a person."""
+    if not allowed(url):
+        raise IOError("not a shop's website (a listing site, Instagram or Facebook)")
     s = session or requests
     try:
         r = s.get(url, headers={"User-Agent": SHOP_USER_AGENT, "Accept": "text/html,application/xhtml+xml",
@@ -51,7 +108,7 @@ def fetch(url, session=None, timeout=20):
     if "html" not in r.headers.get("Content-Type", "html"):
         raise IOError("not HTML")
     if not allowed(r.url):
-        raise IOError("redirected to a listing site")
+        raise IOError("redirected to Instagram or Facebook" if social(r.url) else "redirected to a listing site")
     r.encoding = r.encoding if r.encoding and r.encoding.lower() != "iso-8859-1" else r.apparent_encoding
     return r.url, r.text[:1_500_000]
 

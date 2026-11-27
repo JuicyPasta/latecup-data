@@ -6,7 +6,7 @@ decisions.json: [{"id", "status": "confirmed" | "confirmed_second_look" | "close
                   (ignored), "hours": "<opening_hours string>", "source": URL, "evidence": text, "note": text,
                   "src": "shop" | "brand", "checked": "YYYY-MM-DD",
                   "second_look": "YYYY-MM-DD", "guard": "why the publish guard held it",
-                  "addr": "street address"}]
+                  "addr": "street address", "official": "the account's handle"}]
 
 Every hours string must pass the strict parser and every source must be an
 allowed one; a record that fails is reported and skipped. The note records
@@ -25,6 +25,10 @@ feed, and the note says what OSM had.
 
 closed and not_a_cafe keep both the note and the evidence in the record's
 note: the reason and the words it rests on.
+
+official: for a source on instagram.com or facebook.com, the handle of the
+account, which says the person read it as the shop's own (tools/override.py
+--official). Without it such a source is skipped.
 
 --area: the area the places are in when it is not New York; the records go to
 overrides/<area>/ and "today" is that area's date (give --osm that area's pull).
@@ -75,8 +79,11 @@ def main(argv):
         if status not in CONFIRMED + ("closed", "not_a_cafe"):
             continue
         pid, source = d["id"], d.get("source") or ""
-        if not confirm.allowed(source):
-            print(f"SKIP {pid}: source not allowed: {source!r}")
+        official = d.get("official")
+        if not confirm.allowed(source, official=official):
+            why = "an Instagram or Facebook page needs the handle of the shop's own account (official)" \
+                if confirm.social(source) else "source not allowed"
+            print(f"SKIP {pid}: {why}: {source!r}")
             skipped += 1
             continue
         raw = tags.get(pid, {}).get("opening_hours")
@@ -86,7 +93,8 @@ def main(argv):
             note = " ".join(x for x in (_words(d.get("note") or ""),
                                         "Read: " + _words(d["evidence"], 400) if d.get("evidence") else "") if x)
             override.write(pid, source=source, closed=status == "closed", exclude=status == "not_a_cafe",
-                           osm_hours=raw, name=name, note=note, checked=d.get("checked"), **where)
+                           osm_hours=raw, name=name, note=note, checked=d.get("checked"), official=official,
+                           **where)
             done += 1
             continue
         try:
@@ -125,7 +133,8 @@ def main(argv):
         if second and d.get("guard") and "second look" not in " ".join(notes).lower():
             notes.append(f"Held by the publish guard ({d['guard']}); read a second time on {second}.")
         override.write(pid, d["hours"], source=source, src=d.get("src", "shop"), osm_hours=raw, name=name,
-                       note=" ".join(notes), checked=d.get("checked"), addr=addr, second_look=second, **where)
+                       note=" ".join(notes), checked=d.get("checked"), addr=addr, second_look=second,
+                       official=official, **where)
         done += 1
     print(done, "overrides written,", skipped, "skipped")
 

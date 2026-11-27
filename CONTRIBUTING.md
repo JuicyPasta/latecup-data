@@ -82,7 +82,7 @@ python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
 It prints the week back so you can hold it against the page. `--src brand` is for a store locator, `--closed` and `--exclude` write the short records, and `--checked` is for when the day you read it wasn't today. Three things to know:
 
 - It writes the whole file, so a `note` or `name` that was in there is gone unless you pass it again.
-- It refuses an hours string it isn't sure about, and it refuses listing sites. Right now it also refuses instagram.com and facebook.com links, even a shop's own account. Write those files by hand.
+- It refuses an hours string it isn't sure about, and it refuses listing sites. An instagram.com or facebook.com link needs `--official <handle>`, which says the account is the shop's own: the link has to be that account's page, not a post or somebody else's account, and the file says `"official": "<handle>"`.
 - Files that say `"by": "confirm_brand"` belong to a weekly job that reads the chains' own store locators. Leave those alone and open an issue if one is wrong.
 
 ### A place OpenStreetMap doesn't have
