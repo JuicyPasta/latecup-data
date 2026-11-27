@@ -88,3 +88,23 @@ def test_ignore_holidays_runs_anyway(tmp_path, monkeypatch, capsys):
     monkeypatch.setattr(confirm_brand.C, "fetch", failing_fetch)
     confirm_brand.main(["dunkin", "--osm", str(_one_dunkin(tmp_path)), "--refresh", "--ignore-holidays"])
     assert "1 store pages to read" in capsys.readouterr().out
+
+
+# ------------------------------------------------------------ the Starbucks pass: which store is this place
+
+def test_a_store_at_another_address_is_another_store_however_close():
+    # the case the audit of 2026-11-26 found: a place mapped ten metres from a store on the next street
+    assert not confirm_brand._same_store(10, "4 East Fordham Road", "2350 JEROME AVE")
+    assert not confirm_brand._same_store(0, "13 Carmine Street", "15 CARMINE ST")
+
+
+def test_the_same_address_within_reach_is_the_store():
+    assert confirm_brand._same_store(10, "13 Carmine Street", "13 CARMINE ST")
+    assert confirm_brand._same_store(58, "13 Carmine Street", "13 CARMINE ST")
+    assert not confirm_brand._same_store(61, "13 Carmine Street", "13 CARMINE ST")
+
+
+def test_a_place_with_no_address_is_taken_only_when_the_store_is_right_there():
+    assert confirm_brand._same_store(20, None, "13 CARMINE ST")
+    assert not confirm_brand._same_store(40, None, "13 CARMINE ST")
+    assert not confirm_brand._same_store(40, "", "13 CARMINE ST")

@@ -131,6 +131,19 @@ def starbucks_table(store):
     return H.normalize(week)
 
 
+def _same_store(metres, addr, line):
+    """Is the brand's nearest store, `metres` away at street address `line`,
+    this place (whose own address is `addr`, or None)? A store at another
+    address is another store, however close: held against 288 Dunkin' records
+    on 2026-11-26, every match made on closeness alone was the wrong store
+    (docs/accuracy.md). A place with no address is taken only within 25 m."""
+    if metres > 60:
+        return False
+    if addr:
+        return C.address_matches(line.title(), addr)
+    return metres <= 25
+
+
 def starbucks(osm_file, limit, pause, refresh, ignore_holidays=False):
     today = _today()
     window = {(today + override.timedelta(days=k)).isoformat() for k in range(7)}
@@ -161,13 +174,10 @@ def starbucks(osm_file, limit, pause, refresh, ignore_holidays=False):
             d = B._dist_m(pos, (c["latitude"], c["longitude"]))
             if best is None or d < best[0]:
                 best = (d, st)
-        if best is None or best[0] > 60:
+        if best is None:
             return None
-        addr = clean.address(tags)
         line = ((best[1].get("address") or {}).get("streetAddressLine1") or "")
-        if addr and not C.address_matches(line.title(), addr) and best[0] > 25:
-            return None
-        return best[1]
+        return best[1] if _same_store(best[0], clean.address(tags), line) else None
 
     for pid, tags, pos in todo[:limit]:
         st = match(tags, pos)
