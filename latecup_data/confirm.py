@@ -317,50 +317,170 @@ def address_matches(candidate, addr):
 
 # ---------------------------------------------------------------- visible text
 
+_STYLE = re.compile(r"<style\b[^>]*>(.*?)</style>", re.S | re.I)
+_NONE = re.compile(r"(?:^|;)\s*display\s*:\s*none\s*(?:!\s*important\s*)?(?:;|$)", re.I)
+
+
+def _drop_at_rules(css):
+    """The stylesheet without its @media, @supports and other @ blocks: what
+    they hide depends on the screen, so it is not taken as hidden."""
+    out, i = [], 0
+    while True:
+        at = css.find("@", i)
+        if at < 0:
+            out.append(css[i:])
+            return "".join(out)
+        out.append(css[i:at])
+        brace, semi = css.find("{", at), css.find(";", at)
+        if brace < 0 or 0 <= semi < brace:                    # @import ...; @charset ...;
+            i = semi + 1 if semi >= 0 else len(css)
+            continue
+        depth, j = 0, brace
+        while j < len(css):
+            depth += {"{": 1, "}": -1}.get(css[j], 0)
+            j += 1
+            if depth == 0:
+                break
+        i = j
+
+
+def hidden_rules(page):
+    """(class sets, ids) that the page's own <style> blocks set to
+    display:none, outside any @media block: `.hidden`, `div.x-hide`,
+    `.a.b`, `#promo`. Only plain selectors; what a browser alone can tell
+    (descendant rules, scripts, external stylesheets) is not guessed."""
+    css = re.sub(r"/\*.*?\*/", "", " ".join(_STYLE.findall(page)), flags=re.S)
+    classes, ids = set(), set()
+    for selectors, body in re.findall(r"([^{}]+)\{([^{}]*)\}", _drop_at_rules(css)):
+        if not _NONE.search(body.strip()):
+            continue
+        for sel in selectors.split(","):
+            sel = sel.strip()
+            m = re.fullmatch(r"[a-zA-Z][a-zA-Z0-9]*|((?:[a-zA-Z][a-zA-Z0-9]*)?)((?:\.[\w-]+)+)", sel)
+            if m and m.group(2):
+                classes.add(frozenset(m.group(2).split(".")[1:]))
+                continue
+            m = re.fullmatch(r"(?:[a-zA-Z][a-zA-Z0-9]*)?#([\w-]+)", sel)
+            if m:
+                ids.add(m.group(1))
+    return classes, ids
+
+
 class _Text(HTMLParser):
     _SKIP = {"script", "style", "noscript", "svg", "head", "template"}
     _BREAK = {"p", "div", "br", "li", "tr", "td", "th", "h1", "h2", "h3", "h4", "h5", "h6", "section", "article",
               "footer", "header", "dt", "dd", "table", "ul", "ol", "span", "time", "address"}
+    _VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
+    _BLOCK = {"address", "article", "aside", "blockquote", "div", "dl", "fieldset", "figure", "footer", "form", "h1",
+              "h2", "h3", "h4", "h5", "h6", "header", "hr", "main", "nav", "ol", "p", "pre", "section", "table", "ul"}
+    # an element whose end tag may be left out ends where a browser would end it
+    _ENDS = {"p": (_BLOCK, {"div", "section", "article", "body", "td", "li", "form", "main", "aside", "header",
+                            "footer", "blockquote"}),
+             "li": ({"li"}, {"ul", "ol"}), "dt": ({"dt", "dd"}, {"dl"}), "dd": ({"dt", "dd"}, {"dl"}),
+             "td": ({"td", "th", "tr"}, {"tr", "table", "tbody"}), "th": ({"td", "th", "tr"}, {"tr", "table", "tbody"}),
+             "tr": ({"tr"}, {"table", "tbody", "thead", "tfoot"}), "option": ({"option", "optgroup"}, {"select"})}
 
-    def __init__(self):
+    def __init__(self, hidden_classes=(), hidden_ids=()):
         super().__init__(convert_charrefs=True)
         self.parts, self.links, self._skip, self._href = [], [], 0, None
+        self._hidden_classes, self._hidden_ids = list(hidden_classes), set(hidden_ids)
+        self._hide, self._depth, self._inner, self._n = None, 0, 0, 0     # the hidden element, how deep, characters
+
+    def _hidden(self, tag, attrs):
+        a = dict(attrs)
+        if "hidden" in a or _NONE.search((a.get("style") or "").strip()):
+            return True
+        if a.get("id") and a["id"] in self._hidden_ids:
+            return True
+        cls = set((a.get("class") or "").split())
+        return bool(cls) and any(rule <= cls for rule in self._hidden_classes)
+
+    def _add(self, text):
+        self.parts.append(text)
+        self._n += len(text)
+
+    def _implied_end(self, tag, which):
+        """True when `tag` ends the hidden element whose end tag may be left out (<li hidden>two<li>three)."""
+        starts, ends = self._ENDS.get(self._hide, ((), ()))
+        return self._depth == 1 and not self._inner and tag in (starts if which == 0 else ends)
 
     def handle_starttag(self, tag, attrs):
+        if self._hide is not None:
+            if self._implied_end(tag, 0):
+                self._hide = None                    # <p hidden>...<div>: the paragraph ended there
+            elif tag == self._hide:
+                self._depth += 1
+            elif tag in self._ENDS.get(self._hide, ((), ()))[1]:
+                self._inner += 1                     # a list inside the hidden item: its items are not the end
+        if self._hide is None and tag not in self._VOID and self._hidden(tag, attrs):
+            self._hide, self._depth, self._inner = tag, 1, 0
         if tag in self._SKIP:
             self._skip += 1
         if tag in self._BREAK:
-            self.parts.append("\n")
+            self._add("\n")
         if tag == "a":
             self._href = dict(attrs).get("href")
-            self._atext = []
+            self._atext, self._at = [], self._n
 
     def handle_endtag(self, tag):
+        if self._hide is not None:
+            if tag == self._hide:
+                self._depth -= 1
+                if self._depth == 0:
+                    self._hide = None
+            elif self._inner and tag in self._ENDS.get(self._hide, ((), ()))[1]:
+                self._inner -= 1
+            elif self._implied_end(tag, 1):
+                self._hide = None
         if tag in self._SKIP and self._skip:
             self._skip -= 1
         if tag in self._BREAK:
-            self.parts.append("\n")
+            self._add("\n")
         if tag == "a" and self._href:
-            self.links.append((self._href, " ".join("".join(self._atext).split())))
+            self.links.append((self._href, " ".join("".join(self._atext).split()), self._at))
             self._href = None
 
     def handle_data(self, data):
-        if not self._skip:
-            self.parts.append(data)
-            if self._href is not None:
-                self._atext.append(data)
+        if self._skip:
+            return
+        if self._href is not None:
+            self._atext.append(data)                 # a hidden menu's links still lead somewhere
+        if self._hide is None:
+            self._add(data)
 
 
-def visible(page):
-    """-> (lines of visible text, links as (href, text))."""
-    p = _Text()
+def _read(page):
+    classes, ids = hidden_rules(page)
+    p = _Text(classes, ids)
     try:
         p.feed(page)
     except Exception:  # a broken page still gives what was read so far
         pass
-    text = "".join(p.parts).replace(" ", " ").replace("–", "-").replace("—", "-")
-    lines = [" ".join(l.split()) for l in text.split("\n")]
-    return [l for l in lines if l], p.links
+    text = "".join(p.parts).replace("\xa0", " ").replace("–", "-").replace("—", "-")
+    lines, starts = [], []                           # the kept lines, and where in the text each one starts
+    at = 0
+    for raw in text.split("\n"):
+        line = " ".join(raw.split())
+        if line:
+            lines.append(line)
+            starts.append(at)
+        at += len(raw) + 1
+    return lines, starts, p.links
+
+
+def visible(page):
+    """-> (lines of visible text, links as (href, text)). Text the page hides
+    is left out: the `hidden` attribute, an inline display:none, and a class
+    or id the page's own stylesheet sets to display:none."""
+    lines, _starts, links = _read(page)
+    return lines, [(href, text) for href, text, _at in links]
+
+
+def visible_links(page):
+    """-> (lines of visible text, links as (href, text, the index of the line they are on))."""
+    import bisect
+    lines, starts, links = _read(page)
+    return lines, [(href, text, max(0, bisect.bisect_right(starts, at) - 1)) for href, text, at in links]
 
 
 _TIME = re.compile(r"\b\d{1,2}(:\d{2})?\s*([ap]\.?m\.?)(?![a-z])|\b\d{1,2}:\d{2}\b|\bmidnight\b|\bnoon\b|24 ?hours|24/7", re.I)
