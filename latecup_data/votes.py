@@ -540,7 +540,16 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
             trouble(f"visitors' hours, {area_id}", e)
         votes = count(rows, places, hh_since, when, tz, dropped, fx and fx["flags"], fx and fx["props"])
         doc = {"format": FORMAT, "city": area_id, "generated": now, "votes": votes}
-        validate.votes_file(doc, area_id, set(places), set(a["known"]) - set(places) if fx else None)
+        try:
+            validate.votes_file(doc, area_id, set(places), set(a["known"]) - set(places) if fx else None)
+        except validate.Invalid as e:
+            if fx is None:
+                raise
+            fx = None                                   # what the new rules added does not validate: go without it
+            trouble(f"visitors' hours, {area_id}", e)
+            votes = count(rows, places, hh_since, when, tz, dropped)
+            doc = {"format": FORMAT, "city": area_id, "generated": now, "votes": votes}
+            validate.votes_file(doc, area_id, set(places))
         path = v1 / a["votes"]
         try:
             old = json.loads(path.read_text())
@@ -572,13 +581,17 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
         if fx:
             changed |= _desk_list(ops / "proposals.json", "places", fx["proposals"], now)
             for w in fx["writes"]:
-                rel = visitors.folder(Path("visitors"), area_id) / f"{w['id']}.json"
-                if ledger is not None:
-                    target = visitors.folder(ledger, area_id) / rel.name
-                    target.parent.mkdir(parents=True, exist_ok=True)
-                    target.write_bytes(visitors.dump(w["record"]))
-                writes.append({"path": rel.as_posix(), "message": visitors.message(w, area_id), "id": w["id"],
-                               "area": area_id, "kind": w["kind"], "record": w["record"]})
+                try:
+                    rel = visitors.folder(Path("visitors"), area_id) / f"{w['id']}.json"
+                    body, text = visitors.dump(w["record"]), visitors.message(w, area_id)
+                    if ledger is not None:
+                        target = visitors.folder(ledger, area_id) / rel.name
+                        target.parent.mkdir(parents=True, exist_ok=True)
+                        target.write_bytes(body)
+                    writes.append({"path": rel.as_posix(), "message": text, "id": w["id"], "area": area_id,
+                                   "kind": w["kind"], "record": w["record"]})
+                except Exception as e:      # noqa: BLE001
+                    trouble(f"a visitors' record, {area_id}", e)
         if old is not None and old.get("votes") == votes:
             continue
         path.write_bytes(_dump(doc))

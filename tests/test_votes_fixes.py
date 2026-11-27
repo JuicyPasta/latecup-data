@@ -634,6 +634,19 @@ def test_a_failure_in_the_rules_for_visitors_hours_never_stops_the_other_counts(
     assert [w["path"] for w in result.writes] == ["visitors/chicago/n1001.json"]           # the fixes were counted
     monkeypatch.undo()
 
+    # a `prop` that does not validate, or a record that cannot be written: the same
+    real = V.assess
+    monkeypatch.setattr(V, "assess", lambda *a, **k: dict(real(*a, **k), props={"n1001": {"hours": "soon", "n": 2, "date": "x"}}))
+    result, lines = run(site, csv(*rows), None, now="2026-12-10T20:00:00Z")
+    assert [p.split(":")[0] for p in result.problems] == ["visitors' hours, chicago"] and result.writes == []
+    assert read(site / "v1" / "chicago-votes.json")["votes"] == counted["chicago"]
+    monkeypatch.undo()
+    monkeypatch.setattr(V, "dump", boom)
+    result, lines = run(site, csv(*rows), None, now="2026-12-10T21:00:00Z")
+    assert [p.split(":")[0] for p in result.problems] == ["a visitors' record, chicago"] and result.writes == []
+    assert set(read(site / "v1" / "chicago-votes.json")["votes"]["n1001"]) == {"bad", "prop"}        # the count itself went through
+    monkeypatch.undo()
+
     # the job step still succeeds, so the counts are published, and says there was a problem
     out = tmp_path / "github-output"
     monkeypatch.setenv("REPORTS_CSV_URL", "https://docs.example/secret-address/pub?output=csv")
