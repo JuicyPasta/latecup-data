@@ -27,6 +27,7 @@ import json
 import math
 import re
 import sys
+import time
 from collections import Counter, namedtuple
 from datetime import date, datetime, timedelta
 from pathlib import Path
@@ -37,6 +38,7 @@ LATEST = "https://data.alltheplaces.xyz/runs/latest.json"
 HISTORY = "https://data.alltheplaces.xyz/runs/history.json"
 OUTPUT = "https://alltheplaces-data.openaddresses.io/runs/{run}/output/{spider}.geojson"
 LOOK_BACK = 5            # runs (about weeks) an older reading may be taken from
+DOWNLOAD_BUDGET = 6 * 60  # seconds the downloads may take; after that the run goes on with what the cache holds
 DROPPED_DAY = 0.5        # a weekday closed in more than this share of a spider's stores: the spider is at fault
 
 # rolling: does the spider's weekly table move in a week with a holiday in it?
@@ -272,13 +274,23 @@ def read(doc, spider):
 
 # ---------------------------------------------------------------- the files
 
-def download(cache, spiders=SPIDERS, get=http.get, log=print):
+def download(cache, spiders=SPIDERS, get=http.get, log=print, budget=DOWNLOAD_BUDGET, clock=time.monotonic):
     """Fetch what is missing: the newest run's file for every spider, and, for
     a spider whose newest file cannot be used, the same spider from earlier
-    runs (up to LOOK_BACK). Files are kept as cache/<run id>/<spider>.geojson."""
+    runs (up to LOOK_BACK). Files are kept as cache/<run id>/<spider>.geojson.
+    Raises IOError once `budget` seconds are used up: a server that hangs must
+    not hold the whole run (the files fetched so far stay in the cache)."""
     cache = Path(cache)
     cache.mkdir(parents=True, exist_ok=True)
-    latest = json.loads(get(LATEST, retries=3, backoff=5, timeout=60))
+    deadline = clock() + budget
+
+    def left():
+        seconds = deadline - clock()
+        if seconds <= 0:
+            raise IOError(f"the downloads took more than {budget / 60:g} min")
+        return seconds
+
+    latest = json.loads(get(LATEST, retries=3, backoff=5, timeout=min(60, left())))
     run = latest["run_id"]
     if not _RUN.fullmatch(str(run)):
         raise IOError(f"All The Places: unexpected run id {run!r}")
@@ -292,8 +304,9 @@ def download(cache, spiders=SPIDERS, get=http.get, log=print):
             tried += 1
             path = cache / r / f"{spider.name}.geojson"
             if not path.exists():
+                timeout = min(120, left())
                 try:
-                    body = get(OUTPUT.format(run=r, spider=spider.name), retries=3, backoff=5, timeout=120)
+                    body = get(OUTPUT.format(run=r, spider=spider.name), retries=3, backoff=5, timeout=timeout)
                     json.loads(body)
                 except (IOError, ValueError) as e:
                     log(f"All The Places: {spider.name} in run {r}: {e}")
@@ -311,7 +324,7 @@ def download(cache, spiders=SPIDERS, get=http.get, log=print):
                 break
             if not runs:
                 if older is None:
-                    history = json.loads(get(HISTORY, retries=3, backoff=5, timeout=60))
+                    history = json.loads(get(HISTORY, retries=3, backoff=5, timeout=min(60, left())))
                     older = sorted((h["run_id"] for h in history if isinstance(h, dict) and
                                     _RUN.fullmatch(str(h.get("run_id"))) and h["run_id"] < run), reverse=True)
                 runs = [x for x in older if x < r][:1]
