@@ -1,8 +1,8 @@
 """Chain detection.
 
-A place gets `chain: <slug>` when its brand has 5 or more locations in the
-city's classified set (counted on every run, so a brand that grows past the
-line is picked up without a code change).
+A place gets `chain: <slug>` when its brand has 5 or more locations in its
+area's classified set (counted on every run and in each area by itself, so a
+brand that grows past the line is picked up without a code change).
 
 A brand is found from the OSM `brand` / `brand:wikidata` tags first, then
 from the name. Known brands have a short slug and a fixed category; unknown
@@ -93,6 +93,39 @@ _KNOWN = [
     ("prince-tea-house", "tea", r"^prince tea house\b"),
     ("cha-cha-matcha", "tea", r"^cha cha matcha\b"),
     ("the-donut-pub", "dessert", r"^the donut pub\b"),
+    # chains that matter outside New York (measured on the 32 metro pulls of 2026-11-26). A name OSM writes
+    # more than one way ("Black Rock" / "Black Rock Coffee", "Tatte" / "Tatte Bakery & Cafe") is one brand here.
+    ("dutch-bros", "coffee", r"^dutch bros\b"),
+    ("scooters", "coffee", r"^scooters coffee\b"),
+    ("biggby", "coffee", r"^biggby\b"),
+    ("caribou", "coffee", r"^caribou coffee\b"),
+    ("coffee-bean", "coffee", r"^(the )?coffee bean( and tea leaf)?$|^(the )?coffee bean and tea leaf\b"),
+    ("pjs-coffee", "coffee", r"^pjs coffee\b"),
+    ("philz", "coffee", r"^philz\b"),
+    ("dunn-brothers", "coffee", r"^dunn (brothers|bros)\b"),
+    ("just-love-coffee", "coffee", r"^just love coffee\b"),
+    ("black-rock", "coffee", r"^black rock coffee\b|^black rock$"),
+    ("tatte", "coffee", r"^tatte\b"),
+    ("beans-and-brews", "coffee", r"^beans and brews\b"),
+    ("caffe-nero", "coffee", r"^caffe nero\b"),
+    ("better-buzz", "coffee", r"^better buzz\b"),
+    ("summer-moon", "coffee", r"^summer moon\b"),
+    ("sweetwaters", "coffee", r"^sweetwaters\b"),
+    ("foxtail", "coffee", r"^foxtail coffee\b"),
+    ("intelligentsia", "coffee", r"^intelligentsia\b"),
+    ("la-la-land", "coffee", r"^la la land\b"),
+    ("qamaria", "coffee", r"^qamaria\b"),
+    ("the-human-bean", "coffee", r"^(the )?human bean\b"),
+    ("7-leaves", "coffee", r"^7 leaves\b"),
+    ("85c", "dessert", r"^85 ?c\b"),
+    ("happy-lemon", "tea", r"^happy lemon\b"),
+    ("ding-tea", "tea", r"^ding tea\b"),
+    ("quickly", "tea", r"^quickly$"),
+    ("teaspoon", "tea", r"^teaspoon$"),
+    ("its-boba-time", "tea", r"^its boba time\b"),
+    ("tapioca-express", "tea", r"^tapioca express\b"),
+    ("wushiland", "tea", r"^wushiland\b"),
+    ("hteao", "tea", r"^hteao\b"),
     # brands OSM sometimes tags as cafés that are not
     ("mcdonalds", None, r"^mcdonalds\b|^mccafe\b"),
     ("subway", None, r"^subway$"),
@@ -124,6 +157,14 @@ def _key(tags):
         if v:
             return norm(v)
     return ""
+
+
+def brand(slug):
+    """The table's Brand for a slug, or None."""
+    for known, cat, _rx in _KNOWN:
+        if known == slug:
+            return Brand(known, cat)
+    return None
 
 
 def known_brand(tags):
