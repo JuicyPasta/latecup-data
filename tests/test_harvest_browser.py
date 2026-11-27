@@ -61,7 +61,11 @@ def test_the_browser_reads_what_a_person_sees(served, tmp_path):
     text = "\n".join(rec["pages"][0]["block"])
     assert "Fri - Sat 12pm - 11pm" in text and "Checking hours" not in text       # drawn by the script
     for gone in ("1am - 2am", "3am - 4am", "5am - 6am"):                           # clipped, off the page, transparent
-        assert gone not in json.dumps(rec["pages"][0]["snippets"] + rec["pages"][0]["block"])
+        assert gone not in json.dumps(rec["pages"][0]["snippets"] + rec["pages"][0]["block"] + rec["pages"][0]["text"])
+    # what the page loaded as it ran is kept apart from what it showed, and says where it came from
+    loaded = [g for g in rec["pages"][0]["script_data"] if g.get("from", "").endswith("/store-hours.json")]
+    assert loaded and loaded[0]["near"] == "1693 N Milpitas Blvd" and loaded[0]["lines"][0].startswith("Monday:")
+    assert "Fri - Sat 12pm - 11pm" in rec["pages"][0]["text"]
     # a page that is not there: the front page instead, two loads in all
     gone = json.loads((tmp_path / "out" / "n2.json").read_text())
     assert gone["error"] == "HTTP 404" and [p["url"] for p in gone["pages"]] == [f"{served}/"]

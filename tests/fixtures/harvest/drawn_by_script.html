@@ -12,5 +12,6 @@
     document.getElementById("hours").innerHTML =
       "<p>Mon - Thu 12pm - 9pm</p><p>Fri - Sat 12pm - 11pm</p><p>Sun 11am - 9pm</p>";
   }, 1200);
+  fetch("store-hours.json").then(function (r) { return r.json(); });
 </script>
 </body></html>

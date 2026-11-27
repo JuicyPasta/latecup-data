@@ -164,6 +164,26 @@ def test_the_store_link_is_found_by_address_city_or_branch():
     assert Hv.store_link(pg, {"name": "Example Tea Co", "addr": "1 Elsewhere Rd", "city": "Davis"}) is None
 
 
+def test_the_cards_own_button_is_taken_not_the_one_of_the_card_before():
+    html = ("<div><h3>SAN MATEO</h3><p>1 Example St San Mateo CA 94401</p><p>650 555 0100</p>"
+            "<a href='/location/?l=san-mateo-11'>See Details</a></div>"
+            "<div><h3>SAN JOSE</h3><p>457 Saratoga Ave San Jose CA 95129</p><p>408 477 2688</p>"
+            "<a href='/location/?l=san-jose-12'>See Details</a></div>"
+            "<div><h3>SAN MARCOS</h3><p>9 Other Rd San Marcos CA 92069</p>"
+            "<a href='/location/?l=san-marcos-13'>See Details</a></div>")
+    pg = Hv.read_page("https://www.examplechain.com/locations/usa/", html)
+    for cand in ({"name": "Example Chain", "addr": "457 Saratoga Avenue", "city": "San Jose"},
+                 {"name": "Example Chain", "addr": "457 Saratoga Avenue"}):
+        assert Hv.store_link(pg, cand) == "https://www.examplechain.com/location/?l=san-jose-12"
+
+
+def test_a_week_drawn_one_word_a_line_is_hours():
+    week = ["Turn Café", "17 Powell St Frnt Door", "(628) 242-0310", "Get directions",
+            "Monday", "7:00 am", "-", "10:00 pm", "Tuesday", "7:00 am", "-", "10:00 pm"]
+    assert Hv.hourly(week[4:]) and not Hv.hourly(week[:4])
+    assert Hv.block(week, "17 Powell Street", None)[-1] == "10:00 pm"
+
+
 def test_no_more_pages_once_the_hours_are_tied_to_this_shop():
     site = Site({"https://www.exampletea.com/locations": "locations.html"})
     oakland = {"id": "n3", "name": "Example Tea Co", "addr": "100 Telegraph Avenue", "phone": "+15105550101"}

@@ -3,8 +3,9 @@
 // usage: NODE_PATH=$(npm root -g) node tools/harvest_browser.mjs candidates.json out-folder [--workers 3]
 //
 // It takes the candidates file of tools/harvest.py and writes the same records (out/<id>.json, with
-// "read_with": "browser"): the text a person would see on the page (visible elements only), the schema.org
-// hours, hours kept in the page's scripts, and the final address. Which sites may be read, which page comes
+// "read_with": "browser"): the text a person would see on the page (visible elements only, in "text" and the
+// usual snippets and block), the schema.org hours, hours kept in the page's scripts or in the data it loaded
+// from its own site, ordering host or builder (marked as such), and the final address. Which sites may be read, which page comes
 // next and what goes into a record are decided by tools/harvest.py (--step plan|next|shape), so both readers
 // follow one set of rules. Nothing is decided here either.
 //
@@ -115,9 +116,35 @@ async function settle(page) {
   }
 }
 
+function baseOf(host) {
+  return host.replace(/^www\./, "");
+}
+
+function sameSite(a, b) {
+  const x = baseOf(a), y = baseOf(b);
+  return Boolean(x) && (x === y || x.endsWith("." + y) || y.endsWith("." + x));
+}
+
+const DAY = /\b(monday|tuesday|wednesday|thursday|friday|saturday|sunday|mon|tue|wed|thu|fri|sat|sun)\b/i;
+const TIME = /\b\d{1,2}:\d{2}\b|\b\d{1,2}\s?(am|pm)\b|"(open|close|opens|closes|from|to)"\s*:/i;
+
 async function load(context, url, plan) {
   const page = await context.newPage();
   page.on("dialog", (d) => d.dismiss().catch(() => {}));
+  // what the page loads as it runs, from its own site, its ordering host or its builder: hours often come that way
+  const data = [], dataHosts = new RegExp(plan.data_hosts, "i"), ordering = new RegExp(plan.ordering_hosts, "i");
+  page.on("response", async (resp) => {
+    try {
+      const rurl = resp.url(), h = hostOf(rurl);
+      if (data.length >= 40 || !(sameSite(h, hostOf(url)) || sameSite(h, hostOf(page.url())) || dataHosts.test(h) ||
+                                 ordering.test(h))) return;
+      const type = resp.request().resourceType(), ct = resp.headers()["content-type"] || "";
+      if (!["xhr", "fetch", "script"].includes(type) && !/json|javascript/.test(ct)) return;
+      if (Number(resp.headers()["content-length"] || 0) > 2_000_000) return;
+      const body = await resp.text();
+      if (body.length <= 2_000_000 && DAY.test(body) && TIME.test(body)) data.push({ url: rurl, body });
+    } catch {}
+  });
   try {
     let response;
     try {
@@ -141,13 +168,13 @@ async function load(context, url, plan) {
     // frames on the page that are the shop's own or its ordering page (not a map or a listing site)
     for (const frame of page.frames().slice(1, 6)) {
       const fh = hostOf(frame.url());
-      if (!fh || new RegExp(plan.listing_hosts).test(fh) || new RegExp(plan.social_hosts).test(fh)) continue;
+      if (!fh || !(sameSite(fh, host) || ordering.test(fh)) || new RegExp(plan.listing_hosts).test(fh)) continue;
       const inner = await frame.evaluate(visibleText).catch(() => "");
       if (inner.trim()) text += `\n[in a frame from ${fh}]\n` + inner.split("\n").slice(0, 300).join("\n");
     }
     const html = (await page.content().catch(() => "")).slice(0, MAX_HTML);
     const lines = text.split("\n").map((l) => l.replace(/\s+/g, " ").trim()).filter(Boolean);
-    return { page: { url, final, status, html, lines } };
+    return { page: { url, final, status, html, lines, data } };
   } finally {
     await page.close().catch(() => {});
   }

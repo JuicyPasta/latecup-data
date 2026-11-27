@@ -11,8 +11,10 @@ the site and keep, in out/<id>.json, what a person needs to decide:
   pages[].block        on a page that lists several shops: the whole block of visible text
                        around this place's address or phone, so a person sees its own hours;
   pages[].script_data  hours found in data inside the page's scripts (several site builders
-                       keep them there). NOT visible text: a person did not see them on the
+                       keep them there), and, read with the browser, in the data the page
+                       loaded ("from"). NOT visible text: a person did not see them on the
                        page, and a builder's template data looks the same;
+  pages[].text         read with the browser: all the visible text of the page;
   flags                why the page may not be the shop's, or its hours not the shop's: another
                        host than the tagged one, a parked, for-sale or casino page, a host's
                        default page, a site builder's placeholder hours.
@@ -49,6 +51,15 @@ ORDERING_HOSTS = re.compile(
     r"popmenu\.com|bentobox\.com|getbento\.com|smartonlineorder\.com|kwickmenu\.com|craverapp\.com|"
     r"ordermark\.com|owner\.com|toast\.site|shopify\.com|myshopify\.com|wixsite\.com|squarespace\.com|"
     r"godaddysites\.com|weebly\.com)$", re.I)
+
+# where a site builder or a chain's locator keeps the data its pages draw: what the browser reader may read of
+# what a page loaded (tools/harvest_browser.mjs), beside the shop's own site and its ordering hosts
+DATA_HOSTS = re.compile(
+    r"(^|\.)(wsimg\.com|squarecdn\.com|squareup\.com|square\.site|editmysite\.com|weebly\.com|wix\.com|"
+    r"wixstatic\.com|parastorage\.com|squarespace\.com|squarespace-cdn\.com|storerocket\.io|stockist\.co|"
+    r"storepoint\.co|shopify\.com|shopifycdn\.com|toasttab\.com|clover\.com|popmenu\.com|bentobox\.com|"
+    r"getbento\.com|godaddy\.com|metalocator\.com|yext\.com|yextapis\.com|brandify\.com|where2getit\.com|"
+    r"sweetiq\.com)$", re.I)
 
 _DAYNAME = re.compile(r"\b(mon(day)?|tue(s(day)?)?|wed(nesday)?|thu(r(s(day)?)?)?|fri(day)?|sat(urday)?|sun(day)?|"
                       r"daily|every ?day|weekdays?|weekends?)\b", re.I)
@@ -339,12 +350,17 @@ def _theirs(line, addr, phone10):
     return bool(phone10) and any(_digits10(p) and _digits10(p) != phone10 for p in _PHONE.findall(line))
 
 
-def _block_rows(lines, addr=None, phone=None, before=6, after=18):
+_CARD_END = re.compile(r"^(view|more info|more|order|get directions|directions|see details|details|store info|"
+                       r"google maps|map|menu|call|book)\b", re.I)
+
+
+def _block_rows(lines, addr=None, phone=None, before=8, after=36):
     """The indices of the lines about this place: around each line with its
     address or phone, up to where another shop's address or phone begins.
     On a page that lists shops one after another, the lines just above the
-    address are this shop's heading, and hours there belong to the shop
-    before, unless this shop's own hours come before its address too."""
+    address are this shop's heading or its hours: the scan back stops at the
+    buttons that end the card before ("View store", "Get directions"). Too
+    much is better than too little here: a person reads it."""
     phone10 = _digits10(phone)
     if not addr and not phone10:
         return []
@@ -354,20 +370,14 @@ def _block_rows(lines, addr=None, phone=None, before=6, after=18):
             continue
         back, j = [], i
         while j > 0 and i - j < before:
-            if _theirs(lines[j - 1], addr, phone10):
+            if _theirs(lines[j - 1], addr, phone10) or _CARD_END.search(lines[j - 1]):
                 break
             j -= 1
             back.append(j)
-        listed = j > 0 and i - j < before                        # stopped at another shop's line
         ahead, k = [], i
         while k + 1 < len(lines) and k - i < after and not _theirs(lines[k + 1], addr, phone10):
             k += 1
             ahead.append(k)
-        if listed and hourly([lines[n] for n in ahead]):
-            # hours follow the address here, so hours above it are the shop before's
-            cut = next((n for n in back if hourly([lines[n]]) or re.search(r"(?i)^(view|more|order|directions)",
-                                                                          lines[n])), None)
-            back = [n for n in back if cut is None or n > cut]
         keep.update(back + [i] + ahead)
     return sorted(keep)
 
@@ -391,7 +401,10 @@ def block(lines, addr=None, phone=None, limit=2500):
 
 
 def hourly(lines):
-    return any(C._TIME.search(l) and C._DAYWORD.search(l) for l in lines)
+    """True when the lines hold hours: a time with a day word on its line or one of the three before it
+    ("Monday" / "7:00 am" / "-" / "10:00 pm" is how some builders draw a week)."""
+    return any(C._TIME.search(l) and any(C._DAYWORD.search(x) for x in lines[max(0, n - 3):n + 1])
+               for n, l in enumerate(lines))
 
 
 def ties_hours(page, c):
@@ -415,7 +428,10 @@ def store_link(page, c):
     or its branch, or a link inside the block about it. None when there is none."""
     base, lines = page["url"], page["lines"]
     addr, phone10 = c.get("addr"), _digits10(c.get("phone"))
-    near = set(_block_rows(lines, addr, c.get("phone")))
+    rows = _block_rows(lines, addr, c.get("phone"))
+    first = next((i for i in rows if _ours(lines[i], addr, phone10)), None)
+    near = {i for i in rows if first is not None and i >= first}           # the card's own buttons follow its address
+    above = set(rows) - near
     branch = None
     m = re.search(r"\s[-–@|]\s*(.+)$", c.get("name") or "")
     if m:
@@ -429,11 +445,18 @@ def store_link(page, c):
         if not same_site(url, base) or url.rstrip("/") == base.rstrip("/") or not C.allowed(url):
             continue
         path = urlsplit(url).path.lower()
-        words = f"{text} {path.replace('-', ' ').replace('_', ' ').replace('/', ' ')}".lower()
+        slug = f"{path} {urlsplit(url).query.lower()}"
+        words = f"{text} {re.sub(r'[-_/=&?+]', ' ', slug)}".lower()
+        named = (branch and len(branch) > 2 and branch in words) or \
+            (city and len(city) > 2 and re.search(rf"\b{re.escape(city)}\b", words))
         if addr and C.address_matches(words, addr):
             score = 0
+        elif at in rows and named:
+            score = 0.5
         elif at in near and _STORE_WORDS.search(f"{text} {path}"):
             score = 1
+        elif at in above and _STORE_WORDS.search(f"{text} {path}"):
+            score = 1.5
         elif branch and len(branch) > 2 and branch in words and _STORE_WORDS.search(path):
             score = 2
         elif city and len(city) > 2 and re.search(rf"\b{re.escape(city)}\b", words) and _STORE_WORDS.search(path):
@@ -450,15 +473,36 @@ def store_link(page, c):
 _TITLE = re.compile(r"<title[^>]*>(.*?)</title>", re.S | re.I)
 
 
-def read_page(final, html_text, lines=None):
+def data_hours(data):
+    """[{near, lines, from}]: hours in the data a page loaded as it ran (the
+    browser reader hands it over: JSON and scripts from the shop's own site,
+    its ordering host or its builder). Like script_data, never visible text."""
+    out = []
+    for item in data or []:
+        body = item.get("body") or ""
+        if not _DAYNAME.search(body):
+            continue
+        for doc in _json_docs(body):
+            for g in _hours_groups(doc):
+                g = dict(g, **{"from": item.get("url")})
+                if g not in out:
+                    out.append(g)
+            if len(out) >= 30:
+                return out
+    return out
+
+
+def read_page(final, html_text, lines=None, data=None):
     """What one page gives. `lines`: the visible text a browser showed, when
-    a browser read it; otherwise it is read from the HTML."""
+    a browser read it; otherwise it is read from the HTML. `data`: what the
+    page loaded as it ran, [{url, body}], when a browser read it."""
     own_lines, links = C.visible_links(html_text)
     title = [" ".join(t.split()) for t in _TITLE.findall(html_text)[:1]]
     if lines is not None:                            # the browser's text, read the way confirm.visible reads a page
         lines = [l for l in (" ".join(str(x).replace("\u2013", "-").replace("\u2014", "-").split()) for x in lines) if l]
     return {"url": final, "lines": lines if lines is not None else own_lines, "links": links, "title_lines": title,
-            "jsonld": C.jsonld_hours(html_text), "script_data": script_hours(html_text)}
+            "jsonld": C.jsonld_hours(html_text), "script_data": (script_hours(html_text) + data_hours(data))[:40],
+            "browser": lines is not None}
 
 
 def next_url(tagged, pages, cands, error=None):
@@ -523,6 +567,8 @@ def shape(c, url, site):
             entry["block"] = bl
         if pg["script_data"]:
             entry["script_data"] = pg["script_data"]
+        if pg.get("browser"):
+            entry["text"] = pg["lines"][:600]          # all a person saw, for the one who reads the record
         rec["pages"].append(entry)
     return rec
 
@@ -536,12 +582,13 @@ def plan(cands, outdir):
         if c.get("web") and C.allowed(c["web"]) and not (Path(outdir) / f"{c['id']}.json").exists():
             by_url.setdefault(c["web"], []).append(c["id"])
     return {"user_agent": SHOP_USER_AGENT + " (headless browser)", "listing_hosts": C.LISTING_HOSTS.pattern,
-            "social_hosts": C.SOCIAL_HOSTS.pattern, "pause_s": 3, "max_pages": 2,
+            "social_hosts": C.SOCIAL_HOSTS.pattern, "ordering_hosts": ORDERING_HOSTS.pattern,
+            "data_hosts": DATA_HOSTS.pattern, "pause_s": 3, "max_pages": 2,
             "sites": [{"url": u, "ids": ids} for u, ids in by_url.items()]}
 
 
 def _browser_pages(raw):
-    return [read_page(p["final"], p.get("html") or "", p.get("lines")) for p in raw]
+    return [read_page(p["final"], p.get("html") or "", p.get("lines"), p.get("data")) for p in raw]
 
 
 def step(name, doc):
