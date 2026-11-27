@@ -575,7 +575,9 @@ def test_an_exclude_the_weekly_pass_wrote_gives_way_when_the_locator_lists_the_s
     p = out["places"][0]
     assert (p["id"], p["src"], p["checked"], p["hours"]) == ("n1", "brand", "2026-11-29", [[[300, 1305]]] * 7)
     assert out["chains"]["matched: an exclude gave way"] == 1 and "excluded by override" not in out["stats"]
-    assert out["warnings"] == []
+    # the desk is told, so the record that no longer holds can be deleted
+    assert out["warnings"] == ["override n1 (an exclude over a dead store page) gave way: the chain's locator lists "
+                               "the store again (x-dunkin-344428, read 2026-11-29). The record can go"]
     # the record says the pass wrote it, whatever its source
     out = build(osm, [_dunkin()], overrides=_excluded(source="https://www.example.com/", by="confirm_brand"))
     assert out["places"][0]["src"] == "brand"

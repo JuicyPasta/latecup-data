@@ -376,6 +376,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
                     continue
                 # a store the weekly pass took off the map over a dead link, and the chain's locator lists it again
                 layer["matched: an exclude gave way"] += 1
+                warnings.append(f"override {pid} (an exclude over a dead store page) gave way: the chain's locator "
+                                f"lists the store again ({st.id}, read {st.checked}). The record can go")
                 ov = None
             else:
                 table = H.normalize(ov["hours"])
