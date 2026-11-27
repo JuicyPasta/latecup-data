@@ -657,6 +657,11 @@ def test_two_scripted_rows_take_any_place_with_openstreetmap_hours_off_the_map()
     forged = [fix(900 + 2 * i + k, closes_at_six, pid=f"n{i}") for i in range(1, 13) for k in (0, 1)]
     out = judge(forged, known, cap=None)
     assert len(out["writes"]) == 12 and all(not H.is_late(w["record"]["hours"]) for w in out["writes"])
+    # what there is against it: the commit says what it does, the desk's list marks it while it waits,
+    # and the brake below
+    assert V.message(out["writes"][0], "nyc").splitlines()[0] == "Visitors: Cafe 1 closes 18:00 every day, off the late map, 2 installs"
+    assert all(e["off_map"] for e in judge(forged[::2], known)["proposals"])
+    assert "off_map" not in judge([fix(1, EARLIER)], {"n1": place()})["proposals"][0]
     # 30 rows a day per install does not see it (every install sends one row), nor does the score (every
     # install is new and counts 1), nor the guard (the days are OpenStreetMap's)
 
@@ -725,10 +730,19 @@ def test_the_commit_message_is_one_a_person_can_read():
     assert "Now: Mo 08:00-23:00; Tu 08:00-23:00; We 08:00-23:00; Th 08:00-23:00; Fr 08:00-23:00; Sa 08:00-23:00; Su 09:00-22:00" in text
     first = V.message(dict(write, was=None, src=None, record=V.record("n1", OSM, 3, "2026-12-03")), "chicago")
     assert first.splitlines()[0] == ("Visitors: Example Coffee House, first hours, closes 23:00 Mon-Thu, 01:00 Fri-Sat, "
-                                     "22:00 Sun, 3 installs")
+                                     "22:00 Sun, new on the late map, 3 installs")
     assert "Was: no hours" in first and "n1 in chicago." in first
     grown = V.message(dict(write, kind="count", record=V.record("n1", EARLIER, 3, "2026-12-05")), "nyc")
     assert grown.splitlines()[0] == "Visitors: Example Coffee House, 3 installs now agree"
+    # the change that takes a place off the late map says so, and so does the one that puts a café on it
+    early = H.parse("Mo-Su 08:00-18:00")
+    gone = V.message(dict(write, record=V.record("n1", early, 2, "2026-12-03")), "nyc")
+    assert gone.splitlines()[0] == "Visitors: Example Coffee House closes 18:00 every day, off the late map, 2 installs"
+    back = V.message(dict(write, was=early, record=V.record("n1", OSM, 3, "2026-12-03")), "nyc")
+    assert back.splitlines()[0] == ("Visitors: Example Coffee House closes 23:00 Mon-Thu, 01:00 Fri-Sat, 22:00 Sun, "
+                                    "new on the late map, 3 installs")
+    assert V.message(dict(write, was=early, src="osm", record=V.record("n1", H.parse("Mo-Su 08:00-17:00"), 2, "2026-12-03")),
+                     "nyc").splitlines()[0] == "Visitors: Example Coffee House closes 17:00 every day, 2 installs"
 
 
 @pytest.mark.parametrize("new,words", [

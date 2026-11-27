@@ -299,12 +299,16 @@ def message(write, area_id):
     the place, the table, the count and the date. Never an install id."""
     rec, was = write["record"], write["was"]
     name, n = plain(write.get("name")), rec["visitors"]
+    # the two changes a person should not have to work out from the table: the place leaves the late map
+    # (it no longer closes at 20:00 or later on any day), or it would be new on it
+    late, was_late = H.is_late(rec["hours"]), was is not None and H.is_late(was)
+    map_ = ", off the late map" if was_late and not late else ", new on the late map" if late and not was_late else ""
     if write["kind"] == "count":
         subject = f"Visitors: {name}, {n} installs now agree"
     elif was is None:
-        subject = f"Visitors: {name}, first hours, {describe(None, rec['hours'])}, {n} installs"
+        subject = f"Visitors: {name}, first hours, {describe(None, rec['hours'])}{map_}, {n} installs"
     else:
-        subject = f"Visitors: {name} {describe(was, rec['hours'])}, {n} installs"
+        subject = f"Visitors: {name} {describe(was, rec['hours'])}{map_}, {n} installs"
     body = [f"{rec['id']} in {area_id}.",
             "Was: " + ("no hours" if was is None else f"{H.fmt(was)} ({write.get('src') or 'unknown'})"),
             "Now: " + H.fmt(rec["hours"]),
@@ -432,6 +436,8 @@ def assess(rows, known, *, now, tz, weights=None, changed=None, records=None, re
             continue
         lead = groups[0]
         props[pid] = {"hours": lead["hours"], "n": lead["n"], "date": day(lead["when"])}
+        if p["map"] and not H.is_late(lead["hours"]):
+            entry["off_map"] = True                     # these hours would take the place off the late map
         need, why = needed(lead["hours"], old)
         short = max(need - lead["weight"], 2 - lead["n"], 0)
         held = None

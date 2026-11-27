@@ -364,7 +364,7 @@ def test_a_cafe_from_the_help_file_gets_its_first_hours(site, repo):
     result, _lines = run(site, three, repo, now="2026-12-10T18:00:00Z")
     assert [w["path"] for w in result.writes] == ["visitors/chicago/n2001.json"]
     assert result.writes[0]["message"].splitlines()[0] == ("Visitors: No Hours Cafe, first hours, closes 23:00 Mon-Thu, "
-                                                           "01:00 Fri-Sat, 22:00 Sun, 3 installs")
+                                                           "01:00 Fri-Sat, 22:00 Sun, new on the late map, 3 installs")
 
 
 def test_a_help_file_that_is_missing_or_broken_changes_nothing(site, repo):
