@@ -1,0 +1,54 @@
+{
+ "id": "w805468427",
+ "name": "Local Good Coffee Co",
+ "hours": [
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo 06:30-17:00; Tu 06:30-20:00; We 06:30-17:00; Th 06:30-20:00; Fr 06:30-17:00; Sa 07:00-20:00; Su 07:00-15:00",
+ "src": "shop",
+ "source": "https://www.localgoodcoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,We,Fr 06:00-17:00; Tu,Th,Sa 06:00-21:00; Su 07:00-15:00",
+ "note": "OpenStreetMap said \"Mo,We,Fr 06:00-17:00; Tu,Th,Sa 06:00-21:00; Su 07:00-15:00\"; the shop's own source wins. Read: 201 Legacy Dr., Plano, TX 75023 NEW HOURS MWF 6:30 AM-5:00 PM TTH 6:30 AM-8:00 PM SAT 7:00 AM-8:00 PM SUN 7:00 AM-3:00 PM The pickleball courts' 'Every Day | Closes at 10 PM' are not the cafe's. OSM had Tu/Th/Sa to 21:00 and 06:00 openings."
+}

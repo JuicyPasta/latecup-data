@@ -1,0 +1,54 @@
+{
+ "id": "n9557300847",
+ "name": "Bubble Well",
+ "hours": [
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:30",
+ "src": "shop",
+ "source": "https://www.bubblewell.co/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-20:00",
+ "note": "OpenStreetMap said \"11:00-20:00\"; the shop's own source wins. Read: 2215 S Loop 288 # 310, | Daily 11-8:30 -Denton ... HOURS Denton:11-8:30 Two shops on the page with the same hours; Denton matched by address. OSM had 20:00."
+}

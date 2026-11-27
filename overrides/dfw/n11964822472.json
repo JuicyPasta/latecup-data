@@ -1,0 +1,55 @@
+{
+ "id": "n11964822472",
+ "name": "TeaLatte Bar",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 11:00-21:00; Fr-Sa 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.tealattebar.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo off; Tu-Th,Su 11:00-21:00; Fr-Sa 11:00-22:00",
+ "note": "OpenStreetMap had Monday closed. The shop's locations page (read twice on 2026-11-27): Richardson (UTD), 7517 Campbell Rd Ste 608, Dallas, Tel (469) 870-3133 (address and phone match): SUN - THUR 11AM - 9PM, FRI - SAT 11AM - 10PM. The hours block is the Richardson (UTD) column of the page's Store Hours row; the third column (Mansfield) has the same hours.",
+ "second_look": "2026-11-27"
+}

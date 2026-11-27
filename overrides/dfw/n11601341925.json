@@ -1,0 +1,54 @@
+{
+ "id": "n11601341925",
+ "name": "Cafe Duro",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://cafe-duro.com/location/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-21:00\"; the shop's own source wins. Read: 2804 Greenville Ave, Dallas, Texas 75206. Open Daily from 7am to 10pm. 214-888-8485 Address and phone matched. OSM had 21:00."
+}

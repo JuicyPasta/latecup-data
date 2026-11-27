@@ -1,0 +1,54 @@
+{
+ "id": "n13137327578",
+ "name": "The Alley",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1350
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 11:00-22:00; Fr-Sa 11:00-22:30",
+ "src": "brand",
+ "source": "https://the-alley.us/store.html",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 11:30-21:00; Fr-Sa 11:30-22:00",
+ "note": "OpenStreetMap said \"Su-Th 11:30-21:00; Fr-Sa 11:30-22:00\"; the shop's own source wins. Read: The Alley Plano Address: 8240 Preston Rd, Ste 177, plano, TX, 75024 TEL: 469-200-5217 OPEN: Sun - Thurs 11am - 10pm Fri - Sat 11am - 10:30pm The chain's US store list (the home page loads store.html); matched by address and phone. OSM had 11:30 openings and 21:00/22:00."
+}

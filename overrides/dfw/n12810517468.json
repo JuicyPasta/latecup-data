@@ -1,0 +1,54 @@
+{
+ "id": "n12810517468",
+ "name": "momo's coffeehouse",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-19:00; Sa-Su 08:00-19:00",
+ "src": "shop",
+ "source": "https://www.momoscoffeehouse.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 07:00-19:00; Th-Fr 07:00-21:00; Sa 08:00-21:00; Su 08:00-17:00",
+ "note": "OpenStreetMap said \"Mo-We 07:00-19:00; Th-Fr 07:00-21:00; Sa 08:00-21:00; Su 08:00-17:00\"; the shop's own source wins. Read: 6828 Stonebrook Pkwy STE 400 Frisco, TX. 75034 Tel: 214-407-7677 Hours of Operation Mon-Fri 7am - 7pm Sat-Sun 8am - 7pm Closes before 20:00 every day: leaves the late map. OSM had Th-Sa to 21:00."
+}

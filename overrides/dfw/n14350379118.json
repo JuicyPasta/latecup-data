@@ -1,0 +1,54 @@
+{
+ "id": "n14350379118",
+ "name": "Milkshakes & More",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+ "src": "shop",
+ "source": "https://milkshakesandmore.net/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 11:00-21:00; Fr-Sa 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: schema.org: Milkshakes & More, 925 W John Carpenter Fwy Suite 101 Irving 75039, 2142727844: Mo-Th 11:00-21:00, Fr-Sa 11:00-22:00, Su 11:00-21:00 No visible hours (the page sends people to Google); schema.org only, accepted because it equals OpenStreetMap's hours. The page calls it 'a family-owned dessert and beverage cafe' with coffee and espresso."
+}

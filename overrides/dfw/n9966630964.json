@@ -1,0 +1,54 @@
+{
+ "id": "n9966630964",
+ "name": "Babylon Coffee",
+ "hours": [
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ],
+  [
+   [
+    390,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:30-20:00",
+ "src": "shop",
+ "source": "https://babyloncoffeeroasters.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 06:30-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Babylon Coffee Roasters Location and Hours 9986 Grapevine Hwy, Hurst, TX 76054 ... Closes at 8PM, All hours (dialog); the page's data: businessHours monday-sunday 06:30-20:00, no overrides A Toast site: the week sits in the page's data behind an 'All hours' button, and the visible line shows today's closing (8 PM). Accepted because it equals OpenStreetMap's hours. Address matched; the page's phone is (817) 479-3073."
+}

@@ -1,0 +1,55 @@
+{
+ "id": "n2014631162",
+ "name": "Opening Bell Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    840
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:00-18:00; Th-Fr 07:00-21:00; Sa 08:00-21:00; Su 09:00-14:00",
+ "src": "shop",
+ "source": "https://www.openingbellcoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 07:00-18:00; Th-Fr 07:00-21:00",
+ "note": "OpenStreetMap had Saturday and Sunday closed. The shop's page (read twice on 2026-11-27), 1409 Botham Jean Blvd, 945.994.4618: Monday-Wednesday 7:00 - 6:00 pm, Thursday-Friday 7:00 - 9:00 pm, Saturday 8:00 - 9:00 pm, Sunday 9:00 - 2:00 pm. The page's schema.org has Monday closed and the same six other days; the visible text wins.",
+ "second_look": "2026-11-27"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "w465743318",
+ "name": "Black Sheep Coffee",
+ "hours": [
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    300,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 05:00-22:00; Sa-Su 06:00-22:00",
+ "src": "brand",
+ "source": "https://blacksheepcoffee.us/blogs/locations/mockingbird-lane",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 05:00-22:00; Sa-Su 06:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 6240 East Mockingbird Ln Dallas OPENING HOURS Sunday 06:00 - 22:00 Monday 05:00 - 22:00 ... Friday 05:00 - 22:00 Saturday 06:00 - 22:00 The chain's own store page. A chain (UK), not an independent."
+}

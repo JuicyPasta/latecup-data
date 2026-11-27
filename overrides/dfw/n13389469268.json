@@ -1,0 +1,54 @@
+{
+ "id": "n13389469268",
+ "name": "Beans and Bubbles",
+ "hours": [
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-21:00",
+ "src": "shop",
+ "source": "https://www.beansnbubbles.com/us/store",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:30-21:00; Sa,Su 08:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:30-21:00; Sa,Su 08:00-21:00\"; the shop's own source wins. Read: OPENING HOURS : 08:00 AM - 09:00 PM. Location : 2552 Stonebrook Pkwy #202, Frisco, Texas 75034 (214) 308-9378 The Frisco store page (address and phone match). One range with no days and no exception, read as every day; /us/locations says the same. OSM had 06:30 on weekdays."
+}

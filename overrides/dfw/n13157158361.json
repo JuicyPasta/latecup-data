@@ -1,0 +1,54 @@
+{
+ "id": "n13157158361",
+ "name": "Junbi Matcha & Tea",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:00",
+ "src": "brand",
+ "source": "https://junbishop.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: RICHARDSON Richardson, TX 326 W Campbell Rd Richardson, TX 75080 11AM - 9PM | EVERYDAY The chain's own store list; matched by address."
+}

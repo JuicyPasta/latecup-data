@@ -1,0 +1,54 @@
+{
+ "id": "n2363319579",
+ "name": "Astoria Caffe and Wine Bar",
+ "hours": [
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ],
+  [
+   [
+    600,
+    1500
+   ]
+  ],
+  [
+   [
+    600,
+    1500
+   ]
+  ],
+  [
+   [
+    600,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 10:00-23:00; Fr-Sa 10:00-01:00; Su 10:00-23:00",
+ "src": "shop",
+ "source": "https://astoriacaffe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 10:00-23:00; Fr-Sa 10:00-01:00",
+ "note": "Agrees with OpenStreetMap. Read: we are OPEN AGAIN ON MONDAYS! Working Hours: Sunday: 10am-11pm Monday: 10am-11pm ... Thursday: 10am-11pm Friday: 10am-1:00am Saturday: 10am-1:00am Questions: (972)239-5853 15701 Quorum Drive Phone matched."
+}

@@ -1,0 +1,49 @@
+{
+ "id": "n13440611439",
+ "name": "Mudleaf Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Mo-Sa 07:00-20:00; Su off",
+ "src": "shop",
+ "source": "https://mudleafcoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: HOURS MONDAY - Saturday....7AM - 8PM SUNDAY....CLOSED (and the footer: Mon-Sat 7am - 8pm, Sun CLOSED) Two spots on the page agree."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n14303723301",
+ "name": "Pax & Beneficia",
+ "hours": [
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 06:30-19:00; Th-Sa 06:30-21:00; Su 07:30-19:00",
+ "src": "shop",
+ "source": "https://paxandbeneficia.com/pages/las-colinas",
+ "checked": "2026-11-27",
+ "osm_hours": "Su 07:30-19:00; Mo-We 06:30-19:00; Th-Sa 06:30-21:00",
+ "note": "Agrees with OpenStreetMap. Read: We Are Open: Sunday: 7:30 AM - 7:00 PM Monday - Wednesday: 6:30 AM - 7:00 PM Thursday - Saturday: 6:30 AM - 9:00 PM Address: 5244 N O'Connor Blvd, Ste 150, Irving, TX 75039 Phone Number: (214) 613-6882 Matched by address and phone. The page's schema.org says Mo-Sa 07:00-19:00, Su 08:00-17:00 with another phone; the visible text wins."
+}

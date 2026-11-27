@@ -1,0 +1,49 @@
+{
+ "id": "n14313948343",
+ "name": "Pappalecco",
+ "hours": [
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [],
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [
+   [
+    420,
+    1290
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:00-21:30; Tu off; We-Th 07:00-21:30; Fr 07:00-22:00; Sa 08:00-22:00; Su 08:00-21:30",
+ "src": "shop",
+ "source": "https://pappalecco.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Mo,We-Th 07:00-21:30; Fr 07:00-22:00; Sa 08:00-22:00; Su 08:00-21:30; Tu off",
+ "note": "Agrees with OpenStreetMap. Read: Plano, Texas 1009 14th Street, #600 Plano, TX, 75074 Phone:(214) 299-9709 Hours: Mon: 7:00am - 9:30pm Tue: Closed Wed: 7:00am - 9:30pm Thu: 7:00am - 9:30pm Fri: 7:00am - 10:00pm Sat: 8:00am - 10:00pm Sun: 8:00am - 9:30pm Multi-store page (San Diego, Las Vegas, Plano); the Plano block matched by street address."
+}

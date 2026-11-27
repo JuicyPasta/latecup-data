@@ -1,0 +1,54 @@
+{
+ "id": "n14007237215",
+ "name": "Chicha San Chen",
+ "hours": [
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1320
+   ]
+  ],
+  [
+   [
+    690,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 11:30-21:00; Fr-Sa 11:30-22:00",
+ "src": "brand",
+ "source": "https://www.chichasanchentx.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 11:30-21:00; Fr-Sa 11:30-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 2225 Old Denton Rd STE 135, Carrollton, TX 75006 469-892-2082 Sun-Thurs 11:30AM-9PM Fri-Sat 11:30AM -10PM The Texas franchise's site (Carrollton, Austin, Houston); matched by address and phone. A chain (Taiwan)."
+}

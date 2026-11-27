@@ -1,0 +1,54 @@
+{
+ "id": "n13271504741",
+ "name": "La Reunion",
+ "hours": [
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    480,
+    1560
+   ]
+  ],
+  [
+   [
+    600,
+    1560
+   ]
+  ],
+  [
+   [
+    600,
+    1560
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 08:00-02:00; Sa-Su 10:00-02:00",
+ "src": "shop",
+ "source": "https://www.lareunioncoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 08:00-02:00; Sa-Su 10:00-02:00",
+ "note": "Agrees with OpenStreetMap. Read: 229 N. Bishop Ave W H E N 8am - 2am Monday - Friday 10am - 2am Saturday - Sunday One shop."
+}

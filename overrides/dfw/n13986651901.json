@@ -1,0 +1,54 @@
+{
+ "id": "n13986651901",
+ "name": "Pax & Beneficia Coffee",
+ "hours": [
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    390,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:30-17:00; Sa-Su 07:00-17:00",
+ "src": "shop",
+ "source": "https://paxandbeneficia.com/pages/waterside",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:30-16:00; Su 00:00-24:00; Sa 07:00-17:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:30-16:00; Su 00:00-24:00; Sa 07:00-17:00\"; the shop's own source wins. Read: We Are Open: Monday - Friday: 6:30 AM - 5:00 PM Saturday - Sunday: 7:00 AM - 5:00 PM Address: 5924 Convair Drive, Ste 400, Fort Worth, TX 76109 Phone Number: (817) 615-9686 Closes before 20:00 every day: leaves the late map. The Waterside store page (address and phone match). OSM had Sunday as 24 hours."
+}

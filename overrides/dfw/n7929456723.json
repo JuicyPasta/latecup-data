@@ -1,0 +1,54 @@
+{
+ "id": "n7929456723",
+ "name": "Civil Pour",
+ "hours": [
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:30-21:00; Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://www.civilpour.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:30-21:00; Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Dallas (The Hill) Mon-Sat 7:30am-9pm Sunday 8am-8pm 8061 Walnut Hill, Ste 924 Dallas, TX 75231 972-290-0216 Matched by address and phone. The 'Holiday hours are here' line is an Instagram post; ignored."
+}

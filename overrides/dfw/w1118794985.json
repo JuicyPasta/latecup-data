@@ -1,0 +1,54 @@
+{
+ "id": "w1118794985",
+ "name": "Marty B's Coffee",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 06:00-21:00; Fr-Sa 06:00-22:00; Su 07:00-17:00",
+ "src": "shop",
+ "source": "https://www.martybscoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su 07:00-17:00, Mo-Th 06:00-21:00, Fr-Sa 06:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 2656 FM 407 SADDLE UP & STOP BY Monday-Thursday: 6am-9pm Friday-Saturday: 6am-10pm Sunday: 7am-5pm One shop; the schema.org says the same."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n8418602252",
+ "name": "Pappa Rotí",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+ "src": "brand",
+ "source": "https://papparoti.us/pages/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Lewisville, TX 729 Hebron Pkwy, Ste 240, Lewisville, TX 75057 (972) 315 7581 Monday-Saturday 7am -10pm Sunday 9am-10pm OSM's link (areas-served/Lewisville-texas) is 404; the chain's own US locations page, matched by address and phone. A chain (400+ stores)."
+}

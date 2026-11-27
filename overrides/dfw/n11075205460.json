@@ -1,0 +1,50 @@
+{
+ "id": "n11075205460",
+ "name": "Triumphs Espresso & Whiskey",
+ "hours": [
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Mo-Tu 07:00-15:00; We-Fr 07:00-24:00; Sa 08:00-24:00; Su off",
+ "src": "shop",
+ "source": "https://triumphsdallas.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Tu 07:00-18:00, We-Fr 07:00-24:00, Sa 08:00-24:00, Su 08:00-18:00",
+ "note": "OpenStreetMap had Mo-Tu 07:00-18:00 and Sunday 08:00-18:00. The shop's page (read twice on 2026-11-27, body and footer agree): Monday - Tuesday 7 AM - 3 PM, Wednesday - Friday 7 AM - 12 AM, Saturday 8 AM - 12 AM, Sunday Closed. Craft coffee, whiskey and live jazz under one set of hours.",
+ "second_look": "2026-11-27"
+}

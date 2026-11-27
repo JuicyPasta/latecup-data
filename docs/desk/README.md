@@ -14,3 +14,4 @@ browser, a site that was down that day, an official Instagram account nobody rea
 |---|---|---|---|
 | `2026-11-27-sfbay.json` | the Bay Area | 104 late independents with a website | 47 confirmed (40 late), 4 not cafés, 24 need a browser |
 | `2026-11-27-la-1.json`, `2026-11-27-la-2.json` | Los Angeles + Orange County | 171 | 90 confirmed (81 late), 5 not cafés, 23 need a browser |
+| `2026-11-27-dfw.json` | Dallas-Fort Worth | 65 | 37 confirmed (33 late), 3 not cafés, 12 need a browser |

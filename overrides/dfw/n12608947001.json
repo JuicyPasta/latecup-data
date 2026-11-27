@@ -1,0 +1,54 @@
+{
+ "id": "n12608947001",
+ "name": "The Meteor",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 07:00-22:00; Fr-Sa 07:00-23:00",
+ "src": "shop",
+ "source": "https://themeteorcafe.com/dallas",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 07:00-22:00; Fr-Sa 07:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: 1970 Hi Line Drive (214) 774-4266 Sun - Thurs: 7 AM - 10 PM Fri - Sat: 7 AM - 11 PM Matched by phone. The bike shop's hours on the same page (214) 774-8405, Tu-Sa 10-6) are not the cafe's."
+}

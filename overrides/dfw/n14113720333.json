@@ -1,0 +1,54 @@
+{
+ "id": "n14113720333",
+ "name": "Royal Roastery Express",
+ "hours": [
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ],
+  [
+   [
+    420,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-24:00",
+ "src": "shop",
+ "source": "https://royalroastery.com/pages/dallas-02",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-24:00",
+ "note": "Agrees with OpenStreetMap. Read: Royal Roastery Express ... open till midnight. Visit us 1403 E Campbell Rd, Suite 110 Richardson, TX 75081 (940) 800-8555 ... Open Until Midnight Every Night; schema.org: Mo-Su 07:00-24:00 Closing time from the visible text, opening time from schema.org (equals OpenStreetMap's). Branch page matched by address and phone; dine-in and outdoor seating."
+}

@@ -1,0 +1,9 @@
+{
+ "id": "n12385531367",
+ "name": "Better Than Sex",
+ "exclude": true,
+ "source": "https://www.betterthansexdesserts.com/plano-tx/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 18:00-23:00; Fr-Sa 18:00-24:00",
+ "note": "A dessert-and-cocktail dining room, adults only, by its own page: 'The Ultimate Dessert & Cocktail Experience', 'an adults-only experience', 'our intimate speakeasy-style dining room', reservations. OSM tags it amenity=restaurant. Its hours would have been Mo-Th 18:00-23:00, Fr-Sa 18:00-24:00, Su 18:00-23:00 (as OSM)."
+}

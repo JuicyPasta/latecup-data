@@ -1,0 +1,54 @@
+{
+ "id": "w448884040",
+ "name": "La Madeleine",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-21:00",
+ "src": "brand",
+ "source": "https://lamadeleine.com/locations/addison-montfort",
+ "checked": "2026-11-27",
+ "osm_hours": "07:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: 15125 Montfort Road ... Sunday 7:00am-9:00pm Monday 7:00am-9:00pm ... Saturday 7:00am-9:00pm The chain's own store page; address and phone (469-885-8080) match. A chain (French bakery-cafe), not an independent."
+}

@@ -1,0 +1,49 @@
+{
+ "id": "n11273260804",
+ "name": "HOPE Coffee",
+ "hours": [
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Mo-Sa 06:00-19:00; Su off",
+ "src": "shop",
+ "source": "https://hopecoffee.com/sunnyvale/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 06:00-19:00; Fr-Sa 06:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Th 06:00-19:00; Fr-Sa 06:00-21:00\"; the shop's own source wins. Read: HOPE Coffee Sunnyvale ... Hours Monday - Saturday | 6 AM - 7 PM Closed on Sundays Location 129 N Collins Rd. Suite 1103, Sunnyvale, Texas 75182 972-813-9001 Closes before 20:00 every day: leaves the late map. OSM's link (locations.hopecoffee.com/sunnyvale/) no longer answers; the same store's page on hopecoffee.com, matched by address and phone. OSM had Fr-Sa to 21:00."
+}

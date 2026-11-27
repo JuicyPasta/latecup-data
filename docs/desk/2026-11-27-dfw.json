@@ -1,0 +1,642 @@
+[
+ {
+  "id": "n10660397805",
+  "name": "Zera Coffee",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.zeracoffee.com/",
+  "hours": "Mo-Sa 07:00-22:00; Su off",
+  "evidence": "420 E McKinney St, Denton, TX 76209. Monday - Saturday | 7:00AM - 10:00PM. Closed Sunday",
+  "note": "One shop; address matched. OSM had 23:00.",
+  "late": true
+ },
+ {
+  "id": "n11601341925",
+  "name": "Cafe Duro",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://cafe-duro.com/location/",
+  "hours": "Mo-Su 07:00-22:00",
+  "evidence": "2804 Greenville Ave, Dallas, Texas 75206. Open Daily from 7am to 10pm. 214-888-8485",
+  "note": "Address and phone matched. OSM had 21:00.",
+  "late": true
+ },
+ {
+  "id": "n11608203269",
+  "name": "Nehemiah Coffee Company",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.nehemiahcoffee.com/",
+  "hours": "Su-We 07:00-19:00; Th-Sa 07:00-22:00",
+  "evidence": "HOURS SUNDAY - WEDNESDAY 7:00 AM - 7:00 PM THURSDAY - SATURDAY 7:00 AM - 10:00 PM",
+  "note": "One shop (schema.org: 505 East Lamar Boulevard, Arlington, the same hours).",
+  "late": true
+ },
+ {
+  "id": "n11903180466",
+  "name": "Kindred Coffee Co",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.kindredcoffeeco.com/hours.html",
+  "hours": "Mo-Fr 06:00-20:00; Sa 06:00-19:00; Su 06:30-19:00",
+  "evidence": "Hours Monday: 6am - 8pm ... Friday: 6am - 8pm Saturday: 6am - 7pm Sunday: 6:30am - 7pm. 8700 N Tarrant Pkwy #109, North Richland Hills",
+  "note": "OSM had 06:30 on Monday and 06:00 on Sunday; the page has them the other way round.",
+  "late": true
+ },
+ {
+  "id": "n12078992335",
+  "name": "Shibam Coffee",
+  "status": "confirmed",
+  "src": "brand",
+  "source": "https://shibamcoffee.com/locations",
+  "hours": "Mo-Th 08:00-22:00; Fr-Su 08:00-23:00",
+  "evidence": "Richardson, TX 850 S Greenville Ave #105, Richardson, TX 75081 (214) 272-8844 Mon - Thu: 8:00 AM - 10:00 PM Fri - Sun: 8:00 AM - 11:00 PM",
+  "note": "The chain's own list of 24 stores; matched by address and phone. OSM had Fr-Sa to 01:00 and 07:00 openings.",
+  "late": true
+ },
+ {
+  "id": "n12608947001",
+  "name": "The Meteor",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://themeteorcafe.com/dallas",
+  "hours": "Su-Th 07:00-22:00; Fr-Sa 07:00-23:00",
+  "evidence": "1970 Hi Line Drive (214) 774-4266 Sun - Thurs: 7 AM - 10 PM Fri - Sat: 7 AM - 11 PM",
+  "note": "Matched by phone. The bike shop's hours on the same page (214) 774-8405, Tu-Sa 10-6) are not the cafe's.",
+  "late": true
+ },
+ {
+  "id": "n12810517468",
+  "name": "momo's coffeehouse",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.momoscoffeehouse.com/",
+  "hours": "Mo-Fr 07:00-19:00; Sa-Su 08:00-19:00",
+  "evidence": "6828 Stonebrook Pkwy STE 400 Frisco, TX. 75034 Tel: 214-407-7677 Hours of Operation Mon-Fri 7am - 7pm Sat-Sun 8am - 7pm",
+  "note": "Closes before 20:00 every day: leaves the late map. OSM had Th-Sa to 21:00.",
+  "late": false
+ },
+ {
+  "id": "n13011837103",
+  "name": "Civil Pour",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.civilpour.com/location/richardson/",
+  "hours": "Mo-Sa 07:30-21:00; Su 08:00-20:00",
+  "evidence": "Richardson Hours Mon-Sat 7:30am-9pm Sunday 8am-8pm Address 800 N Coit Rd, Ste 2550 Richardson, TX 75080",
+  "note": "Coffee and beer bar; one set of hours. The home page's 'Holiday hours are here' is an Instagram post, not the standing hours.",
+  "late": true
+ },
+ {
+  "id": "n7929456723",
+  "name": "Civil Pour",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.civilpour.com/",
+  "hours": "Mo-Sa 07:30-21:00; Su 08:00-20:00",
+  "evidence": "Dallas (The Hill) Mon-Sat 7:30am-9pm Sunday 8am-8pm 8061 Walnut Hill, Ste 924 Dallas, TX 75231 972-290-0216",
+  "note": "Matched by address and phone. The 'Holiday hours are here' line is an Instagram post; ignored.",
+  "late": true
+ },
+ {
+  "id": "n13137327578",
+  "name": "The Alley",
+  "status": "confirmed",
+  "src": "brand",
+  "source": "https://the-alley.us/store.html",
+  "hours": "Su-Th 11:00-22:00; Fr-Sa 11:00-22:30",
+  "evidence": "The Alley Plano Address: 8240 Preston Rd, Ste 177, plano, TX, 75024 TEL: 469-200-5217 OPEN: Sun - Thurs 11am - 10pm Fri - Sat 11am - 10:30pm",
+  "note": "The chain's US store list (the home page loads store.html); matched by address and phone. OSM had 11:30 openings and 21:00/22:00.",
+  "late": true
+ },
+ {
+  "id": "n13157158361",
+  "name": "Junbi Matcha & Tea",
+  "status": "confirmed",
+  "src": "brand",
+  "source": "https://junbishop.com/",
+  "hours": "Mo-Su 11:00-21:00",
+  "evidence": "RICHARDSON Richardson, TX 326 W Campbell Rd Richardson, TX 75080 11AM - 9PM | EVERYDAY",
+  "note": "The chain's own store list; matched by address.",
+  "late": true
+ },
+ {
+  "id": "n13271504741",
+  "name": "La Reunion",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.lareunioncoffee.com/",
+  "hours": "Mo-Fr 08:00-02:00; Sa-Su 10:00-02:00",
+  "evidence": "229 N. Bishop Ave W H E N 8am - 2am Monday - Friday 10am - 2am Saturday - Sunday",
+  "note": "One shop.",
+  "late": true
+ },
+ {
+  "id": "n13389469268",
+  "name": "Beans and Bubbles",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.beansnbubbles.com/us/store",
+  "hours": "Mo-Su 08:00-21:00",
+  "evidence": "OPENING HOURS : 08:00 AM - 09:00 PM. Location : 2552 Stonebrook Pkwy #202, Frisco, Texas 75034 (214) 308-9378",
+  "note": "The Frisco store page (address and phone match). One range with no days and no exception, read as every day; /us/locations says the same. OSM had 06:30 on weekdays.",
+  "late": true
+ },
+ {
+  "id": "n13398708300",
+  "name": "The Nest Cafe",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.thenestcraft.com/",
+  "hours": "Mo-Su 08:00-15:00",
+  "evidence": "5217 Alpha Road STE 155 Dallas, TX 75240 ... Hours Everyday 8am-3pm",
+  "note": "Closes before 20:00 every day: leaves the late map. OSM had Th-Sa to 21:00.",
+  "late": false
+ },
+ {
+  "id": "n13440611439",
+  "name": "Mudleaf Coffee",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://mudleafcoffee.com/",
+  "hours": "Mo-Sa 07:00-20:00; Su off",
+  "evidence": "HOURS MONDAY - Saturday....7AM - 8PM SUNDAY....CLOSED (and the footer: Mon-Sat 7am - 8pm, Sun CLOSED)",
+  "note": "Two spots on the page agree.",
+  "late": true
+ },
+ {
+  "id": "n13522801401",
+  "name": "Hold My Chai",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.holdmychaicafe.com/",
+  "hours": "Mo-We 07:00-22:00; Th-Sa 07:00-23:00; Su 10:00-22:00",
+  "evidence": "Frisco, TX Mon - Wed : 7am - 10pm | Thu - Sat : 7am - 11pm | Sun : 10am - 10pm",
+  "note": "One shop, in Frisco (the page gives no street address; the place is on Independence Pkwy in Frisco).",
+  "late": true
+ },
+ {
+  "id": "n13986651901",
+  "name": "Pax & Beneficia Coffee",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://paxandbeneficia.com/pages/waterside",
+  "hours": "Mo-Fr 06:30-17:00; Sa-Su 07:00-17:00",
+  "evidence": "We Are Open: Monday - Friday: 6:30 AM - 5:00 PM Saturday - Sunday: 7:00 AM - 5:00 PM Address: 5924 Convair Drive, Ste 400, Fort Worth, TX 76109 Phone Number: (817) 615-9686",
+  "note": "Closes before 20:00 every day: leaves the late map. The Waterside store page (address and phone match). OSM had Sunday as 24 hours.",
+  "late": false
+ },
+ {
+  "id": "n14303723301",
+  "name": "Pax & Beneficia",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://paxandbeneficia.com/pages/las-colinas",
+  "hours": "Mo-We 06:30-19:00; Th-Sa 06:30-21:00; Su 07:30-19:00",
+  "evidence": "We Are Open: Sunday: 7:30 AM - 7:00 PM Monday - Wednesday: 6:30 AM - 7:00 PM Thursday - Saturday: 6:30 AM - 9:00 PM Address: 5244 N O'Connor Blvd, Ste 150, Irving, TX 75039 Phone Number: (214) 613-6882",
+  "note": "Matched by address and phone. The page's schema.org says Mo-Sa 07:00-19:00, Su 08:00-17:00 with another phone; the visible text wins.",
+  "late": true
+ },
+ {
+  "id": "n14007237215",
+  "name": "Chicha San Chen",
+  "status": "confirmed",
+  "src": "brand",
+  "source": "https://www.chichasanchentx.com/",
+  "hours": "Su-Th 11:30-21:00; Fr-Sa 11:30-22:00",
+  "evidence": "2225 Old Denton Rd STE 135, Carrollton, TX 75006 469-892-2082 Sun-Thurs 11:30AM-9PM Fri-Sat 11:30AM -10PM",
+  "note": "The Texas franchise's site (Carrollton, Austin, Houston); matched by address and phone. A chain (Taiwan).",
+  "late": true
+ },
+ {
+  "id": "n14095823939",
+  "name": "Royal Roastery",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://royalroastery.com/pages/dallas-01",
+  "hours": "Mo-Su 07:00-24:00",
+  "evidence": "Visit us 1055 S Sherman St, Suite 100 Richardson, TX 75081 (737) 800-8555 ... Open Until Midnight Every Night; schema.org: Mo-Su 07:00-24:00",
+  "note": "The visible text gives the closing time only; the opening time is the page's schema.org, accepted because it equals OpenStreetMap's hours. Branch page matched by address and phone. Four shops (New Orleans, Houston, two in Richardson).",
+  "late": true
+ },
+ {
+  "id": "n14113720333",
+  "name": "Royal Roastery Express",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://royalroastery.com/pages/dallas-02",
+  "hours": "Mo-Su 07:00-24:00",
+  "evidence": "Royal Roastery Express ... open till midnight. Visit us 1403 E Campbell Rd, Suite 110 Richardson, TX 75081 (940) 800-8555 ... Open Until Midnight Every Night; schema.org: Mo-Su 07:00-24:00",
+  "note": "Closing time from the visible text, opening time from schema.org (equals OpenStreetMap's). Branch page matched by address and phone; dine-in and outdoor seating.",
+  "late": true
+ },
+ {
+  "id": "n14313948343",
+  "name": "Pappalecco",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://pappalecco.com/locations",
+  "hours": "Mo 07:00-21:30; Tu off; We-Th 07:00-21:30; Fr 07:00-22:00; Sa 08:00-22:00; Su 08:00-21:30",
+  "evidence": "Plano, Texas 1009 14th Street, #600 Plano, TX, 75074 Phone:(214) 299-9709 Hours: Mon: 7:00am - 9:30pm Tue: Closed Wed: 7:00am - 9:30pm Thu: 7:00am - 9:30pm Fri: 7:00am - 10:00pm Sat: 8:00am - 10:00pm Sun: 8:00am - 9:30pm",
+  "note": "Multi-store page (San Diego, Las Vegas, Plano); the Plano block matched by street address.",
+  "late": true
+ },
+ {
+  "id": "n14350379118",
+  "name": "Milkshakes & More",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://milkshakesandmore.net/",
+  "hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+  "evidence": "schema.org: Milkshakes & More, 925 W John Carpenter Fwy Suite 101 Irving 75039, 2142727844: Mo-Th 11:00-21:00, Fr-Sa 11:00-22:00, Su 11:00-21:00",
+  "note": "No visible hours (the page sends people to Google); schema.org only, accepted because it equals OpenStreetMap's hours. The page calls it 'a family-owned dessert and beverage cafe' with coffee and espresso.",
+  "late": true
+ },
+ {
+  "id": "n2363319579",
+  "name": "Astoria Caffe and Wine Bar",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://astoriacaffe.com/",
+  "hours": "Mo-Th 10:00-23:00; Fr-Sa 10:00-01:00; Su 10:00-23:00",
+  "evidence": "we are OPEN AGAIN ON MONDAYS! Working Hours: Sunday: 10am-11pm Monday: 10am-11pm ... Thursday: 10am-11pm Friday: 10am-1:00am Saturday: 10am-1:00am Questions: (972)239-5853 15701 Quorum Drive",
+  "note": "Phone matched.",
+  "late": true
+ },
+ {
+  "id": "n8260733292",
+  "name": "Manna Tea House",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.mannateahouse.com/",
+  "hours": "Mo-Th 10:00-22:00; Fr-Sa 10:00-23:00; Su 13:00-23:00",
+  "evidence": "Contact Mon-Thu: 10:00 AM - 10:00 PM Fri-Sat: 10:00 AM - 11:00 PM Sun: 1:00 PM - 11:00 PM 3801 President George Bush Highway, STE 116, Plano",
+  "note": "One shop.",
+  "late": true
+ },
+ {
+  "id": "n8418602252",
+  "name": "Pappa Rotí",
+  "status": "confirmed",
+  "src": "brand",
+  "source": "https://papparoti.us/pages/locations",
+  "hours": "Mo-Sa 07:00-22:00; Su 09:00-22:00",
+  "evidence": "Lewisville, TX 729 Hebron Pkwy, Ste 240, Lewisville, TX 75057 (972) 315 7581 Monday-Saturday 7am -10pm Sunday 9am-10pm",
+  "note": "OSM's link (areas-served/Lewisville-texas) is 404; the chain's own US locations page, matched by address and phone. A chain (400+ stores).",
+  "late": true
+ },
+ {
+  "id": "n9557300847",
+  "name": "Bubble Well",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.bubblewell.co/",
+  "hours": "Mo-Su 11:00-20:30",
+  "evidence": "2215 S Loop 288 # 310, | Daily 11-8:30 -Denton ... HOURS Denton:11-8:30",
+  "note": "Two shops on the page with the same hours; Denton matched by address. OSM had 20:00.",
+  "late": true
+ },
+ {
+  "id": "n9966630964",
+  "name": "Babylon Coffee",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://babyloncoffeeroasters.com/",
+  "hours": "Mo-Su 06:30-20:00",
+  "evidence": "Babylon Coffee Roasters Location and Hours 9986 Grapevine Hwy, Hurst, TX 76054 ... Closes at 8PM, All hours (dialog); the page's data: businessHours monday-sunday 06:30-20:00, no overrides",
+  "note": "A Toast site: the week sits in the page's data behind an 'All hours' button, and the visible line shows today's closing (8 PM). Accepted because it equals OpenStreetMap's hours. Address matched; the page's phone is (817) 479-3073.",
+  "late": true
+ },
+ {
+  "id": "w1118794985",
+  "name": "Marty B's Coffee",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.martybscoffee.com/",
+  "hours": "Mo-Th 06:00-21:00; Fr-Sa 06:00-22:00; Su 07:00-17:00",
+  "evidence": "2656 FM 407 SADDLE UP & STOP BY Monday-Thursday: 6am-9pm Friday-Saturday: 6am-10pm Sunday: 7am-5pm",
+  "note": "One shop; the schema.org says the same.",
+  "late": true
+ },
+ {
+  "id": "w221420595",
+  "name": "Union Coffee",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.uniondallas.org/",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-18:00",
+  "evidence": "Union Coffee, 3705 Cedar Springs Road, Dallas, TX, 75219 ... Store Hours MON - FRI 7AM - 8PM SAT & SUN 8AM - 6PM",
+  "note": "The page's schema.org says Mo-Fr to 21:00, Sa 08:00-21:00, Su 09:00-21:00 (stale site settings); the visible text wins.",
+  "late": true
+ },
+ {
+  "id": "w448884040",
+  "name": "La Madeleine",
+  "status": "confirmed",
+  "src": "brand",
+  "source": "https://lamadeleine.com/locations/addison-montfort",
+  "hours": "Mo-Su 07:00-21:00",
+  "evidence": "15125 Montfort Road ... Sunday 7:00am-9:00pm Monday 7:00am-9:00pm ... Saturday 7:00am-9:00pm",
+  "note": "The chain's own store page; address and phone (469-885-8080) match. A chain (French bakery-cafe), not an independent.",
+  "late": true
+ },
+ {
+  "id": "w465743318",
+  "name": "Black Sheep Coffee",
+  "status": "confirmed",
+  "src": "brand",
+  "source": "https://blacksheepcoffee.us/blogs/locations/mockingbird-lane",
+  "hours": "Mo-Fr 05:00-22:00; Sa-Su 06:00-22:00",
+  "evidence": "6240 East Mockingbird Ln Dallas OPENING HOURS Sunday 06:00 - 22:00 Monday 05:00 - 22:00 ... Friday 05:00 - 22:00 Saturday 06:00 - 22:00",
+  "note": "The chain's own store page. A chain (UK), not an independent.",
+  "late": true
+ },
+ {
+  "id": "w805468427",
+  "name": "Local Good Coffee Co",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://www.localgoodcoffee.com/",
+  "hours": "Mo 06:30-17:00; Tu 06:30-20:00; We 06:30-17:00; Th 06:30-20:00; Fr 06:30-17:00; Sa 07:00-20:00; Su 07:00-15:00",
+  "evidence": "201 Legacy Dr., Plano, TX 75023 NEW HOURS MWF 6:30 AM-5:00 PM TTH 6:30 AM-8:00 PM SAT 7:00 AM-8:00 PM SUN 7:00 AM-3:00 PM",
+  "note": "The pickleball courts' 'Every Day | Closes at 10 PM' are not the cafe's. OSM had Tu/Th/Sa to 21:00 and 06:00 openings.",
+  "late": true
+ },
+ {
+  "id": "n11273260804",
+  "name": "HOPE Coffee",
+  "status": "confirmed",
+  "src": "shop",
+  "source": "https://hopecoffee.com/sunnyvale/",
+  "hours": "Mo-Sa 06:00-19:00; Su off",
+  "evidence": "HOPE Coffee Sunnyvale ... Hours Monday - Saturday | 6 AM - 7 PM Closed on Sundays Location 129 N Collins Rd. Suite 1103, Sunnyvale, Texas 75182 972-813-9001",
+  "note": "Closes before 20:00 every day: leaves the late map. OSM's link (locations.hopecoffee.com/sunnyvale/) no longer answers; the same store's page on hopecoffee.com, matched by address and phone. OSM had Fr-Sa to 21:00.",
+  "late": false
+ },
+ {
+  "id": "n11075205460",
+  "name": "Triumphs Espresso & Whiskey",
+  "status": "confirmed_second_look",
+  "src": "shop",
+  "source": "https://triumphsdallas.com/",
+  "hours": "Mo-Tu 07:00-15:00; We-Fr 07:00-24:00; Sa 08:00-24:00; Su off",
+  "evidence": "Monday - Tuesday 7 AM - 3 PM Wednesday - Friday 7 AM - 12 AM Saturday 8 AM - 12 AM Sunday Closed (the body and the footer agree); 141 Manufacturing St.",
+  "note": "Craft coffee, whiskey and live jazz under one set of hours. OSM had Mo-Tu to 18:00 and Sunday 08:00-18:00; the page has Sunday closed.",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: Su",
+  "second_look": "2026-11-27"
+ },
+ {
+  "id": "n11964822472",
+  "name": "TeaLatte Bar",
+  "status": "confirmed_second_look",
+  "src": "shop",
+  "source": "https://www.tealattebar.com/locations",
+  "hours": "Su-Th 11:00-21:00; Fr-Sa 11:00-22:00",
+  "evidence": "Store Hours: Richardson (UTD) | SUN - THUR 11AM - 9PM FRI - SAT 11AM - 10PM. Richardson (UTD) 7517 Campbell Rd Ste 608 Dallas, TX 75248 Tel: (469) 870-3133",
+  "note": "Eight shops on a Wix page. The store is 'Richardson (UTD)' by address and phone; its hours are the first column of the Store Hours row (the page's layout puts the Richardson (UTD) title at left 0 and this hours block at left 0; Flower Mound and Mansfield are the other two columns). OSM had Monday closed; the page says Sun - Thur.",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: Mo",
+  "second_look": "2026-11-27"
+ },
+ {
+  "id": "n2014631162",
+  "name": "Opening Bell Coffee",
+  "status": "confirmed_second_look",
+  "src": "shop",
+  "source": "https://www.openingbellcoffee.com/",
+  "hours": "Mo-We 07:00-18:00; Th-Fr 07:00-21:00; Sa 08:00-21:00; Su 09:00-14:00",
+  "evidence": "1409 Botham Jean Blvd Dallas, Texas 75215 HOURS Monday 7:00 - 6:00 pm Tuesday 7:00 - 6:00 pm Wednesday 7:00 - 6:00 pm Thursday 7:00 - 9:00 pm Friday 7:00 - 9:00 pm Saturday 8:00 - 9:00 pm Sunday 9:00 - 2:00 pm",
+  "note": "Phone matched (945.994.4618). OSM had Saturday and Sunday closed. The page's schema.org has Monday closed and the other six days as the visible text; the visible text wins.",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: Sa,Su",
+  "second_look": "2026-11-27"
+ },
+ {
+  "id": "n12385531367",
+  "name": "Better Than Sex",
+  "status": "not_a_cafe",
+  "src": "shop",
+  "source": "https://www.betterthansexdesserts.com/plano-tx/",
+  "evidence": "The Ultimate Dessert & Cocktail Experience in Historic Downtown Plano ... an adults-only experience ... our intimate speakeasy-style dining room ... Reservations suggested on the weekends. 1010 E 15th Street, Plano: Monday - Thursday 6pm-11pm Friday & Saturday 6pm- 12am Sunday 6pm-11pm",
+  "note": "A dessert-and-cocktail dining room, adults only, by its own page: 'The Ultimate Dessert & Cocktail Experience', 'an adults-only experience', 'our intimate speakeasy-style dining room', reservations. OSM tags it amenity=restaurant. Its hours would have been Mo-Th 18:00-23:00, Fr-Sa 18:00-24:00, Su 18:00-23:00 (as OSM)."
+ },
+ {
+  "id": "n4217942491",
+  "name": "Café Brazil",
+  "status": "not_a_cafe",
+  "src": "shop",
+  "source": "https://cafebrazil.com/locations/bishop-arts-all-day-breakfast-restaurant/",
+  "evidence": "Cafe Brazil - Bishop Arts, Bishop Arts All Day Breakfast and Brunch, 611 N. Bishop Ave Ste #101 ... HOURS: Sunday - Thursday OPEN 7am-11pm, Friday and Saturday OPEN 7am-midnight. Alcohol Served At This Location",
+  "note": "A restaurant by its own pages: the page is 'Bishop Arts All Day Breakfast Restaurant', the site's title 'The Best Dallas All Day Breakfast Restaurant', a full breakfast and brunch menu, alcohol served. A local chain of six. Left for the coordinator if diners belong on the map: its hours would be Su-Th 07:00-23:00, Fr-Sa 07:00-24:00 (as OSM)."
+ },
+ {
+  "id": "w1115618250",
+  "name": "Cafe Brazil",
+  "status": "not_a_cafe",
+  "src": "shop",
+  "source": "https://cafebrazil.com/locations/deep-ellum-all-day-breakfast-restaurant/",
+  "evidence": "Cafe Brazil - Deep Ellum, Deep Ellum All Day Breakfast Restaurant, 2815 Elm St. PH: 214-747-2730 Hours: Open 24 hours Wednesday - Sunday Monday & Tuesday, Open 7am-2pm",
+  "note": "A restaurant by its own pages: 'Deep Ellum All Day Breakfast Restaurant', 'The Best Dallas All Day Breakfast Restaurant'. A local chain of six. Left for the coordinator if diners belong on the map: its hours would be Mo-Tu 07:00-14:00, We-Su 00:00-24:00 (OSM had a garbled Mon/Tue)."
+ },
+ {
+  "id": "n6109939183",
+  "name": "Magic Cup",
+  "status": "skipped",
+  "reason": "two spots on the page disagree",
+  "page": "https://www.magiccupcafe.com/",
+  "note": "The footer's business hours say 'Mon 10am - 11pm ... Sun 10am - 11pm' (the schema.org agrees); the locations block on the same page says 'richardson 901 N. JUPITER RD. STE 150 ... OPERATING HOURS MON-SUN: 10aM - 10PM' (OSM has 22:00)."
+ },
+ {
+  "id": "n3762129342",
+  "name": "AllGood Cafe",
+  "status": "skipped",
+  "reason": "kitchen hours only",
+  "page": "https://www.allgoodcafe.com/contact",
+  "note": "The page gives only 'KITCHEN HOURS: SUN - WED 8AM - 3PM THURS - SAT 8AM - 9PM' (as OSM). A breakfast-lunch-dinner restaurant with live music Thursday to Saturday ('Serving Breakfast, Lunch, Brunch 7 days a week ... with Dinner and Great Live Music Thursdays thru Saturdays'); probably not a cafe, but it calls itself 'a funky little cafe'."
+ },
+ {
+  "id": "n14095823937",
+  "name": "Chocolate Drip Cafe",
+  "status": "skipped",
+  "reason": "the site is a listing site",
+  "page": "https://chocolate-drip.zoyaf.com/",
+  "note": "OSM's website is a page on zoyaf.com, a directory 'kept current from public listings' (ratings, review counts and amenities copied from a map listing). Not the shop's own page; not used."
+ },
+ {
+  "id": "n13565736743",
+  "name": "Taiwan Professional (TP) Tea",
+  "status": "skipped",
+  "reason": "the site is a directory",
+  "page": "https://dfwchinatown.com/store-directory/tp-tea/",
+  "note": "OSM's website is the DFW Chinatown shopping centre's store directory; it lists the address and phone (400 N. Greenville Ave. Suite 14, (972) 685-6902) and no hours. Not the shop's own page. A chain (TP Tea, Taiwan)."
+ },
+ {
+  "id": "n14324094801",
+  "name": "Matcha Cafe Maiko",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "page": "https://www.matchacafe-maiko.com/eng/store/index.html?country=usa&region=tx&target=tx-richardson",
+  "note": "The chain's store page for 100 S Central Expy Ste 15 says 'Hours - Please call store for updated hours -'. A chain (Japan)."
+ },
+ {
+  "id": "n7047713753",
+  "name": "Ding Tea",
+  "status": "skipped",
+  "reason": "no hours on the chain's own page",
+  "page": "https://www.dingtea.com/en/page/global-locations.html",
+  "note": "The chain's global locations page lists no store at 581 W Campbell Rd (no Richardson or Texas store in its text). A chain (Taiwan)."
+ },
+ {
+  "id": "n9731297113",
+  "name": "Feng Cha Allen",
+  "status": "skipped",
+  "reason": "no hours on the chain's own page",
+  "page": "https://fengchausa.com/store/allen/",
+  "note": "The chain's store page for 945 W Stacy Rd Ste 150, Allen ((469) 656-1883) gives address and phone and no hours. A chain."
+ },
+ {
+  "id": "n9962240935",
+  "name": "Sweetwaters",
+  "status": "skipped",
+  "reason": "store page gone",
+  "page": "https://www.sweetwaterscafe.com/tx-frisco-shops-at-creekside/",
+  "note": "OSM's store page answers HTTP 410 (gone), and the chain's locator (https://www.sweetwaterscafe.com/locations/) lists seven Texas stores, none at 13030 Preston Rd, Frisco. Possibly closed; the chain's page does not say so. A chain."
+ },
+ {
+  "id": "w169463454",
+  "name": "Java & Hopps",
+  "status": "skipped",
+  "reason": "domain no longer the shop's",
+  "page": "https://www.javahopps.com/",
+  "note": "javahopps.com now serves an unrelated Japanese article page ('WEBの活用方法の一つ'). Not the shop's page; not proof the shop closed."
+ },
+ {
+  "id": "n10659298447",
+  "name": "NATIVE Coffee + Kitchen",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://nativeck.com/",
+  "note": "SSL error in the harvest; by hand https answers with a TLS 'internal error' alert (www too) and http with HTTP 500."
+ },
+ {
+  "id": "n11206794137",
+  "name": "DING TEA Taiwan",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://dingteatexas.com/",
+  "note": "SSL error: the host's certificate is not for dingteatexas.com (www too); http does not connect."
+ },
+ {
+  "id": "w1319289472",
+  "name": "Pandacorn Cafe",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://www.pandacorncafe.com/",
+  "note": "The domain does not resolve (harvest and by hand)."
+ },
+ {
+  "id": "w547716650",
+  "name": "Rosalind Coffee Company",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://rosalindcoffee.com/",
+  "note": "The domain does not resolve (harvest and by hand)."
+ },
+ {
+  "id": "n12145420417",
+  "name": "Tea Town",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://teatowntexas.com/",
+  "note": "HTTP 403 from Cloudflare in the harvest and by hand."
+ },
+ {
+  "id": "n11910484698",
+  "name": "Okaeri Cafe",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://okaericafe.square.site/",
+  "note": "Square Online site: the fetched page holds no text and no hours."
+ },
+ {
+  "id": "n13296710888",
+  "name": "Hoshi Japanese Cafe",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.hoshijapanesesweets.com/",
+  "note": "Square Online site; the only hours in the fetched page are the template's (Square Inc, Market Street, San Francisco; Monday 09:00 am - 05:00 pm ...)."
+ },
+ {
+  "id": "n13765260101",
+  "name": "The Clove Cafe",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.theclovecafe.com/",
+  "note": "Square Online site; the only hours in the fetched page are the template's (Square Inc, San Francisco; 09:00 am - 05:00 pm)."
+ },
+ {
+  "id": "n13816354201",
+  "name": "Melby's Coffee & Tea House",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.melbytx.com/",
+  "note": "Square Online site: the fetched page holds no hours."
+ },
+ {
+  "id": "n8786523610",
+  "name": "Craft Boba Tea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.craftbobatea.com/",
+  "note": "Square Online site; the store's own location block (6105 Greenville Avenue) has its hours hidden, and the only hours are the template's (1455 MARKET ST STE 600 SAN FRANCISCO, Mon-Fri 9:00am - 5:00pm)."
+ },
+ {
+  "id": "n14097992501",
+  "name": "Savor Coffee Bar",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.savorcoffeebar.com/",
+  "note": "The domain is a frame around https://savorcoffeebar.square.site/drinks (Square Online)."
+ },
+ {
+  "id": "n12505011761",
+  "name": "Parterre",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.parterredallas.com/",
+  "note": "No hours on the site (home and events pages; Squarespace business hours off). The shop's Toast ordering page (https://order.toasttab.com/online/parterre-1601-elm-st) answers HTTP 403 to a plain fetch. Same owners as Triumphs and La Reunion."
+ },
+ {
+  "id": "n14418146201",
+  "name": "Latte Factory",
+  "status": "needs_browser",
+  "reason": "branch not matched by address",
+  "page": "https://www.lattefactory.net/locations",
+  "note": "The chain's list has 'Arlington, TX (Parks Mall food court) Hours: Monday -Thursday 10:00am - 8:00pm Friday - Saturday 10:00am - 9:00pm Sunday 11:00am - 6:00pm' (as OSM) but no street address or phone, and its directions link points at the Sugar Land store. The store's Toast ordering page (https://order.toasttab.com/online/latte-factory-parks-mall), which carries the address, answers HTTP 403. A chain of mall kiosks."
+ },
+ {
+  "id": "n14098035001",
+  "name": "Chill Coffee and Wine Bar",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://chillcoffeewine.com/",
+  "note": "No visible hours (address and phone only). The ordering site's data (Rushable) has open_hours Mo-Su 08:00-22:00, which differs from OSM's 08:00-21:00, so it is not taken without the rendered page."
+ },
+ {
+  "id": "w641374922",
+  "name": "White Rhino Coffee",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://order.incentivio.com/c/whiterhinocoffee/",
+  "note": "The site's 'Locations' link is the chain's ordering app (Incentivio), a script-only page. A small Texas chain."
+ },
+ {
+  "id": "n10659686247",
+  "name": "Swig Drinks",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://swig.com/findaswig",
+  "note": "OSM's store link redirects to the chain's locator, a script-only map. A chain of drive-thru soda shops (OSM cuisine=soda); probably not a cafe."
+ }
+]

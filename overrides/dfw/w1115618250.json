@@ -1,0 +1,9 @@
+{
+ "id": "w1115618250",
+ "name": "Cafe Brazil",
+ "exclude": true,
+ "source": "https://cafebrazil.com/locations/deep-ellum-all-day-breakfast-restaurant/",
+ "checked": "2026-11-27",
+ "osm_hours": "We-Su 00:00-24:00; Mo-Tu 07:00-15:00,22:00-07:00",
+ "note": "A restaurant by its own pages: 'Deep Ellum All Day Breakfast Restaurant', 'The Best Dallas All Day Breakfast Restaurant'. A local chain of six. Left for the coordinator if diners belong on the map: its hours would be Mo-Tu 07:00-14:00, We-Su 00:00-24:00 (OSM had a garbled Mon/Tue)."
+}

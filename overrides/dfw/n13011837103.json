@@ -1,0 +1,54 @@
+{
+ "id": "n13011837103",
+ "name": "Civil Pour",
+ "hours": [
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    450,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:30-21:00; Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://www.civilpour.com/location/richardson/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:30-21:00; Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Richardson Hours Mon-Sat 7:30am-9pm Sunday 8am-8pm Address 800 N Coit Rd, Ste 2550 Richardson, TX 75080 Coffee and beer bar; one set of hours. The home page's 'Holiday hours are here' is an Instagram post, not the standing hours."
+}

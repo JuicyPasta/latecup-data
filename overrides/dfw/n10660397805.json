@@ -1,0 +1,49 @@
+{
+ "id": "n10660397805",
+ "name": "Zera Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Mo-Sa 07:00-22:00; Su off",
+ "src": "shop",
+ "source": "https://www.zeracoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:00-23:00",
+ "note": "OpenStreetMap said \"Mo-Sa 07:00-23:00\"; the shop's own source wins. Read: 420 E McKinney St, Denton, TX 76209. Monday - Saturday | 7:00AM - 10:00PM. Closed Sunday One shop; address matched. OSM had 23:00."
+}

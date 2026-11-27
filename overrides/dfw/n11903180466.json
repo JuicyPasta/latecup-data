@@ -1,0 +1,54 @@
+{
+ "id": "n11903180466",
+ "name": "Kindred Coffee Co",
+ "hours": [
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-20:00; Sa 06:00-19:00; Su 06:30-19:00",
+ "src": "shop",
+ "source": "https://www.kindredcoffeeco.com/hours.html",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo 06:30-20:00; Tu-Fr 06:00-20:00; Sa-Su 06:00-19:00",
+ "note": "OpenStreetMap said \"Mo 06:30-20:00; Tu-Fr 06:00-20:00; Sa-Su 06:00-19:00\"; the shop's own source wins. Read: Hours Monday: 6am - 8pm ... Friday: 6am - 8pm Saturday: 6am - 7pm Sunday: 6:30am - 7pm. 8700 N Tarrant Pkwy #109, North Richland Hills OSM had 06:30 on Monday and 06:00 on Sunday; the page has them the other way round."
+}
