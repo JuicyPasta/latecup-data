@@ -1,0 +1,54 @@
+{
+ "id": "n11795942187",
+ "name": "Hisaya",
+ "hours": [
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1290
+   ]
+  ],
+  [
+   [
+    720,
+    1290
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-21:00; Fr-Sa 12:00-21:30; Su 12:00-21:00",
+ "src": "shop",
+ "source": "https://hisaya-chestnuts.square.site/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Th 12:00-21:00; Fr-Sa 12:00-21:30",
+ "note": "Agrees with OpenStreetMap. Read: Location & Hours: Hisaya Kyoto Chestnuts (Torrance Store), 1757 W Carson St Ste F, Torrance, California 90501-2828, (310) 328-6788 ... Monday-Thursday 12:00 pm - 9:00 pm, Friday-Saturday 12:00 pm - 9:30 pm, Sunday 12:00 pm - 9:00 pm. Holiday Hours: ... Thanksgiving: 12:00 PM - 6:00 PM Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). OSM's kyotochestnuts.com leads to this Square site. The holiday lines were ignored. The page's data also holds an older table (11:00-21:30) and pickup hours (12:30-20:30) that are not shown; the visible block wins."
+}

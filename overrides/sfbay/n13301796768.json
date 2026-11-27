@@ -1,0 +1,54 @@
+{
+ "id": "n13301796768",
+ "name": "Kiss of Matcha",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-20:00; Fr 11:00-21:00; Sa 10:00-21:00; Su 10:00-20:00",
+ "src": "shop",
+ "source": "https://www.kissofmatcha.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-20:00; Fr 11:00-21:00; Sa 10:00-21:00; Su 10:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Location data of the shop's own Square site for 2127 Irving St: MON-THU open 11:00 close 20:00, FRI 11:00-21:00, SAT 10:00-21:00, SUN 10:00-20:00 Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). No hours in the visible text. The page's data alone is taken because it equals OpenStreetMap's hours, the rule docs/accuracy.md has for schema.org. The other shop on the site (612 Broadway) was left alone."
+}

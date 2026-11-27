@@ -1,0 +1,54 @@
+{
+ "id": "n1256185225",
+ "name": "La Stazione",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-21:00; Sa-Su 08:00-21:00",
+ "src": "shop",
+ "source": "https://www.lastazionesf.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-21:00; Sa-Su 08:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Location & Hours: We are located at 701 Pennsylvania Ave (at 22nd St.) ... Come visit us during the regular hours 7-9 on weekdays and 8-9 on weekends. In the afternoons, cannoli ordering and pickup till 9pm via the pickup window only. Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). The page's Square location data says the same (Mo-Fr 07:00-21:00, Sa-Su 08:00-21:00). After 1 pm (2 pm at weekends) it serves from the pickup window."
+}

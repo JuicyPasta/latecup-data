@@ -1,0 +1,54 @@
+{
+ "id": "n11378679126",
+ "name": "Stories Cafe",
+ "hours": [
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 09:00-21:00",
+ "src": "shop",
+ "source": "https://www.storiesla.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th, Sa, Su 09:00-21:00; Fr 09:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th, Sa, Su 09:00-21:00; Fr 09:00-22:00\"; the shop's own source wins. Read: Contact & Hours ... (213) 413-3733, 1716 W Sunset Blvd, Los Angeles CA 90026, Open 7 Days a Week, 9am - 9pm Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Stories Books & Cafe, a bookshop with a café. OpenStreetMap had Friday to 22:00."
+}

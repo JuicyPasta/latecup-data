@@ -1,0 +1,54 @@
+{
+ "id": "n10560594652",
+ "name": "Turn Café x Little Sweet",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://little-sweet.square.site/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Location & Hours: Turn Café x Little Sweet, 17 Powell St Frnt Door, San Francisco, California 94102, (628) 242-0310 ... Monday 7:00 am - 10:00 pm ... Sunday 7:00 am - 10:00 pm Read with tools/harvest_browser.mjs on 2026-11-27 (the day after Thanksgiving). Little Sweet's own Square site lists five shops; this block matched by street address and phone. Square's sample office hours sit in the page's data, not in this block. The ordering data has pickup from 07:15 to 21:45, inside these hours."
+}
