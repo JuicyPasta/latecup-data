@@ -1,13 +1,15 @@
 """Turn a decisions file into overrides.
 
-usage: python tools/apply_decisions.py decisions.json [--osm work/osm.json]
+usage: python tools/apply_decisions.py decisions.json [--osm work/osm.json] [--area chicago]
 
 decisions.json: [{"id", "status": "confirmed" | "closed" | "not_a_cafe" | anything else (ignored),
                   "hours": "<opening_hours string>", "source": URL, "evidence": text, "note": text,
                   "src": "shop" | "brand", "addr": "street address, when OSM has none"}]
 Every hours string must pass the strict parser and every source must be an
 allowed one; a record that fails is reported and skipped. The note records
-whether the shop's own hours agree with OpenStreetMap's.
+whether the shop's own hours agree with OpenStreetMap's. --area: the area the
+places are in when it is not New York; the records go to overrides/<area>/
+and "today" is that area's date (give --osm that area's pull).
 """
 import json
 import sys
@@ -23,6 +25,9 @@ import override  # noqa: E402
 def main(argv):
     decisions = json.loads(Path(argv[0]).read_text())
     osm_file = Path(argv[argv.index("--osm") + 1]) if "--osm" in argv else ROOT / "work" / "osm.json"
+    area = argv[argv.index("--area") + 1] if "--area" in argv else None
+    folder = argv[argv.index("--folder") + 1] if "--folder" in argv else None     # tests write somewhere else
+    where = {"area": area, "folder": folder}
     tags = {}
     if osm_file.exists():
         tags = {e["type"][0] + str(e["id"]): e.get("tags", {}) for e in json.loads(osm_file.read_text())["elements"]}
@@ -41,12 +46,12 @@ def main(argv):
         notes = []
         if status == "not_a_cafe":
             override.write(pid, source=source, exclude=True, osm_hours=raw, name=name,
-                           note=(d.get("note") or d.get("evidence") or ""))
+                           note=(d.get("note") or d.get("evidence") or ""), **where)
             done += 1
             continue
         if status == "closed":
             override.write(pid, source=source, closed=True, note=d.get("note") or d.get("evidence"), osm_hours=raw,
-                           name=name)
+                           name=name, **where)
             done += 1
             continue
         try:
@@ -73,7 +78,7 @@ def main(argv):
         if d.get("note"):
             notes.append(str(d["note"]))
         override.write(pid, d["hours"], source=source, src=d.get("src", "shop"), osm_hours=raw, name=name,
-                       note=" ".join(notes), checked=d.get("checked"), addr=d.get("addr"))
+                       note=" ".join(notes), checked=d.get("checked"), addr=d.get("addr"), **where)
         done += 1
     print(done, "overrides written,", skipped, "skipped")
 
