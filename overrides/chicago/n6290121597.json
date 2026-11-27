@@ -1,0 +1,54 @@
+{
+ "id": "n6290121597",
+ "name": "First Slice Pie Cafe",
+ "hours": [
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 10:00-20:00; Su 10:00-18:00",
+ "src": "shop",
+ "source": "https://firstslice.org/first-slice-andersonville/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 10:00-20:00; Su 10:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: Andersonville Location: 5357 N Ashland Ave Chicago, IL 60640 Phone: (773) 275-4297 ... Hours: Monday-Saturday 10am-8pm Sunday 10am-6pm The harvest's second page was the Manor shop's. Other text on this page dates from 2017-18; the hours block is what it shows."
+}

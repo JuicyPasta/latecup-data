@@ -1,0 +1,44 @@
+{
+ "id": "n13706848244",
+ "name": "Happier Now Cafe",
+ "hours": [
+  [],
+  [],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ],
+  [
+   [
+    600,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu off; We-Sa 10:00-20:00; Su 10:00-18:00",
+ "src": "shop",
+ "source": "https://www.happiernowcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "We-Sa 10:00-20:00; Su 10:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: Happier Now Cafe and Market 1016 E. 31st. Street LaGrange Park, IL 60526 708.937.9027 Hours Monday Closed Tuesday Closed Wednesday 10:00 am - 8:00 pm Thursday 10:00 am - 8:00 pm Friday 10:00 am - 8:00 pm Saturday 10:00 am - 8:00 pm Sunday 10:00 am - 6:00 pm A one-shop site ('La Grange Park's new all day cafe'). The page's street is E 31st St; OSM's is E 26th St, same house number and town: OSM's address looks wrong. The standing holiday-closures list (Thanksgiving and others) was not used. schema.org says the same."
+}

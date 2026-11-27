@@ -1,0 +1,54 @@
+{
+ "id": "w1058687191",
+ "name": "Ashbary Coffee House",
+ "hours": [
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1320
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1440
+   ]
+  ],
+  [
+   [
+    600,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 10:00-22:00; We 10:00-24:00; Th 10:00-22:00; Fr-Sa 10:00-24:00; Su 10:00-20:00",
+ "src": "shop",
+ "source": "https://ashbarycoffeehouse.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,Tu,Th 10:00-22:00; We,Fr,Sa 10:00-24:00; Su 10:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Click to Call: (708) 401-4238 Click for Directions: 8695 Archer Ave #1, Willow Springs ... HOURS: Monday 10am - 10pm Tuesday 10am - 10pm Wednesday 10am - 12am Open Mic! Thursday 10am - 10pm Friday 10am - 12am Live Music! Saturday 10am - 12am Live Music! Sunday 10am - 8pm Matched by phone (OSM's +17084014238); the page's address is 8695 Archer Ave #1, OSM's 8865 Archer Ave."
+}

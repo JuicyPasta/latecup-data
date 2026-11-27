@@ -1,0 +1,54 @@
+{
+ "id": "n12657112796",
+ "name": "Dialtone Coffee & Wine Bar",
+ "hours": [
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 06:00-20:00; Fr 06:00-21:00; Sa 07:00-21:00; Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.dialtonecafe.com/locations/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 06:00-21:00; Fr 06:00-22:00; Sa 07:00-22:00; Su 07:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Th 06:00-21:00; Fr 06:00-22:00; Sa 07:00-22:00; Su 07:00-21:00\"; the shop's own source wins. Read: Flagship Dialtone Coffee + Wine Bar North Wells 1136 N Wells St Chicago, IL 60610 312-825-0066 Hours Monday-Thursday 6am-8pm Friday 6am-9pm Saturday 7am-9pm Sunday 7am-8pm Matched by phone (OSM's +13128250066; OSM's address is 1140 N Wells St). The page's other set, Monday-Friday 7am-4pm, is the Van Buren shop's. Coffee by day, wine by night: one set of doors."
+}

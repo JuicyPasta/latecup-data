@@ -1,0 +1,54 @@
+{
+ "id": "n12042677661",
+ "name": "Osmium Coffee",
+ "hours": [
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ],
+  [
+   [
+    360,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-21:00",
+ "src": "shop",
+ "source": "https://www.darkmattercoffee.com/pages/osmium",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 06:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Osmium Mon - Sun | 6am - 9pm [Directions: 1117 W Belmont Ave] Dark Matter Coffee's own page for its Osmium shop; its locations page pairs '1117 W Belmont Ave' with Osmium. Dark Matter runs 5 or more shops in the area (a chain by the 5-location rule)."
+}

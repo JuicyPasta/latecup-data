@@ -1,0 +1,54 @@
+{
+ "id": "n14317010937",
+ "name": "Café Logan",
+ "hours": [
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1170
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1080
+   ]
+  ],
+  [
+   [
+    720,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-19:30; Fr 08:00-20:00; Sa 12:00-18:00; Su 12:00-16:00",
+ "src": "shop",
+ "source": "https://dining.uchicago.edu/Locations-and-Hours/Academic-Cafes/Cafe-Logan",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 08:00-19:30; Fr 08:00-20:00; Sa 12:00-18:00; Su 12:00-16:00",
+ "note": "Agrees with OpenStreetMap. Read: Cafe Logan ... Location 915 E 60th St, Chicago, IL 60637 Hours Monday-Thursday: 8AM-7:30PM Friday: 8AM-8PM Saturday: 12PM-6PM Sunday: 12PM-4PM A university cafe (UChicago Dining, in the Logan Center for the Arts). The page shows no break or holiday hours."
+}

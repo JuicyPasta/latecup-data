@@ -1,0 +1,54 @@
+{
+ "id": "n12999806406",
+ "name": "CoCo & Blu",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:00-17:00; Th 07:00-21:00; Fr 07:00-23:00; Sa 08:00-23:00; Su 08:00-16:00",
+ "src": "shop",
+ "source": "https://www.cocoandblucafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 07:00-16:00; Th 07:00-22:00; Fr 07:00-23:00; Sa 08:00-23:00; Su 08:00-16:00",
+ "note": "OpenStreetMap said \"Mo-We 07:00-16:00; Th 07:00-22:00; Fr 07:00-23:00; Sa 08:00-23:00; Su 08:00-16:00\"; the shop's own source wins. Read: 12 S Dunton Ave Arlington Heights, IL 60005 Hours Su 8am-4pm Mo-We 7am-5pm Th 7am-9pm Fr 7am-11pm Sa 8am-11pm Coffee and cocktails in one room. 'Havana Nights' on the page is a ticketed event, not the week's hours."
+}

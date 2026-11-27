@@ -1,0 +1,54 @@
+{
+ "id": "n13369614304",
+ "name": "Bar Tutto",
+ "hours": [
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+ "src": "shop",
+ "source": "https://www.bartuttochicago.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-16:00,16:30-22:00; Sa-Su 08:00-16:00,16:30-23:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-16:00,16:30-22:00; Sa-Su 08:00-16:00,16:30-23:00\"; the shop's own source wins. Read: Hours & Location 1110 W Carroll Ave ... Weekdays: Café: 7:00am - 4:00pm Breakfast: 8:00am - 11:00am Lunch: 11:30am - 2:00pm Dinner: 4:30pm - 10:00pm Weekends: Café: 8:00am - 4:00pm Brunch: 8:00 am - 2:00pm Dinner: 4:30pm - 11:00pm The cafe's hours. Dinner (restaurant service, by reservation) runs to 22:00/23:00 and is not the cafe. Closes before 20:00 every day: leaves the late map."
+}

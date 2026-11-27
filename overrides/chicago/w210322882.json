@@ -1,0 +1,54 @@
+{
+ "id": "w210322882",
+ "name": "Bourgeois Pig Cafe",
+ "hours": [
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1440
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Tu 08:00-18:00; We-Th 08:00-23:00; Fr-Sa 08:00-24:00; Su 08:00-22:00",
+ "src": "shop",
+ "source": "https://www.bpigcafe.com/about/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:00-22:00; Su 08:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Sa 07:00-22:00; Su 08:00-22:00\"; the shop's own source wins. Read: Hours & Location 738 W Fullerton Ave, Chicago, IL 60614 773-883-5282 (JAVA) ... Bourgeois Pig cafe Hours OPEN 7 DAYS A WEEK! Monday & Tuesday: 8:00 AM - 6:00 PM Wednesday & Thursday: 8:00 AM - 11:00 PM Friday & Saturday: 8:00 AM - MIDNIGHT Sunday: 8:00 AM - 10:00 PM The cafe's own hours. The Gatsby, a speakeasy bar upstairs with its own hours (Wed-Sat evenings), was not used."
+}

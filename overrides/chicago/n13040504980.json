@@ -1,0 +1,54 @@
+{
+ "id": "n13040504980",
+ "name": "W Coffee & Tea",
+ "hours": [
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    540,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-21:00; Fr 07:00-22:00; Sa 08:00-22:00; Su 09:00-21:30",
+ "src": "shop",
+ "source": "https://www.wcoffeeandtea.com/location-and-hours",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 07:00-21:00; Fr 07:00-22:00; Sa 08:00-22:00; Su 09:00-21:30",
+ "note": "Agrees with OpenStreetMap. Read: Locations & Hours 8600 W Golf Rd. Ste.300, Niles, IL 60714 ... Monday - Thursday: 7 am - 9 pm Friday: 7 am - 10 pm Saturday: 8 am - 10 pm Sunday: 9 am - 9:30 pm The home page's schema.org data says the same."
+}

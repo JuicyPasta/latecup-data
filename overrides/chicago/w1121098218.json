@@ -1,0 +1,54 @@
+{
+ "id": "w1121098218",
+ "name": "Chill Bubble Tea",
+ "hours": [
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    600,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 10:00-21:00; Su 11:00-18:00",
+ "src": "shop",
+ "source": "http://www.chillbubbletea.com/locations/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 10:00-21:00; Su 11:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: lombard - Yorktown Center 203 Yorktown Center #157-A Lombard, IL 60148 (630) 495-1318 Mon-Sat: 10am - 9pm Sun: 11am - 6pm Lower Level, below Food Court Multi-shop page; the Lombard block by phone and unit (#157-A). A mall shop. Chill Bubble Tea runs 5 or more shops in the area (a chain by the 5-location rule) (six listed)."
+}

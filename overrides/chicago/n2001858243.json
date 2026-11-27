@@ -1,0 +1,54 @@
+{
+ "id": "n2001858243",
+ "name": "Bridgeport Coffeehouse",
+ "hours": [
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:00-20:00; Sa 07:00-20:00; Su 08:00-19:00",
+ "src": "shop",
+ "source": "https://bridgeportcoffee.net/contact/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 06:00-20:00; Sa 07:00-20:00; Su 07:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Fr 06:00-20:00; Sa 07:00-20:00; Su 07:00-19:00\"; the shop's own source wins. Read: Bridgeport Coffeehouse at 31st & Morgan Locations 3101 South Morgan Street, Chicago, Illinois 60608 Phone Coffee Shop 773.247.9950 ... Hours Of Operation Monday - Friday 6AM-8PM Saturday 7AM-8PM Sunday 8AM-7PM"
+}

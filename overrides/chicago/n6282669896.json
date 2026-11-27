@@ -1,0 +1,54 @@
+{
+ "id": "n6282669896",
+ "name": "City News Cafe",
+ "hours": [
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://citynewsstand.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: City Newsstand & City News Cafe 4018 N. Cicero Ave., Chicago Open daily 8:00 AM-8:00 PM The cafe inside City Newsstand; three spots on the page agree."
+}

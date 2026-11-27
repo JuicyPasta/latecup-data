@@ -1,0 +1,54 @@
+{
+ "id": "n4729938691",
+ "name": "Plein Air Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa-Su 08:00-18:00",
+ "src": "shop",
+ "source": "http://www.pleinaircafe.co/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: Location 5751 S Woodlawn Ave. Chicago, IL 60637 Hours Mon-Fri :: 7am-8pm Sat-Sun :: 8am-6pm schema.org on the page says the same. 'Served 8am-12pm' is the breakfast menu's window."
+}

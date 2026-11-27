@@ -1,0 +1,55 @@
+{
+ "id": "n7185921676",
+ "name": "Snakes & Lattes",
+ "hours": [
+  [
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    1020,
+    1320
+   ]
+  ],
+  [
+   [
+    1020,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 17:00-22:00; Fr 17:00-23:00; Sa 11:00-23:00; Su 11:00-21:00",
+ "src": "shop",
+ "source": "https://www.snakesandlattes.com/chicago",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Th 17:00-22:00; Fr 16:00-00:00; Sa 11:00-00:00; Su 11:00-19:00",
+ "note": "OpenStreetMap had Monday closed, Tu-Th 17:00-22:00, Fr 16:00-24:00, Sa 11:00-24:00, Su 11:00-19:00. The shop's own page (OPENING HOURS, a day column and a time column) says Monday to Thursday 5 PM - 10 PM, Friday 5 PM - 11 PM, Saturday 11 AM - 11 PM, Sunday 11 AM - 9 PM: open Mondays. Read twice on 2026-11-27; it stands. A board game cafe with a full bar and kitchen.",
+ "second_look": "2026-11-27"
+}

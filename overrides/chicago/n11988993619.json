@@ -1,0 +1,54 @@
+{
+ "id": "n11988993619",
+ "name": "La Malinche Coffee & Tea House",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    1020
+   ]
+  ],
+  [
+   [
+    480,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-17:00; Sa 08:00-17:00; Su 08:00-16:00",
+ "src": "shop",
+ "source": "https://lamalinche.cafe/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo 07:30-20:30; Tu-Fr 07:30-17:00; Sa-Su 08:00-17:00",
+ "note": "OpenStreetMap said \"Mo 07:30-20:30; Tu-Fr 07:30-17:00; Sa-Su 08:00-17:00\"; the shop's own source wins. Read: Opening Hours Monday 7:00am-5:00pm Tuesday 7:00am-5:00pm Wednesday 7:00am-5:00pm Thursday 7:00am-5:00pm Friday 7:00am-5:00pm Saturday 8:00am-5:00pm Sunday 8:00am-4:00pm ... LA MALINCHE COFFEE & TEA HOUSE 2110 S HALSTED ST CHICAGO, IL 60608 Closes before 20:00 every day: leaves the late map. OSM had Monday to 20:30."
+}

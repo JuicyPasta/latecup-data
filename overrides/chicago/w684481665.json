@@ -1,0 +1,54 @@
+{
+ "id": "w684481665",
+ "name": "Weston's Coffee & Tap Co.",
+ "hours": [
+  [
+   [
+    420,
+    840
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ]
+  ],
+  [
+   [
+    420,
+    840
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    450,
+    900
+   ]
+  ],
+  [
+   [
+    450,
+    840
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:00-14:00; Th-Fr 07:00-15:00; Sa 07:30-15:00; Su 07:30-14:00",
+ "src": "shop",
+ "source": "https://www.westonscoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 06:30-19:00; Fr 06:30-20:30; Sa 07:30-20:30; Su 07:30-19:00",
+ "note": "OpenStreetMap said \"Mo-Th 06:30-19:00; Fr 06:30-20:30; Sa 07:30-20:30; Su 07:30-19:00\"; the shop's own source wins. Read: HOURS & LOCATION 4872 N. MILWAUKEE AVE. CHICAGO, ILLINOIS 60630 ... SUNDAY 7:30am-2:00pm MONDAY-WEDNESDAY 7:00am-2:00pm THURSDAY-FRIDAY 7:00am-3:00pm SATURDAY 7:30am-3:00pm *Hours are subject to change. Two copies on the page agree. 'NOT AVAILABLE DUE TO REDUCED HOURS' is about its happy hour. Closes before 20:00 every day: leaves the late map (OSM had to 19:00-20:30)."
+}

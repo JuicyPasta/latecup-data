@@ -1,0 +1,9 @@
+{
+ "id": "n5143534457",
+ "name": "Half Acre Beer Co. Balmoral Tap Room & Garden",
+ "exclude": true,
+ "source": "https://halfacrebeer.com/visit-us/",
+ "checked": "2026-11-27",
+ "osm_hours": "We,Th 15:00-21:00; Fr,Sa 11:00-22:00; Su 11:00-19:00",
+ "note": "Not a cafe: a brewery's taproom. Its own page: 'Tap Room & Shop Hours Wednesday - Thursday 3pm - 9pm Friday - Saturday 11am - 10pm Sunday 11am - 7pm', 'Beer Garden', 'Kids are welcome in our taproom and beer garden when accompanied by a 21+ adult', 'You may purchase canned beer or draft growlers to take home'. OSM's link (/balmoral-brewery/) is a 404."
+}

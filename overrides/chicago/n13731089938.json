@@ -1,0 +1,54 @@
+{
+ "id": "n13731089938",
+ "name": "Moka & Co",
+ "hours": [
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ],
+  [
+   [
+    360,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-22:00",
+ "src": "brand",
+ "source": "https://mokanco.com/chicago/",
+ "checked": "2026-11-27",
+ "osm_hours": "06:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Chicago ... Address 239 S Halsted St Chicago, IL 60661 Hours Monday 6:00 AM - 10:00 PM Tuesday 6:00 AM - 10:00 PM ... Sunday 6:00 AM - 10:00 PM Moka & Co. is a franchise chain (head office in Michigan); this is the chain's own page for its Chicago store."
+}

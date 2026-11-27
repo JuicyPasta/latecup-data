@@ -1,0 +1,49 @@
+{
+ "id": "n2139418956",
+ "name": "Blind Faith Cafe",
+ "hours": [
+  [],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    600,
+    1230
+   ]
+  ],
+  [
+   [
+    600,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo off; Tu-Fr 11:00-20:30; Sa-Su 10:00-20:30",
+ "src": "shop",
+ "source": "https://www.blindfaithcafe.com/contact",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Fr 11:00-20:30; Sa-Su 10:00-20:30",
+ "note": "Agrees with OpenStreetMap. Read: 525 Dempster Street Evanston, IL, 60201 ... Hours Tuesday 11-8:30 Wednesday 11-8:30 Thursday 11-8:30 Friday 11-8:30 Saturday 10-8:30 Sunday 10-8:30 Monday is not listed and the other six days are: closed (OSM and the page's schema.org agree). /cafe-at-a-glance calls it 'a certified green restaurant' (vegetarian; dining room of 108 seats, lunch, dinner, brunch) with a 28-seat cafe and a coffee & juice bar, under one set of hours: possibly a restaurant, left for the coordinator."
+}

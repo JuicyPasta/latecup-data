@@ -1,0 +1,54 @@
+{
+ "id": "n13265227601",
+ "name": "OverLay Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-19:00",
+ "src": "shop",
+ "source": "https://www.overlaycoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 09:00-21:00; Sa 11:00-21:00; Su 11:00-19:00",
+ "note": "OpenStreetMap said \"Mo-Fr 09:00-21:00; Sa 11:00-21:00; Su 11:00-19:00\"; the shop's own source wins. Read: ADDRESS 1411 West Taylor Street, chicago, IL 60607 CONTACT 773-732-1413 ... HOURS 11AM - 7PM Everyday Closes before 20:00 every day: leaves the late map. schema.org on the page says the same."
+}

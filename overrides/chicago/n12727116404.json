@@ -1,0 +1,49 @@
+{
+ "id": "n12727116404",
+ "name": "Damascus Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  []
+ ],
+ "hours_text": "Mo-Sa 11:00-20:00; Su off",
+ "src": "shop",
+ "source": "https://www.damascusfalafel.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 11:00-22:00 ; Fr-Sa 11:00-12:00",
+ "note": "OpenStreetMap said \"Mo-Th 11:00-22:00 ; Fr-Sa 11:00-12:00\"; the shop's own source wins. Read: Damascus Restaurant & Cafe ... 10s410 Kingery Hwy #3, Willowbrook, IL 60527 ... Store Hours Monday - Saturday 11:00 am - 08:00 pm Sunday is not listed and the other six days are, so Sunday is closed (OSM says the same). The site (damascusfalafel.com, 'Order Food' / 'Order Coffee') calls it 'Restaurant & Cafe': possibly a restaurant, left for the coordinator."
+}

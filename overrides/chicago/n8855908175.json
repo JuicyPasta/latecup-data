@@ -1,0 +1,49 @@
+{
+ "id": "n8855908175",
+ "name": "Basu Coffee Bar & Vietnamese Eatery",
+ "hours": [
+  [],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo off; Tu-Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://lotusbanhmi.com/basu/",
+ "checked": "2026-11-27",
+ "osm_hours": "Tu-Su 11:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Basu Eatery in Northbrook Tuesday - Sunday 11:00a - 8:00p (224) 904-3364 Get Directions: 1361 Shermer Rd, Northbrook, IL 60062 Vietnamese Coffee and Pho in Northbrook ... Vietnamese Coffee Bar basueatery.com redirects to its owner Lotus Banh Mi's page for Basu. Matched by phone (OSM's +12249043364; OSM's address 1362 Shermer Rd). Monday is not listed and the other six days are: closed (OSM agrees). The page's schema.org entries are other Lotus Banh Mi shops' and were not used."
+}

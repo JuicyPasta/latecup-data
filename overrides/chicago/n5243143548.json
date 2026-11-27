@@ -1,0 +1,54 @@
+{
+ "id": "n5243143548",
+ "name": "French Press Coffee",
+ "hours": [
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 08:00-20:00; Sa-Su 09:00-18:00",
+ "src": "shop",
+ "source": "https://chicagofrenchpress.com/pages/chicago-french-press-retail-locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 08:00-20:00; Sa-Su 09:00-18:00",
+ "note": "Agrees with OpenStreetMap. Read: Chicago French Press - University of Chicago Bookstore Café (Hyde Park) 970 E 58th St Chicago, IL 60637 Hours: Mon - Fri: 8:00 AM - 8:00 PM Sat - Sun: 9:00 AM - 6:00 PM Multi-shop page, read whole; the block for this address. 'Winter Hours Daily: 9:00 AM - 4:00 PM' belongs to the Roosevelt Collection shop. Chicago French Press runs five cafes."
+}

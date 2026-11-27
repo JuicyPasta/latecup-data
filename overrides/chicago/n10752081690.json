@@ -1,0 +1,54 @@
+{
+ "id": "n10752081690",
+ "name": "Gosa Tea",
+ "hours": [
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 11:00-21:30; Su 12:00-21:00",
+ "src": "shop",
+ "source": "https://gosatea.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 11:00-21:30; Su 12:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Opening Hours Monday - Saturday 11am - 9:30pm Sunday 12pm - 9pm ... Address: 4048 N. Narragansett Avenue Chicago, Illinois 60634 Phone: 773- 657 -3983"
+}

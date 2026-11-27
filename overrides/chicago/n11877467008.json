@@ -1,0 +1,54 @@
+{
+ "id": "n11877467008",
+ "name": "Gathers Tea Bar",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:00",
+ "src": "shop",
+ "source": "https://www.gathersteabar.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: Open Daily 11 am - 9 pm 1214 W Taylor St"
+}

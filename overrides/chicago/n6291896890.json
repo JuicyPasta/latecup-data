@@ -1,0 +1,54 @@
+{
+ "id": "n6291896890",
+ "name": "Goddess and Grocer",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-20:00",
+ "src": "shop",
+ "source": "https://www.goddessandgrocer.com/locations/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Bucktown 1649 N Damen Ave, Chicago, IL 60647 Open All Week 7:00 AM - 8:00 PM Thanksgiving Eve | 8:00 AM-6:30 PM Thanksgiving | 8:00 AM-4:00 PM Black Friday | 8:00 AM-8:00 PM Multi-shop page; the Bucktown block by address. The Thanksgiving Eve / Thanksgiving / Black Friday lines were ignored. The shop calls itself an 'Australian-style deli' ('a place to walk to for great coffee, freshly prepared food'): possibly not a cafe, left for the coordinator."
+}

@@ -1,0 +1,583 @@
+[
+ {
+  "id": "n10213368548",
+  "name": "FROTH",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.froth.cafe/",
+  "note": "Square Online site; no text or hours in the HTML (drawn by script)."
+ },
+ {
+  "id": "n10752081690",
+  "name": "Gosa Tea",
+  "status": "confirmed",
+  "source": "https://gosatea.com/",
+  "evidence": "Opening Hours Monday - Saturday 11am - 9:30pm Sunday 12pm - 9pm ... Address: 4048 N. Narragansett Avenue Chicago, Illinois 60634 Phone: 773- 657 -3983",
+  "hours": "Mo-Sa 11:00-21:30; Su 12:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": null
+ },
+ {
+  "id": "n11089229573",
+  "name": "Ashley's Cafe & Tap",
+  "status": "skipped",
+  "reason": "domain no longer the shop's",
+  "page": "https://ashleyscafeandtap.com/",
+  "note": "Redirects to an online casino page (pgslotwalletnominimum.com) in the harvest and by hand. Not the shop's page and not proof it closed. The name and OSM's 11:00-02:00 suggest a bar."
+ },
+ {
+  "id": "n11159665448",
+  "name": "Cafe Robey",
+  "status": "confirmed",
+  "source": "https://www.caferobey.com/",
+  "evidence": "Hours: 7am to 9pm (Sun-Thu) 7am to 10pm (Fri-Sat) 1616 N Milwaukee Ave, Chicago, IL",
+  "hours": "Mo-Th 07:00-21:00; Fr-Sa 07:00-22:00; Su 07:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Calls itself 'Our neighborhood cafe' (coffee, pastries, all-day brunch); it also books tables and pours cocktails: the Robey hotel's cafe-restaurant."
+ },
+ {
+  "id": "n11289313459",
+  "name": "Arwa Yemeni Cafe",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "page": "https://arwacoffee.com/locations/",
+  "note": "Arwa Yemeni Coffee is a chain (20+ shops in several states). Its locations page gives addresses and phones only; its Chicago shop there is 'Bucktown, 1953 N Milwaukee Ave', not OSM's 1950 N Western Ave."
+ },
+ {
+  "id": "n11877467008",
+  "name": "Gathers Tea Bar",
+  "status": "confirmed",
+  "source": "https://www.gathersteabar.com/",
+  "evidence": "Open Daily 11 am - 9 pm 1214 W Taylor St",
+  "hours": "Mo-Su 11:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": null
+ },
+ {
+  "id": "n11988993619",
+  "name": "La Malinche Coffee & Tea House",
+  "status": "confirmed",
+  "source": "https://lamalinche.cafe/",
+  "evidence": "Opening Hours Monday 7:00am-5:00pm Tuesday 7:00am-5:00pm Wednesday 7:00am-5:00pm Thursday 7:00am-5:00pm Friday 7:00am-5:00pm Saturday 8:00am-5:00pm Sunday 8:00am-4:00pm ... LA MALINCHE COFFEE & TEA HOUSE 2110 S HALSTED ST CHICAGO, IL 60608",
+  "hours": "Mo-Fr 07:00-17:00; Sa 08:00-17:00; Su 08:00-16:00",
+  "src": "shop",
+  "late": false,
+  "note": "Closes before 20:00 every day: leaves the late map. OSM had Monday to 20:30."
+ },
+ {
+  "id": "n12026072787",
+  "name": "Haraz",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "page": "https://harazcoffeehouse.com/pages/illinois-locations",
+  "note": "Haraz Coffee House is a chain (shops in 15+ states). Its Illinois page lists 'Orland Park 13137 LaGrange Rd, Orland Park, IL 60462' with only a Google Maps link; no hours."
+ },
+ {
+  "id": "n12042677661",
+  "name": "Osmium Coffee",
+  "status": "confirmed",
+  "source": "https://www.darkmattercoffee.com/pages/osmium",
+  "evidence": "Osmium Mon - Sun | 6am - 9pm [Directions: 1117 W Belmont Ave]",
+  "hours": "Mo-Su 06:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Dark Matter Coffee's own page for its Osmium shop; its locations page pairs '1117 W Belmont Ave' with Osmium. Dark Matter runs 5 or more shops in the area (a chain by the 5-location rule)."
+ },
+ {
+  "id": "n12517738107",
+  "name": "Poppin Panda",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://poppinpanda.net/",
+  "note": "HTTP 503 in the harvest and twice by hand."
+ },
+ {
+  "id": "n12657112796",
+  "name": "Dialtone Coffee & Wine Bar",
+  "status": "confirmed",
+  "source": "https://www.dialtonecafe.com/locations/",
+  "evidence": "Flagship Dialtone Coffee + Wine Bar North Wells 1136 N Wells St Chicago, IL 60610 312-825-0066 Hours Monday-Thursday 6am-8pm Friday 6am-9pm Saturday 7am-9pm Sunday 7am-8pm",
+  "hours": "Mo-Th 06:00-20:00; Fr 06:00-21:00; Sa 07:00-21:00; Su 07:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "Matched by phone (OSM's +13128250066; OSM's address is 1140 N Wells St). The page's other set, Monday-Friday 7am-4pm, is the Van Buren shop's. Coffee by day, wine by night: one set of doors."
+ },
+ {
+  "id": "n12727116404",
+  "name": "Damascus Cafe",
+  "status": "confirmed",
+  "source": "https://www.damascusfalafel.com/",
+  "evidence": "Damascus Restaurant & Cafe ... 10s410 Kingery Hwy #3, Willowbrook, IL 60527 ... Store Hours Monday - Saturday 11:00 am - 08:00 pm",
+  "hours": "Mo-Sa 11:00-20:00; Su off",
+  "src": "shop",
+  "late": true,
+  "note": "Sunday is not listed and the other six days are, so Sunday is closed (OSM says the same). The site (damascusfalafel.com, 'Order Food' / 'Order Coffee') calls it 'Restaurant & Cafe': possibly a restaurant, left for the coordinator."
+ },
+ {
+  "id": "n12999806406",
+  "name": "CoCo & Blu",
+  "status": "confirmed",
+  "source": "https://www.cocoandblucafe.com/",
+  "evidence": "12 S Dunton Ave Arlington Heights, IL 60005 Hours Su 8am-4pm Mo-We 7am-5pm Th 7am-9pm Fr 7am-11pm Sa 8am-11pm",
+  "hours": "Mo-We 07:00-17:00; Th 07:00-21:00; Fr 07:00-23:00; Sa 08:00-23:00; Su 08:00-16:00",
+  "src": "shop",
+  "late": true,
+  "note": "Coffee and cocktails in one room. 'Havana Nights' on the page is a ticketed event, not the week's hours."
+ },
+ {
+  "id": "n13029656601",
+  "name": "Chill Bubble Tea",
+  "status": "skipped",
+  "reason": "branch not on the page",
+  "page": "http://www.chillbubbletea.com/locations/",
+  "note": "The locations page lists six shops (Lombard, Norridge, two at Woodfield, Skokie, Vernon Hills), none at 7201 W Dempster St, Niles. OSM's phone (773) 717-2445 is the Norridge HIP Mall shop's (4104 N Harlem Ave: Mon-Sat 10am-9pm, Sun 11am-6pm), another address, so not used. Chill Bubble Tea runs 5 or more shops in the area (a chain by the 5-location rule)."
+ },
+ {
+  "id": "n13040504980",
+  "name": "W Coffee & Tea",
+  "status": "confirmed",
+  "source": "https://www.wcoffeeandtea.com/location-and-hours",
+  "evidence": "Locations & Hours 8600 W Golf Rd. Ste.300, Niles, IL 60714 ... Monday - Thursday: 7 am - 9 pm Friday: 7 am - 10 pm Saturday: 8 am - 10 pm Sunday: 9 am - 9:30 pm",
+  "hours": "Mo-Th 07:00-21:00; Fr 07:00-22:00; Sa 08:00-22:00; Su 09:00-21:30",
+  "src": "shop",
+  "late": true,
+  "note": "The home page's schema.org data says the same."
+ },
+ {
+  "id": "n13265227601",
+  "name": "OverLay Cafe",
+  "status": "confirmed",
+  "source": "https://www.overlaycoffee.com/",
+  "evidence": "ADDRESS 1411 West Taylor Street, chicago, IL 60607 CONTACT 773-732-1413 ... HOURS 11AM - 7PM Everyday",
+  "hours": "Mo-Su 11:00-19:00",
+  "src": "shop",
+  "late": false,
+  "note": "Closes before 20:00 every day: leaves the late map. schema.org on the page says the same."
+ },
+ {
+  "id": "n13369614304",
+  "name": "Bar Tutto",
+  "status": "confirmed",
+  "source": "https://www.bartuttochicago.com/",
+  "evidence": "Hours & Location 1110 W Carroll Ave ... Weekdays: Café: 7:00am - 4:00pm Breakfast: 8:00am - 11:00am Lunch: 11:30am - 2:00pm Dinner: 4:30pm - 10:00pm Weekends: Café: 8:00am - 4:00pm Brunch: 8:00 am - 2:00pm Dinner: 4:30pm - 11:00pm",
+  "hours": "Mo-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+  "src": "shop",
+  "late": false,
+  "note": "The cafe's hours. Dinner (restaurant service, by reservation) runs to 22:00/23:00 and is not the cafe. Closes before 20:00 every day: leaves the late map."
+ },
+ {
+  "id": "n13438469234",
+  "name": "Mini Donut Factory",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "page": "https://www.minidonutfactories.com/locations.php",
+  "note": "The locations and contact pages list only a Wheeling shop ((224) 676-0593): nothing for 3151 N Broadway and no hours. Not proof it closed."
+ },
+ {
+  "id": "n13685743101",
+  "name": "Qamaria Yemeni Coffee",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.qamariacoffee.com/cafes",
+  "note": "Qamaria Yemeni Coffee is a franchising chain. 'Find a Qamaria Cafe Near You!' is a map drawn by script; no shops or hours in the HTML. Would be src brand."
+ },
+ {
+  "id": "n13706848244",
+  "name": "Happier Now Cafe",
+  "status": "confirmed",
+  "source": "https://www.happiernowcafe.com/",
+  "evidence": "Happier Now Cafe and Market 1016 E. 31st. Street LaGrange Park, IL 60526 708.937.9027 Hours Monday Closed Tuesday Closed Wednesday 10:00 am - 8:00 pm Thursday 10:00 am - 8:00 pm Friday 10:00 am - 8:00 pm Saturday 10:00 am - 8:00 pm Sunday 10:00 am - 6:00 pm",
+  "hours": "Mo-Tu off; We-Sa 10:00-20:00; Su 10:00-18:00",
+  "src": "shop",
+  "late": true,
+  "note": "A one-shop site ('La Grange Park's new all day cafe'). The page's street is E 31st St; OSM's is E 26th St, same house number and town: OSM's address looks wrong. The standing holiday-closures list (Thanksgiving and others) was not used. schema.org says the same."
+ },
+ {
+  "id": "n13731089938",
+  "name": "Moka & Co",
+  "status": "confirmed",
+  "source": "https://mokanco.com/chicago/",
+  "evidence": "Chicago ... Address 239 S Halsted St Chicago, IL 60661 Hours Monday 6:00 AM - 10:00 PM Tuesday 6:00 AM - 10:00 PM ... Sunday 6:00 AM - 10:00 PM",
+  "hours": "Mo-Su 06:00-22:00",
+  "src": "brand",
+  "late": true,
+  "note": "Moka & Co. is a franchise chain (head office in Michigan); this is the chain's own page for its Chicago store."
+ },
+ {
+  "id": "n13854420705",
+  "name": "Eli Tea Bar",
+  "status": "skipped",
+  "reason": "branch not matched",
+  "page": "https://www.eliteabar.com/pages/contact-eli-tea",
+  "note": "The site's only hours (Mon-Sat 10am-9pm, Sun 12 noon-8pm) sit under 'Eli Tea Bar is our flagship tea store located in Birmingham, MI' with a 248 phone, followed by both addresses; the Chicago page (/pages/chicago) has no hours. Cannot tell they are the Clark St shop's. OSM: Mo-Sa 10-22, Su 10-20."
+ },
+ {
+  "id": "n13892328783",
+  "name": "Coco & Maple",
+  "status": "confirmed",
+  "source": "https://www.cocoandmaple.com/contact",
+  "evidence": "Hours and Location 130 E Northwest Highway Mount Prospect, IL 60056 Hours Su 8:00AM-4:00PM Mo-We 7:00AM-4:00PM Th-Fr 7:00AM-9:00PM Sa 8:00AM-9:00PM Phone (847) 230 0475",
+  "hours": "Mo-We 07:00-16:00; Th-Fr 07:00-21:00; Sa 08:00-21:00; Su 08:00-16:00",
+  "src": "shop",
+  "late": true,
+  "note": null
+ },
+ {
+  "id": "n13911016338",
+  "name": "Nubar Cafe",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.thenubar.com/",
+  "note": "Square Online site with an empty title; no text or hours in the HTML."
+ },
+ {
+  "id": "n14148951959",
+  "name": "MATCH | A",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.toasttab.com/local/order/match-a-chicago",
+  "note": "Toast ordering page answers HTTP 403 to a plain fetch (harvest and by hand)."
+ },
+ {
+  "id": "n14317010937",
+  "name": "Café Logan",
+  "status": "confirmed",
+  "source": "https://dining.uchicago.edu/Locations-and-Hours/Academic-Cafes/Cafe-Logan",
+  "evidence": "Cafe Logan ... Location 915 E 60th St, Chicago, IL 60637 Hours Monday-Thursday: 8AM-7:30PM Friday: 8AM-8PM Saturday: 12PM-6PM Sunday: 12PM-4PM",
+  "hours": "Mo-Th 08:00-19:30; Fr 08:00-20:00; Sa 12:00-18:00; Su 12:00-16:00",
+  "src": "shop",
+  "late": true,
+  "note": "A university cafe (UChicago Dining, in the Logan Center for the Arts). The page shows no break or holiday hours."
+ },
+ {
+  "id": "n1625505672",
+  "name": "The Brothers K Coffeehouse",
+  "status": "confirmed",
+  "source": "https://brotherskcoffee.com/contact",
+  "evidence": "500 Main St Evanston, Illinois 60202 Monday Tuesday Wednesday Thursday Friday Saturday Sunday | 6:30am - 5:00pm 6:30am - 5:00pm 6:30am - 5:00pm 6:30am - 5:00pm 6:30am - 5:00pm 7:00am - 5:00pm 7:00am - 5:00pm",
+  "hours": "Mo-Fr 06:30-17:00; Sa-Su 07:00-17:00",
+  "src": "shop",
+  "late": false,
+  "note": "A day column and a time column, in order. Three copies of the block on the page agree. Closes before 20:00 every day: leaves the late map."
+ },
+ {
+  "id": "n1657357234",
+  "name": "The Goddess and Grocer",
+  "status": "confirmed",
+  "source": "https://www.goddessandgrocer.com/locations/",
+  "evidence": "Fulton Market 911 W Randolph St, Chicago, IL 60607 Open All Week 7:00 AM - 8:00 PM Thanksgiving Eve | 8:00 AM-6:30 PM Thanksgiving | 8:00 AM-4:00 PM Black Friday | 8:00 AM-8:00 PM",
+  "hours": "Mo-Su 07:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "OSM's website, goddessgrocer.com, is no longer the shop's (now a nutrition blog); read on the shop's own site, goddessandgrocer.com, block for this address. The Thanksgiving Eve / Thanksgiving / Black Friday lines were ignored. The shop calls itself an 'Australian-style deli' ('a place to walk to for great coffee, freshly prepared food'): possibly not a cafe, left for the coordinator."
+ },
+ {
+  "id": "n2001858243",
+  "name": "Bridgeport Coffeehouse",
+  "status": "confirmed",
+  "source": "https://bridgeportcoffee.net/contact/",
+  "evidence": "Bridgeport Coffeehouse at 31st & Morgan Locations 3101 South Morgan Street, Chicago, Illinois 60608 Phone Coffee Shop 773.247.9950 ... Hours Of Operation Monday - Friday 6AM-8PM Saturday 7AM-8PM Sunday 8AM-7PM",
+  "hours": "Mo-Fr 06:00-20:00; Sa 07:00-20:00; Su 08:00-19:00",
+  "src": "shop",
+  "late": true,
+  "note": null
+ },
+ {
+  "id": "n2139418956",
+  "name": "Blind Faith Cafe",
+  "status": "confirmed",
+  "source": "https://www.blindfaithcafe.com/contact",
+  "evidence": "525 Dempster Street Evanston, IL, 60201 ... Hours Tuesday 11-8:30 Wednesday 11-8:30 Thursday 11-8:30 Friday 11-8:30 Saturday 10-8:30 Sunday 10-8:30",
+  "hours": "Mo off; Tu-Fr 11:00-20:30; Sa-Su 10:00-20:30",
+  "src": "shop",
+  "late": true,
+  "note": "Monday is not listed and the other six days are: closed (OSM and the page's schema.org agree). /cafe-at-a-glance calls it 'a certified green restaurant' (vegetarian; dining room of 108 seats, lunch, dinner, brunch) with a 28-seat cafe and a coffee & juice bar, under one set of hours: possibly a restaurant, left for the coordinator."
+ },
+ {
+  "id": "n2295252588",
+  "name": "Outdoor Cafe",
+  "status": "confirmed",
+  "source": "https://www.theoutdoorcafe.com/",
+  "evidence": "Evanston Location 2012 Central St Evanston, IL 60201 Sun-Thu: 7AM-7PM Fri-Sat: 7AM-9PM",
+  "hours": "Mo-Th 07:00-19:00; Fr-Sa 07:00-21:00; Su 07:00-19:00",
+  "src": "shop",
+  "late": true,
+  "note": "Two-shop page; the Evanston block by address. The page's schema.org entry for Outdoor Cafe - Evanston (8474250022) says the same."
+ },
+ {
+  "id": "n2868859570",
+  "name": "Dollop Coffee",
+  "status": "skipped",
+  "reason": "site gone",
+  "page": "https://dollop.coffee/",
+  "note": "dollop.coffee does not resolve (no DNS) in the harvest and by hand. Not proof the shop closed. Dollop runs several Chicago cafes."
+ },
+ {
+  "id": "n3015667206",
+  "name": "Beograd Cafe",
+  "status": "skipped",
+  "reason": "two spots disagree",
+  "page": "https://www.beogradchicago.com/",
+  "note": "The page says 'We are open seven days a week, all year long - from 8am to midnight' and, lower down, 'Monday - Sunday 9am - 12am'. OSM's link (/index.html) is a 404; the root page was read. It is a Serbian restaurant ('SERBIAN & REGIONAL BALKAN CUISINE - SINCE 1984', 'welcome to beograd cafe & restaurant', burgers, pizza, chevapchichi): probably not a cafe."
+ },
+ {
+  "id": "n4584322194",
+  "name": "Doughboy's Chicago",
+  "status": "not_a_cafe",
+  "source": "https://www.doughboyschicago.com/contact",
+  "note": "Probably not a cafe. Its own pages: '(773) 571-9426 - restaurant', '(224) 818-6542 catering', 'MEAL PREPPING', 'CATERING MENU', 'CALL (773) 571-9426 TO PLACE YOUR ORDER!!!', Chicago Public Schools and City Colleges food vendor; no coffee anywhere (the menus are images). Its hours, 'OPEN EVERYDAY 12pm-8pm' at 501 E 61st STREET, equal OSM's. Left for the coordinator."
+ },
+ {
+  "id": "n4729938691",
+  "name": "Plein Air Cafe",
+  "status": "confirmed",
+  "source": "http://www.pleinaircafe.co/",
+  "evidence": "Location 5751 S Woodlawn Ave. Chicago, IL 60637 Hours Mon-Fri :: 7am-8pm Sat-Sun :: 8am-6pm",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-18:00",
+  "src": "shop",
+  "late": true,
+  "note": "schema.org on the page says the same. 'Served 8am-12pm' is the breakfast menu's window."
+ },
+ {
+  "id": "n4729978589",
+  "name": "Goddess and the Baker",
+  "status": "skipped",
+  "reason": "hours only in schema.org, and they differ from OSM",
+  "page": "https://www.goddessandthebaker.com/location/wabash/",
+  "note": "The store page shows 'Hours & Location' with no hours; its schema.org data says Mo-Fr 07:00-16:00, Sa 08:00-16:00, Su 08:00-15:00 against OSM's 08:00-20:00 (18:00 Sunday). Not taken (docs/accuracy.md). Goddess and the Baker runs 5 or more shops in the area (a chain by the 5-location rule) (six listed in Illinois)."
+ },
+ {
+  "id": "n5143534457",
+  "name": "Half Acre Beer Co. Balmoral Tap Room & Garden",
+  "status": "not_a_cafe",
+  "source": "https://halfacrebeer.com/visit-us/",
+  "note": "Not a cafe: a brewery's taproom. Its own page: 'Tap Room & Shop Hours Wednesday - Thursday 3pm - 9pm Friday - Saturday 11am - 10pm Sunday 11am - 7pm', 'Beer Garden', 'Kids are welcome in our taproom and beer garden when accompanied by a 21+ adult', 'You may purchase canned beer or draft growlers to take home'. OSM's link (/balmoral-brewery/) is a 404."
+ },
+ {
+  "id": "n5243143548",
+  "name": "French Press Coffee",
+  "status": "confirmed",
+  "source": "https://chicagofrenchpress.com/pages/chicago-french-press-retail-locations",
+  "evidence": "Chicago French Press - University of Chicago Bookstore Café (Hyde Park) 970 E 58th St Chicago, IL 60637 Hours: Mon - Fri: 8:00 AM - 8:00 PM Sat - Sun: 9:00 AM - 6:00 PM",
+  "hours": "Mo-Fr 08:00-20:00; Sa-Su 09:00-18:00",
+  "src": "shop",
+  "late": true,
+  "note": "Multi-shop page, read whole; the block for this address. 'Winter Hours Daily: 9:00 AM - 4:00 PM' belongs to the Roosevelt Collection shop. Chicago French Press runs five cafes."
+ },
+ {
+  "id": "n5452994604",
+  "name": "Do-Rite Donuts & Coffee",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://doritedonuts.com/locations",
+  "note": "The locations page draws its stores by script; no addresses or hours in the HTML. Do-Rite is a small chain."
+ },
+ {
+  "id": "n5457035870",
+  "name": "Sunny Side Up & Coffee Shoppe",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "page": "https://restaurantwebx.com/SunnySideUp/",
+  "note": "A template page on restaurantwebx.com (sample gallery images) with the address and phone only; no hours."
+ },
+ {
+  "id": "n5458107322",
+  "name": "Left Coast Food",
+  "status": "skipped",
+  "reason": "branch not on the page",
+  "page": "https://www.leftcoastfood.com/",
+  "note": "The site lists one location, Lincoln Park (2878 N Lincoln Ave), and no hours; nothing for 717 N Wells St. Not proof it closed."
+ },
+ {
+  "id": "n5460607041",
+  "name": "BomboBar",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "http://www.bombobar.com/",
+  "note": "www.bombobar.com answers HTTP 409; bombobar.com redirects to the owner's group site, dineamic.com, whose schema.org data lists Bombobar at 832 W Randolph Street with no hours, and whose Bombobar page fails with an SSL error (twice). Per that description, a bomboloni counter inside Bar Siena."
+ },
+ {
+  "id": "n6282669896",
+  "name": "City News Cafe",
+  "status": "confirmed",
+  "source": "https://citynewsstand.com/",
+  "evidence": "City Newsstand & City News Cafe 4018 N. Cicero Ave., Chicago Open daily 8:00 AM-8:00 PM",
+  "hours": "Mo-Su 08:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "The cafe inside City Newsstand; three spots on the page agree."
+ },
+ {
+  "id": "n6290121597",
+  "name": "First Slice Pie Cafe",
+  "status": "confirmed",
+  "source": "https://firstslice.org/first-slice-andersonville/",
+  "evidence": "Andersonville Location: 5357 N Ashland Ave Chicago, IL 60640 Phone: (773) 275-4297 ... Hours: Monday-Saturday 10am-8pm Sunday 10am-6pm",
+  "hours": "Mo-Sa 10:00-20:00; Su 10:00-18:00",
+  "src": "shop",
+  "late": true,
+  "note": "The harvest's second page was the Manor shop's. Other text on this page dates from 2017-18; the hours block is what it shows."
+ },
+ {
+  "id": "n6291896890",
+  "name": "Goddess and Grocer",
+  "status": "confirmed",
+  "source": "https://www.goddessandgrocer.com/locations/",
+  "evidence": "Bucktown 1649 N Damen Ave, Chicago, IL 60647 Open All Week 7:00 AM - 8:00 PM Thanksgiving Eve | 8:00 AM-6:30 PM Thanksgiving | 8:00 AM-4:00 PM Black Friday | 8:00 AM-8:00 PM",
+  "hours": "Mo-Su 07:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "Multi-shop page; the Bucktown block by address. The Thanksgiving Eve / Thanksgiving / Black Friday lines were ignored. The shop calls itself an 'Australian-style deli' ('a place to walk to for great coffee, freshly prepared food'): possibly not a cafe, left for the coordinator."
+ },
+ {
+  "id": "n6319786871",
+  "name": "Kopi Cafe",
+  "status": "skipped",
+  "reason": "two spots disagree",
+  "page": "https://www.kopicafechicago.com/",
+  "note": "The page's hours block says Friday and Saturday 10am-8pm (other days 10am-7pm); the footer's business hours on the same page say 10am-7pm every day (schema.org too). Both are shown. OSM: Mo-Th 10-19, Fr-Sa 10-20."
+ },
+ {
+  "id": "n6319847128",
+  "name": "Kung Fu Tea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.kungfutea.com/locations/usa/",
+  "note": "Chain locator (a Storepoint widget) built by script; no stores in the HTML. Would be src brand. A national chain, not an independent."
+ },
+ {
+  "id": "n7185921676",
+  "name": "Snakes & Lattes",
+  "status": "confirmed_second_look",
+  "source": "https://www.snakesandlattes.com/chicago",
+  "evidence": "SNAKES & LATTES CHICAGO 1965 N Milwaukee Ave, Chicago, IL ... OPENING HOURS Monday Tuesday Wednesday Thursday Friday Saturday Sunday | 5 PM - 10 PM 5 PM - 10 PM 5 PM - 10 PM 5 PM - 10 PM 5 PM - 11 PM 11 AM - 11 PM 11 AM - 9 PM",
+  "hours": "Mo-Th 17:00-22:00; Fr 17:00-23:00; Sa 11:00-23:00; Su 11:00-21:00",
+  "src": "shop",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: Mo",
+  "note": "A day column and a time column, in order. A board game cafe ('Not just a board game cafe. A full bar. A full kitchen.'); Snakes & Lattes is a small chain (Toronto, Arizona, Chicago). OSM had Monday closed; the page opens Monday. Publish guard: read again on 2026-11-27, it stands."
+ },
+ {
+  "id": "n8530282818",
+  "name": "Pick Me Up Cafe",
+  "status": "confirmed",
+  "source": "https://pmucafe.com/location",
+  "evidence": "PICK ME UP CAFE 4882 N. Clark St. Chicago, IL 60640 Hours Mon-Fri: 10am-10pm Saturday: 8am-11pm Sunday: 8am-10pm",
+  "hours": "Mo-Fr 10:00-22:00; Sa 08:00-23:00; Su 08:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": null
+ },
+ {
+  "id": "n8678485075",
+  "name": "Cafe Tola #3",
+  "status": "skipped",
+  "reason": "two spots disagree",
+  "page": "https://cafetola.com/locations--hours-2",
+  "note": "The page's block 'CAfe tola #3 1625 W Addison St, Chicago, IL 60613 Hours: Monday - Friday: 7:00 am - 8:00 pm Saturday: 7:00 am - 8:00 pm Sunday: 7:00 am - 8:00 pm' and, on the same page, the location widget 'Open now - Closes at 3:59AM' (its data: 08:00-03:59 every day, all three shops). The block equals OSM's Mo-Su 07:00-20:00. Cafe Tola is a four-shop local chain."
+ },
+ {
+  "id": "n8855908175",
+  "name": "Basu Coffee Bar & Vietnamese Eatery",
+  "status": "confirmed",
+  "source": "https://lotusbanhmi.com/basu/",
+  "evidence": "Basu Eatery in Northbrook Tuesday - Sunday 11:00a - 8:00p (224) 904-3364 Get Directions: 1361 Shermer Rd, Northbrook, IL 60062 Vietnamese Coffee and Pho in Northbrook ... Vietnamese Coffee Bar",
+  "hours": "Mo off; Tu-Su 11:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "basueatery.com redirects to its owner Lotus Banh Mi's page for Basu. Matched by phone (OSM's +12249043364; OSM's address 1362 Shermer Rd). Monday is not listed and the other six days are: closed (OSM agrees). The page's schema.org entries are other Lotus Banh Mi shops' and were not used."
+ },
+ {
+  "id": "n9344604237",
+  "name": "Cork and Bean",
+  "status": "confirmed",
+  "source": "https://www.cork-bean.com/",
+  "evidence": "Cork and Bean 4931 West 95th Street Oak Lawn, IL 60453 ... Hours Thursday-Saturday 8 am - 10 pm Sunday-Wednesday 8 am- 9 pm",
+  "hours": "Mo-We 08:00-21:00; Th-Sa 08:00-22:00; Su 08:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "'a locally-owned coffee, cocktail, and wine bar': one set of doors. The '08:00 AM - 10:00 PM' on the page belongs to a wine special."
+ },
+ {
+  "id": "w1022135054",
+  "name": "Barnes & Noble Café",
+  "status": "skipped",
+  "reason": "the cafe's own hours are not given",
+  "page": "https://stores.barnesandnoble.com/store/2552",
+  "note": "The chain's store page gives the bookstore's hours ('Sun 11-7, Mon-Sat 10-9'; Thanksgiving and Black Friday listed apart) and lists 'Cafe' as a feature, with no cafe hours. A chain (Barnes & Noble), not an independent."
+ },
+ {
+  "id": "w1058687191",
+  "name": "Ashbary Coffee House",
+  "status": "confirmed",
+  "source": "https://ashbarycoffeehouse.com/",
+  "evidence": "Click to Call: (708) 401-4238 Click for Directions: 8695 Archer Ave #1, Willow Springs ... HOURS: Monday 10am - 10pm Tuesday 10am - 10pm Wednesday 10am - 12am Open Mic! Thursday 10am - 10pm Friday 10am - 12am Live Music! Saturday 10am - 12am Live Music! Sunday 10am - 8pm",
+  "hours": "Mo-Tu 10:00-22:00; We 10:00-24:00; Th 10:00-22:00; Fr-Sa 10:00-24:00; Su 10:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "Matched by phone (OSM's +17084014238); the page's address is 8695 Archer Ave #1, OSM's 8865 Archer Ave."
+ },
+ {
+  "id": "w1121098218",
+  "name": "Chill Bubble Tea",
+  "status": "confirmed",
+  "source": "http://www.chillbubbletea.com/locations/",
+  "evidence": "lombard - Yorktown Center 203 Yorktown Center #157-A Lombard, IL 60148 (630) 495-1318 Mon-Sat: 10am - 9pm Sun: 11am - 6pm Lower Level, below Food Court",
+  "hours": "Mo-Sa 10:00-21:00; Su 11:00-18:00",
+  "src": "shop",
+  "late": true,
+  "note": "Multi-shop page; the Lombard block by phone and unit (#157-A). A mall shop. Chill Bubble Tea runs 5 or more shops in the area (a chain by the 5-location rule) (six listed)."
+ },
+ {
+  "id": "w1245108695",
+  "name": "Melt n Dip",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://meltndip.com/select-location/",
+  "note": "Franchise chain's location picker drawn by script (Google Maps); no stores in the HTML. Would be src brand. A dessert shop."
+ },
+ {
+  "id": "w163944666",
+  "name": "Somethin' Sweet Donuts",
+  "status": "skipped",
+  "reason": "site gone",
+  "page": "https://somethingsweetdonuts.com/",
+  "note": "somethingsweetdonuts.com does not resolve (no DNS) in the harvest and by hand. Not proof the shop closed."
+ },
+ {
+  "id": "w210322882",
+  "name": "Bourgeois Pig Cafe",
+  "status": "confirmed",
+  "source": "https://www.bpigcafe.com/about/",
+  "evidence": "Hours & Location 738 W Fullerton Ave, Chicago, IL 60614 773-883-5282 (JAVA) ... Bourgeois Pig cafe Hours OPEN 7 DAYS A WEEK! Monday & Tuesday: 8:00 AM - 6:00 PM Wednesday & Thursday: 8:00 AM - 11:00 PM Friday & Saturday: 8:00 AM - MIDNIGHT Sunday: 8:00 AM - 10:00 PM",
+  "hours": "Mo-Tu 08:00-18:00; We-Th 08:00-23:00; Fr-Sa 08:00-24:00; Su 08:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "The cafe's own hours. The Gatsby, a speakeasy bar upstairs with its own hours (Wed-Sat evenings), was not used."
+ },
+ {
+  "id": "w275391881",
+  "name": "Firecakes Donuts",
+  "status": "confirmed",
+  "source": "https://firecakesdonuts.com/locations/",
+  "evidence": "River North 68 W. Hubbard St. [map] Chicago, IL 60654 312-329-6500 (Window Service Available) Sunday - Thursday 6:30AM - 10:00PM Friday - Saturday 6:30AM - 12:00AM (midnight)",
+  "hours": "Mo-Th 06:30-22:00; Fr-Sa 06:30-24:00; Su 06:30-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "Multi-shop page; the River North block by address and phone. The page warns 'Closing hours may vary in the event that we sell out.'"
+ },
+ {
+  "id": "w684481665",
+  "name": "Weston's Coffee & Tap Co.",
+  "status": "confirmed",
+  "source": "https://www.westonscoffee.com/",
+  "evidence": "HOURS & LOCATION 4872 N. MILWAUKEE AVE. CHICAGO, ILLINOIS 60630 ... SUNDAY 7:30am-2:00pm MONDAY-WEDNESDAY 7:00am-2:00pm THURSDAY-FRIDAY 7:00am-3:00pm SATURDAY 7:30am-3:00pm *Hours are subject to change.",
+  "hours": "Mo-We 07:00-14:00; Th-Fr 07:00-15:00; Sa 07:30-15:00; Su 07:30-14:00",
+  "src": "shop",
+  "late": false,
+  "note": "Two copies on the page agree. 'NOT AVAILABLE DUE TO REDUCED HOURS' is about its happy hour. Closes before 20:00 every day: leaves the late map (OSM had to 19:00-20:30)."
+ }
+]
