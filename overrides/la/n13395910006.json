@@ -1,0 +1,54 @@
+{
+ "id": "n13395910006",
+ "name": "Alchemist Coffee Project",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ],
+  [
+   [
+    450,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa-Su 07:30-20:00",
+ "src": "shop",
+ "source": "https://alchemistcp.com/pages/location",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa-Su 07:30-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Koreatown Vermont 698 S. Vermont Ave. Suite 103 ... Phone: 213-388-8767 Store Hours: Mon-Fri 7:00AM - 8:00PM Sat-Sun 7:30AM - 8:00PM The Hobart Blvd and Cumulus shops on the page close at 6 PM and were not used."
+}

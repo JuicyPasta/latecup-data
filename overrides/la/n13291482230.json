@@ -1,0 +1,54 @@
+{
+ "id": "n13291482230",
+ "name": "Sunday Cafe",
+ "hours": [
+  [
+   [
+    555,
+    1260
+   ]
+  ],
+  [
+   [
+    555,
+    1260
+   ]
+  ],
+  [
+   [
+    555,
+    1260
+   ]
+  ],
+  [
+   [
+    555,
+    1230
+   ]
+  ],
+  [
+   [
+    555,
+    1290
+   ]
+  ],
+  [
+   [
+    555,
+    1290
+   ]
+  ],
+  [
+   [
+    555,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 09:15-21:00; Th 09:15-20:30; Fr-Sa 09:15-21:30; Su 09:15-20:30",
+ "src": "shop",
+ "source": "https://sundaycafe.online/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 09:30-20:30; Fr-Sa 09:30-21:30",
+ "note": "OpenStreetMap said \"Mo-Th,Su 09:30-20:30; Fr-Sa 09:30-21:30\"; the shop's own source wins. Read: 400 S Baldwin Avenue unit FC7 Hours Mon-Wed 9:15 AM - 9:00 PM Thu 9:15 AM - 8:30 PM Fri, Sat 9:15 AM - 9:30 PM Sun 9:15 AM - 8:30 PM The page's schema.org data says the same."
+}

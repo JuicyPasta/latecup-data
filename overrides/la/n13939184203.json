@@ -1,0 +1,54 @@
+{
+ "id": "n13939184203",
+ "name": "Lost Parrot Cafe",
+ "hours": [
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ],
+  [
+   [
+    420,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo 07:00-16:00; Tu 07:00-20:00; We-Su 07:00-16:00",
+ "src": "shop",
+ "source": "https://www.lostparrotcafe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,We-Su 07:00-16:00; Tu 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Open Seven Days a Week / 7:00 am - 4:00 pm Open Taco Tuesday from / 4:00 pm - 8:00 pm ... 1929 Huntington Drive, South Pasadena, CA 91030 The page's schema.org data says We 07:00-21:00 and Th 07:00-20:00; the visible text, which equals OpenStreetMap's, was taken. A brunch and lunch place."
+}

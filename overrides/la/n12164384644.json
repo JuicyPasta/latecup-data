@@ -1,0 +1,54 @@
+{
+ "id": "n12164384644",
+ "name": "Four Cafe",
+ "hours": [
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ],
+  [
+   [
+    720,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-20:00",
+ "src": "shop",
+ "source": "https://fourcafe.net/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su-Sa 11:00-20:00",
+ "note": "OpenStreetMap said \"Su-Sa 11:00-20:00\"; the shop's own source wins. Read: 2122 Colorado Blvd Hours Monday - Sunday 12:00 PM - 8:00 PM The page's schema.org data says the same."
+}

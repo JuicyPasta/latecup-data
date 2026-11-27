@@ -1,0 +1,54 @@
+{
+ "id": "n12372861463",
+ "name": "Oakobing",
+ "hours": [
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ],
+  [
+   [
+    780,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 13:00-23:00",
+ "src": "shop",
+ "source": "https://www.oakobing.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "13:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: schema.org: Oakobing Koreatown Los Angeles, 3300 W 6th St Unit 2, 2133871002, Mo-Su 13:00-23:00 schema.org only (no visible hours in the fetched page), for this address and phone; taken because it equals OpenStreetMap's hours (docs/accuracy.md)."
+}

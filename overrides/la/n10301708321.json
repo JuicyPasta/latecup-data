@@ -1,0 +1,54 @@
+{
+ "id": "n10301708321",
+ "name": "Millet Crepe",
+ "hours": [
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1350
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1350
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-22:30; Fr-Sa 12:00-23:00; Su 12:00-22:30",
+ "src": "shop",
+ "source": "https://www.milletcrepe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 12:00-22:30; Fr-Sa 12:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: Millet Crepe - Little Tokyo 330 E 2nd Street Unit C ... Little Tokyo Hours: Sun - Thu 12 - 10:30pm Fri - Sat. 12 - 11pm Read from the Square Online page's own location block (the text is drawn by script). The other set on the page, Sun-Thu 12:30pm-10:30pm and Fri-Sat 12:30pm-11pm, is the Sawtelle shop's."
+}

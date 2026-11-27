@@ -1,0 +1,54 @@
+{
+ "id": "n1028939687",
+ "name": "Urth Caffé - \rMelrose",
+ "hours": [
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1380
+   ]
+  ],
+  [
+   [
+    420,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-22:00; Fr-Sa 07:00-23:00; Su 07:00-22:00",
+ "src": "shop",
+ "source": "https://www.urthcaffe.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th, Su 06:00-23:00; Fr, Sa 06:00-00:00",
+ "note": "OpenStreetMap said \"Mo-Th, Su 06:00-23:00; Fr, Sa 06:00-00:00\"; the shop's own source wins. Read: URTH CAFFÉ HOURS ... Downtown LA, Melrose, Beverly Hills and Pasadena - 7am to 10pm Sunday thru Thursday, 7am to 11pm Friday & Saturday The page's schema.org entry for Urth Caffé Melrose (8565 Melrose Ave, 310-659-0628) says the same. Its Thanksgiving line was ignored."
+}

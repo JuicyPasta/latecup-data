@@ -1,0 +1,55 @@
+{
+ "id": "n10158549627",
+ "name": "Scratch Bakery Cafe",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 07:00-20:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.scratchbakerycafe.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,Th 07:00-19:00; Fr-Sa 07:00-20:00; Su 08:00-18:00",
+ "note": "OpenStreetMap said \"Mo,Th 07:00-19:00; Fr-Sa 07:00-20:00; Su 08:00-18:00\"; the shop's own source wins. Read: Newport Beach 561 Newport Center Dr, Newport Beach, CA 92660 (949) 524-8200 ... Monday - Saturday: 7:00 am - 8:00 pm ... Kitchen closes daily: 3pm for breakfast, 4pm for lunch Sunday: 8:00 am - 6:00 pm. Publish guard (OSM had Tuesday and Wednesday closed): read a second time on 2026-11-27 and it stands; the homepage's schema.org entry for this address says the same (Mo-Sa 07:00-20:00, Su 08:00-18:00). A re-fetch that day got HTTP 403, so the second reading was of the page as saved from the first fetch plus the homepage. The kitchen hours are the kitchen's; the doors' hours were taken.",
+ "second_look": "2026-11-27"
+}

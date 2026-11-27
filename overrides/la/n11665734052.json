@@ -1,0 +1,54 @@
+{
+ "id": "n11665734052",
+ "name": "Javista",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://javistacoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-20:00\"; the shop's own source wins. Read: West Hollywood 7494 Santa Monica Boulevard ... Hours ... West Hollywood (open late) Mon-Fri: 7:00 AM - 8:00 PM Sat-Sun: 8:00 AM - 8:00 PM The page's Thanksgiving banner was ignored. The Hollywood shop (6725 Sunset) closes at 5 PM and was not used."
+}

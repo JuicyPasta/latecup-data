@@ -1,0 +1,54 @@
+{
+ "id": "n12685017435",
+ "name": "Racer Tea",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa 08:00-19:00; Su 09:00-18:00",
+ "src": "shop",
+ "source": "https://racertea.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-21:00; Sa 08:00-21:00; Su 09:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-21:00; Sa 08:00-21:00; Su 09:00-20:00\"; the shop's own source wins. Read: Visit the Tea Bar 1611 S Catalina Ave #103 · Redondo Beach, CA Mon-Fri 7am-8pm · Sat 8am-7pm · Sun 9am-6pm A tea bar (tea lattes, chai, acai bowls, zero alcohol). The page's schema.org data says the same."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n11391069569",
+ "name": "Ceci's",
+ "hours": [
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-15:00; Fr-Su 08:00-21:00",
+ "src": "shop",
+ "source": "https://www.cecisoven.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-We 08:00-15:00; Th-Su 08:00-15:00,17:00-21:00",
+ "note": "OpenStreetMap said \"Mo-We 08:00-15:00; Th-Su 08:00-15:00,17:00-21:00\"; the shop's own source wins. Read: 2813 W Sunset Blvd Los Angeles, CA 90026 Monday - Thursday: 8am - 3pm Friday- Sunday: 8am - 9pm The site calls itself Ceci's Gastronomia (an Italian deli with a menu and catering): it may not be a cafe."
+}

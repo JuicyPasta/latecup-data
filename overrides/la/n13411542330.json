@@ -1,0 +1,54 @@
+{
+ "id": "n13411542330",
+ "name": "Smoking Tiger Coffee Lab",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-17:00",
+ "src": "shop",
+ "source": "https://www.smokingtiger.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "07:00-20:00",
+ "note": "OpenStreetMap said \"07:00-20:00\"; the shop's own source wins. Read: SAN GABRIEL, CA Coffee Lab 927 E Las Tunas Dr, San Gabriel, CA 91776 hours: 7a–5p daily (626) 782-7007 Read from the store list in the locations page's own source (the page draws it with script)."
+}

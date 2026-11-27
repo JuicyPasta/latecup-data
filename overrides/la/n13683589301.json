@@ -1,0 +1,54 @@
+{
+ "id": "n13683589301",
+ "name": "Tickle Tree Cafe",
+ "hours": [
+  [
+   [
+    540,
+    960
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ],
+  [
+   [
+    540,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo 09:00-16:00; Tu-Sa 09:00-21:00; Su 09:00-16:00",
+ "src": "shop",
+ "source": "https://tickletree.cafe/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 09:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 09:00-21:00\"; the shop's own source wins. Read: HOURS Sunday + Monday 9:00AM - 4:00PM Tuesday - Saturday 9:00AM - 9:00PM KITCHEN CLOSED 3:45PM - 4:30PM 2853 Foothill Blvd The kitchen break is the kitchen's; the doors' hours were taken."
+}

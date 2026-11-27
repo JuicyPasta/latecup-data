@@ -1,0 +1,54 @@
+{
+ "id": "n12701493998",
+ "name": "Pot of Cha",
+ "hours": [
+  [
+   [
+    750,
+    1380
+   ]
+  ],
+  [
+   [
+    750,
+    1380
+   ]
+  ],
+  [
+   [
+    750,
+    1380
+   ]
+  ],
+  [
+   [
+    750,
+    1380
+   ]
+  ],
+  [
+   [
+    750,
+    1380
+   ]
+  ],
+  [
+   [
+    750,
+    1380
+   ]
+  ],
+  [
+   [
+    750,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:30-23:00",
+ "src": "shop",
+ "source": "https://potofcha.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:30-23:00",
+ "note": "Agrees with OpenStreetMap. Read: Location & Hours 3013 S Figueroa St (213) 516-1888 Everyday: 12:30 PM - 11 PM The page's schema.org data says the same."
+}

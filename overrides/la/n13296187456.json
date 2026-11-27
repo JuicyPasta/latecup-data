@@ -1,0 +1,54 @@
+{
+ "id": "n13296187456",
+ "name": "3CAT",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.3catea.com/location",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 400 S BALDWIN AVE ARCADIA CA 91007 Order Now (ARCADIA) MONDAY ... SUNDAY 11AM - 10PM (all seven) hours ARCADIA Read from the Wix page's stores table; equals OpenStreetMap's hours."
+}

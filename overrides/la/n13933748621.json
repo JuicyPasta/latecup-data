@@ -1,0 +1,54 @@
+{
+ "id": "n13933748621",
+ "name": "Y.our Cafe",
+ "hours": [
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ],
+  [
+   [
+    660,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:30",
+ "src": "shop",
+ "source": "https://www.yourcafemenu.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-20:30",
+ "note": "Agrees with OpenStreetMap. Read: Monday - Sunday 11:00 AM - 8:30 PM ... 2968 Huntington Dr"
+}

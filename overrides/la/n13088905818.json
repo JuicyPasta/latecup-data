@@ -1,0 +1,54 @@
+{
+ "id": "n13088905818",
+ "name": "Jin the Tea Shop",
+ "hours": [
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://www.jinteashop.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: 18 West Green St. (626) 219-6040 Mon-Sun 11am - 11pm"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n13062136374",
+ "name": "OMOMO Tea Shoppe",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:00",
+ "src": "shop",
+ "source": "https://www.omomoteashoppe.com/locations/chino-hills/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 12:00-21:00",
+ "note": "OpenStreetMap said \"Mo-Su 12:00-21:00\"; the shop's own source wins. Read: Chino Hills 2983 Chino Ave #A8, Chino Hills, CA 91709 STORE HOURS MONDAY: 11AM-9PM ... SUNDAY: 11AM-9PM"
+}

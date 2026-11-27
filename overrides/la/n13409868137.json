@@ -1,0 +1,49 @@
+{
+ "id": "n13409868137",
+ "name": "Tapioca Express",
+ "hours": [
+  [],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo off; Tu-Su 11:00-20:00",
+ "src": "brand",
+ "source": "https://tapiocaexpress.com/alhambra-store/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo off; Tu-Su 11:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: 228 W Valley Blvd STE 105, Alhambra, CA 91801 (626)289-9735 ... Hour of Operations Monday closed, Tuesday to Sunday 11 AM-8 PM The footer's 'Work Hours Everyday 10 AM - 9 PM' is the site template's placeholder (next to template filler text) and was not used."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n13912579490",
+ "name": "Cha Redefine",
+ "hours": [
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ],
+  [
+   [
+    660,
+    1500
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-01:00",
+ "src": "shop",
+ "source": "https://charedefine.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 11:00-24:00; Fr-Sa 11:00-01:00",
+ "note": "OpenStreetMap said \"Mo-Th,Su 11:00-24:00; Fr-Sa 11:00-01:00\"; the shop's own source wins. Read: Cha Redefine - San Gabriel Store Store Address: 140 W Valley Blvd, #118-B, San Gabriel, CA 91776 (Inside TAWA Plaza) Business Hours: Monday - Sunday: 11am - 1am (Next Day)"
+}

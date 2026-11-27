@@ -1,0 +1,54 @@
+{
+ "id": "n13440140326",
+ "name": "CC Cake",
+ "hours": [
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ],
+  [
+   [
+    690,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:30-21:30",
+ "src": "shop",
+ "source": "https://www.cccakela.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:30-21:30",
+ "note": "Agrees with OpenStreetMap. Read: Locations & Hours 1031 South Baldwin Avenue Opening Hours Monday to Sunday 11:30am - 9:30pm"
+}

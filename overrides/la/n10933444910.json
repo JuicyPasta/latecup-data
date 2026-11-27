@@ -1,0 +1,54 @@
+{
+ "id": "n10933444910",
+ "name": "3THYME Coffee & Herbs",
+ "hours": [
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 08:00-20:00; Fr-Sa 08:00-22:00; Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://3thyme.com/locations.html",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th,Su 08:00-20:00; Fr-Sa 08:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: 3Thyme Coffee & Herbs 600 South Harvard Blvd. Suite 100 ... Hours: Sun - Thu | 8AM - 8PM Fri - Sat | 8AM - 10PM Nite Thyme, a wine bar at the same address (Thu - Sun, open 6PM), is a separate bar and was not used."
+}

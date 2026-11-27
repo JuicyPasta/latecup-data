@@ -1,0 +1,54 @@
+{
+ "id": "n13650549549",
+ "name": "Meet Tea",
+ "hours": [
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ],
+  [
+   [
+    660,
+    1440
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-24:00",
+ "src": "shop",
+ "source": "https://www.meetteaca.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-24:00",
+ "note": "Agrees with OpenStreetMap. Read: Hours Mon - Sun: 11 AM - 12 AM Address 5817 Rosemead Blvd"
+}

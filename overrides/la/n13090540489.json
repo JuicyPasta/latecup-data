@@ -1,0 +1,54 @@
+{
+ "id": "n13090540489",
+ "name": "BB Cafe",
+ "hours": [
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ],
+  [
+   [
+    480,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 08:00-15:00",
+ "src": "shop",
+ "source": "https://bbcafe.la/",
+ "checked": "2026-11-27",
+ "osm_hours": "08:00-20:00",
+ "note": "OpenStreetMap said \"08:00-20:00\"; the shop's own source wins. Read: 2411 W Burbank Blvd Burbank, CA 91506 ... We are open 7 days a week 8 AM to 3 PM ... 818.450.5555 Matched by phone (OpenStreetMap's +1 818 450 5555); the site gives 2411 W Burbank Blvd where OpenStreetMap has 3411 Burbank Boulevard. One shop on the site. It looks like a sit-down restaurant (BOOK A TABLE, entrees)."
+}

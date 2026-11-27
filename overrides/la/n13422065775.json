@@ -1,0 +1,54 @@
+{
+ "id": "n13422065775",
+ "name": "Unique Green Tea",
+ "hours": [
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 12:00-23:00; Sa-Su 11:00-23:00",
+ "src": "shop",
+ "source": "https://www.uniquegreentea.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "11:00-23:00",
+ "note": "OpenStreetMap said \"11:00-23:00\"; the shop's own source wins. Read: 308 W Valley Blvd, San Gabriel, CA 91776 Mon-Fri 12:00PM-11:00PM Sat-Sun 11:00AM-11:00PM ORDER NOW"
+}

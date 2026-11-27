@@ -1,0 +1,54 @@
+{
+ "id": "n10754899799",
+ "name": "Krak Boba",
+ "hours": [
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-22:00",
+ "src": "shop",
+ "source": "https://www.krakboba.com/lake-forest",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: Krak Boba Lake Forest 23791 El Toro Rd D-106A ... Store Hours Every day 11:00 AM - 10:00 PM The page also carries a block 'OPEN EVERY DAY 11:00 AM - 11:00 PM' that the site's own stylesheet hides (.text-block-8.lakeforest {display: none}); the shown block is the one taken."
+}

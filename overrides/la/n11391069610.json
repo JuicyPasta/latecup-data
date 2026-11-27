@@ -1,0 +1,54 @@
+{
+ "id": "n11391069610",
+ "name": "Tartine",
+ "hours": [
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ],
+  [
+   [
+    420,
+    900
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-15:00",
+ "src": "shop",
+ "source": "https://tartinebakery.com/los-angeles/silverlake",
+ "checked": "2026-11-27",
+ "osm_hours": "08:00-22:00",
+ "note": "OpenStreetMap said \"08:00-22:00\"; the shop's own source wins. Read: Silver Lake 3921 Sunset Blvd ... HOURS MON 7am - 3pm ... SUN 7am - 3pm ... OPEN DAILY: 7AM - 3PM A 'Dining' paragraph lower on the same page says 'Open for takeout, delivery and outdoor dining daily from 8am-3pm' (same closing time); the store's HOURS block, given twice, was taken."
+}

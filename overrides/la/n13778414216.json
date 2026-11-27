@@ -1,0 +1,54 @@
+{
+ "id": "n13778414216",
+ "name": "Smoking Tiger Coffee & Bread",
+ "hours": [
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1320
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 08:00-22:00; Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://www.smokingtiger.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 08:00-22:00; Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: BUENA PARK, CA The Origin 4600 Beach Blvd, Buena Park, CA 90621 hours: Mon–Sat 8a–10p Sun 8a–8p (657) 239-0651 Read from the store list in the locations page's own source (the page draws it with script)."
+}

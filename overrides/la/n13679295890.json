@@ -1,0 +1,49 @@
+{
+ "id": "n13679295890",
+ "name": "Laurie's Pie Bar",
+ "hours": [
+  [],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo off; Tu-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+ "src": "shop",
+ "source": "https://www.lauriespiebar.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Su 11:00-21:00, Tu-Th 11:00-21:00, Fr-Sa 11:00-22:00",
+ "note": "Agrees with OpenStreetMap. Read: SUN 11AM-9PM MON CLOSED TUES-THUR 11AM-9PM FRI-SAT 11AM-10PM (562) 435-6910"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n11575632504",
+ "name": "Kean Coffee",
+ "hours": [
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ],
+  [
+   [
+    360,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 06:00-20:00",
+ "src": "shop",
+ "source": "https://keancoffee.com/locations-hours/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Su 06:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Kéan Coffee is currently open from 6 AM to 8 PM Sunday through Thursday and 6 AM to 8 PM on Friday and Saturday. Newport Beach Coffeehouse 2043 Westcliff Dr #100"
+}

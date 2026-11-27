@@ -1,0 +1,54 @@
+{
+ "id": "n11378679121",
+ "name": "Hey Hey",
+ "hours": [
+  [
+   [
+    660,
+    1140
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo 11:00-19:00; Tu-Sa 11:00-20:00; Su 11:00-19:00",
+ "src": "shop",
+ "source": "https://www.heyheydrinks.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo,Su 10:00-19:00; Tu-Sa 10:00-20:00",
+ "note": "OpenStreetMap said \"Mo,Su 10:00-19:00; Tu-Sa 10:00-20:00\"; the shop's own source wins. Read: LOCATION 1555 W Sunset Boulevard Los Angeles, California HOURS 11am - 8pm Sunday & Monday 11am - 7pm The page's schema.org data says Mo-Su 10:00-20:00; the visible text was taken (docs/accuracy.md)."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n12981827301",
+ "name": "Onescape Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 07:00-18:00; Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+ "src": "shop",
+ "source": "https://www.onescapecoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Sa 07:00-21:00; Su 08:00-16:00",
+ "note": "OpenStreetMap said \"Mo-Sa 07:00-21:00; Su 08:00-16:00\"; the shop's own source wins. Read: 401 S Vermont Ave #6 STORE HOURS MON - Thur 7AM - 6PM FRI 7AM - 8PM SAT 8AM - 8PM SUN 8AM - 6PM"
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n13639719930",
+ "name": "Recreational Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-We 07:00-17:00; Th-Su 07:00-21:00",
+ "src": "shop",
+ "source": "https://www.recreationalcoffee.com/",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 07:00-17:00; Fr-Su 07:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Th 07:00-17:00; Fr-Su 07:00-22:00\"; the shop's own source wins. Read: Mon 7:00 AM - 5:00 PM Tue 7:00 AM - 5:00 PM Wed 7:00 AM - 5:00 PM Thu 7:00 AM - 9:00 PM Fri 7:00 AM - 9:00 PM Sat 7:00 AM - 9:00 PM Sun 7:00 AM - 9:00 PM ... 237 Long Beach Boulevard The page's schema.org data says the same. No holiday notice on the page."
+}

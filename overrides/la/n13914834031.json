@@ -1,0 +1,54 @@
+{
+ "id": "n13914834031",
+ "name": "Smoking Tiger Coffee Lab",
+ "hours": [
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ],
+  [
+   [
+    420,
+    1020
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-17:00",
+ "src": "shop",
+ "source": "https://www.smokingtiger.com/locations",
+ "checked": "2026-11-27",
+ "osm_hours": "08:00-20:00",
+ "note": "OpenStreetMap said \"08:00-20:00\"; the shop's own source wins. Read: MONTEREY PARK, CA Coffee Lab 221 N Atlantic Blvd Ste 104, Monterey Park, CA 91754 hours: 7a–5p daily (626) 537-1602 Read from the store list in the locations page's own source (the page draws it with script)."
+}

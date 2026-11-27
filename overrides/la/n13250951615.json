@@ -1,0 +1,54 @@
+{
+ "id": "n13250951615",
+ "name": "Colossus",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "src": "shop",
+ "source": "https://www.colossusbread.com/location",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa,Su 08:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Harbor 511 S. Harbor Blvd., San Pedro ... Monday - Friday: 7 am - 8 pm (brunch open-4, dinner 4 - 8pm) Saturday + Sunday: 8 am - 8 pm Bakery with a coffee bar, counter service and patio seating. The Alma St. and Belmont Shore hours on the page are other shops'."
+}

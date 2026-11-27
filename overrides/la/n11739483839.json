@@ -1,0 +1,54 @@
+{
+ "id": "n11739483839",
+ "name": "Bopomofo",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:00",
+ "src": "shop",
+ "source": "https://www.bopomofocafe.com/san-gabriel",
+ "checked": "2026-11-27",
+ "osm_hours": "Fr,Sa 11:00-21:00; Su-Th 11:00-20:00",
+ "note": "OpenStreetMap said \"Fr,Sa 11:00-21:00; Su-Th 11:00-20:00\"; the shop's own source wins. Read: 841 W. Las Tunas Drive San Gabriel, CA 91776 ... Hours Monday ... Sunday 11am - 8pm (each of the seven days)"
+}

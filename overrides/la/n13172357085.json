@@ -1,0 +1,54 @@
+{
+ "id": "n13172357085",
+ "name": "Jam Jam Tea Lab",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ],
+  [
+   [
+    720,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 12:00-22:00; Fr-Su 12:00-23:00",
+ "src": "shop",
+ "source": "https://www.jamjamtea.com/location",
+ "checked": "2026-11-27",
+ "osm_hours": "Mo-Th 12:00-22:00; Fr-Su 12:00-23:00",
+ "note": "Agrees with OpenStreetMap. Read: DOWNTOWN BURBANK 128 E PALM AVE ... Mon.-Thur. 12 PM - 10 PM, Fri.-Sun. 12 PM - 11 PM, then ORDER PICK UP - BURBANK The page sets five shops' tables side by side; this is the table beside the Burbank button, and it equals OpenStreetMap's hours."
+}
