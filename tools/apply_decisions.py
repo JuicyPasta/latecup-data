@@ -119,7 +119,7 @@ def main(argv):
             notes.append("OpenStreetMap had no hours.")
         addr = " ".join(str(d["addr"]).split()) if d.get("addr") else None
         if addr:
-            osm_addr = clean.address(tags.get(pid, {}))
+            osm_addr = clean.address(tags.get(pid, {}), fix_doubled=True)
             if osm_addr and osm_addr != addr:
                 notes.append(f"Address from the shop's page: {addr} (OpenStreetMap has {osm_addr}).")
         if d.get("evidence"):
