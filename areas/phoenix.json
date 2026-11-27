@@ -1,0 +1,12 @@
+{
+ "id": "phoenix",
+ "name": "Phoenix",
+ "tz": "America/Phoenix",
+ "center": [33.4484, -112.074],
+ "zoom": 11.5,
+ "bbox": [-112.45, 33.2, -111.6, 33.75],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

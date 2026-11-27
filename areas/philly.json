@@ -1,0 +1,12 @@
+{
+ "id": "philly",
+ "name": "Philadelphia",
+ "tz": "America/New_York",
+ "center": [39.9526, -75.1652],
+ "zoom": 12,
+ "bbox": [-75.4, 39.85, -74.95, 40.15],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

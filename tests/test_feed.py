@@ -201,8 +201,8 @@ def _elements(n):
 
 
 def test_run_writes_a_valid_site_and_refuses_to_shrink(tmp_path, monkeypatch):
-    monkeypatch.setattr(B, "load_overrides", lambda: {})
-    monkeypatch.setattr(B, "load_additions", lambda: [])
+    monkeypatch.setattr(B, "load_overrides", lambda **_: {})
+    monkeypatch.setattr(B, "load_additions", lambda **_: [])
     monkeypatch.setattr(run, "load_report", lambda: None)
     site = tmp_path / "site"
     m = run.make(_elements(10), site, now="2026-11-24T23:10:00Z", log=lambda *_: None)
@@ -235,16 +235,16 @@ def test_run_writes_a_valid_site_and_refuses_to_shrink(tmp_path, monkeypatch):
 
 
 def test_empty_feed_is_never_published(tmp_path, monkeypatch):
-    monkeypatch.setattr(B, "load_overrides", lambda: {})
-    monkeypatch.setattr(B, "load_additions", lambda: [])
+    monkeypatch.setattr(B, "load_overrides", lambda **_: {})
+    monkeypatch.setattr(B, "load_additions", lambda **_: [])
     with pytest.raises(validate.Invalid):
         run.make([], tmp_path / "site", now="2026-11-24T23:10:00Z", log=lambda *_: None)
     assert not (tmp_path / "site" / "v1").exists()
 
 
 def _bundle(tmp_path, monkeypatch):
-    monkeypatch.setattr(B, "load_overrides", lambda: {})
-    monkeypatch.setattr(B, "load_additions", lambda: [])
+    monkeypatch.setattr(B, "load_overrides", lambda **_: {})
+    monkeypatch.setattr(B, "load_additions", lambda **_: [])
     monkeypatch.setattr(run, "load_report", lambda: None)
     site = tmp_path / "site"
     m = run.make(_elements(6), site, now="2026-11-24T23:10:00Z", log=lambda *_: None)
@@ -321,8 +321,8 @@ def test_bundle_rejects_a_style_that_does_not_answer_with_a_style(tmp_path, monk
 
 
 def test_a_missing_style_file_stops_the_publish(tmp_path, monkeypatch):
-    monkeypatch.setattr(B, "load_overrides", lambda: {})
-    monkeypatch.setattr(B, "load_additions", lambda: [])
+    monkeypatch.setattr(B, "load_overrides", lambda **_: {})
+    monkeypatch.setattr(B, "load_additions", lambda **_: [])
     monkeypatch.setattr(run, "ROOT", tmp_path)          # no styles/ folder here
     (tmp_path / "data").mkdir()
     with pytest.raises(validate.Invalid, match="style_dark"):

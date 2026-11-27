@@ -12,16 +12,22 @@ BOROS = {"Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"}
 CATS = {"coffee", "tea", "dessert"}
 SRCS = {"shop", "brand", "osm"}
 TAGS = {"wifi", "outdoor", "seating", "laptop"}
-_ID = re.compile(r"^(?:[nwr][1-9]\d*|x-[a-z0-9]+(?:-[a-z0-9]+)*)$")
+# An OpenStreetMap element, or x-<slug> for a place OpenStreetMap lacks. The lengths are the report sheet's
+# (Latecup marketing/report-form.md): it blanks a place id that is not ^([nwr][0-9]{1,20}|x-[a-z0-9-]{1,60}|test)$
+_ID = re.compile(r"^(?:[nwr][1-9]\d{0,19}|x-(?=[a-z0-9-]{1,60}$)[a-z0-9]+(?:-[a-z0-9]+)*)$")
 _SLUG = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 _TS = re.compile(r"^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$")
 _E164 = re.compile(r"^\+[1-9]\d{7,14}$")
 _IG = re.compile(r"^[a-z0-9._]{1,30}$")
 _SHA = re.compile(r"^[0-9a-f]{64}$")
 _URL = re.compile(r"^https?://[^\s/]+\.[^\s/]+(/\S*)?$")
-PLACE_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "cat", "chain", "hours", "src", "checked", "hh",
-              "phone", "web", "ig", "tags"}
-REQUIRED = PLACE_KEYS - {"phone", "web", "ig", "tags"}
+PLACE_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "city", "cat", "chain", "hours", "src", "checked",
+              "hh", "phone", "web", "ig", "tags"}
+# what every place of an area with neighbourhood polygons carries (New York)
+REQUIRED = PLACE_KEYS - {"city", "phone", "web", "ig", "tags"}
+# Latecup 1.0.0 (3): the oldest app build in use. `min_build` above it turns that build's map into "Update Latecup"
+RELEASED_BUILD = 3
+FIRST_AREA = "nyc"
 
 
 class Invalid(ValueError):
@@ -68,13 +74,17 @@ def hours_table(table, what="hours"):
                     _need(na >= b - DAY_MIN, f"{what}[{d}]: runs past midnight into the next day's span")
 
 
-def place(p, bbox=None):
-    pid = p.get("id")
+def place(p, bbox=None, hoods="nta2020"):
+    """`hoods`: the area's source of neighbourhood names (areas/<id>.json).
+    With one (New York), every place carries `hood` and `boro`. With None
+    (an area that has no polygons yet), `hood` is there only when known and
+    `boro` never is."""
     _need(isinstance(p, dict), "place: not an object")
+    pid = p.get("id")
     _need(isinstance(pid, str) and _ID.match(pid), f"bad id {pid!r}")
     extra = set(p) - PLACE_KEYS
     _need(not extra, f"{pid}: unknown keys {sorted(extra)}")
-    missing = REQUIRED - set(p)
+    missing = (REQUIRED if hoods else REQUIRED - {"hood", "boro"}) - set(p)
     _need(not missing, f"{pid}: missing {sorted(missing)}")
     _need(isinstance(p["name"], str) and p["name"].strip() == p["name"] and p["name"], f"{pid}: bad name")
     _need(type(p["lat"]) is float and type(p["lon"]) is float, f"{pid}: lat/lon must be numbers")
@@ -82,8 +92,15 @@ def place(p, bbox=None):
         w, s, e, n = bbox
         _need(s <= p["lat"] <= n and w <= p["lon"] <= e, f"{pid}: outside the city bbox")
     _need(isinstance(p["addr"], str) and p["addr"].strip(), f"{pid}: bad addr")
-    _need(isinstance(p["hood"], str) and p["hood"], f"{pid}: bad hood")
-    _need(p["boro"] in BOROS, f"{pid}: bad boro {p['boro']!r}")
+    if "hood" in p:
+        _need(isinstance(p["hood"], str) and p["hood"], f"{pid}: bad hood")
+    if hoods:
+        _need(p["boro"] in BOROS, f"{pid}: bad boro {p['boro']!r}")
+    else:
+        _need("boro" not in p, f"{pid}: boro is New York's; this area has none")
+    if "city" in p:
+        _need(isinstance(p["city"], str) and p["city"] and p["city"].strip() == p["city"] and len(p["city"]) <= 40,
+              f"{pid}: bad city")
     _need(p["cat"] in CATS, f"{pid}: bad cat {p['cat']!r}")
     _need(p["chain"] is None or (isinstance(p["chain"], str) and _SLUG.match(p["chain"])), f"{pid}: bad chain")
     hours_table(p["hours"], f"{pid}: hours")
@@ -105,14 +122,14 @@ def place(p, bbox=None):
               and len(set(p["tags"])) == len(p["tags"]), f"{pid}: bad tags")
 
 
-def places_file(doc, city_id, bbox=None):
+def places_file(doc, city_id, bbox=None, hoods="nta2020"):
     _need(doc.get("format") == FORMAT, "places: format must be 1")
     _need(doc.get("city") == city_id, f"places: city must be {city_id!r}")
     _ts(doc.get("generated"), "places.generated")
     _need(isinstance(doc.get("places"), list) and doc["places"], "places: empty")
     seen = set()
     for p in doc["places"]:
-        place(p, bbox)
+        place(p, bbox, hoods)
         _need(p["id"] not in seen, f"duplicate id {p['id']}")
         seen.add(p["id"])
     return len(seen)
@@ -157,10 +174,12 @@ def real_zone(name):
     return True
 
 
-def bundle(m, read):
+def bundle(m, read, hoods=None):
     """Everything a client will fetch, checked together. `read(name) -> bytes`
     gets a file named in the manifest (a places file name, or a full style
-    URL) and raises IOError when it does not answer.
+    URL) and raises IOError when it does not answer. `hoods`: {area id: the
+    area's `hoods` setting} (areas.hoods_of()); an area it does not name is
+    held to New York's rule, `hood` and `boro` on every place.
 
     Rejects: an invalid manifest (bad tz, center outside the bbox, ...), a
     places file whose bytes, sha256 or count differ from the manifest or that
@@ -178,7 +197,7 @@ def bundle(m, read):
             doc = json.loads(body)
         except ValueError:
             raise Invalid(f"{c['places']}: not JSON") from None
-        n = places_file(doc, c["id"], c["bbox"])
+        n = places_file(doc, c["id"], c["bbox"], (hoods or {}).get(c["id"], "nta2020"))
         _need(n == c["count"], f"{c['places']}: {n} places, the manifest says {c['count']}")
         confirmed = sum(p["src"] != "osm" for p in doc["places"])
         _need(confirmed == c["confirmed"], f"{c['places']}: {confirmed} confirmed, the manifest says {c['confirmed']}")
@@ -197,23 +216,90 @@ def bundle(m, read):
               f"map.{key}: {url} is not a MapLibre style")
 
 
+def _num(v):
+    """A JSON number as the app's Dart sees it (`is num`): a boolean is not one."""
+    return type(v) in (int, float)
+
+
+def released_app(m):
+    """What Latecup 1.0.0 (build 3) does with a manifest, as code: its
+    Manifest.fromJson, City.fromJson and FeedRepository.checkManifest
+    (lib/feed/models.dart and lib/feed/feed_repository.dart at tag v1.0.0).
+
+    1.0.0 parses every entry of `cities` and then uses only the first. An
+    entry it cannot parse makes it refuse the whole manifest: it keeps the
+    data it has, says nothing, and New York goes stale. So every entry,
+    whatever the area, must pass the type checks here, and the first must be
+    New York in a shape 1.0.0 can run on."""
+    _need(isinstance(m, dict), "manifest: not an object")
+    # _adopt reads min_build before anything else; above its own build it stops and shows "Update Latecup"
+    mb = m.get("min_build")
+    _need(mb is None or _num(mb), "1.0.0: min_build must be a number")
+    _need(mb is None or mb <= RELEASED_BUILD,
+          f"1.0.0: min_build {mb} is above build {RELEASED_BUILD}: the released app would stop updating")
+    _need(type(m.get("format")) is int and m["format"] == FORMAT, "1.0.0: format must be the integer 1")
+    _need(isinstance(m.get("generated"), str) and _TS.match(m["generated"]), "1.0.0: generated must be a time")
+    cities = m.get("cities")
+    _need(isinstance(cities, list) and cities, "1.0.0: cities must be a list with an entry")
+    for i, c in enumerate(cities):
+        _need(isinstance(c, dict), f"1.0.0: cities[{i}] is not an object")
+        cid = c.get("id") if isinstance(c.get("id"), str) else f"cities[{i}]"
+        for key in ("id", "tz", "places", "sha256"):
+            _need(isinstance(c.get(key), str), f"1.0.0: {cid}: {key} must be a string")
+        _need("/" not in c["places"] and ".." not in c["places"],
+              f"1.0.0: {cid}: places must be a plain file name, no folder")
+        for key, size in (("center", 2), ("bbox", 4)):
+            v = c.get(key)
+            _need(isinstance(v, list) and len(v) == size and all(_num(x) for x in v),
+                  f"1.0.0: {cid}: {key} must be {size} numbers")
+        for key in ("name", "updated"):
+            _need(c.get(key) is None or isinstance(c[key], str), f"1.0.0: {cid}: {key} must be a string when present")
+        for key in ("zoom", "bytes", "count", "confirmed"):
+            _need(c.get(key) is None or _num(c[key]), f"1.0.0: {cid}: {key} must be a number when present")
+    mp = m.get("map")
+    if isinstance(mp, dict):
+        _need(mp.get("attribution") is None or isinstance(mp["attribution"], str),
+              "1.0.0: map.attribution must be a string when present")
+    rep = m.get("report")
+    if isinstance(rep, dict) and rep.get("kind") == "google_form":
+        _need(rep.get("url") is None or isinstance(rep["url"], str), "1.0.0: report.url must be a string")
+    # the entry 1.0.0 runs on (checkManifest)
+    c = cities[0]
+    _need(c["id"] == FIRST_AREA, f"1.0.0 reads cities[0]: it must stay {FIRST_AREA!r}, found {c['id']!r}")
+    _need(real_zone(c["tz"]), f"1.0.0: {c['id']}: unknown time zone {c['tz']!r}")
+    w, s, e, n = c["bbox"]
+    _need(-180 <= w < e <= 180 and -90 <= s < n <= 90, f"1.0.0: {c['id']}: bbox is not a box")
+    _need(s <= c["center"][0] <= n and w <= c["center"][1] <= e, f"1.0.0: {c['id']}: center is outside its bbox")
+    zoom = 12 if c.get("zoom") is None else c["zoom"]
+    _need(1 <= zoom <= 20, f"1.0.0: {c['id']}: zoom out of range")
+    _need(_SHA.match(c["sha256"].lower()), f"1.0.0: {c['id']}: sha256 is not a checksum")
+    name = c["id"] if c.get("name") is None else c["name"]
+    _need(c["id"] and name.strip(), f"1.0.0: {c['id']}: no id or name")
+
+
 def manifest(m):
+    _need(isinstance(m, dict), "manifest: not an object")
     _need(m.get("format") == FORMAT, "manifest: format must be 1")
     _ts(m.get("generated"), "manifest.generated")
     _need(type(m.get("min_build")) is int and m["min_build"] >= 1, "manifest: bad min_build")
     cities = m.get("cities")
-    _need(isinstance(cities, list) and cities, "manifest: no cities")
+    _need(isinstance(cities, list) and cities and all(isinstance(c, dict) for c in cities), "manifest: no cities")
+    ids = [c.get("id") for c in cities if isinstance(c.get("id"), str)]
+    _need(len(set(ids)) == len(ids), "manifest: two areas share an id")
+    files = [c[k] for c in cities for k in ("places", "votes") if isinstance(c.get(k), str)]
+    _need(len(set(files)) == len(files), "manifest: two areas share a file name")
     for c in cities:
         cid = c.get("id")
         _need(isinstance(cid, str) and _SLUG.match(cid), f"city: bad id {cid!r}")
         _need(isinstance(c.get("name"), str) and c["name"], f"{cid}: bad name")
         _need(real_zone(c.get("tz")), f"{cid}: tz {c.get('tz')!r} is not an IANA time zone")
         ctr, bbox = c.get("center"), c.get("bbox")
-        _need(isinstance(bbox, list) and len(bbox) == 4 and bbox[0] < bbox[2] and bbox[1] < bbox[3],
+        _need(isinstance(bbox, list) and len(bbox) == 4 and all(_num(v) for v in bbox) and bbox[0] < bbox[2]
+              and bbox[1] < bbox[3] and -180 <= bbox[0] and bbox[2] <= 180 and -90 <= bbox[1] and bbox[3] <= 90,
               f"{cid}: bbox is [west, south, east, north]")
-        _need(isinstance(ctr, list) and len(ctr) == 2 and bbox[1] <= ctr[0] <= bbox[3]
+        _need(isinstance(ctr, list) and len(ctr) == 2 and all(_num(v) for v in ctr) and bbox[1] <= ctr[0] <= bbox[3]
               and bbox[0] <= ctr[1] <= bbox[2], f"{cid}: center is [lat, lon] inside the bbox")
-        _need(isinstance(c.get("zoom"), (int, float)) and 1 <= c["zoom"] <= 20, f"{cid}: bad zoom")
+        _need(_num(c.get("zoom")) and 1 <= c["zoom"] <= 20, f"{cid}: bad zoom")
         _need(isinstance(c.get("places"), str) and re.match(r"^[a-z0-9-]+\.json$", c["places"]), f"{cid}: bad places")
         _need(isinstance(c.get("sha256"), str) and _SHA.match(c["sha256"]), f"{cid}: bad sha256")
         _need(type(c.get("bytes")) is int and c["bytes"] > 0, f"{cid}: bad bytes")
@@ -223,8 +309,8 @@ def manifest(m):
         if "votes" in c:
             _need(isinstance(c["votes"], str) and re.match(r"^[a-z0-9-]+\.json$", c["votes"]), f"{cid}: bad votes")
         cov = c.get("tag_coverage")
-        _need(isinstance(cov, dict) and all(k in TAGS and isinstance(v, (int, float)) and 0 <= v <= 1
-                                            for k, v in cov.items()), f"{cid}: bad tag_coverage")
+        _need(isinstance(cov, dict) and all(k in TAGS and _num(v) and 0 <= v <= 1 for k, v in cov.items()),
+              f"{cid}: bad tag_coverage")
     mp = m.get("map")
     if mp is not None:
         for k in ("style_dark", "style_light"):
@@ -247,3 +333,5 @@ def manifest(m):
         _need(isinstance(f, dict) and set(f) == {"type", "place_id", "place_name", "note", "app"}
               and all(isinstance(v, str) and re.match(r"^entry\.\d+$", v) for v in f.values()),
               "report.fields must map type, place_id, place_name, note, app to entry.N")
+    # last, so the contract's own words come first: what the released app would make of it
+    released_app(m)

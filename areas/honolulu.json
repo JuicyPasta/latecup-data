@@ -1,0 +1,12 @@
+{
+ "id": "honolulu",
+ "name": "Honolulu",
+ "tz": "Pacific/Honolulu",
+ "center": [21.3069, -157.8583],
+ "zoom": 12,
+ "bbox": [-158.05, 21.25, -157.65, 21.45],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

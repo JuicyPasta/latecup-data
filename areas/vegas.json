@@ -1,0 +1,12 @@
+{
+ "id": "vegas",
+ "name": "Las Vegas",
+ "tz": "America/Los_Angeles",
+ "center": [36.1699, -115.1398],
+ "zoom": 11.5,
+ "bbox": [-115.4, 35.95, -114.95, 36.35],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

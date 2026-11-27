@@ -1,0 +1,12 @@
+{
+ "id": "twincities",
+ "name": "Minneapolis-St. Paul",
+ "tz": "America/Chicago",
+ "center": [44.9778, -93.265],
+ "zoom": 11.5,
+ "bbox": [-93.6, 44.8, -92.95, 45.15],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

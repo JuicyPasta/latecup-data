@@ -1,0 +1,12 @@
+{
+ "id": "columbus",
+ "name": "Columbus",
+ "tz": "America/New_York",
+ "center": [39.9612, -82.9988],
+ "zoom": 11.5,
+ "bbox": [-83.2, 39.85, -82.8, 40.15],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

@@ -1,0 +1,12 @@
+{
+ "id": "slc",
+ "name": "Salt Lake City",
+ "tz": "America/Denver",
+ "center": [40.7608, -111.891],
+ "zoom": 11.5,
+ "bbox": [-112.1, 40.5, -111.75, 40.85],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

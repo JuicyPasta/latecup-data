@@ -1,0 +1,12 @@
+{
+ "id": "sanantonio",
+ "name": "San Antonio",
+ "tz": "America/Chicago",
+ "center": [29.4241, -98.4936],
+ "zoom": 11.5,
+ "bbox": [-98.8, 29.25, -98.25, 29.75],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

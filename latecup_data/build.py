@@ -5,7 +5,7 @@ from difflib import SequenceMatcher
 from collections import Counter
 from pathlib import Path
 
-from . import chains, clean, geo, hours as H, osm
+from . import areas as A, chains, clean, hours as H, osm
 from .classify import classify, norm
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -16,9 +16,16 @@ def _dist_m(a, b):
     return math.hypot((a[1] - b[1]) * 84400, (a[0] - b[0]) * 111200)
 
 
-def load_overrides(folder=None):
-    """{place id: record}. One JSON file per place in overrides/."""
-    folder = Path(folder or ROOT / "overrides")
+def _folder(base, area):
+    """New York's records are the files in the folder itself; another area's
+    are in its own subfolder, overrides/<area id>/ (and additions/<area id>/)."""
+    return base if area is None or area.id == A.FIRST else base / area.id
+
+
+def load_overrides(folder=None, area=None):
+    """{place id: record}. One JSON file per place in overrides/ (New York)
+    or overrides/<area id>/."""
+    folder = _folder(Path(folder or ROOT / "overrides"), area)
     out = {}
     for f in sorted(folder.glob("*.json")):
         rec = json.loads(f.read_text())
@@ -34,8 +41,8 @@ def load_overrides(folder=None):
     return out
 
 
-def load_additions(folder=None):
-    folder = Path(folder or ROOT / "additions")
+def load_additions(folder=None, area=None):
+    folder = _folder(Path(folder or ROOT / "additions"), area)
     out = []
     for f in sorted(folder.glob("*.json")):
         rec = json.loads(f.read_text())
@@ -113,10 +120,16 @@ def _dedupe(cands):
     return keep, dropped
 
 
-def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, phone, web, ig, tags):
-    p = {"id": pid, "name": name, "lat": round(float(pos[0]), 5), "lon": round(float(pos[1]), 5),
-         "addr": addr, "hood": hood, "boro": boro, "cat": cat, "chain": chain,
-         "hours": table, "src": src, "checked": checked, "hh": H.table_hash(table)}
+def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, phone, web, ig, tags, city=None):
+    p = {"id": pid, "name": name, "lat": round(float(pos[0]), 5), "lon": round(float(pos[1]), 5), "addr": addr}
+    # an optional field is left out when unknown: outside New York there is no `boro` and, so far, no `hood`
+    if hood:
+        p["hood"] = hood
+    if boro:
+        p["boro"] = boro
+    if city:
+        p["city"] = city
+    p.update({"cat": cat, "chain": chain, "hours": table, "src": src, "checked": checked, "hh": H.table_hash(table)})
     if phone:
         p["phone"] = phone
     if web:
@@ -128,12 +141,16 @@ def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, p
     return p
 
 
-def build(elements, overrides=None, additions=None, addr_cache=None):
-    """-> dict(places, to_confirm, stats, warnings).
+def build(elements, overrides=None, additions=None, addr_cache=None, area=None, stores=None):
+    """-> dict(places, to_confirm, stats, warnings) for one area (New York
+    when none is given).
 
     places: feed records (late, hours known), sorted by id.
     to_confirm: classified places whose hours are unknown or not certain.
+    stores: the chain layer's stores inside the area (atp.Store), or None
+        to build without it.
     """
+    area = area or A.first()
     overrides = overrides or {}
     additions = additions or []
     addr_cache = addr_cache or {}
@@ -154,12 +171,13 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
         if pos is None:
             reasons["no position"] += 1
             continue
-        loc = geo.locate(*pos)
+        loc = area.locate(*pos)
         if loc is None:
-            reasons["outside the five boroughs"] += 1
+            reasons[area.outside] += 1
             continue
         cands.append({"id": osm.element_id(el), "tags": tags, "pos": pos, "cat": cat, "why": why,
-                      "hood": loc[0], "boro": loc[1]})
+                      "hood": loc[0], "boro": loc[1],
+                      "city": clean.city(tags.get("addr:city")) if area.city == "addr:city" else None})
     cands, dropped = _dedupe(cands)
     stats["duplicates dropped"] = len(dropped)
 
@@ -186,6 +204,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
                     addr=addr, hood=c["hood"], boro=c["boro"], cat=c["cat"], chain=chain,
                     web=clean.website(tags), ig=clean.instagram(tags), phone=clean.phone(tags), osm_hours=raw,
                     osm_checked=clean.check_date(tags))
+        if c["city"]:
+            base["city"] = c["city"]
         if ov is not None:
             used_overrides.add(pid)
             if ov.get("closed") or ov.get("exclude"):
@@ -236,14 +256,14 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
             pid, ov.get("name") or base["name"], c["pos"], ov.get("addr") or addr, c["hood"], c["boro"],
             ov.get("cat") or c["cat"], chain, table, src, checked,
             ov.get("phone") or base["phone"], ov.get("web") or base["web"], ov.get("ig") or base["ig"],
-            clean.place_tags(tags)))
+            clean.place_tags(tags), city=c["city"]))
 
     for add, chain in zip(additions, chain_slugs[len(cands):]):
         if add.get("closed"):
             continue
-        loc = geo.locate(add["lat"], add["lon"])
+        loc = area.locate(add["lat"], add["lon"])
         if loc is None:
-            raise ValueError(f"{add['id']}: not inside the five boroughs")
+            raise ValueError(f"{add['id']}: not inside " + ("the five boroughs" if area.hoods else f"the area {area.id}"))
         table = H.normalize(add["hours"])
         why = None if add.get("second_look") else guard(table, None)
         if why:
@@ -256,7 +276,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
             continue
         places.append(_record(add["id"], add["name"], (add["lat"], add["lon"]), add["addr"], loc[0], loc[1],
                               add["cat"], chain, table, ("brand" if chain else "shop"), add["checked"],
-                              add.get("phone"), add.get("web"), add.get("ig"), add.get("tags")))
+                              add.get("phone"), add.get("web"), add.get("ig"), add.get("tags"),
+                              city=clean.city(add.get("city")) if area.city else None))
         stats["hand-added places"] += 1
 
     for pid in sorted(set(overrides) - used_overrides):
@@ -265,6 +286,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None):
     # a neighbourhood name belongs to one borough (the app and the web pages group by it)
     boro_of = {}
     for p in places:
+        if "boro" not in p:
+            continue
         other = boro_of.setdefault(p["hood"], p["boro"])
         if other != p["boro"]:
             raise ValueError(f"neighbourhood {p['hood']!r} is in two boroughs ({other} and {p['boro']}): "

@@ -1,0 +1,12 @@
+{
+ "id": "la",
+ "name": "Los Angeles + Orange County",
+ "tz": "America/Los_Angeles",
+ "center": [34.0522, -118.2437],
+ "zoom": 11.5,
+ "bbox": [-118.7, 33.6, -117.65, 34.35],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

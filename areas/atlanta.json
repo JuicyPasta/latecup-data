@@ -1,0 +1,12 @@
+{
+ "id": "atlanta",
+ "name": "Atlanta",
+ "tz": "America/New_York",
+ "center": [33.749, -84.388],
+ "zoom": 11.5,
+ "bbox": [-84.65, 33.55, -84.05, 34.15],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

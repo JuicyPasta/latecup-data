@@ -1,0 +1,12 @@
+{
+ "id": "dfw",
+ "name": "Dallas-Fort Worth",
+ "tz": "America/Chicago",
+ "center": [32.7767, -96.797],
+ "zoom": 11.5,
+ "bbox": [-97.5, 32.55, -96.5, 33.25],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

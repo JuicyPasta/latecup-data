@@ -1,0 +1,12 @@
+{
+ "id": "raleigh",
+ "name": "Raleigh-Durham",
+ "tz": "America/New_York",
+ "center": [35.7796, -78.6382],
+ "zoom": 11.5,
+ "bbox": [-79.1, 35.65, -78.5, 36.1],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

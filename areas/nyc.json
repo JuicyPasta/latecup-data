@@ -1,0 +1,12 @@
+{
+ "id": "nyc",
+ "name": "New York City",
+ "tz": "America/New_York",
+ "center": [40.7359, -73.9911],
+ "zoom": 12.5,
+ "bbox": [-74.26, 40.49, -73.69, 40.92],
+ "pull": {"kind": "area", "wikidata": "Q60"},
+ "hoods": "nta2020",
+ "city": null,
+ "live": true
+}

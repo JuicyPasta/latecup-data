@@ -1,0 +1,12 @@
+{
+ "id": "orlando",
+ "name": "Orlando",
+ "tz": "America/New_York",
+ "center": [28.5383, -81.3792],
+ "zoom": 11.5,
+ "bbox": [-81.65, 28.3, -81.1, 28.8],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

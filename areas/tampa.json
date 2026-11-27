@@ -1,0 +1,12 @@
+{
+ "id": "tampa",
+ "name": "Tampa-St. Pete",
+ "tz": "America/New_York",
+ "center": [27.9506, -82.4572],
+ "zoom": 11.5,
+ "bbox": [-82.85, 27.65, -82.25, 28.2],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

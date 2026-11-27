@@ -34,6 +34,19 @@ def address(tags):
     return f"{num} {st}".strip() if num else None
 
 
+def city(value):
+    """The municipality as written in `addr:city` ("Oakland", "Bellevue"), or
+    None when the value is not plainly one name (two places, a digit, a
+    venue: "Phoenix;Tempe", "Campus Dining Services/Starbucks Coffee")."""
+    v = " ".join((value or "").split())
+    if not v or len(v) > 40 or re.search(r"[;/,\d()@#]", v):
+        return None
+    if v.islower() or v.isupper():
+        v = " ".join(w if w in ("of", "the", "and", "del", "de", "la") and i else w.capitalize()
+                     for i, w in enumerate(v.lower().split()))
+    return v
+
+
 def phone(tags):
     """E.164, US numbers only when the country code is missing. None if unsure."""
     raw = tags.get("phone") or tags.get("contact:phone") or ""

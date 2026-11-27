@@ -1,0 +1,12 @@
+{
+ "id": "seattle",
+ "name": "Seattle + Eastside",
+ "tz": "America/Los_Angeles",
+ "center": [47.6062, -122.3321],
+ "zoom": 12,
+ "bbox": [-122.46, 47.4, -122.0, 47.85],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

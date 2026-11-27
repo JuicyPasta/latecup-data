@@ -1,0 +1,12 @@
+{
+ "id": "miami",
+ "name": "Miami-Fort Lauderdale",
+ "tz": "America/New_York",
+ "center": [25.7617, -80.1918],
+ "zoom": 11.5,
+ "bbox": [-80.5, 25.55, -80.05, 26.4],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

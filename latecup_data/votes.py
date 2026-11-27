@@ -1,4 +1,4 @@
-"""Visitor confirmations, ratings and "hours wrong" reports -> v1/<city>-votes.json.
+"""Visitor confirmations, ratings and "hours wrong" reports -> v1/<area>-votes.json.
 
 usage: python -m latecup_data.votes --site site
 
@@ -6,6 +6,10 @@ Input: the report form's responses as CSV (columns timestamp, type, place_id,
 note) from the URL in the environment variable REPORTS_CSV_URL. With no URL
 the step writes an empty, valid votes file. Only aggregated counts are ever
 written: no rows, no install ids, nothing from the CSV is printed.
+
+One votes file per area in the site's manifest. A row belongs to the area
+whose places file has its place id; its dates are days in that area's time
+zone.
 
 Counting rules (Latecup SPEC, "Visitor confirmations and ratings"):
   * a confirmation (`attest`) counts when its `hh` equals the place's current
@@ -34,8 +38,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-from . import FORMAT, http, validate
-from .run import CITY, ROOT, _dump, now_iso
+from . import FORMAT, areas as A, http, validate
+from .run import ROOT, _dump, now_iso
 
 MAX_AGE_DAYS = 120
 MAX_VOTES_A_DAY = 30
@@ -175,18 +179,26 @@ def read_rows(text, tz):
     return rows
 
 
-def count(rows, places, hh_since, now, tz):
-    """-> {place id: {"ok": [...], "bad": [...], "stars": [...]}} (only places with any).
-
-    places: {id: place record}; hh_since: {id: [hh, UTC time the hours last changed]}.
-    """
-    rows = [r for r in rows if r[0] <= now + timedelta(minutes=10)]      # nothing from the future
-    # an install with more than 30 votes in one (city) day is dropped whole
+def flooding(rows, now, tz):
+    """The installs that sent more than 30 votes in one day (a day of the
+    report sheet's zone), whatever the places: they are dropped whole, in
+    every area."""
     per_day = defaultdict(int)
     for when, kind, _pid, f, *_ in rows:
-        if kind in ("attest", "rate"):
+        if kind in ("attest", "rate") and when <= now + timedelta(minutes=10):
             per_day[(f["iid"], when.astimezone(tz).date())] += 1
-    flooders = {iid for (iid, _day), n in per_day.items() if n > MAX_VOTES_A_DAY}
+    return {iid for (iid, _day), n in per_day.items() if n > MAX_VOTES_A_DAY}
+
+
+def count(rows, places, hh_since, now, tz, dropped=None):
+    """-> {place id: {"ok": [...], "bad": [...], "stars": [...]}} (only places with any).
+
+    places: {id: place record}; hh_since: {id: [hh, UTC time the hours last changed]};
+    tz: the area's time zone; dropped: the installs to leave out (default:
+    worked out from these rows, with days in `tz`).
+    """
+    flooders = flooding(rows, now, tz) if dropped is None else dropped
+    rows = [r for r in rows if r[0] <= now + timedelta(minutes=10)]      # nothing from the future
 
     ok, stars, bad = {}, {}, defaultdict(list)
     for when, kind, pid, f, *_ in sorted(rows, key=lambda r: r[0]):
@@ -226,52 +238,73 @@ def count(rows, places, hh_since, now, tz):
     return out
 
 
-def empty(now=None):
-    return {"format": FORMAT, "city": CITY["id"], "generated": now or now_iso(), "votes": {}}
+def site_areas(site):
+    """[(area id, IANA zone, places file, votes file)] for the site: the
+    areas its manifest lists that have a votes file. A site with no manifest
+    (a first run) has New York."""
+    try:
+        cities = json.loads((Path(site) / "v1" / "manifest.json").read_text())["cities"]
+        out = [(c["id"], c["tz"], c["places"], c["votes"]) for c in cities if c.get("votes")]
+    except (OSError, ValueError, KeyError, TypeError):
+        out = []
+    if not out:
+        first = A.first()
+        out = [(first.id, first.tz, first.places, first.votes)]
+    return out
 
 
 def make(site, csv_text, now=None, tz_name=None, log=print, rules=None):
-    """Rebuild the votes file in `site`. Returns True when it changed.
+    """Rebuild every area's votes file in `site`. Returns True when any changed.
     `rules`: quarantine rules (default: quarantine.json)."""
     site = Path(site)
     v1 = site / "v1"
     now = now or now_iso()
-    tz = ZoneInfo(tz_name or os.environ.get("REPORTS_TZ") or CITY["tz"])
-    places = {p["id"]: p for p in json.loads((v1 / CITY["places"]).read_text())["places"]}
-    try:
-        hh_since = json.loads((site / "ops" / "hh-since.json").read_text())
-    except (OSError, ValueError):
-        hh_since = {}
+    todo = site_areas(site)
+    # the report sheet has one zone: times it gives without a zone, the quarantine windows and the
+    # 30-votes-a-day rule are read in it. Each area's own dates are days in that area's zone.
+    sheet_tz = ZoneInfo(tz_name or os.environ.get("REPORTS_TZ") or A.first().tz)
     rules = load_quarantine() if rules is None else rules
-    rows = read_rows(csv_text, tz) if csv_text else []
+    rows = read_rows(csv_text, sheet_tz) if csv_text else []
     usable = len(rows)
-    rows = [r for r in rows if not quarantined(r, rules, tz)]
+    rows = [r for r in rows if not quarantined(r, rules, sheet_tz)]
     held = usable - len(rows)
     when = datetime.strptime(now, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
-    votes = count(rows, places, hh_since, when, tz)
-    doc = {"format": FORMAT, "city": CITY["id"], "generated": now, "votes": votes}
-    validate.votes_file(doc, CITY["id"], set(places))
-    path = v1 / f"{CITY['id']}-votes.json"
-    try:
-        old = json.loads(path.read_text())
-    except (OSError, ValueError):
-        old = None
-    log(f"{usable} usable rows, {held} quarantined ({len(rules)} rule(s)), {len(rows)} counted; "
-        f"votes for {len(votes)} places "
-        f"({sum('ok' in v for v in votes.values())} with confirmations, "
-        f"{sum('bad' in v for v in votes.values())} reported wrong, "
-        f"{sum('stars' in v for v in votes.values())} rated)")
-    # the places people reported wrong: the first thing to re-check from an allowed source
-    recheck = [{"id": pid, "name": places[pid]["name"], "addr": places[pid]["addr"], "src": places[pid]["src"],
-                "checked": places[pid]["checked"], "web": places[pid].get("web"), "reports": v["bad"][0],
-                "latest": v["bad"][1]} for pid, v in votes.items() if "bad" in v]
-    recheck.sort(key=lambda r: (-r["reports"], r["id"]))
-    (site / "ops").mkdir(exist_ok=True)
-    (site / "ops" / "recheck.json").write_bytes(_dump({"generated": now, "places": recheck}))
-    if old is not None and old.get("votes") == votes:
-        return False
-    path.write_bytes(_dump(doc))
-    return True
+    dropped = flooding(rows, when, sheet_tz)
+    changed = False
+    for area_id, area_tz, places_file, votes_file in todo:
+        tz = ZoneInfo(area_tz)
+        places = {p["id"]: p for p in json.loads((v1 / places_file).read_text())["places"]}
+        ops = A.ops_dir(site, area_id)
+        try:
+            hh_since = json.loads((ops / "hh-since.json").read_text())
+        except (OSError, ValueError):
+            hh_since = {}
+        votes = count(rows, places, hh_since, when, tz, dropped)
+        doc = {"format": FORMAT, "city": area_id, "generated": now, "votes": votes}
+        validate.votes_file(doc, area_id, set(places))
+        path = v1 / votes_file
+        try:
+            old = json.loads(path.read_text())
+        except (OSError, ValueError):
+            old = None
+        which = "" if len(todo) == 1 else f"{area_id}: "
+        log(f"{which}{usable} usable rows, {held} quarantined ({len(rules)} rule(s)), {len(rows)} counted; "
+            f"votes for {len(votes)} places "
+            f"({sum('ok' in v for v in votes.values())} with confirmations, "
+            f"{sum('bad' in v for v in votes.values())} reported wrong, "
+            f"{sum('stars' in v for v in votes.values())} rated)")
+        # the places people reported wrong: the first thing to re-check from an allowed source
+        recheck = [{"id": pid, "name": places[pid]["name"], "addr": places[pid]["addr"], "src": places[pid]["src"],
+                    "checked": places[pid]["checked"], "web": places[pid].get("web"), "reports": v["bad"][0],
+                    "latest": v["bad"][1]} for pid, v in votes.items() if "bad" in v]
+        recheck.sort(key=lambda r: (-r["reports"], r["id"]))
+        ops.mkdir(parents=True, exist_ok=True)
+        (ops / "recheck.json").write_bytes(_dump({"generated": now, "places": recheck}))
+        if old is not None and old.get("votes") == votes:
+            continue
+        path.write_bytes(_dump(doc))
+        changed = True
+    return changed
 
 
 def main(argv=None):

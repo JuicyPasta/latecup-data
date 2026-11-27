@@ -1,0 +1,12 @@
+{
+ "id": "sacramento",
+ "name": "Sacramento",
+ "tz": "America/Los_Angeles",
+ "center": [38.5816, -121.4944],
+ "zoom": 11.5,
+ "bbox": [-121.6, 38.4, -121.15, 38.75],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

@@ -6,7 +6,7 @@ import json
 import sys
 from datetime import datetime, timezone
 
-from . import BASE_URL, http, validate
+from . import BASE_URL, areas, http, validate
 
 MAX_AGE_HOURS = 36  # the refresh runs daily
 
@@ -27,7 +27,8 @@ def check(manifest, fetch, now, max_age_hours=MAX_AGE_HOURS):
         return http.get(name, retries=2) if name.startswith("https://") else fetch(name)
 
     try:
-        validate.bundle(manifest, read)      # places against hash and counts; both styles answer with a style
+        # every area's places against its hash and counts; both styles answer with a style
+        validate.bundle(manifest, read, areas.hoods_of())
     except validate.Invalid as e:
         out.append(str(e))
     for city in manifest["cities"]:

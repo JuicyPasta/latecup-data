@@ -1,0 +1,12 @@
+{
+ "id": "denver",
+ "name": "Denver",
+ "tz": "America/Denver",
+ "center": [39.7392, -104.9903],
+ "zoom": 11.5,
+ "bbox": [-105.25, 39.55, -104.75, 39.95],
+ "pull": {"kind": "bbox"},
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}

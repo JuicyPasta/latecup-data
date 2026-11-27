@@ -1,0 +1,13 @@
+{
+ "id": "sandiego",
+ "name": "San Diego",
+ "tz": "America/Los_Angeles",
+ "center": [32.7157, -117.1611],
+ "zoom": 11.5,
+ "bbox": [-117.35, 32.55, -116.9, 33.15],
+ "pull": {"kind": "bbox"},
+ "clip": [[-117.35, 33.15], [-116.9, 33.15], [-116.9, 32.554], [-117.1239, 32.535], [-117.35, 32.535]],
+ "hoods": null,
+ "city": "addr:city",
+ "live": false
+}
