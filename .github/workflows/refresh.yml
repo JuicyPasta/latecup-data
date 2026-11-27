@@ -68,8 +68,10 @@ jobs:
 
       # The chain layer's downloads. Asked for on every run: with the switch off there is nothing to restore and
       # nothing is saved. The key never matches; the newest cache whose name starts with "atp-" is the one restored.
+      # The cache only saves downloading: a step of it that fails must not stop the feed.
       - name: Restore All The Places' files
         id: atp
+        continue-on-error: true
         uses: actions/cache/restore@v6
         with:
           path: work/atp
@@ -95,11 +97,13 @@ jobs:
       - name: Name the cache of All The Places' files
         id: atpkey
         if: always() && hashFiles('work/atp/latest.json') != ''
+        continue-on-error: true
         run: |
           ls -d work/atp/20* 2>/dev/null | sort -r | tail -n +6 | xargs -r rm -rf
           echo "key=atp-$(cd work/atp && find . -type f | sort | sha256sum | cut -c1-16)" >> "$GITHUB_OUTPUT"
       - name: Save All The Places' files
         if: always() && steps.atpkey.outputs.key != '' && steps.atpkey.outputs.key != steps.atp.outputs.cache-matched-key
+        continue-on-error: true
         uses: actions/cache/save@v6
         with:
           path: work/atp
