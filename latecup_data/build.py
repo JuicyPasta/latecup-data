@@ -245,11 +245,12 @@ def _record(pid, name, pos, addr, hood, boro, cat, chain, table, src, checked, p
     return p
 
 
-def _help_place(base, why, table=None, checked=None):
+def _help_place(base, why, table=None, checked=None, agreed=None):
     """A place of the help file (FORMAT.md): a café that is not on the late
-    map and that nobody has confirmed. `why`: "nohours" (no hours we can
-    use) or "early" (OpenStreetMap's unconfirmed hours never reach 20:00;
-    the place carries them)."""
+    map and that we have not confirmed. `why`: "nohours" (no hours we can
+    use) or "early" (hours that never reach 20:00 and that we did not read
+    ourselves; the place carries them: OpenStreetMap's, or, with `agreed`,
+    the ones that many visitors agreed on)."""
     p = {"id": base["id"], "name": base["name"], "lat": round(float(base["lat"]), 5),
          "lon": round(float(base["lon"]), 5)}
     for key in ("addr", "hood", "boro", "city"):
@@ -257,7 +258,10 @@ def _help_place(base, why, table=None, checked=None):
             p[key] = base[key]
     p.update({"cat": base["cat"], "why": why})
     if why == "early":
-        p.update({"hours": table, "src": "osm", "checked": checked, "hh": H.table_hash(table)})
+        p.update({"hours": table, "src": "visitors" if agreed else "osm"})
+        if agreed:
+            p["visitors"] = agreed
+        p.update({"checked": checked, "hh": H.table_hash(table)})
     for key in ("phone", "web", "ig"):
         if base.get(key):
             p[key] = base[key]
@@ -271,8 +275,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
     places: feed records (late, hours known), sorted by id.
     to_confirm: classified places whose hours are unknown or not certain.
     help: the help file's places: independent cafés that are not on the map
-        and that nobody has confirmed (no usable hours, or unconfirmed
-        OpenStreetMap hours that never reach 20:00), sorted by id.
+        and that we have not confirmed (no usable hours, or hours from
+        OpenStreetMap or from visitors that never reach 20:00), sorted by id.
     stores: the chain layer's stores inside the area (atp.Store), or None
         to build without it.
     visitors: {place id: record} of visitors/ (load_visitors), or None.
@@ -356,9 +360,9 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
     places, to_confirm, recheck, helped = [], [], [], []
     used_overrides, from_layer = set(), set()
 
-    def help_wanted(base, chain, why, table=None, checked=None):
+    def help_wanted(base, chain, why, table=None, checked=None, agreed=None):
         if chain is None:                       # chains' stores are the chain layer's business, not the visitors'
-            helped.append(_help_place(base, why, table, checked))
+            helped.append(_help_place(base, why, table, checked, agreed))
 
     for c, chain in zip(cands, chain_slugs):
         tags, pid = c["tags"], c["id"]
@@ -448,8 +452,11 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
             continue
         if not H.is_late(table):
             stats["hours known, closes before 20:00"] += 1
-            if src == "osm":
-                help_wanted(base, chain, "early", table, checked)
+            # Off the late map, and still somewhere a visitor can find it: on OpenStreetMap's word, or on
+            # visitors'. Without the second, hours that visitors moved under 20:00 could never be corrected:
+            # the place would be in neither file, and nobody could send a table for it again
+            if src in ("osm", "visitors"):
+                help_wanted(base, chain, "early", table, checked, agreed)
             continue
         if not addr:
             to_confirm.append(dict(base, reason="late, but no street address"))

@@ -390,6 +390,34 @@ def test_votes_are_counted_per_area_in_its_own_time_zone(tmp_path, bare):
     assert json.loads((site / "ops" / "to-confirm.json").read_text())["recheck"] == []
 
 
+def test_a_place_with_a_visitors_table_waiting_comes_first_on_the_desks_list(tmp_path, bare):
+    site = tmp_path / "site"
+    pulls = {"nyc": nyc_elements(6) + [el(40 + i, f"No Hours Cafe {i}", 40.74 + i * 0.001, -74.0027, None) for i in range(4)],
+             "chicago": chicago_elements(5)}
+    run.make(pulls, site, areas=[NYC, CHICAGO], now="2026-11-20T10:00:00Z", log=lambda *_: None)
+    plain = json.loads((site / "ops" / "to-confirm.json").read_text())
+    assert [p["id"] for p in plain["places"]] == ["n40", "n41", "n42", "n43"] and plain["recheck"] == []
+    # two places were reported wrong, and the hourly count has written its list of the places a visitor sent
+    # hours for: one that has none (n42), one of the reported ones (n5), and one that is no longer anywhere (n999)
+    (site / "v1" / "nyc-votes.json").write_text(json.dumps({"format": 1, "city": "nyc", "generated": "2026-11-21T10:00:00Z",
+                                                            "votes": {"n2": {"bad": [3, "2026-11-21"]},
+                                                                      "n5": {"bad": [1, "2026-11-21"]}}}))
+    (site / "ops" / "proposals.json").write_text(json.dumps({"generated": "2026-11-21T10:37:00Z", "places": [
+        {"id": "n42", "waiting": "2 more installs"}, {"id": "n999", "waiting": "the desk"},
+        {"id": "n5", "waiting": "1 more install"}]}))
+    run.make(pulls, site, areas=[NYC, CHICAGO], now="2026-11-21T11:00:00Z", log=lambda *_: None)
+    todo = json.loads((site / "ops" / "to-confirm.json").read_text())
+    assert [p["id"] for p in todo["places"]] == ["n42", "n40", "n41", "n43"]
+    assert [r["id"] for r in todo["recheck"]] == ["n5", "n2"]                 # by the count of reports it was n2, n5
+    # Chicago has no such list: its own are as they were
+    assert json.loads((site / "ops" / "chicago" / "to-confirm.json").read_text())["places"] == []
+    # a list that cannot be read changes nothing
+    (site / "ops" / "proposals.json").write_text("{not json")
+    run.make(pulls, site, areas=[NYC, CHICAGO], now="2026-11-21T12:00:00Z", log=lambda *_: None)
+    todo = json.loads((site / "ops" / "to-confirm.json").read_text())
+    assert [p["id"] for p in todo["places"]] == ["n40", "n41", "n42", "n43"] and [r["id"] for r in todo["recheck"]] == ["n2", "n5"]
+
+
 def test_an_install_that_floods_is_dropped_in_every_area(tmp_path, bare):
     site = tmp_path / "site"
     run.make({"nyc": nyc_elements(6), "chicago": chicago_elements(5)}, site, areas=[NYC, CHICAGO],

@@ -69,8 +69,12 @@ def nyc(n):
 def test_the_repository_file_is_valid_and_new_york_is_live():
     on = real_load()
     assert set(on) == {"chain_layer", "area_fields"} and all(type(v) is bool for v in on.values())
-    assert A.get("nyc").live and not A.get("nyc").visitors
-    assert [a.id for a in A.load() if not a.visitors] == ["nyc"]
+    assert A.get("nyc").live
+    # which areas publish visitors' hours is the area files' to say (conftest.py turns them all off for the tests),
+    # and New York's may say so only once min_build has risen past the app that would credit OpenStreetMap
+    files = {f.stem: json.loads(f.read_text()) for f in sorted(A.FOLDER.glob("*.json"))}
+    assert all(type(rec.get("visitors", False)) is bool for rec in files.values())
+    assert not files["nyc"].get("visitors") or run.MIN_BUILD > validate.RELEASED_BUILD
 
 
 def test_a_missing_file_is_everything_off(tmp_path):
@@ -188,8 +192,11 @@ def test_the_two_kinds_of_help_place_are_valid():
     (BARE, {"hours": H.parse("Mo-Fr 07:00-17:00")}, "carries no hours"),
     (BARE, {"src": "osm"}, "carries no hours"),
     (BARE, {"hh": "00000000"}, "carries no hours"),
-    (GOOD, {"src": "shop"}, "src osm"),
-    (GOOD, {"src": "visitors"}, "src osm"),
+    (GOOD, {"src": "shop"}, "src osm or visitors"),
+    (GOOD, {"src": "brand"}, "src osm or visitors"),
+    (GOOD, {"src": "visitors", "visitors": 2, "checked": "2026-12-03"}, "src visitors is not published in this area"),
+    (GOOD, {"visitors": 2}, "visitors goes with src visitors"),
+    (BARE, {"visitors": 2}, "carries no hours"),
     (GOOD, {"hh": "00000000"}, "hash of hours"),
     (GOOD, {"checked": "yesterday"}, "not a date"),
     (GOOD, {"hours": [[[420, 1020]]] * 6}, "7 days"),
@@ -209,6 +216,24 @@ def test_help_place_needs_its_keys(key):
     del p[key]
     with pytest.raises(validate.Invalid):
         validate.help_place(p, CHICAGO.bbox, hoods=None)
+
+
+def test_a_help_place_may_carry_visitors_hours_that_are_not_late():
+    p = dict(copy.deepcopy(GOOD), src="visitors", visitors=3, checked="2026-12-03")
+    validate.help_place(p, CHICAGO.bbox, hoods=None, visitors=True)
+    for change, needle in [({"visitors": 1}, "2 or more"), ({"visitors": "3"}, "2 or more"), ({"visitors": True}, "2 or more"),
+                           ({"checked": None}, "need a checked date"), ({"checked": "soon"}, "not a date")]:
+        with pytest.raises(validate.Invalid, match=needle):
+            validate.help_place(dict(p, **change), CHICAGO.bbox, hoods=None, visitors=True)
+    del p["visitors"]
+    with pytest.raises(validate.Invalid, match="2 or more"):
+        validate.help_place(p, CHICAGO.bbox, hoods=None, visitors=True)
+    # and the file as a whole is held to the same switch
+    doc = {"format": 1, "city": "chicago", "generated": DAY1,
+           "places": [dict(copy.deepcopy(GOOD), src="visitors", visitors=3, checked="2026-12-03")]}
+    assert validate.help_file(doc, "chicago", CHICAGO.bbox, None, visitors=True) == 1
+    with pytest.raises(validate.Invalid, match="not published in this area"):
+        validate.help_file(doc, "chicago", CHICAGO.bbox, None)
 
 
 def test_help_file_validator():
@@ -355,6 +380,10 @@ def _manifest(tmp_path):
     ({"help": {"file": "chicago-help.json", "sha256": "abc", "bytes": 10, "count": 1}}, "help.sha256"),
     ({"help": {"file": "chicago-help.json", "sha256": "a" * 64, "bytes": 0, "count": 1}}, "help.bytes"),
     ({"help": {"file": "chicago-help.json", "sha256": "a" * 64, "bytes": 10, "count": -1}}, "help.count"),
+    ({"visitors": False}, "visitors is true, or it is left out"),
+    ({"visitors": "yes"}, "visitors is true, or it is left out"),
+    ({"visitors": 1}, "visitors is true, or it is left out"),
+    ({"visitors": None}, "visitors is true, or it is left out"),
 ])
 def test_manifest_validator_rejects_a_bad_new_field(tmp_path, bare, change, needle):
     m, _files, _read = _manifest(tmp_path)

@@ -63,6 +63,7 @@ void main() {
     final entries = (built['cities'] as List<dynamic>).cast<Map<String, dynamic>>();
     final withCounts = entries.where((c) => c.containsKey('indie') && c.containsKey('indie_confirmed')).length;
     final withHelp = entries.where((c) => c.containsKey('help')).length;
+    final withVisitors = entries.where((c) => c['visitors'] == true).length;
     // ignore: avoid_print
     print('1.0.0: bundled $bundled places -> downloaded ${places.length} places, '
         '${places.where((p) => p.source == HoursSource.brand).length} brand, '
@@ -70,7 +71,7 @@ void main() {
         '${places.where((p) => p.hood == null || p.boro == null).length} without hood or boro');
     // ignore: avoid_print
     print('1.0.0: the manifest it took has ${entries.length} areas; $withCounts carry indie and indie_confirmed, '
-        '$withHelp carry help; it asked for $asked');
+        '$withHelp carry help, $withVisitors say visitors; it asked for $asked');
   });
 
   test('the Python port and the app agree on every case', () {

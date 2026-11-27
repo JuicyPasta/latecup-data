@@ -82,6 +82,17 @@ def _kept_doc(path, places):
     return old if isinstance(old, dict) and old.get("places") == places else None
 
 
+def _waiting(path):
+    """{place id: its rank} for the places a visitor sent hours for that are
+    not published yet: the desk's list ops/proposals.json, which the hourly
+    count writes, the most pressing first. Nothing when the site has none."""
+    try:
+        places = json.loads(path.read_text())["places"]
+        return {p["id"]: n for n, p in reversed(list(enumerate(places)))}
+    except (OSError, ValueError, KeyError, TypeError):
+        return {}
+
+
 def _area(area, elements, v1, old_entry, *, now, allow_shrink, chains, addr_cache, fields):
     """Build one area and check it by itself. -> what make() needs to publish
     it. Raises when the area's new feed must not be published."""
@@ -123,9 +134,12 @@ def _area(area, elements, v1, old_entry, *, now, allow_shrink, chains, addr_cach
         help_doc = _kept_doc(v1 / area.help, helped) or {"format": FORMAT, "city": area.id, "generated": now,
                                                           "places": helped}
         help_body = _dump(help_doc)
-        validate.help_file(json.loads(help_body), area.id, area.bbox, area.hoods, {p["id"] for p in places})
+        validate.help_file(json.loads(help_body), area.id, area.bbox, area.hoods, {p["id"] for p in places},
+                           area.visitors)
         entry["help"] = {"file": area.help, "sha256": hashlib.sha256(help_body).hexdigest(), "bytes": len(help_body),
                          "count": len(helped)}
+        if area.visitors:
+            entry["visitors"] = True            # the area publishes hours that visitors agreed on; left out otherwise
     return {"area": area, "result": result, "body": body, "entry": entry, "help": help_body}
 
 
@@ -149,7 +163,8 @@ def make(pulls, site, *, areas=None, keep_others=False, now=None, allow_shrink=F
         does not have is left out. With one area to build there is nothing
         to keep apart: its error is raised as it always was.
     fields: True: every built area's entry carries `indie`,
-        `indie_confirmed` and `help`, and its help file is written. None:
+        `indie_confirmed` and `help` (and `visitors` where the area
+        publishes visitors' hours), and its help file is written. None:
         what switches.json says.
     """
     now = now or now_iso()
@@ -282,6 +297,11 @@ def make(pulls, site, *, areas=None, keep_others=False, now=None, allow_shrink=F
         recheck.sort(key=lambda r: (-r["reports"], r["id"]))
         # then the confirmed hours the publish guard held back (build.guard)
         recheck += result["recheck"]
+        # and before all of them, on both lists, a place a visitor sent hours for that are not published yet
+        waiting = _waiting(ops / "proposals.json")
+        if waiting:
+            recheck.sort(key=lambda r: waiting.get(r["id"], len(waiting)))
+            result["to_confirm"].sort(key=lambda r: waiting.get(r["id"], len(waiting)))
         (ops / "to-confirm.json").write_bytes(_dump({"generated": now, "recheck": recheck,
                                                       "places": result["to_confirm"]}))
         stats = {"generated": now, "stats": result["stats"], "excluded": result["excluded"],

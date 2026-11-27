@@ -22,10 +22,12 @@ areas/<id>.json:
           null (not written; New York has boroughs)
   visitors  optional. true: hours that visitors agreed on (visitors/, written
           by the hourly job) are published here as `src` "visitors". Left
-          out, it is false for New York and true everywhere else: the app
+          out, it is false, in every area: the platform of a report is
+          whatever its sender writes, so "two installs" can be one script,
+          and an area publishes such hours only once somebody has decided it
+          should. New York waits for a `min_build` rise as well: the app
           that is out (1.0.0) reads New York's file and would show a `src`
-          it does not know as OpenStreetMap's, so New York waits for a
-          `min_build` rise
+          it does not know as OpenStreetMap's
   live    true: built by a plain `python -m latecup_data.run` and so
           published by the daily job. false: built only when named
 """
@@ -55,7 +57,7 @@ class Area:
         self.clip = [tuple(p) for p in rec["clip"]] if rec.get("clip") else None
         self.hoods = rec.get("hoods")
         self.city = rec.get("city")
-        self.visitors = bool(rec["visitors"]) if "visitors" in rec else self.id != FIRST
+        self.visitors = bool(rec.get("visitors", False))
         self.live = bool(rec.get("live", False))
 
     def __repr__(self):

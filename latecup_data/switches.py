@@ -8,8 +8,9 @@ chain_layer   true: every run builds with the chain layer (chain stores'
               Places: atp.py), and the weekly store-page pass stands down
               (brand.yml, tools/confirm_brand.py): one reader per chain.
 area_fields   true: every area's manifest entry carries `indie`,
-              `indie_confirmed` and `help`, and the run writes the area's
-              help file, <id>-help.json (FORMAT.md).
+              `indie_confirmed` and `help`, and `visitors` where the area
+              publishes visitors' hours, and the run writes the area's help
+              file, <id>-help.json (FORMAT.md).
 
 Both are false until the day the other areas go live. A missing file means
 both are off. A switch this module does not know, or a value that is not

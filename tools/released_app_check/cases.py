@@ -24,6 +24,7 @@ NEW_FIELDS = [
     {"indie": "12"}, {"indie": None}, {"indie": 1.5}, {"indie_confirmed": [3]}, {"indie_confirmed": True},
     {"help": None}, {"help": 5}, {"help": "nyc-help.json"}, {"help": []}, {"help": {}},
     {"help": {"file": "../../nyc.json", "sha256": 5, "bytes": "ten", "count": None}},
+    {"visitors": True}, {"visitors": False}, {"visitors": "yes"}, {"visitors": 2}, {"visitors": None},
 ]
 
 

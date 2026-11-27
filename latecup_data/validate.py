@@ -26,8 +26,8 @@ PLACE_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "city", "cat",
 # what every place of an area with neighbourhood polygons carries (New York)
 REQUIRED = PLACE_KEYS - {"city", "visitors", "phone", "web", "ig", "tags"}
 # a place of a help file (<id>-help.json): a café the pipeline knows that is not on the late map
-HELP_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "city", "cat", "why", "hours", "src", "checked", "hh",
-             "phone", "web", "ig"}
+HELP_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "city", "cat", "why", "hours", "src", "visitors",
+             "checked", "hh", "phone", "web", "ig"}
 WHYS = {"nohours", "early"}
 # Latecup 1.0.0 (3): the oldest app build in use. `min_build` above it turns that build's map into "Update Latecup"
 RELEASED_BUILD = 3
@@ -217,12 +217,13 @@ def real_zone(name):
     return True
 
 
-def help_place(p, bbox=None, hoods="nta2020"):
+def help_place(p, bbox=None, hoods="nta2020", visitors=False):
     """A place of a help file: a café the pipeline knows that is not on the
-    late map and that nobody has confirmed. `why` says what is missing:
+    late map and that we have not confirmed. `why` says what is missing:
     "nohours" (no hours we can use: the place carries none) or "early"
-    (unconfirmed OpenStreetMap hours that never reach 20:00: it carries
-    them, as `osm`)."""
+    (hours that never reach 20:00 and that we did not read ourselves: it
+    carries them, as `osm`, or as `visitors` with how many agreed).
+    `visitors`: may a place of this area carry `src` "visitors"."""
     _need(isinstance(p, dict), "help place: not an object")
     pid = p.get("id")
     _need(isinstance(pid, str) and _ID.match(pid), f"help: bad id {pid!r}")
@@ -235,22 +236,32 @@ def help_place(p, bbox=None, hoods="nta2020"):
     _need(p["why"] in WHYS, f"help {pid}: why is \"nohours\" or \"early\", not {p['why']!r}")
     of_hours = {"hours", "src", "checked", "hh"}
     if p["why"] == "nohours":
-        _need(not of_hours & set(p), f"help {pid}: a place with no hours carries no hours, src, checked or hh")
+        _need(not (of_hours | {"visitors"}) & set(p),
+              f"help {pid}: a place with no hours carries no hours, src, visitors, checked or hh")
         return
     _need(of_hours <= set(p), f"help {pid}: an early place carries hours, src, checked and hh")
     hours_table(p["hours"], f"help {pid}: hours")
     _need(any(p["hours"]), f"help {pid}: an early place is open some day")
     _need(not is_late(p["hours"]), f"help {pid}: closes at 20:00 or later: that is a place of the map")
-    _need(p["src"] == "osm", f"help {pid}: an early place carries unconfirmed OpenStreetMap hours, src osm")
+    _need(p["src"] in ("osm", "visitors"),
+          f"help {pid}: an early place carries hours we did not read ourselves, src osm or visitors")
+    if p["src"] == "visitors":
+        _need(visitors, f"help {pid}: src visitors is not published in this area")
+        _need(type(p.get("visitors")) is int and p["visitors"] >= 2,
+              f"help {pid}: a place with src visitors says how many agreed (visitors, 2 or more)")
+        _need(p["checked"] is not None, f"help {pid}: visitors' hours need a checked date")
+    else:
+        _need("visitors" not in p, f"help {pid}: visitors goes with src visitors and with nothing else")
     if p["checked"] is not None:
         _day(p["checked"], f"help {pid}: checked")
     _need(p["hh"] == table_hash(p["hours"]), f"help {pid}: hh is not the hash of hours")
 
 
-def help_file(doc, city_id, bbox=None, hoods="nta2020", taken=()):
+def help_file(doc, city_id, bbox=None, hoods="nta2020", taken=(), visitors=False):
     """An area's help file, <id>-help.json. It may be empty. `taken`: the ids
     of the area's places file: a café is on the map or in the help file,
-    never in both. Returns how many places it holds."""
+    never in both. `visitors`: may its places carry `src` "visitors".
+    Returns how many places it holds."""
     _need(isinstance(doc, dict), "help: not an object")
     _need(doc.get("format") == FORMAT, "help: format must be 1")
     _need(doc.get("city") == city_id, f"help: city must be {city_id!r}")
@@ -258,7 +269,7 @@ def help_file(doc, city_id, bbox=None, hoods="nta2020", taken=()):
     _need(isinstance(doc.get("places"), list), "help: places must be a list")
     seen, taken = set(), set(taken)
     for p in doc["places"]:
-        help_place(p, bbox, hoods)
+        help_place(p, bbox, hoods, visitors)
         _need(p["id"] not in seen, f"help: duplicate id {p['id']}")
         _need(p["id"] not in taken, f"help: {p['id']} is in the places file as well")
         seen.add(p["id"])
@@ -270,7 +281,11 @@ def area_files(c, read, hoods="nta2020", visitors=False):
     (bytes, sha256, valid, `count`, `confirmed`, and `indie` and
     `indie_confirmed` when the entry has them) and, when the entry names
     one, the help file. `read(name) -> bytes` raises IOError when a file
-    does not answer."""
+    does not answer. `visitors`: the area's file says its places may carry
+    `src` "visitors"; an entry that says so itself (`"visitors": true`)
+    vouches for its own files, so an area that is kept from the day before
+    stays valid on the day its switch goes off."""
+    visitors = bool(visitors) or c.get("visitors") is True
     try:
         body = read(c["places"])
     except IOError as e:
@@ -307,7 +322,7 @@ def area_files(c, read, hoods="nta2020", visitors=False):
         except ValueError:
             raise Invalid(f"{h['file']}: not JSON") from None
         try:
-            n = help_file(helped, c["id"], c["bbox"], hoods, {p["id"] for p in doc["places"]})
+            n = help_file(helped, c["id"], c["bbox"], hoods, {p["id"] for p in doc["places"]}, visitors)
         except Invalid as e:
             raise Invalid(f"{h['file']}: {e}") from None
         _need(n == h["count"], f"{h['file']}: {n} places, the manifest says {h['count']}")
@@ -460,6 +475,8 @@ def manifest(m):
             _need(isinstance(h["sha256"], str) and _SHA.match(h["sha256"]), f"{cid}: bad help.sha256")
             _need(type(h["bytes"]) is int and h["bytes"] > 0, f"{cid}: bad help.bytes")
             _need(type(h["count"]) is int and h["count"] >= 0, f"{cid}: bad help.count")
+        # optional: the area publishes hours that visitors agreed on. Said with true, or not at all
+        _need("visitors" not in c or c["visitors"] is True, f"{cid}: visitors is true, or it is left out")
     mp = m.get("map")
     if mp is not None:
         for k in ("style_dark", "style_light"):
