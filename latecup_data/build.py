@@ -22,6 +22,7 @@ from .classify import classify, norm
 
 ROOT = Path(__file__).resolve().parents[1]
 MAX_SPAN = 21 * 60  # a span longer than this (and under 24 h) is more likely a typo than a schedule
+NIGHT_END = 5 * 60    # 05:00, where the service day ends: a week whose every span is over by then is not believed
 
 
 def _dist_m(a, b, lon_m=84400):
@@ -99,6 +100,13 @@ def suspicious(table):
                 return f"a span of {(b - a) / 60:.1f} h"
             if b - a < 30:
                 return "a span under 30 minutes"
+    # A week that is open only after midnight and shut again by 05:00 is a slip of the pen far more often than
+    # a café: OpenStreetMap had a bubble tea shop in Cambridge as "Mo-Su 00:00-02:00" (noon to 2 AM, most
+    # likely), and it read as open two hours a night. Hours a person read on the shop's own page are not
+    # judged here, so a place that really keeps such hours can still be confirmed.
+    spans = [span for day in table for span in day]
+    if spans and all(b <= NIGHT_END for _a, b in spans):
+        return "open only between midnight and 05:00"
     return None
 
 
