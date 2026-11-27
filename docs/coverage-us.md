@@ -1,6 +1,6 @@
 # Latecup feed coverage, every area
 
-Feed of 2026-11-27T19:15:00Z, 32 areas. Written by `python -m latecup_data.report <site> --us docs/coverage-us.md`. Built into `work/site-us/` on 2026-11-27 and not published: the saved OpenStreetMap pulls (New York by its own area query, data of 2026-11-25; the 31 rectangles, data of 2026-11-27 UTC), every override and addition in the repository, and both switches on: the chain layer, with a reading written by hand over it and the weekly pass's records under it, and the manifest's `indie`, `indie_confirmed` and `help`. No visitors' records exist yet.
+Feed of 2026-11-27T19:43:41Z, 32 areas. Written by `python -m latecup_data.report <site> --us docs/coverage-us.md`. Built into `work/site-us/` on 2026-11-27 and not published: the saved OpenStreetMap pulls (New York by its own area query, data of 2026-11-25; the 31 rectangles, data of 2026-11-27 UTC), every override and addition in the repository, and both switches on: the chain layer, with a reading written by hand over it and the weekly pass's records under it, and the manifest's `indie`, `indie_confirmed` and `help`. No visitors' records exist yet, and no area publishes visitors' hours.
 
 Every place closes at 20:00 or later on at least one day. Independent and chain are the feed's `chain` field: a brand with 5 or more locations in the area is a chain there. The closing columns are the latest closing of the week; "24 h" is open all week.
 
