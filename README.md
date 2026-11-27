@@ -33,7 +33,7 @@ Every place in the feed says where its hours come from (`src`) and when they wer
 |---|---|
 | `shop` | We read them on the shop's own website, its ordering page, or its official Instagram or Facebook |
 | `brand` | We read them on the chain's own store locator, or the chain layer did |
-| `visitors` | Visitors sent them from the app and agreed on them. We have not read the shop's page. Not in New York's file yet |
+| `visitors` | Visitors sent them from the app and agreed on them. We have not read the shop's page. No area publishes these yet |
 | `osm` | The OpenStreetMap `opening_hours` tag. Not confirmed by us |
 
 When a place has more than one, the first of these wins:
@@ -82,7 +82,7 @@ The push starts the `refresh` workflow, which rebuilds and publishes. The hours 
 
 Places OpenStreetMap lacks are in [`additions/`](additions/) (`x-<slug>.json`: name, coordinates, address, category, hours, source, date). Each needs hours from an allowed source, like an override.
 
-**Visitors' hours** are in `visitors/`, one file per place, written by the hourly `votes` job and by nothing else. The build only reads them. Such a table stands over OpenStreetMap's hours, or over none, and under everything we or a chain's locator read. The publish guard applies to it. It is used only in an area whose file says `"visitors": true`. A file that is not a valid record is left out and named in the area's run statistics (`ops/stats.json`, `ops/<id>/stats.json`). The folder does not exist until the first record is written.
+**Visitors' hours** are in `visitors/`, one file per place, written by the hourly `votes` job and by nothing else. The build only reads them. Such a table stands over OpenStreetMap's hours, or over none, and under everything we or a chain's locator read. The publish guard applies to it. It is used only in an area whose file says `"visitors": true`, and no area's does yet. A place whose visitors' hours never reach 20:00 leaves the late map and goes into the help file with those hours, so somebody who knows better can still find it and say so. A file that is not a valid record is left out and named in the area's run statistics (`ops/stats.json`, `ops/<id>/stats.json`). The folder does not exist until the first record is written.
 
 The files in `overrides/`, `additions/` and `visitors/` themselves are New York's. Another area's records go in a subfolder named for it (`overrides/chicago/n1234567890.json`; `tools/override.py --area chicago`), so no folder grows past what GitHub will list.
 
@@ -113,7 +113,7 @@ The feed is cut into areas: a rectangle with a time zone, a places file and a vo
 | `clip` | Optional polygon. Only places inside it belong to the area. Detroit's box reaches Windsor, Ontario and San Diego's dips below the border: their `clip` keeps to the US side |
 | `hoods` | Where neighbourhood names come from: `"nta2020"` (New York's polygons, which also give the borough) or `null`. An area with `null` has no `hood` on its places yet |
 | `city` | `"addr:city"`: the place's `city` is the OpenStreetMap tag, when there is one. `null` in New York, which has boroughs |
-| `visitors` | Optional. `true`: visitors' hours (`visitors/`) are published in this area as `src` `visitors`. Left out, it is `false` for New York and `true` for every other area. New York waits because the app that is out (1.0.0) reads New York's file and shows a `src` it does not know as OpenStreetMap's: set it to `true` together with a rise of `min_build` |
+| `visitors` | Optional. `true`: visitors' hours (`visitors/`) are published in this area as `src` `visitors`, and with `area_fields` on its manifest entry says `"visitors": true`, so the app can tell a visitor what a sent table will do. Left out, it is `false`, in every area: the platform of a report is whatever its sender writes, so "two installs" can be one script, and an area publishes such hours only once I have decided it should. New York also waits for a rise of `min_build`: the app that is out (1.0.0) reads New York's file and shows a `src` it does not know as OpenStreetMap's |
 | `live` | `true`: a plain run builds it, so the daily job publishes it |
 
 **A plain `python -m latecup_data.run` builds the live areas only.** `--area chicago` (it may be given more than once) builds the named ones and leaves the rest of the site's manifest as it is; `--area all` builds every file in `areas/`. Whatever is built, the manifest lists New York first: the app that is out (1.0.0) reads `cities[0]`, and it reads every other entry closely enough that one wrongly typed field would make it drop the whole manifest. `validate.released_app` is that app's parser as code, and nothing is written unless every entry passes it.
@@ -167,6 +167,8 @@ Before trusting it: `tools/audit_chain_layer.py` compares the layer with the cha
 
 **The stale area is named.** `staleness` reads each area's own age from its run statistics, so an area that was kept shows up there, by name, after a day and a half.
 
+**A pull request leaves `visitors/` alone.** `tests` fails one that adds, edits or deletes a file there. Only the hourly job writes those files, with a push to `main`, and the check does not run on pushes.
+
 **The pull.** The public Overpass servers are busy for hours at a time, so the pull asks several (`latecup_data/osm.py` has the list and why it is in that order), leaves one that failed alone for 15 seconds, then 30, and so on up to 5 minutes, and gives up after 20 minutes in all. New York is one request and the other 31 areas are six. A server that has been answering and then says "busy" once is asked again before anybody else is. A request that every server turned down, or that one took two minutes to fail, is asked again in halves. No pull sends more than 120 requests. What nobody answered for is kept as it was, and the second daily run tries again. An answer the server gave up on half way, or one from data more than three days old, is not used. The `User-Agent` says what the client is and what it does; a fork sets `LATECUP_USER_AGENT` to its own name.
 
 A push made by a workflow with the repository's own token starts no other workflow. So a job that commits a record to `visitors/` has to start `refresh` itself: `gh workflow run refresh.yml`, with `-f areas="chicago seattle"` to build only the areas it changed.
@@ -185,7 +187,7 @@ A push made by a workflow with the repository's own token starts no other workfl
 | Switch | `true` means |
 |---|---|
 | `chain_layer` | Every run builds with [the chain layer](#the-chain-layer), and the weekly store-page pass (`brand`) turns itself off |
-| `area_fields` | Every area's manifest entry carries `indie`, `indie_confirmed` and `help`, and the run writes the help files (`<id>-help.json`) |
+| `area_fields` | Every area's manifest entry carries `indie`, `indie_confirmed` and `help` (and `visitors` where the area publishes visitors' hours), and the run writes the help files (`<id>-help.json`) |
 
 The run, the workflows and `tools/confirm_brand.py` read the file; none of them needs an edit. A key it does not know, or a value that is not `true` or `false`, stops the run: a mistyped switch must not pass for "off". `python -m latecup_data.switches` prints what is on.
 
@@ -210,7 +212,7 @@ After the push, `refresh` runs by itself (the area files and `switches.json` are
 
 To go back, undo the two edits. The run then lists the live areas only, drops the fields and deletes the help files of the areas it builds. An area that is no longer live leaves the manifest; its files stay on the site until somebody removes them. New York loses about a quarter of its places when the chain layer goes off, which is more than the shrink guard lets through: start `refresh` by hand once with `allow_shrink`.
 
-Not part of it: New York's `"visitors": true` and `min_build`. Those wait for the app release that knows the `visitors` source.
+Not part of it: visitors' hours. An area publishes them once its file says `"visitors": true`, one area at a time, and none does yet. New York's also waits for `min_build` and the app release that knows the `visitors` source.
 
 ## Run it locally
 
