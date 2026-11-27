@@ -1,0 +1,44 @@
+name: "Fix a café's hours"
+description: "The hours on the map are wrong and you can link the page that has the right ones."
+title: "Hours: "
+labels: ["hours"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Hours come only from the shop's own website, its own ordering page, its official Instagram or Facebook, or a chain's own store locator. Not Google Maps, Yelp or any other listing site.
+
+        Nothing to link? Use the "Hours wrong?" button on the [web map](https://juicypasta.github.io/latecup/) instead.
+  - type: input
+    id: place
+    attributes:
+      label: "Which place"
+      description: "Name and street address, or the place id (what comes after `#p=` in the address bar when the place is open on the web map)."
+      placeholder: "Example Coffee House, 13 Carmine St"
+    validations:
+      required: true
+  - type: textarea
+    id: hours
+    attributes:
+      label: "The right hours"
+      description: "Every day of the week, in plain words. Say which days it's closed."
+      placeholder: |
+        Mon-Thu 8am-11pm
+        Fri-Sat 8am-1am
+        Sun 9am-10pm
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: "Link to the page you read them on"
+      placeholder: "https://example.com/visit"
+    validations:
+      required: true
+  - type: input
+    id: checked
+    attributes:
+      label: "The day you read it"
+      placeholder: "2026-11-26"
+    validations:
+      required: true

@@ -1,0 +1,23 @@
+name: "Ask for a city"
+description: "Latecup is New York City only for now. Say where it should go next."
+title: "City: "
+labels: ["city"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One city per issue. If somebody already asked for yours, add a thumbs-up to that issue instead of opening another.
+  - type: input
+    id: city
+    attributes:
+      label: "City"
+      placeholder: "Chicago, IL"
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: "Anything else"
+      description: "Optional. A late café there that should be on it, for example."
+    validations:
+      required: false

@@ -9,6 +9,11 @@ https://juicypasta.github.io/latecup-data/v1/nyc.json
 
 The file format is in [FORMAT.md](FORMAT.md). Current numbers are in [docs/coverage.md](docs/coverage.md); how right the hours are is in [docs/accuracy.md](docs/accuracy.md).
 
+## Contributing
+
+Know a café whose hours are wrong here, or a late one that's missing? [CONTRIBUTING.md](CONTRIBUTING.md) has the three ways to fix it: a button on the [web map](https://juicypasta.github.io/latecup/), an issue form, or a pull request with one JSON file.
+The hours have to come from the shop's own page, never from a listing site.
+
 ## Licence and credit
 
 - The feed and the data files here are a database derived from OpenStreetMap: **Open Database License (ODbL) 1.0**. Credit: **© OpenStreetMap contributors**.

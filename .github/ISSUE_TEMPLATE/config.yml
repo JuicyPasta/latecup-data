@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: "Nothing to link? Use the web map"
+    url: "https://juicypasta.github.io/latecup/"
+    about: "Open the place and press \"Hours wrong?\" or \"Hours are right\". No GitHub account and no link needed."

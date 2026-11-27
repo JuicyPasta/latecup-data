@@ -1,0 +1,42 @@
+name: "Closed, moved, or not a café"
+description: "A place on the map that shouldn't be there, or not at that address."
+title: "Gone: "
+labels: ["gone"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Nothing to link? The "Hours wrong?" button on the [web map](https://juicypasta.github.io/latecup/) takes "closed for good" and "not a café" without one.
+  - type: input
+    id: place
+    attributes:
+      label: "Which place"
+      description: "Name and street address, or the place id (what comes after `#p=` in the address bar when the place is open on the web map)."
+      placeholder: "Example Coffee House, 13 Carmine St"
+    validations:
+      required: true
+  - type: dropdown
+    id: what
+    attributes:
+      label: "What happened"
+      options:
+        - "It closed for good"
+        - "It moved"
+        - "It isn't a café"
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: "Link that shows it"
+      description: "The shop's own page or post: the closing announcement, the new address, the menu that is all cocktails."
+      placeholder: "https://example.com/"
+    validations:
+      required: true
+  - type: textarea
+    id: note
+    attributes:
+      label: "Anything else"
+      description: "The new address, what the place is now, when it closed."
+    validations:
+      required: false
