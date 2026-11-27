@@ -1,0 +1,648 @@
+[
+ {
+  "id": "n1028939687",
+  "status": "confirmed",
+  "hours": "Mo-Th 07:00-22:00; Fr-Sa 07:00-23:00; Su 07:00-22:00",
+  "source": "https://www.urthcaffe.com/",
+  "src": "shop",
+  "evidence": "URTH CAFFÉ HOURS ... Downtown LA, Melrose, Beverly Hills and Pasadena - 7am to 10pm Sunday thru Thursday, 7am to 11pm Friday & Saturday",
+  "note": "The page's schema.org entry for Urth Caffé Melrose (8565 Melrose Ave, 310-659-0628) says the same. Its Thanksgiving line was ignored."
+ },
+ {
+  "id": "n10301708321",
+  "status": "confirmed",
+  "hours": "Mo-Th 12:00-22:30; Fr-Sa 12:00-23:00; Su 12:00-22:30",
+  "source": "https://www.milletcrepe.com/",
+  "src": "shop",
+  "evidence": "Millet Crepe - Little Tokyo 330 E 2nd Street Unit C ... Little Tokyo Hours: Sun - Thu 12 - 10:30pm Fri - Sat. 12 - 11pm",
+  "note": "Read from the Square Online page's own location block (the text is drawn by script). The other set on the page, Sun-Thu 12:30pm-10:30pm and Fri-Sat 12:30pm-11pm, is the Sawtelle shop's."
+ },
+ {
+  "id": "n10754899799",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-22:00",
+  "source": "https://www.krakboba.com/lake-forest",
+  "src": "shop",
+  "evidence": "Krak Boba Lake Forest 23791 El Toro Rd D-106A ... Store Hours Every day 11:00 AM - 10:00 PM",
+  "note": "The page also carries a block 'OPEN EVERY DAY 11:00 AM - 11:00 PM' that the site's own stylesheet hides (.text-block-8.lakeforest {display: none}); the shown block is the one taken."
+ },
+ {
+  "id": "n10933444910",
+  "status": "confirmed",
+  "hours": "Mo-Th 08:00-20:00; Fr-Sa 08:00-22:00; Su 08:00-20:00",
+  "source": "https://3thyme.com/locations.html",
+  "src": "shop",
+  "evidence": "3Thyme Coffee & Herbs 600 South Harvard Blvd. Suite 100 ... Hours: Sun - Thu | 8AM - 8PM Fri - Sat | 8AM - 10PM",
+  "note": "Nite Thyme, a wine bar at the same address (Thu - Sun, open 6PM), is a separate bar and was not used."
+ },
+ {
+  "id": "n11361257951",
+  "status": "confirmed",
+  "hours": "Mo-Su 09:00-21:00",
+  "source": "https://www.beardpapas.com/koreatown",
+  "src": "brand",
+  "evidence": "621 South Western Avenue Hours Sun - Sat: 9:00am - 9:00pm",
+  "note": "The chain's own page for this store."
+ },
+ {
+  "id": "n11378679121",
+  "status": "confirmed",
+  "hours": "Mo 11:00-19:00; Tu-Sa 11:00-20:00; Su 11:00-19:00",
+  "source": "https://www.heyheydrinks.com/",
+  "src": "shop",
+  "evidence": "LOCATION 1555 W Sunset Boulevard Los Angeles, California HOURS 11am - 8pm Sunday & Monday 11am - 7pm",
+  "note": "The page's schema.org data says Mo-Su 10:00-20:00; the visible text was taken (docs/accuracy.md)."
+ },
+ {
+  "id": "n11391069569",
+  "status": "confirmed",
+  "hours": "Mo-Th 08:00-15:00; Fr-Su 08:00-21:00",
+  "source": "https://www.cecisoven.com/",
+  "src": "shop",
+  "evidence": "2813 W Sunset Blvd Los Angeles, CA 90026 Monday - Thursday: 8am - 3pm Friday- Sunday: 8am - 9pm",
+  "note": "The site calls itself Ceci's Gastronomia (an Italian deli with a menu and catering): it may not be a cafe."
+ },
+ {
+  "id": "n11391069610",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-15:00",
+  "source": "https://tartinebakery.com/los-angeles/silverlake",
+  "src": "shop",
+  "evidence": "Silver Lake 3921 Sunset Blvd ... HOURS MON 7am - 3pm ... SUN 7am - 3pm ... OPEN DAILY: 7AM - 3PM",
+  "note": "A 'Dining' paragraph lower on the same page says 'Open for takeout, delivery and outdoor dining daily from 8am-3pm' (same closing time); the store's HOURS block, given twice, was taken."
+ },
+ {
+  "id": "n11425030950",
+  "status": "confirmed",
+  "hours": "Mo-Su 08:00-20:00",
+  "source": "https://www.hankscafe.net/",
+  "src": "shop",
+  "evidence": "10203 Santa Monica Boulevard, Los Angeles, CA 90067 Opening Hours Monday - Sunday 8AM - 8PM",
+  "note": "The page's schema.org data says the same."
+ },
+ {
+  "id": "n11575632504",
+  "status": "confirmed",
+  "hours": "Mo-Su 06:00-20:00",
+  "source": "https://keancoffee.com/locations-hours/",
+  "src": "shop",
+  "evidence": "Kéan Coffee is currently open from 6 AM to 8 PM Sunday through Thursday and 6 AM to 8 PM on Friday and Saturday. Newport Beach Coffeehouse 2043 Westcliff Dr #100",
+  "note": ""
+ },
+ {
+  "id": "n11665734052",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+  "source": "https://javistacoffee.com/",
+  "src": "shop",
+  "evidence": "West Hollywood 7494 Santa Monica Boulevard ... Hours ... West Hollywood (open late) Mon-Fri: 7:00 AM - 8:00 PM Sat-Sun: 8:00 AM - 8:00 PM",
+  "note": "The page's Thanksgiving banner was ignored. The Hollywood shop (6725 Sunset) closes at 5 PM and was not used."
+ },
+ {
+  "id": "n1168394863",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-19:30; Fr-Sa 11:00-20:00; Su off",
+  "source": "https://bubblepufftea.com/contact/",
+  "src": "shop",
+  "evidence": "1543 E Colorado Blvd, Pasadena, CA 91106 Hours of Operation: Monday 11 am - 7:30 pm ... Thursday 11 am - 7:30 pm Friday 11 am - 8:00 pm Saturday 11 am - 8:00 pm Sunday Closed",
+  "note": ""
+ },
+ {
+  "id": "n11739483839",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-20:00",
+  "source": "https://www.bopomofocafe.com/san-gabriel",
+  "src": "shop",
+  "evidence": "841 W. Las Tunas Drive San Gabriel, CA 91776 ... Hours Monday ... Sunday 11am - 8pm (each of the seven days)",
+  "note": ""
+ },
+ {
+  "id": "n12156158501",
+  "status": "confirmed",
+  "hours": "Mo off; Tu-Th 12:00-21:00; Fr-Sa 12:00-21:30; Su 12:00-19:00",
+  "source": "https://www.mottoteacafe.com/contact-us",
+  "src": "shop",
+  "evidence": "Pasadena Store 100 W Green St Unit 101 ... (626) 365-1049 Operating Hours: Monday: Closed Tuesday to Thursday: 12pm to 9pm Friday and Saturday: 12pm to 9:30pm Sunday: 12pm to 7pm",
+  "note": "The homepage's schema.org data says Tu-Th 11:30-21:30, Fr-Sa 11:30-22:00, Su 11:30-19:00; the visible text, which equals OpenStreetMap's, was taken."
+ },
+ {
+  "id": "n12164384644",
+  "status": "confirmed",
+  "hours": "Mo-Su 12:00-20:00",
+  "source": "https://fourcafe.net/",
+  "src": "shop",
+  "evidence": "2122 Colorado Blvd Hours Monday - Sunday 12:00 PM - 8:00 PM",
+  "note": "The page's schema.org data says the same."
+ },
+ {
+  "id": "n12372861463",
+  "status": "confirmed",
+  "hours": "Mo-Su 13:00-23:00",
+  "source": "https://www.oakobing.com/",
+  "src": "shop",
+  "evidence": "schema.org: Oakobing Koreatown Los Angeles, 3300 W 6th St Unit 2, 2133871002, Mo-Su 13:00-23:00",
+  "note": "schema.org only (no visible hours in the fetched page), for this address and phone; taken because it equals OpenStreetMap's hours (docs/accuracy.md)."
+ },
+ {
+  "id": "n12685017435",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa 08:00-19:00; Su 09:00-18:00",
+  "source": "https://racertea.com/",
+  "src": "shop",
+  "evidence": "Visit the Tea Bar 1611 S Catalina Ave #103 · Redondo Beach, CA Mon-Fri 7am-8pm · Sat 8am-7pm · Sun 9am-6pm",
+  "note": "A tea bar (tea lattes, chai, acai bowls, zero alcohol). The page's schema.org data says the same."
+ },
+ {
+  "id": "n12701493998",
+  "status": "confirmed",
+  "hours": "Mo-Su 12:30-23:00",
+  "source": "https://potofcha.com/",
+  "src": "shop",
+  "evidence": "Location & Hours 3013 S Figueroa St (213) 516-1888 Everyday: 12:30 PM - 11 PM",
+  "note": "The page's schema.org data says the same."
+ },
+ {
+  "id": "n12981827301",
+  "status": "confirmed",
+  "hours": "Mo-Th 07:00-18:00; Fr 07:00-20:00; Sa 08:00-20:00; Su 08:00-18:00",
+  "source": "https://www.onescapecoffee.com/",
+  "src": "shop",
+  "evidence": "401 S Vermont Ave #6 STORE HOURS MON - Thur 7AM - 6PM FRI 7AM - 8PM SAT 8AM - 8PM SUN 8AM - 6PM",
+  "note": ""
+ },
+ {
+  "id": "n13062136374",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-21:00",
+  "source": "https://www.omomoteashoppe.com/locations/chino-hills/",
+  "src": "shop",
+  "evidence": "Chino Hills 2983 Chino Ave #A8, Chino Hills, CA 91709 STORE HOURS MONDAY: 11AM-9PM ... SUNDAY: 11AM-9PM",
+  "note": ""
+ },
+ {
+  "id": "n13088905818",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-23:00",
+  "source": "https://www.jinteashop.com/",
+  "src": "shop",
+  "evidence": "18 West Green St. (626) 219-6040 Mon-Sun 11am - 11pm",
+  "note": ""
+ },
+ {
+  "id": "n13090540489",
+  "status": "confirmed",
+  "hours": "Mo-Su 08:00-15:00",
+  "source": "https://bbcafe.la/",
+  "src": "shop",
+  "evidence": "2411 W Burbank Blvd Burbank, CA 91506 ... We are open 7 days a week 8 AM to 3 PM ... 818.450.5555",
+  "note": "Matched by phone (OpenStreetMap's +1 818 450 5555); the site gives 2411 W Burbank Blvd where OpenStreetMap has 3411 Burbank Boulevard. One shop on the site. It looks like a sit-down restaurant (BOOK A TABLE, entrees)."
+ },
+ {
+  "id": "n13172357085",
+  "status": "confirmed",
+  "hours": "Mo-Th 12:00-22:00; Fr-Su 12:00-23:00",
+  "source": "https://www.jamjamtea.com/location",
+  "src": "shop",
+  "evidence": "DOWNTOWN BURBANK 128 E PALM AVE ... Mon.-Thur. 12 PM - 10 PM, Fri.-Sun. 12 PM - 11 PM, then ORDER PICK UP - BURBANK",
+  "note": "The page sets five shops' tables side by side; this is the table beside the Burbank button, and it equals OpenStreetMap's hours."
+ },
+ {
+  "id": "n13250951615",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+  "source": "https://www.colossusbread.com/location",
+  "src": "shop",
+  "evidence": "Harbor 511 S. Harbor Blvd., San Pedro ... Monday - Friday: 7 am - 8 pm (brunch open-4, dinner 4 - 8pm) Saturday + Sunday: 8 am - 8 pm",
+  "note": "Bakery with a coffee bar, counter service and patio seating. The Alma St. and Belmont Shore hours on the page are other shops'."
+ },
+ {
+  "id": "n13291482230",
+  "status": "confirmed",
+  "hours": "Mo-We 09:15-21:00; Th 09:15-20:30; Fr-Sa 09:15-21:30; Su 09:15-20:30",
+  "source": "https://sundaycafe.online/",
+  "src": "shop",
+  "evidence": "400 S Baldwin Avenue unit FC7 Hours Mon-Wed 9:15 AM - 9:00 PM Thu 9:15 AM - 8:30 PM Fri, Sat 9:15 AM - 9:30 PM Sun 9:15 AM - 8:30 PM",
+  "note": "The page's schema.org data says the same."
+ },
+ {
+  "id": "n13296187452",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+  "source": "https://charedefine.com/",
+  "src": "shop",
+  "evidence": "online order -arcadia store Address: 400 S Baldwin Ave, Arcadia, CA 91007 Phone Number: 626-537-4084 Business Hours: Sunday - Thursday: 11:00am - 9pm. Friday - Saturday: 11:00am - 10pm.",
+  "note": ""
+ },
+ {
+  "id": "n13912579490",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-01:00",
+  "source": "https://charedefine.com/",
+  "src": "shop",
+  "evidence": "Cha Redefine - San Gabriel Store Store Address: 140 W Valley Blvd, #118-B, San Gabriel, CA 91776 (Inside TAWA Plaza) Business Hours: Monday - Sunday: 11am - 1am (Next Day)",
+  "note": ""
+ },
+ {
+  "id": "n13296187456",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-22:00",
+  "source": "https://www.3catea.com/location",
+  "src": "shop",
+  "evidence": "400 S BALDWIN AVE ARCADIA CA 91007 Order Now (ARCADIA) MONDAY ... SUNDAY 11AM - 10PM (all seven) hours ARCADIA",
+  "note": "Read from the Wix page's stores table; equals OpenStreetMap's hours."
+ },
+ {
+  "id": "n13314962894",
+  "status": "confirmed",
+  "hours": "Mo-Th 08:00-19:00; Fr-Sa 08:00-21:00; Su 08:00-19:00",
+  "source": "https://noun.coffee/",
+  "src": "shop",
+  "evidence": "4065 Glencoe Avenue, Marina del Rey, CA 90292 Hours: Sunday-Thursday 8:00 AM-7:00 PM; Friday-Saturday 8:00 AM-9:00 PM",
+  "note": ""
+ },
+ {
+  "id": "n13395910006",
+  "status": "confirmed",
+  "hours": "Mo-Fr 07:00-20:00; Sa-Su 07:30-20:00",
+  "source": "https://alchemistcp.com/pages/location",
+  "src": "shop",
+  "evidence": "Koreatown Vermont 698 S. Vermont Ave. Suite 103 ... Phone: 213-388-8767 Store Hours: Mon-Fri 7:00AM - 8:00PM Sat-Sun 7:30AM - 8:00PM",
+  "note": "The Hobart Blvd and Cumulus shops on the page close at 6 PM and were not used."
+ },
+ {
+  "id": "n13409868137",
+  "status": "confirmed",
+  "hours": "Mo off; Tu-Su 11:00-20:00",
+  "source": "https://tapiocaexpress.com/alhambra-store/",
+  "src": "brand",
+  "evidence": "228 W Valley Blvd STE 105, Alhambra, CA 91801 (626)289-9735 ... Hour of Operations Monday closed, Tuesday to Sunday 11 AM-8 PM",
+  "note": "The footer's 'Work Hours Everyday 10 AM - 9 PM' is the site template's placeholder (next to template filler text) and was not used."
+ },
+ {
+  "id": "n13411542330",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-17:00",
+  "source": "https://www.smokingtiger.com/locations",
+  "src": "shop",
+  "evidence": "SAN GABRIEL, CA Coffee Lab 927 E Las Tunas Dr, San Gabriel, CA 91776 hours: 7a–5p daily (626) 782-7007",
+  "note": "Read from the store list in the locations page's own source (the page draws it with script)."
+ },
+ {
+  "id": "n13914834031",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-17:00",
+  "source": "https://www.smokingtiger.com/locations",
+  "src": "shop",
+  "evidence": "MONTEREY PARK, CA Coffee Lab 221 N Atlantic Blvd Ste 104, Monterey Park, CA 91754 hours: 7a–5p daily (626) 537-1602",
+  "note": "Read from the store list in the locations page's own source (the page draws it with script)."
+ },
+ {
+  "id": "n13778414216",
+  "status": "confirmed",
+  "hours": "Mo-Sa 08:00-22:00; Su 08:00-20:00",
+  "source": "https://www.smokingtiger.com/locations",
+  "src": "shop",
+  "evidence": "BUENA PARK, CA The Origin 4600 Beach Blvd, Buena Park, CA 90621 hours: Mon–Sat 8a–10p Sun 8a–8p (657) 239-0651",
+  "note": "Read from the store list in the locations page's own source (the page draws it with script)."
+ },
+ {
+  "id": "n13422065775",
+  "status": "confirmed",
+  "hours": "Mo-Fr 12:00-23:00; Sa-Su 11:00-23:00",
+  "source": "https://www.uniquegreentea.com/",
+  "src": "shop",
+  "evidence": "308 W Valley Blvd, San Gabriel, CA 91776 Mon-Fri 12:00PM-11:00PM Sat-Sun 11:00AM-11:00PM ORDER NOW",
+  "note": ""
+ },
+ {
+  "id": "n13440140326",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:30-21:30",
+  "source": "https://www.cccakela.com/",
+  "src": "shop",
+  "evidence": "Locations & Hours 1031 South Baldwin Avenue Opening Hours Monday to Sunday 11:30am - 9:30pm",
+  "note": ""
+ },
+ {
+  "id": "n13639719930",
+  "status": "confirmed",
+  "hours": "Mo-We 07:00-17:00; Th-Su 07:00-21:00",
+  "source": "https://www.recreationalcoffee.com/",
+  "src": "shop",
+  "evidence": "Mon 7:00 AM - 5:00 PM Tue 7:00 AM - 5:00 PM Wed 7:00 AM - 5:00 PM Thu 7:00 AM - 9:00 PM Fri 7:00 AM - 9:00 PM Sat 7:00 AM - 9:00 PM Sun 7:00 AM - 9:00 PM ... 237 Long Beach Boulevard",
+  "note": "The page's schema.org data says the same. No holiday notice on the page."
+ },
+ {
+  "id": "n13650549549",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-24:00",
+  "source": "https://www.meetteaca.com/",
+  "src": "shop",
+  "evidence": "Hours Mon - Sun: 11 AM - 12 AM Address 5817 Rosemead Blvd",
+  "note": ""
+ },
+ {
+  "id": "n13679295890",
+  "status": "confirmed",
+  "hours": "Mo off; Tu-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+  "source": "https://www.lauriespiebar.com/",
+  "src": "shop",
+  "evidence": "SUN 11AM-9PM MON CLOSED TUES-THUR 11AM-9PM FRI-SAT 11AM-10PM (562) 435-6910",
+  "note": ""
+ },
+ {
+  "id": "n13683589301",
+  "status": "confirmed",
+  "hours": "Mo 09:00-16:00; Tu-Sa 09:00-21:00; Su 09:00-16:00",
+  "source": "https://tickletree.cafe/",
+  "src": "shop",
+  "evidence": "HOURS Sunday + Monday 9:00AM - 4:00PM Tuesday - Saturday 9:00AM - 9:00PM KITCHEN CLOSED 3:45PM - 4:30PM 2853 Foothill Blvd",
+  "note": "The kitchen break is the kitchen's; the doors' hours were taken."
+ },
+ {
+  "id": "n13690350480",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:30-21:00; Fr-Sa 11:30-22:00; Su 11:30-21:00",
+  "source": "https://www.luckyfruitea.com/",
+  "src": "shop",
+  "evidence": "737 E Valley Blvd, San Gabriel ... Opening Hours Monday - Thursday: 11:30 am - 9 pm Friday - Saturday: 11:30 am - 10 pm Sunday: 11:30 am - 9 pm",
+  "note": ""
+ },
+ {
+  "id": "n13848989234",
+  "status": "confirmed",
+  "hours": "Mo-Su 06:30-21:00",
+  "source": "https://www.thesunrosehotel.com/dine-drink/dialog/",
+  "src": "shop",
+  "evidence": "Hours of operation open daily 6:30AM - 9PM ... 8430 Sunset Boulevard",
+  "note": ""
+ },
+ {
+  "id": "n13933748621",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-20:30",
+  "source": "https://www.yourcafemenu.com/",
+  "src": "shop",
+  "evidence": "Monday - Sunday 11:00 AM - 8:30 PM ... 2968 Huntington Dr",
+  "note": ""
+ },
+ {
+  "id": "n13939184203",
+  "status": "confirmed",
+  "hours": "Mo 07:00-16:00; Tu 07:00-20:00; We-Su 07:00-16:00",
+  "source": "https://www.lostparrotcafe.com/",
+  "src": "shop",
+  "evidence": "Open Seven Days a Week / 7:00 am - 4:00 pm Open Taco Tuesday from / 4:00 pm - 8:00 pm ... 1929 Huntington Drive, South Pasadena, CA 91030",
+  "note": "The page's schema.org data says We 07:00-21:00 and Th 07:00-20:00; the visible text, which equals OpenStreetMap's, was taken. A brunch and lunch place."
+ },
+ {
+  "id": "n13689954037",
+  "status": "not_a_cafe",
+  "source": "https://www.liuscafe.com/",
+  "evidence": "Taiwanese comfort food and Hong Kong-inspired classics ... Michelin Guide Bib Gourmand 2024, 2025 & 2026 ... Liu's Cafe comes from our years of eating at comfy Chinese mom-and-pop restaurants",
+  "note": "The shop's page: \"Taiwanese comfort food and Hong Kong-inspired classics\", \"Michelin Guide Bib Gourmand 2024, 2025 & 2026\", \"Liu's Cafe comes from our years of eating at comfy Chinese mom-and-pop restaurants\". A restaurant (rice plates, noodle soups, a Bib Gourmand); its drinks list is milk tea, lemon tea and oolong. Its own hours, Wed - Sun 11:00am - 9:00pm, agree with OpenStreetMap."
+ },
+ {
+  "id": "n10158549627",
+  "status": "second_look",
+  "hours": "Mo-Sa 07:00-20:00; Su 08:00-18:00",
+  "source": "https://www.scratchbakerycafe.com/locations",
+  "src": "shop",
+  "evidence": "Newport Beach 561 Newport Center Dr, Newport Beach, CA 92660 (949) 524-8200 ... Monday - Saturday: 7:00 am - 8:00 pm ... Kitchen closes daily: 3pm for breakfast, 4pm for lunch Sunday: 8:00 am - 6:00 pm",
+  "note": "Publish guard: OpenStreetMap had Tuesday and Wednesday closed; the shop's page says Monday - Saturday. Written with tools/override.py --second-look."
+ },
+ {
+  "id": "n10138374555",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "gong-cha.com's store finder is drawn by script; the fetched home, contact and store-finder pages hold no store hours."
+ },
+ {
+  "id": "n10863585638",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "home, contact and order-online pages read; only Instagram/Facebook links."
+ },
+ {
+  "id": "n10933394803",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "melomelo.us is a script-only app shell."
+ },
+ {
+  "id": "n12269824275",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "melomelo.us is a script-only app shell."
+ },
+ {
+  "id": "n11026272490",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "Capital One's page for Irvine Spectrum draws its hours by script; none in the fetched HTML."
+ },
+ {
+  "id": "n11040543205",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "Square Online order page; only a December 2024 blog teaser about holiday hours in the HTML."
+ },
+ {
+  "id": "n11310867994",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "home and locations pages give the address only."
+ },
+ {
+  "id": "n11365685833",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "ateathingus.com: connection error, three tries (www and bare)."
+ },
+ {
+  "id": "n11378679126",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "storiesla.com (Stories Books & Cafe) is a script-only bookstore app."
+ },
+ {
+  "id": "n11391069602",
+  "status": "skipped",
+  "reason": "no hours on the store page",
+  "note": "oakberry.com/store/Silverlake gives the address only. An acai bar: may not be a cafe."
+ },
+ {
+  "id": "n11757296404",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "note": "fourthwallcomedy.com is a comedy open-mic booking page ('Cafe Mics') with slot times, not the cafe's hours."
+ },
+ {
+  "id": "n11757296440",
+  "status": "skipped",
+  "reason": "site refused",
+  "note": "sappcoffeeshop.com: HTTP 403 twice."
+ },
+ {
+  "id": "n11774442444",
+  "status": "skipped",
+  "reason": "schema.org only, disagrees with OpenStreetMap",
+  "note": "uptown.coffee has openingHours Mo-Su 09:00-17:00 in its SEO data (no address) and no visible hours; OSM says 08:00-22:00. Its Clover ordering page is script-only (needs a browser)."
+ },
+ {
+  "id": "n11777124869",
+  "status": "skipped",
+  "reason": "page's hours not certain",
+  "note": "myfavoritea.com/contact-us: 'Business Hours ( Temporary ) Monday - Friday: 11am - 8:30pm Saturday - Sunday: 12am - 8:00pm' — labelled temporary, and 12am cannot be meant."
+ },
+ {
+  "id": "n11795942187",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "hisaya-chestnuts.square.site carries only the Square template's placeholder hours (Square Inc, Market Street, San Francisco, 9-5)."
+ },
+ {
+  "id": "n12146884434",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "thestrawoc.com: SSL error, three tries."
+ },
+ {
+  "id": "n12336519231",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "chewieandmellowdesserts.com: connection error, three tries."
+ },
+ {
+  "id": "n12369159626",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "chafortea.com/locations gives the address and an order.online (DoorDash) link, which was not used."
+ },
+ {
+  "id": "n12583153661",
+  "status": "skipped",
+  "reason": "site refused",
+  "note": "gotchateahouse.com: HTTP 401 twice."
+ },
+ {
+  "id": "n12588096501",
+  "status": "skipped",
+  "reason": "only template hours on the page",
+  "note": "steepla.com's Square Online page holds one hours block, tied to the template's placeholder addresses (73 Elgin Ave, Forest Park IL; 1274 Alhambra Ct, San Francisco). Needs a browser to see what is shown."
+ },
+ {
+  "id": "n12662771701",
+  "status": "skipped",
+  "reason": "site gone",
+  "note": "teamorrow.com: HTTP 404 on www and bare domain."
+ },
+ {
+  "id": "n12714812129",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "mirakurutea.com: connection error, twice."
+ },
+ {
+  "id": "n13009348974",
+  "status": "skipped",
+  "reason": "no hours on the locator",
+  "note": "chagee.us/stores lists name and address, no hours."
+ },
+ {
+  "id": "n13724872863",
+  "status": "skipped",
+  "reason": "no hours on the locator",
+  "note": "chagee.us/stores lists name and address, no hours."
+ },
+ {
+  "id": "n13061884584",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "toroteausa.com/location gives addresses only."
+ },
+ {
+  "id": "n13062022075",
+  "status": "skipped",
+  "reason": "web link is a DoorDash storefront",
+  "note": "OSM's website is order.online (DoorDash); nothing in the fetched page, and not used as a source. Meet Fresh's own locator not tried."
+ },
+ {
+  "id": "n13080855570",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "tenjuteahouse.com gives address and phone only."
+ },
+ {
+  "id": "n13112809785",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "fikafikacoffee.com (Squarespace, business hours turned off)."
+ },
+ {
+  "id": "n13226560544",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "t-swirlcrepe.com/location gives addresses only."
+ },
+ {
+  "id": "n13373557161",
+  "status": "skipped",
+  "reason": "site is no longer the shop's",
+  "note": "rbteawalnut.com now serves an unrelated gambling site; OSM's website tag is stale."
+ },
+ {
+  "id": "n13392025563",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "rbteausa.com is a script-only app shell."
+ },
+ {
+  "id": "n13414900909",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "happylemonusa.com locations are drawn by script."
+ },
+ {
+  "id": "n13441899001",
+  "status": "skipped",
+  "reason": "no hours on the shop's own site",
+  "note": "aunteajenny.us/discover.html gives the address only."
+ },
+ {
+  "id": "n13508133918",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "note": "littledimplesplayground.com: an indoor children's playground with a cafe for parents; may not belong on the map."
+ },
+ {
+  "id": "n13525087309",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "coffeesignal.twupro.com is a script-only ordering app."
+ },
+ {
+  "id": "n13881024292",
+  "status": "skipped",
+  "reason": "cannot tell the cafe's hours",
+  "note": "valorianhotel.com/dine-drinks: lobby coffee bar 'Open daily' with no times; food 'breakfast from 7:00 AM - 11:00 AM, and an all-day menu from 11:00 AM - 10:00 PM daily (kitchen closed between 4:00 PM - 5:00 PM)'; schema.org says Mo-Su 07:00-14:00."
+ },
+ {
+  "id": "n13898956719",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "note": "nordstrom.com store page has no Ebar hours in the fetched HTML."
+ },
+ {
+  "id": "n13914834029",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "theteaca.com: connection error, twice."
+ },
+ {
+  "id": "n13954962942",
+  "status": "skipped",
+  "reason": "site refused",
+  "note": "hiccupsteahouse.com: HTTP 403 twice."
+ }
+]

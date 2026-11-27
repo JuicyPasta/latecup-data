@@ -1,0 +1,975 @@
+[
+ {
+  "id": "n1019495671",
+  "name": "Cafe 86",
+  "status": "confirmed",
+  "source": "https://www.cafe-86.com/",
+  "evidence": "Cafe 86 Union City, 34391 Alvarado-Niles Road Union City CA 94587. Union City Store Hours: MONDAY - 12:30 PM - 9:00 PM ... THURSDAY - 12:30 PM - 9:00 PM, FRIDAY - 12:30 PM - 10:00 PM, SATURDAY - 12:30 PM - 10:00 PM, SUNDAY - 12:30 PM - 9:00 PM",
+  "hours": "Mo-Th 12:30-21:00; Fr-Sa 12:30-22:00; Su 12:30-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Multi-store page; the Union City block matched by street address."
+ },
+ {
+  "id": "n10555191279",
+  "name": "Heyma Yemeni Coffee",
+  "status": "confirmed",
+  "source": "https://ua.heymacoffeeca.com/",
+  "evidence": "schema.org on the shop's own ordering page for 1122 University Avenue Berkeley: Mo-Th 07:30-23:30, Fr 07:30-24:00, Sa 08:00-24:00, Su 08:00-23:30",
+  "hours": "Mo-Th 07:30-23:30; Fr 07:30-24:00; Sa 08:00-24:00; Su 08:00-23:30",
+  "src": "shop",
+  "late": true,
+  "note": "No visible hours on the site; schema.org only, accepted because it equals OpenStreetMap's hours (docs/accuracy.md). Address matched."
+ },
+ {
+  "id": "n10650905146",
+  "name": "Mr. Green Bubble",
+  "status": "confirmed",
+  "source": "https://www.mrgreenbubble.com/",
+  "evidence": "LOCATIONS: OAKLAND (510)788-4160 Mon - Thur, Sun : 11am - 8pm Fri - Sat : 11am - 9pm",
+  "hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "OSM's site greenbubblecafe.com redirects here. Matched by phone (510-788-4160); the page says the first shop is on Piedmont Avenue in Oakland."
+ },
+ {
+  "id": "n10969972609",
+  "name": "Purple Kow",
+  "status": "confirmed",
+  "source": "https://purplekow.com/",
+  "evidence": "Berkeley, CA 2508 Channing Way Berkeley, CA 94704 Hours: Monday - Saturday: 12PM - 10PM Sunday: 12PM - 7PM",
+  "hours": "Mo-Sa 12:00-22:00; Su 12:00-19:00",
+  "src": "shop",
+  "late": true,
+  "note": "Three shops on the page; matched by street address."
+ },
+ {
+  "id": "n11030945360",
+  "name": "3Catea",
+  "status": "confirmed",
+  "source": "https://www.3catea.com/location",
+  "evidence": "1777 N MILPITAS BLVD MILPITAS CA 95035 MONDAY-SUNDAY: 12PM - 8PM, 12PM - 8PM, 12PM - 8PM, 12PM - 8PM, 12PM - 8:30PM, 12PM - 8:30PM, 12PM - 8:30PM",
+  "hours": "Mo-Th 12:00-20:00; Fr-Su 12:00-20:30",
+  "src": "shop",
+  "late": true,
+  "note": "Multi-store page; matched by street address."
+ },
+ {
+  "id": "n1145574420",
+  "name": "Orchard Valley Coffee",
+  "status": "confirmed",
+  "source": "http://www.orchardvalleycoffee.net/",
+  "evidence": "Downtown Campbell 349 E. Campbell Ave. Campbell, CA 95008 Sunday - Thursday 7 a.m. to 6 p.m. Friday - Saturday 7 a.m. to 7 p.m. * Holiday Hours * 12/25 & 1/1: 7 a.m. to 2 p.m.",
+  "hours": "Mo-Th 07:00-18:00; Fr-Sa 07:00-19:00; Su 07:00-18:00",
+  "src": "shop",
+  "late": false,
+  "note": "Closes before 20:00 every day: leaves the late map. Holiday line ignored."
+ },
+ {
+  "id": "n11839722678",
+  "name": "Pekoe",
+  "status": "confirmed",
+  "source": "https://www.pekoeteabar.com/",
+  "evidence": "939 W El Camino Real Suite 117, Sunnyvale, CA, 94087, US 408-962-0164 Sunday: 10:00 AM - 12:00 AM ... Saturday: 10:00 AM - 12:00 AM",
+  "hours": "Mo-Su 10:00-24:00",
+  "src": "shop",
+  "late": true,
+  "note": "Matched by address and phone. The page's schema.org says 23:30; the visible text says 12:00 AM and wins."
+ },
+ {
+  "id": "n12382545950",
+  "name": "Bobalicious",
+  "status": "confirmed",
+  "source": "https://www.bobaliciousrwc.com/",
+  "evidence": "Opening Hours Sunday - Thursday 12:00 PM - 07:00 PM Friday - Saturday 12:00 PM - 08:00 PM. 2202 Broadway Street, Redwood, CA 94063",
+  "hours": "Mo-Th 12:00-19:00; Fr-Sa 12:00-20:00; Su 12:00-19:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n12566022857",
+  "name": "Yosi's Cafe",
+  "status": "confirmed",
+  "source": "https://www.yosiscafe.com/",
+  "evidence": "Thursday - Tuesday: 9:00 AM - 11:00 PM",
+  "hours": "Mo-Tu 09:00-23:00; We off; Th-Su 09:00-23:00",
+  "src": "shop",
+  "late": true,
+  "note": "Six days listed, so Wednesday is closed. The site gives no street address but names one shop (\"Oakland's finest bakery & cafe\"); the hours equal OSM's."
+ },
+ {
+  "id": "n12847527539",
+  "name": "Teazzi",
+  "status": "confirmed",
+  "source": "https://www.teazzisunnyvale.com/",
+  "evidence": "Sun-Thurs, 11am-8pm Fri-Sat, 11am-9pm 200 W McKinley Ave, Suite 105",
+  "hours": "Mo-Th 11:00-20:00; Fr-Sa 11:00-21:00; Su 11:00-20:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n12865670527",
+  "name": "Chip Cookies",
+  "status": "confirmed",
+  "source": "https://www.chipcookies.co/pages/gourmet-cookies-in-dublin-ca",
+  "evidence": "Visit Chip Dublin 6851 Amador Plaza Rd, Dublin, CA 94568 Store Hours: Sun - Thu | 10 AM - 10 PM Fri - Sat | 10 AM - 12 AM",
+  "hours": "Mo-Th 10:00-22:00; Fr-Sa 10:00-24:00; Su 10:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "Store page matched by address. Probably not a cafe: the page sells cookies to order ahead and pick up, no coffee mentioned. Left for the coordinator."
+ },
+ {
+  "id": "n12882766241",
+  "name": "Chicha San Chen 吃茶三千",
+  "status": "confirmed",
+  "source": "https://chichasanchennorcal.com/locations",
+  "evidence": "CUPERTINO 20688 Stevens Creek Blvd, Cupertino, CA 95014 Brewing Hours: Sun - Thurs 11:30 am - 9:30 pm Fri - Sat 11:30 am - 10 pm",
+  "hours": "Mo-Th 11:30-21:30; Fr-Sa 11:30-22:00; Su 11:30-21:30",
+  "src": "shop",
+  "late": true,
+  "note": "The home page's 'Serving Hours' are mocktail hours, not the shop's; the locations page's 'Brewing Hours' are used."
+ },
+ {
+  "id": "n13075718653",
+  "name": "Molly Tea",
+  "status": "confirmed",
+  "source": "https://www.mollyteaus.com/",
+  "evidence": "HOURS MON-SUN 11am-10:00pm 669-248-5834 Address: Molly Tea, 605 E El Camino Real Suite 1, Sunnyvale, CA 94087",
+  "hours": "Mo-Su 11:00-22:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n13343576682",
+  "name": "Heyma Yemeni Coffee & Brunch",
+  "status": "confirmed",
+  "source": "https://9thst.heymacoffeeca.com/",
+  "evidence": "schema.org on the shop's own ordering page for 248 9th St San Francisco: Mo-Th 07:30-23:30, Fr 07:30-24:00, Sa 08:00-24:00, Su 08:00-23:30",
+  "hours": "Mo-Th 07:30-23:30; Fr 07:30-24:00; Sa 08:00-24:00; Su 08:00-23:30",
+  "src": "shop",
+  "late": true,
+  "note": "No visible hours on the site; schema.org only, accepted because it equals OpenStreetMap's hours (docs/accuracy.md). Address matched."
+ },
+ {
+  "id": "n13629174372",
+  "name": "Pour Decisions Craft",
+  "status": "confirmed",
+  "source": "https://www.pourdecisionscraft.com/",
+  "evidence": "3530 Beacon Ave Mon - Tue 7am - 5pm Wed - Thu 7am - 7pm Fri - Sat 7am - 8pm Sun 7am - 7pm",
+  "hours": "Mo-Tu 07:00-17:00; We-Th 07:00-19:00; Fr-Sa 07:00-20:00; Su 07:00-19:00",
+  "src": "shop",
+  "late": true,
+  "note": "Four shops on the page; the page's schema.org for '3530 Beacon Ave Fremont' gives the same table, which confirms which block is Fremont's."
+ },
+ {
+  "id": "n13683500048",
+  "name": "Doppio Cafe",
+  "status": "confirmed",
+  "source": "https://doppiosf.com/",
+  "evidence": "1551 Mission Street ... Mon - Wed: 6:30am - 5:00pm Thurs - Fri: 6:30am - 8:00pm Sat - Sun: 8:00am - 8:00pm",
+  "hours": "Mo-We 06:30-17:00; Th-Fr 06:30-20:00; Sa-Su 08:00-20:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n13733176950",
+  "name": "Gratitude Coffee Bar",
+  "status": "confirmed",
+  "source": "https://www.gratitudecoffeebar.com/",
+  "evidence": "HOURS Sun - Tue : 7am - 7pm Wed - Sat : 7am -10pm ADDRESS 1655 Willow Pass Rd, Suite B Concord, CA 94521",
+  "hours": "Mo-Tu 07:00-19:00; We-Sa 07:00-22:00; Su 07:00-19:00",
+  "src": "shop",
+  "late": true,
+  "note": "Stated twice on the page, the same both times."
+ },
+ {
+  "id": "n14421565801",
+  "name": "MoonTea",
+  "status": "confirmed",
+  "source": "https://www.moontea.xyz/",
+  "evidence": "Cupertino Store Daily 11:30 am - 9:00 pm Cupertino Store 19620 Stevens Creek Blvd #180, Cupertino, CA 95014",
+  "hours": "Mo-Su 11:30-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Two shops on the page (Sunnyvale 11-20); Cupertino matched by address."
+ },
+ {
+  "id": "n1818369713",
+  "name": "Green Bakery & Café",
+  "status": "confirmed",
+  "source": "https://www.greenbakeryandcafe.com/",
+  "evidence": "692 FREMONT AVE Business Hours Mon - Sun: 9:00 AM - 8:00 PM",
+  "hours": "Mo-Su 09:00-20:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n2318141884",
+  "name": "Castro Coffee Company",
+  "status": "confirmed",
+  "source": "https://www.castro-coffee.com/pages/contact",
+  "evidence": "419 Castro St Opening hours Every day 7 AM - 8 PM",
+  "hours": "Mo-Su 07:00-20:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n2407184266",
+  "name": "Cafe Borrone",
+  "status": "confirmed_second_look",
+  "source": "https://www.cafeborrone.com/",
+  "evidence": "1010 El Camino Real, Ste 110, Menlo Park, CA 94025 New Hours: Monday, Wednesday, Thursday, Friday Breakfast | Lunch | Dinner 6:30am - 6:30pm Saturday, Sunday Breakfast & Brunch 7am - 4pm Closed on Tuesdays",
+  "hours": "Mo 06:30-18:30; Tu off; We-Fr 06:30-18:30; Sa-Su 07:00-16:00",
+  "src": "shop",
+  "late": false,
+  "guard": "open days differ from OpenStreetMap's: Tu",
+  "note": "Closes before 20:00 every day: leaves the late map. A cafe-restaurant."
+ },
+ {
+  "id": "n2491783847",
+  "name": "Gadani",
+  "status": "confirmed",
+  "source": "https://www.gadanicafe.com/contact-us",
+  "evidence": "Location-U.S. 139 Berkeley Sq, Berkeley, California, 94704 HOURS Monday to Friday: 11am to 10pm Saturday to Sunday: 11am to 11pm",
+  "hours": "Mo-Fr 11:00-22:00; Sa-Su 11:00-23:00",
+  "src": "shop",
+  "late": true,
+  "note": "The second block on the page (weekends to 10pm) is the U.K. shop at 154 Westferry Rd, not a contradiction."
+ },
+ {
+  "id": "n2786939583",
+  "name": "The Mill",
+  "status": "confirmed",
+  "source": "https://www.themillsf.com/",
+  "evidence": "THE MILL HOURS THE MILL 736 Divisadero Street San Francisco CA - 94117 ... EVERYDAY: 7am - 5pm",
+  "hours": "Mo-Su 07:00-17:00",
+  "src": "shop",
+  "late": false,
+  "note": "Closes before 20:00 every day: leaves the late map. The page's schema.org still says Monday 07:00-20:00; the visible text wins."
+ },
+ {
+  "id": "n314115682",
+  "name": "Berkeley Espresso",
+  "status": "confirmed",
+  "source": "https://www.berkeleyespresso.com/",
+  "evidence": "1900 Shattuck Ave Berkeley, CA 94704 HOURS 6 am - 9 pm DAILY",
+  "hours": "Mo-Su 06:00-21:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n331389010",
+  "name": "Caffe Trieste",
+  "status": "confirmed",
+  "source": "https://caffetrieste.com/",
+  "evidence": "Caffe Trieste, 601 Vallejo Street, San Francisco CA 94133, (415)392-6739 Our new hours of operation: Now open: Monday - Sunday 7:00 am- 10:00pm",
+  "hours": "Mo-Su 07:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "The Annex retail store at 609 Vallejo has its own hours; not used."
+ },
+ {
+  "id": "n343135403",
+  "name": "Red Rock Coffee",
+  "status": "confirmed",
+  "source": "https://redrockcoffee.com/",
+  "evidence": "Red Rock Coffee, 201 Castro Street, Mountain View ... Monday 7:30am-8pm* Monday Open Mic, 6-9pm Tuesday-Friday 7:30am-5pm Saturday & Sunday 8am-5pm *NO Open Mic: Sept 7, Dec 28, 2026; closing at 5pm those days",
+  "hours": "Mo 07:30-20:00; Tu-Fr 07:30-17:00; Sa-Su 08:00-17:00",
+  "src": "shop",
+  "late": true,
+  "note": "Holiday list ignored. The page's schema.org (09:00-16:00 daily) is stale; the visible text wins."
+ },
+ {
+  "id": "n3516403893",
+  "name": "T-Bear",
+  "status": "confirmed",
+  "source": "https://tibearbk.kwickmenu.com/",
+  "evidence": "1938 Shattuck Ave, Berkeley, CA 94704 Business Hours Sun 12:00 - 20:00 Mon 12:00 - 20:00 ... Thu 12:00 - 20:00 Fri 12:00 - 20:30 Sat 12:00 - 20:30",
+  "hours": "Mo-Th 12:00-20:00; Fr-Sa 12:00-20:30; Su 12:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "The shop's own ordering page; its 'Online Business Hours', 'Business Hours' and schema.org all agree."
+ },
+ {
+  "id": "n3520889350",
+  "name": "Crepes a Go Go",
+  "status": "confirmed",
+  "source": "https://www.ordercrepesagogo.com/",
+  "evidence": "2055 CENTER ST STE A Business Hours Mon - Sat: 11:00 AM - 10:00 PM Sun: 11:00 AM - 8:00 PM",
+  "hours": "Mo-Sa 11:00-22:00; Su 11:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "The shop's own ordering page. A creperie; could be a restaurant (OSM cuisine=crepes)."
+ },
+ {
+  "id": "n3663863508",
+  "name": "Mario's Bohemian Cigar Store Cafe",
+  "status": "confirmed",
+  "source": "https://mariosbohemian.com/",
+  "evidence": "566 Columbus Avenue Hours Mon-Thu 10:00 AM - 9:00 PM Fri, Sat 10:00 AM - 10:00 PM Sun 10:00 AM - 9:00 PM",
+  "hours": "Mo-Th 10:00-21:00; Fr-Sa 10:00-22:00; Su 10:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "The page's schema.org agrees."
+ },
+ {
+  "id": "n3667880725",
+  "name": "Holy Crepe",
+  "status": "confirmed_second_look",
+  "source": "https://www.holycrepesf.com/",
+  "evidence": "715 Irving St, San Francisco, CA 94122 HOURS Mon - Thurs 12:00pm - 9:00 pm Fri 12:00pm - 9:30 pm Sat - Sun 11:00 am - 9:30 pm",
+  "hours": "Mo-Th 12:00-21:00; Fr 12:00-21:30; Sa-Su 11:00-21:30",
+  "src": "shop",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: Fr",
+  "note": "OSM has Friday closed; the shop's page lists Friday. OSM tags it amenity=restaurant (crepe;coffee_shop)."
+ },
+ {
+  "id": "n3692778026",
+  "name": "Momo Tea",
+  "status": "confirmed_second_look",
+  "source": "https://www.momoteaus.com/",
+  "evidence": "549 Irving street San Francisco ... Phone: 4155718372 HOURS Mon-Thurs : 11am-7p.m. Fri-Sun:12pm-8pm",
+  "hours": "Mo-Th 11:00-19:00; Fr-Su 12:00-20:00",
+  "src": "shop",
+  "late": true,
+  "guard": "open days differ from OpenStreetMap's: Mo",
+  "note": "OSM has Monday closed; the shop's page lists Monday. The page's schema.org says Mo-Th 11:00-19:30; the visible text wins."
+ },
+ {
+  "id": "n3781113864",
+  "name": "Victory Point Cafe",
+  "status": "confirmed",
+  "source": "https://www.victorypointcafe.com/",
+  "evidence": "Regular Hours MON-THURS: 9am-11pm FRI: 9am-1am SAT: 10am-1am SUN: 10am-10pm Holiday Hours THURS 11/26: CLOSED (Normal hours the rest of the week)",
+  "hours": "Mo-Th 09:00-23:00; Fr 09:00-01:00; Sa 10:00-01:00; Su 10:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "Holiday hours ignored; regular hours used. A board-game cafe."
+ },
+ {
+  "id": "n3790822672",
+  "name": "Double Black",
+  "status": "confirmed",
+  "source": "https://yardsale.day/pages/double-black",
+  "evidence": "What are your hours? Our hours are 7 am - 5 pm every day. ... We're located at 925 Cole Street, San Francisco, CA 94117 ... 925 Cole Street is our first and only location.",
+  "hours": "Mo-Su 07:00-17:00",
+  "src": "shop",
+  "late": false,
+  "note": "Closes before 20:00 every day: leaves the late map."
+ },
+ {
+  "id": "n410845445",
+  "name": "Another Cafe",
+  "status": "confirmed",
+  "source": "https://www.anothercafesf.com/about-us/",
+  "evidence": "Hours Everyday from 7:00 am to 8:00 pm (site address: 1191 Pine Street, San Francisco, CA 94109)",
+  "hours": "Mo-Su 07:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "The harvest could not reach the site; read by hand on the second try."
+ },
+ {
+  "id": "n4343748158",
+  "name": "Plentea",
+  "status": "confirmed",
+  "source": "https://plentea.net/contact/",
+  "evidence": "341 Kearny Street (415) 757-0223 Monday-Sunday: 11 a.m. - 11 p.m.",
+  "hours": "Mo-Su 11:00-23:00",
+  "src": "shop",
+  "late": true,
+  "note": "Two shops on the page (Berkeley 12-22); matched by address and phone."
+ },
+ {
+  "id": "n4461165392",
+  "name": "Comforts",
+  "status": "confirmed_second_look",
+  "source": "https://comfortscafe.com/visit/",
+  "evidence": "Hours & Location 335 San Anselmo Ave. ... Marketplace Monday to Friday 8:00am to 5:00pm - Saturday & Sunday 8:00am to 3:00pm Cafe Wednesday to Sunday 8:00am to 2:30pm - Breakfast, Lunch & Weekend Brunch",
+  "hours": "Mo-Tu off; We-Su 08:00-14:30",
+  "src": "shop",
+  "late": false,
+  "guard": "open days differ from OpenStreetMap's: Tu",
+  "note": "Two sets of hours: the sit-down Cafe's are used; the Marketplace (deli counter) keeps Mo-Fr 08:00-17:00, Sa-Su 08:00-15:00. Either way it closes before 20:00 every day and leaves the late map. OSM's 20:00-02:30 / 20:00-15:00 was a slip."
+ },
+ {
+  "id": "n4609012005",
+  "name": "Boba Bliss",
+  "status": "confirmed",
+  "source": "https://www.bobablissofficial.com/",
+  "evidence": "685 San Antonio Rd Business Hours Mon 11:00AM - 9:00 PM ... Thu 11:00 AM - 9:00 PM Fri 11:30 AM - 9:30 PM Sat 11:30 AM- 9:30 PM Sun 11:30 AM - 9:00 PM",
+  "hours": "Mo-Th 11:00-21:00; Fr-Sa 11:30-21:30; Su 11:30-21:00",
+  "src": "shop",
+  "late": true
+ },
+ {
+  "id": "n4909832653",
+  "name": "Finjan Qahwa",
+  "status": "confirmed",
+  "source": "https://finjanqahwa.netlify.app",
+  "evidence": "Hours Mon - Thu 7:00 AM - 10:00 PM Fri - Sat 7:00 AM - 11:00 PM Sunday 7:00 AM - 9:00 PM Visit Us 3188 Mission Street",
+  "hours": "Mo-Th 07:00-22:00; Fr-Sa 07:00-23:00; Su 07:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "OSM's site finjanqahwa.com redirects to this page."
+ },
+ {
+  "id": "n5529666646",
+  "name": "Martha & Bros. Coffe Company",
+  "status": "confirmed",
+  "source": "https://www.marthabros.com/bernal-heights",
+  "evidence": "Bernal Heights 745 Cortland Ave San Francisco, CA 94110 415.642.7585 Mon-Sat: 5:00am - 7:30pm Sunday: 6:00am - 7:00pm",
+  "hours": "Mo-Sa 05:00-19:30; Su 06:00-19:00",
+  "src": "shop",
+  "late": false,
+  "note": "Closes before 20:00 every day: leaves the late map. Three shops on the site; the Bernal Heights page matched by address."
+ },
+ {
+  "id": "n5538811238",
+  "name": "Le Marché Cezanne",
+  "status": "confirmed",
+  "source": "https://www.lemarchecezanne.com/",
+  "evidence": "Le Marche Cezanne 1426 18th street San Francisco, CA 94107 (415)-316-4448 Open Everyday from 8am to 8pm",
+  "hours": "Mo-Su 08:00-20:00",
+  "src": "shop",
+  "late": true,
+  "note": "A French market with an in-store coffee & breakfast menu; could be a deli. The page's phone differs from OSM's."
+ },
+ {
+  "id": "n5773786205",
+  "name": "Chicha San Chen",
+  "status": "confirmed",
+  "source": "https://chichasanchennorcal.com/locations",
+  "evidence": "San Jose 1701 Lundy Ave #170, San Jose, CA 95131 Sun - Thurs 11:30am - 9:30pm Fri - Sat 11:30am - 10:00pm",
+  "hours": "Mo-Th 11:30-21:30; Fr-Sa 11:30-22:00; Su 11:30-21:30",
+  "src": "shop",
+  "late": true,
+  "note": "Online-ordering hours (from 11:35) listed apart; the store's are used."
+ },
+ {
+  "id": "n6501304753",
+  "name": "E Tea",
+  "status": "confirmed",
+  "source": "https://eteasf.com/san-francisco-richmond/",
+  "evidence": "(415) 668-5344 5344 Geary Blvd Hours: Monday- Sunday: 11:30 am - 9:30 pm Open 7 days a week",
+  "hours": "Mo-Su 11:30-21:30",
+  "src": "shop",
+  "late": true,
+  "note": "The store's own page; matched by address (its phone differs from OSM's)."
+ },
+ {
+  "id": "n7553064821",
+  "name": "Tpumps",
+  "status": "confirmed",
+  "source": "https://www.tpumps.com/fremont",
+  "evidence": "Fremont 42130 Blacow Rd Fremont, CA 94538 Store Hours: Open 11:30AM-9PM Daily Holiday Hours: ... Nov 26th Closed Nov 27th 2PM-7PM",
+  "hours": "Mo-Su 11:30-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Holiday hours ignored."
+ },
+ {
+  "id": "n7818293652",
+  "name": "Elaichi",
+  "status": "confirmed",
+  "source": "https://www.elaichico.com/",
+  "evidence": "2161 allston way ste c, berkeley mon-fri 7:30am-9pm · sat 8am-9pm · sun 8am-7pm",
+  "hours": "Mo-Fr 07:30-21:00; Sa 08:00-21:00; Su 08:00-19:00",
+  "src": "shop",
+  "late": true,
+  "note": "Two shops on the page (SF 360 3rd St); matched by address."
+ },
+ {
+  "id": "n9153766717",
+  "name": "Twisted St. Café",
+  "status": "confirmed",
+  "source": "https://www.twistedstcafe.com/",
+  "evidence": "Location & Hours 2320 LOMBARD ST. - SAN FRANCISCO, CA ... Monday - Sunday 7AM - 10PM",
+  "hours": "Mo-Su 07:00-22:00",
+  "src": "shop",
+  "late": true,
+  "note": "The page's schema.org leaves Monday out; the visible text wins and equals OSM."
+ },
+ {
+  "id": "n9790719931",
+  "name": "Manny's",
+  "status": "confirmed_second_look",
+  "source": "https://welcometomannys.com/",
+  "evidence": "HOURS- Open daily, 9AM - 7:30PM ... ADDRESS- 3092 16th St, San Francisco, CA 94103-3417",
+  "hours": "Mo-Su 09:00-19:30",
+  "src": "shop",
+  "late": false,
+  "guard": "open days differ from OpenStreetMap's: Mo",
+  "note": "Closes before 20:00 every day: leaves the late map. OSM has Monday closed; the page says open daily."
+ },
+ {
+  "id": "w114059831",
+  "name": "Tpumps",
+  "status": "confirmed",
+  "source": "https://www.tpumps.com/sanjose",
+  "evidence": "West San Jose 7290 Bollinger Rd San Jose, CA 95129 Store Hours: Open 11:30AM-9PM Daily Special Hours: Nov 26th Closed Nov 27th 2PM-7PM",
+  "hours": "Mo-Su 11:30-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Holiday hours ignored."
+ },
+ {
+  "id": "w237813574",
+  "name": "Copenhagen Bakery & Cafe",
+  "status": "confirmed",
+  "source": "https://copenhagenbakery.com/",
+  "evidence": "Bakery Hours 6:00am-9:00pm daily ... Restaurant Hours Breakfast and Lunch: 7:00am-4:00pm daily Dinner: Tues-Sun: 4:00pm-9:00pm. The bakery is open Monday-Sunday 6am-9pm.",
+  "hours": "Mo-Su 06:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "The bakery counter's hours are the doors; the restaurant's meal service is the kitchen's. Thanksgiving notice ignored."
+ },
+ {
+  "id": "n12875957903",
+  "name": "Cafe Noir",
+  "status": "not_a_cafe",
+  "source": "https://www.cafenoiroak.com/",
+  "evidence": "Welcome to Cafe Noir, where every dish is a celebration of the African diaspora through flavor, memory, and story. Led by Marisa and Steven, partners in life and in the kitchen ... Tuesday: 9am-3:30pm; Dinner 4:30pm-8pm",
+  "note": "A restaurant, by its own page: 'every dish is a celebration of the African diaspora', breakfast-lunch hours plus 'Dinner 4:30pm-8pm' Tuesday to Sunday. The page also says it becomes 'Heirlume' in January 2027."
+ },
+ {
+  "id": "n1491017848",
+  "name": "Wally's Cafe",
+  "status": "not_a_cafe",
+  "source": "https://www.wallys.cafe/",
+  "evidence": "Award-Winning Lebanese & Mediterranean Restaurant | Wally's Cafe (page title); Award-Winning Lebanese & Mediterranean Food in Emeryville, Rocklin & Huntington Beach",
+  "note": "A restaurant, by its own page: its title reads 'Award-Winning Lebanese & Mediterranean Restaurant | Wally's Cafe'."
+ },
+ {
+  "id": "n9704672158",
+  "name": "Van Ness Cafe & Gyros",
+  "status": "not_a_cafe",
+  "source": "https://www.ordervannesscafe.com/",
+  "evidence": "Van Ness Cafe & Gyros is a beloved spot for Mediterranean and Greek cuisine with a halal-friendly twist ... Cuisines Mediterranean Greek Gyro Middle Eastern Salads Sandwiches Wraps",
+  "note": "A restaurant, by its own page: 'a beloved spot for Mediterranean and Greek cuisine', cuisines Mediterranean, Greek, Gyro. Its page gives Mo-We 10:00-24:00, Th-Sa 10:00-02:00, Su 10:00-24:00."
+ },
+ {
+  "id": "n10218931793",
+  "name": "Venus Cafe",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "http://venuscafe-sj.com/",
+  "note": "ConnectTimeout in the harvest and again by hand."
+ },
+ {
+  "id": "n10560594652",
+  "name": "Turn Café x Little Sweet",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://little-sweet.square.site/",
+  "note": "Square site; the fetched page holds only a block for 1253 9th Ave and template placeholders, nothing for 17 Powell St."
+ },
+ {
+  "id": "n10560824582",
+  "name": "i-Tea Milpitas",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.itea-usa.com/",
+  "note": "A 2 KB script shell; no text."
+ },
+ {
+  "id": "n10674834862",
+  "name": "Tea Hut",
+  "status": "skipped",
+  "reason": "location not matched",
+  "page": "https://teahut.us/",
+  "note": "Home page says 'Business Hours 11am-9pm Daily' (equals OSM) but the site names no address anywhere (home, contact, about) and has a 'Find a Tea Hut' link, so more than one shop is possible."
+ },
+ {
+  "id": "n10983331024",
+  "name": "Da Vien Coffee",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.davien.com/store-locator",
+  "note": "Locator lists 279 West Calaveras Boulevard but says 'Opening hours vary by store: check live hours'; no hours in the HTML."
+ },
+ {
+  "id": "n11057490591",
+  "name": "K On The Go",
+  "status": "skipped",
+  "reason": "domain no longer the shop's",
+  "page": "https://kfaminc.com/",
+  "note": "kfaminc.com now serves a casino site."
+ },
+ {
+  "id": "n1116384571",
+  "name": "RareTea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://rareteasm.square.site/",
+  "note": "Square ordering site; no hours in the HTML."
+ },
+ {
+  "id": "n11230453092",
+  "name": "La Crêpe à moi",
+  "status": "skipped",
+  "reason": "page contradicts itself",
+  "page": "https://www.lacrepeamoi.com/",
+  "note": "Visible: 'Monday to , Friday 9 am to 8 pm', 'Thursday :9am to 4pm .sept 10/17/24', 'Saturday and Sunday 8:30 am to 6 pm'; schema.org: Mo closed, Tu-Fr 10:00-18:30, Sa 08:30-16:30, Su closed. A creperie."
+ },
+ {
+  "id": "n1256185225",
+  "name": "La Stazione",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.lastazionesf.com/",
+  "note": "Square ordering site; no hours in the HTML."
+ },
+ {
+  "id": "n1296650491",
+  "name": "MeloMelo",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://melomelo.us/",
+  "note": "A 1.6 KB script shell; no text."
+ },
+ {
+  "id": "n1306273777",
+  "name": "Olympus Caffè & Bakery",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://cafeolympus.com/contact",
+  "note": "GoDaddy site: only 'Open today 11:00 am - 10:00 pm' (the day after Thanksgiving); the week is behind a script. The site also runs a beer garden and lunch & dinner menus: could be a restaurant."
+ },
+ {
+  "id": "n13301796768",
+  "name": "Kiss of Matcha",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.kissofmatcha.com/",
+  "note": "Square site; no hours in the home or contact page HTML. Two shops share the site."
+ },
+ {
+  "id": "n13301796769",
+  "name": "Kiss of Matcha",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.kissofmatcha.com/",
+  "note": "Square site; no hours in the home or contact page HTML. Two shops share the site."
+ },
+ {
+  "id": "n13327429763",
+  "name": "Junbi",
+  "status": "skipped",
+  "reason": "page contradicts itself",
+  "page": "https://junbishop.com/pages/locations",
+  "note": "Junbi - Mountain View 450 San Antonio Rd, Suite K: '10AM - 8PM | SUN - THURS' and '10AM - 9PM | FRI - SUN': Sunday is given two closing times. OSM: Mo-Th 10:00-21:00, Fr-Su 11:00-21:30."
+ },
+ {
+  "id": "n13424836850",
+  "name": "Yummy Future",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://yummy-future.com/",
+  "note": "Hours load by script ('Checking hours…'), and the site shows 'Hours this week … holiday hours apply': this week only, Thanksgiving week."
+ },
+ {
+  "id": "n13608460199",
+  "name": "Tiger Tea and Juice",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://tigerteaandjuice.us/locations.html",
+  "note": "Lists 79 Skyline Plaza with no hours; the only hours in the HTML are commented out, for a San Mateo shop."
+ },
+ {
+  "id": "n13646623298",
+  "name": "Boba Pup",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.bobapup.com/",
+  "note": "Square site; only a hidden template placeholder (Square Inc's address, Mon-Sat 9-5)."
+ },
+ {
+  "id": "n13915669397",
+  "name": "Mochinut",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.mochinut.com/",
+  "note": "Home and about pages: no hours or store list in the HTML. A mochi-doughnut counter: probably not a cafe."
+ },
+ {
+  "id": "n14317288172",
+  "name": "Arisan",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://arisandrinks.square.site/",
+  "note": "Square ordering site; no hours in the HTML."
+ },
+ {
+  "id": "n14330139686",
+  "name": "Lexie’s Frozen Custard",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://lexiesfrozencustard.com/",
+  "note": "TLS certificate is for another host (site not served). A frozen-custard shop: probably not a cafe."
+ },
+ {
+  "id": "n2338836841",
+  "name": "Bean Bag Cafe",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://beanbag.cafe/",
+  "note": "Only the address and phone (601 Divisadero St)."
+ },
+ {
+  "id": "n2453851674",
+  "name": "3 Bees Coffee House",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://www.3beescoffee.com/",
+  "note": "TLS certificate chain incomplete; plain http redirects to the same."
+ },
+ {
+  "id": "n2494531136",
+  "name": "Breaktime Tea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "http://breaktimetea.com/",
+  "note": "The site is only a redirect to /order, which redirects to a bit.ly short link (not followed). Shared with the San Jose shop."
+ },
+ {
+  "id": "n2628201850",
+  "name": "Tea it Up",
+  "status": "skipped",
+  "reason": "site not serving",
+  "page": "https://teaitup.net/",
+  "note": "The host's default cPanel page."
+ },
+ {
+  "id": "n2688829746",
+  "name": "Sweetheart Cafe",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://sweetheart-tea.weebly.com/",
+  "note": "TLS certificate is for another host (Weebly site gone)."
+ },
+ {
+  "id": "n314115490",
+  "name": "Vanne Bistro",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://senshotelberkeley.com/",
+  "note": "Hotel site; Vanne Bistro is described ('serving the best espresso, lattes and pastries') without hours, here or on contact-us."
+ },
+ {
+  "id": "n3380661474",
+  "name": "Beach Monkey Cafe",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://beachmonkeycafe.com/",
+  "note": "HTTP 403 to our fetcher twice."
+ },
+ {
+  "id": "n3807526205",
+  "name": "Tea Era",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "http://teaeracafe.com/",
+  "note": "ConnectionError twice."
+ },
+ {
+  "id": "n4001273405",
+  "name": "Oishii Matcha",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.oishiimatcha.com/home",
+  "note": "Script-built site; no hours in the HTML."
+ },
+ {
+  "id": "n4199814289",
+  "name": "BB Tea",
+  "status": "skipped",
+  "reason": "site gone",
+  "page": "https://bbteastation.kwickmenu.com/",
+  "note": "HTTP 404 twice."
+ },
+ {
+  "id": "n4432132406",
+  "name": "Im Moment Kaffee",
+  "status": "skipped",
+  "reason": "domain no longer the shop's",
+  "page": "https://immomentkaffee.com/",
+  "note": "Redirects to a domain-sale page (expireddomains.com). Not evidence the shop closed."
+ },
+ {
+  "id": "n443372068",
+  "name": "Ritual Coffee Roasters",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://ritualroasters.com/",
+  "note": "ConnectTimeout twice."
+ },
+ {
+  "id": "n4833597321",
+  "name": "Breaktime Tea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "http://breaktimetea.com/",
+  "note": "The site is only a redirect to a bit.ly ordering link (not followed)."
+ },
+ {
+  "id": "n5054869855",
+  "name": "Yummi Hotpot and Tea Cafe",
+  "status": "skipped",
+  "reason": "domain no longer the shop's",
+  "page": "https://yummiteacafe.com/",
+  "note": "The domain serves an open directory of unrelated zip files. Name says hotpot: probably a restaurant."
+ },
+ {
+  "id": "n5195372381",
+  "name": "Cafe Tapioca",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://www.cafetapioca.com",
+  "note": "Square site with only template placeholder hours (Square Inc, Market Street)."
+ },
+ {
+  "id": "n5233334640",
+  "name": "Cafe LaTTea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://cafelattea.com/",
+  "note": "HTTP 429 twice."
+ },
+ {
+  "id": "n5623064563",
+  "name": "Tea Cub Boba & Snack",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "page": "https://teacubbobamv.com/",
+  "note": "ConnectionError twice."
+ },
+ {
+  "id": "n5695221990",
+  "name": "Truewin",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.truewinteausa.com/location",
+  "note": "Wix page lists 34925 Newark Blvd; no hours in the HTML."
+ },
+ {
+  "id": "n5791353017",
+  "name": "Hui Lau Shan",
+  "status": "skipped",
+  "reason": "ordering hours only",
+  "page": "https://hlsberkeley.smartonlineorder.com/",
+  "note": "'Online Ordering Currently Closed. Hours: MON-FRI 1:30pm-9:15pm & SAT-SUN 12:30pm-9:15pm.' That is the ordering window; the doors are not given."
+ },
+ {
+  "id": "n5891198685",
+  "name": "Barbary Coast",
+  "status": "skipped",
+  "reason": "domain no longer the shop's",
+  "page": "http://barbarycoastsf.org/",
+  "note": "A parked-domain page."
+ },
+ {
+  "id": "n6501304768",
+  "name": "NaYa Dessert Cafe",
+  "status": "skipped",
+  "reason": "page contradicts itself",
+  "page": "https://www.nayadessertcafe.com/",
+  "note": "Geary (5338 Geary Blvd, 415-213-5308): 'Mon to Fri 5 to mid night, Sat and Sun noon to mid night' and further down 'Mon - Thur 5:00 pm - 12:30 am, Friday 5:00 pm - 1:00 am, Sat - Sun 12:00 pm - 1:00 am'."
+ },
+ {
+  "id": "n6514602216",
+  "name": "Boba Bliss",
+  "status": "skipped",
+  "reason": "domain no longer the shop's",
+  "page": "https://www.bobablisscafe.com/",
+  "note": "Redirects to a parked '/lander' page."
+ },
+ {
+  "id": "n8014831223",
+  "name": "Rare Tea",
+  "status": "skipped",
+  "reason": "site gone",
+  "page": "https://www.rareteausa.com/",
+  "note": "HTTP 404 twice."
+ },
+ {
+  "id": "n8388606979",
+  "name": "Kung Fu Tea",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.kungfutea.com/locations/usa/",
+  "note": "Chain locator built by script; no stores in the HTML. Would be src brand."
+ },
+ {
+  "id": "n9339818287",
+  "name": "Joy's Place",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://joysplacecafe.com/",
+  "note": "Only the address (611 Post Street) and phone."
+ },
+ {
+  "id": "n9417009224",
+  "name": "NaYa Dessert Cafe",
+  "status": "skipped",
+  "reason": "page contradicts itself",
+  "page": "https://www.nayadessertcafe.com/",
+  "note": "Octavia (535 Octavia St, 415-926-8638): 'Everyday noon to 11 pm' and further down 'Everyday noon to mid-night'; schema.org: Monday closed, Tu-Su 12:00-23:00."
+ },
+ {
+  "id": "n9441367641",
+  "name": "Bloomsgiving",
+  "status": "skipped",
+  "reason": "location not matched",
+  "page": "https://www.bloomsgiving.com/",
+  "note": "The site lists only 1875 S Bascom Ave, Campbell (Mo-Tu closed, We-Sa 12-18); nothing for 301 Castro St, Mountain View. A florist with coffee."
+ },
+ {
+  "id": "n9657095566",
+  "name": "Little Sweet at K-Box",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://www.little-sweet.com/",
+  "note": "Lists Japantown 1660 Geary Blvd # B with no hours; the page's schema.org is the 3836 Geary Blvd shop's."
+ },
+ {
+  "id": "n9725659670",
+  "name": "Mr. Sun",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.mrsuntea.com/en/",
+  "note": "No hours in the fetched HTML; a second fetch got HTTP 403."
+ },
+ {
+  "id": "n9898120411",
+  "name": "Cozy Tea Loft",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.cozytealoftsj.com/",
+  "note": "Square ordering site; no hours in the HTML."
+ },
+ {
+  "id": "n9984280336",
+  "name": "Milk Tea Lab",
+  "status": "skipped",
+  "reason": "no hours on the page",
+  "page": "https://milktealabs.com/find-us/",
+  "note": "Find-us page lists 630 El Camino Real, South San Francisco, (650)745-8612 with no hours."
+ },
+ {
+  "id": "n10128628588",
+  "name": "Sunright Tea Studio - Milpitas",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.toasttab.com/sunright-tea-studio-milpitas/v3",
+  "note": "Toast ordering page: HTTP 403 to our fetcher twice."
+ },
+ {
+  "id": "n10160932449",
+  "name": "Capital One 360 Cafe",
+  "status": "needs_browser",
+  "reason": "needs a browser",
+  "page": "https://www.capitalone.com/local/santaclara-westfield-valleyfair/",
+  "note": "Capital One's own cafe page for Valley Fair: hours load by script. Would be src brand. A bank branch with a cafe."
+ }
+]

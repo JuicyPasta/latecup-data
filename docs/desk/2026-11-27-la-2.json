@@ -1,0 +1,784 @@
+[
+ {
+  "id": "n14071579641",
+  "name": "Mehfil Chai & Coffee",
+  "status": "confirmed",
+  "hours": "Mo-Fr 08:00-21:00; Sa-Su 09:00-21:00",
+  "source": "https://mehfilcafe.com/",
+  "src": "shop",
+  "evidence": "82 S Lake Ave, Suite 101 Pasadena, CA 91101 / Monday-Friday · 8am-9pm / Saturday-Sunday · 9am-9pm",
+  "note": "The page's schema.org block for the same address says the same."
+ },
+ {
+  "id": "n14097735943",
+  "name": "One Piece Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+  "source": "https://www.onepiececafe.com/",
+  "src": "shop",
+  "evidence": "One Piece Cafe Los Angeles / 241 San Pedro St. Los Angeles, CA 90012 / Mon - Thurs 11:00 AM 9:00 PM / Fri - Sun 11:00 AM 10:00 PM",
+  "note": "The page also lists Las Vegas (Sun-Thurs 11-8, Fri-Sat 11-9); those are not this place's."
+ },
+ {
+  "id": "n14098108513",
+  "name": "rōk",
+  "status": "confirmed",
+  "hours": "Mo-Th 07:00-22:00; Fr-Su 07:00-24:00",
+  "source": "https://rokcoffeeandtea.com/",
+  "src": "shop",
+  "evidence": "rōk Wilshire / 3435 Wilshire Blvd Ste 123 / Mon - Thurs 7 am - 10 pm / Fri - Sun 7 am - 12 am",
+  "note": "The page's Thanksgiving (7 am - 7:30 pm) and Black Friday lines are ignored. Eight branches on the page; matched by street address."
+ },
+ {
+  "id": "n14335299887",
+  "name": "rōk",
+  "status": "confirmed",
+  "hours": "Mo-Th,Su 08:00-22:00; Fr-Sa 08:00-23:00",
+  "source": "https://rokcoffeeandtea.com/",
+  "src": "shop",
+  "evidence": "rōk Olympic, K-town / 3060 W Olympic Blvd #150 / Sun - Thurs 8 am - 10 pm / Fri - Sat 8 am - 11 pm",
+  "note": "The page's Thanksgiving and Black Friday lines are ignored. Matched by street address."
+ },
+ {
+  "id": "n14102224769",
+  "name": "Jam Jam Tea Lab",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+  "source": "https://www.jamjamtea.com/location",
+  "src": "shop",
+  "evidence": "IRVINE 92 CORPORATE PARK IRVINE, CA 92606 / Mon.-Thur. 11 AM - 9 PM / Fri.-Sun. 11 AM - 10 PM / ORDER PICK UP - IRVINE",
+  "note": "Squarespace grid: the hours block sits between the Irvine address and the Irvine pick-up button (rows 9-22 on mobile)."
+ },
+ {
+  "id": "n14311131582",
+  "name": "Jam Jam Tea & Moments",
+  "status": "confirmed",
+  "hours": "Mo-Th 11:00-21:00; Fr-Su 11:00-22:00",
+  "source": "https://www.jamjamtea.com/location",
+  "src": "shop",
+  "evidence": "OLD TOWN PASADENA 16 W COLORADO BLVD PASADENA, CA 91105 / Mon.-Thur. 11 AM - 9 PM / Fri.-Sun. 11 AM - 10 PM / ORDER PICK UP - PASADENA",
+  "note": "Squarespace grid: the hours block sits between the Pasadena address and the Pasadena pick-up button (rows 78-93 on mobile)."
+ },
+ {
+  "id": "n14122016895",
+  "name": "Yolo's Cafe",
+  "status": "confirmed",
+  "hours": "Mo,We-Th,Su 11:30-20:00; Fr-Sa 11:30-21:00",
+  "source": "https://yoloscafe.com/",
+  "src": "shop",
+  "evidence": "schema.org CafeOrCoffeeShop, 14220 Bellflower Blvd Bellflower 90706: Monday, Wednesday, Thursday, Sunday 11:30-20:00; Friday, Saturday 11:30-21:00 (six days listed, no Tuesday)",
+  "note": "schema.org only: the site is a script-rendered app with no hours in its text. Accepted because it equals OpenStreetMap's hours. Its image comes from Yelp's CDN, so the site's maker may have copied the hours from a listing."
+ },
+ {
+  "id": "n14143991501",
+  "name": "Summerfield Tea Bar",
+  "status": "confirmed",
+  "hours": "Mo-Su 09:30-01:00",
+  "source": "https://www.summerfieldteabar.com/",
+  "src": "shop",
+  "evidence": "OPEN DAILY 9:30 AM TO 1 AM / OPEN From 9:30 AM to 1:00 AM / 12460 S Euclid St",
+  "note": ""
+ },
+ {
+  "id": "n14206610701",
+  "name": "Sana'a Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Tu 06:00-24:00; We 06:00-23:00; Th-Su 06:00-24:00",
+  "source": "https://www.thesanaacafe.com/locations",
+  "src": "brand",
+  "evidence": "Chain locator, schema.org CafeOrCoffeeShop 'Lake Forest', 22621 Lake Forest Dr, +1 949-397-0100: Mo, Tu, Th-Su opens 06:00 closes 00:00; We opens 06:00 closes 23:00. Visible: 'Open today: 6:00 AM - 12:00 AM' (Friday)",
+  "note": "Read from the chain's own locator (21 stores), per store by address and phone. Only today's hours are visible text; the week is the locator's schema.org. The Wednesday 23:00 is as the locator gives it (no other store has it)."
+ },
+ {
+  "id": "n14256514890",
+  "name": "Chamberlain Coffee",
+  "status": "confirmed",
+  "hours": "Mo-Th 08:00-21:00; Fr-Sa 08:00-22:00; Su 08:00-20:00",
+  "source": "https://chamberlaincoffee.com/pages/chamberlain-coffee-cafe",
+  "src": "shop",
+  "evidence": "Century City Cafe: 10250 Santa Monica Blvd, Century City, CA 90067 Monday - Thursday, 8am-9pm; Friday - Saturday, 8am-10pm; Sunday 8am-8pm",
+  "note": "The page says of its newer Abbot Kinney café 'Unlike our first café, the space invites guests to stay', so the Century City café may have little seating."
+ },
+ {
+  "id": "n14365996821",
+  "name": "Dreamland Anime Cafe",
+  "status": "confirmed",
+  "hours": "Mo,We-Su 11:30-21:00; Tu off",
+  "source": "https://dreamlandanimecafe.com/",
+  "src": "shop",
+  "evidence": "Café hours 11:30 AM to 9 PM Every day except Tuesday / Last seating 8:15 PM · To-go until 8:30 PM / 1281 E. La Habra Blvd. #6",
+  "note": "'Closed Thanksgiving, Nov 26' ignored. Doors 21:00 as the page gives them; last seating 20:15."
+ },
+ {
+  "id": "n2875645777",
+  "name": "AU79 Tea House",
+  "status": "confirmed",
+  "hours": "Mo-Tu,Th,Su 11:00-21:30; We off; Fr-Sa 11:00-22:00",
+  "source": "https://www.au79teahouse.com/",
+  "src": "shop",
+  "evidence": "Business Hours Change Starting 2026 ... January 1, 2026: Monday 11:00 AM - 9:30 PM, Tuesday 11:00 AM - 9:30 PM, Wednesday: CLOSED, Thursday 11:00 AM - 9:30 PM, Friday 11:00 AM - 10:00 PM, Saturday 11:00 AM - 10:00 PM, Sunday 11:00 AM - 9:30 PM. Kitchen Hour: 11:00 AM - 9:00 PM, daily",
+  "note": "Store hours, not the kitchen's. The page's older 'OPENING HOURS' block (Sun-Thu 11-9:30, Fri-Sat 11-10) sits under a 'NEW HOURS STARTING 2026 ... Wednesday: CLOSED' block, so the 2026 hours are the current ones. Thanksgiving special hours ignored. Business location in the page data: 815 W Naomi Ave Ste G, Arcadia.",
+  "second_look": "2026-11-27"
+ },
+ {
+  "id": "n3013312920",
+  "name": "Bru Coffeebar",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-18:00",
+  "source": "https://www.brucoffeebar.com/",
+  "src": "shop",
+  "evidence": "LOCATION 1866 N Vermont Ave. Los Angeles, CA 90027 / HOURS Monday - Sunday 7AM to 6PM",
+  "note": ""
+ },
+ {
+  "id": "n3181482548",
+  "name": "Urth Caffé",
+  "status": "confirmed",
+  "hours": "Mo-Th,Su 07:00-22:00; Fr-Sa 07:00-23:00",
+  "source": "https://www.urthcaffe.com/pasadena",
+  "src": "brand",
+  "evidence": "schema.org on the chain's Pasadena page: 'Urth Caffé Pasadena', 594 E. Colorado Blvd. Pasadena 91101, 6268444644: Mo-Th 07:00-22:00, Fr-Sa 07:00-23:00, Su 07:00-22:00",
+  "note": "schema.org only (the visible hours load by script); accepted because it is the chain's own per-store page and equals OpenStreetMap's hours. A second fetch was refused (HTTP 403); this is the harvest's reading."
+ },
+ {
+  "id": "n3840429389",
+  "name": "Follow Your Heart Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 10:30-20:00",
+  "source": "https://www.theheartmarketcafe.com/",
+  "src": "shop",
+  "evidence": "Our Hours & Address / MARKET Daily 9AM - 9PM / CAFÉ Daily 10:30AM - 8PM / BRUNCH Saturday, Sunday & Select Holidays 9AM - 3PM / 21825 Sherman Way Canoga Park 91303",
+  "note": "The café's hours, not the market's. The shop's own site, linked as 'Click here to visit the Follow Your Heart Market & Cafe website' from the OSM link (followyourheart.com). Weekend brunch from 9AM is a menu line and not used for the opening time. A vegetarian café-restaurant inside a grocery."
+ },
+ {
+  "id": "n3946400269",
+  "name": "Wonder Cha",
+  "status": "confirmed",
+  "hours": "Mo,Su 11:30-20:00; Tu-Th 11:30-21:00; Fr-Sa 11:30-22:00",
+  "source": "https://wondercha.com/",
+  "src": "shop",
+  "evidence": "10401 Venice Blvd. #102 / Open Hours Open @ 11:30AM Every Day / Closing Times Sun-Mon @ 8PM / Tues-Thurs @ 9PM / Fri-Sat @ 10pm",
+  "note": "Visible text; the page's two schema.org blocks disagree with it and with each other (one has Sunday to 21:00, the other 11:30-21:00 daily)."
+ },
+ {
+  "id": "n4084455197",
+  "name": "Crave Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Th 08:00-01:00; Fr-Sa 08:00-03:00; Su off",
+  "source": "https://cravestudiocity.com/",
+  "src": "shop",
+  "evidence": "location 11992 Ventura Blvd Studio City, CA 91604 (818) 763-9000 / hours Monday - Thursday: 8:00 AM - 1:00 AM / Friday - Saturday: 8:00 AM - 3:00 AM",
+  "note": "Six days listed, no Sunday (OpenStreetMap has no Sunday either). The contact page heads the same two lines 'Monday to Sunday' but gives no Sunday hours. The OSM link (cravecafestudiocity.com) redirects here; the host's TLS certificate is for mail.cravestudiocity.com, so the page was read without certificate checking."
+ },
+ {
+  "id": "n5253160938",
+  "name": "Wonder Bakery",
+  "status": "confirmed",
+  "hours": "Mo-Th,Su 10:00-18:00; Fr-Sa 10:00-21:00",
+  "source": "https://www.wonderbakery.com/",
+  "src": "shop",
+  "evidence": "OPENING HOURS: Mon - Thur & Sun:10am - 6pm / Fri - Sat: 10am - 9pm / ADDRESS: 943 N Broadway Los Angeles, CA 90012 Tel: 213-680-1111",
+  "note": "Second look 2026-11-27: the page still lists Sunday 10am-6pm; OpenStreetMap had Sunday off. A cake bakery; the page says nothing about seats or coffee.",
+  "second_look": "2026-11-27"
+ },
+ {
+  "id": "n5294488109",
+  "name": "Odd One Out Tea",
+  "status": "confirmed",
+  "hours": "Mo-Su 12:00-22:00",
+  "source": "https://www.oootea.world/locations.html",
+  "src": "shop",
+  "evidence": "Sawtelle / 11301 W. Olympic Blvd, Los Angeles, CA 90064 / Mon-Sun: 12pm-10pm",
+  "note": ""
+ },
+ {
+  "id": "n6275667748",
+  "name": "Odd One Out",
+  "status": "confirmed",
+  "hours": "Mo-Th,Su 11:45-21:00; Fr-Sa 11:45-22:00",
+  "source": "https://www.oootea.world/locations.html",
+  "src": "shop",
+  "evidence": "Pasadena / 14 South Fair Oaks Ave, Pasadena, CA 91105 / Sun-Thu: 11:45am-9pm; Fri-Sat: 11:45am-10pm",
+  "note": "The OSM link (www.oootea.world/) has no hours; this is the same site's locations page."
+ },
+ {
+  "id": "n5338489423",
+  "name": "Yuko Kitchen",
+  "status": "confirmed",
+  "hours": "Mo-We 11:00-17:30; Th-Sa 11:00-19:30; Su off",
+  "source": "https://www.yukokitchen.com/",
+  "src": "shop",
+  "evidence": "Yuko Kitchen DTLA / 101 West 5th St Los Angeles, CA 90013 / (213)-266-0046 / Mondays - Wednessdays 11am - 530pm / Thursdays - Saturdays 11am - 730pm / Sundays CLOSED",
+  "note": "The page's other branch (Miracle Mile, 5484 Wilshire) keeps later hours; not this place's. 'Serving Japanese Delicious Comfort Food Since 2009': a restaurant more than a café."
+ },
+ {
+  "id": "n5460841725",
+  "name": "Pandor Bakery and Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 07:00-18:00",
+  "source": "https://www.pandorbakery.com/location/pandor-bakery-newport-beach/",
+  "src": "shop",
+  "evidence": "Newport Beach Hours & Location / Westcliff Plaza Shopping Center, 1126 Irvine Ave #A, Newport Beach, CA 92660 / 949-209-5099 / Open Daily 7:00 am - 6:00 pm",
+  "note": "Holiday early closes (Thanksgiving 4 PM etc.) ignored."
+ },
+ {
+  "id": "n6027262319",
+  "name": "Boba Junkie",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-22:00",
+  "source": "https://www.bobajunkie.com/locations",
+  "src": "shop",
+  "evidence": "Boba Junkie - Santa Ana / 1200 W. Warner Ave Unit B Santa Ana, CA 92707 / (657) 267-0220 / Monday - Sunday: 11:00 am - 10:00 pm",
+  "note": "The page's schema.org for the same address says the same."
+ },
+ {
+  "id": "n6254896537",
+  "name": "Porto's Bakery and Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 06:30-20:30",
+  "source": "https://www.portosbakery.com/locations/",
+  "src": "shop",
+  "evidence": "Glendale / 315 N. Brand Blvd | Glendale, CA 91203 / 818.956.5996 / Daily Preorder Pickup | 7:00a - 7:30p / Dine-in Hours Daily | 6:30a - 8:30p / Holiday Hours Friday, 11/27 | All Bakeries Closed",
+  "note": "Dine-in hours, not the pre-order pickup window. Today's holiday closure ignored."
+ },
+ {
+  "id": "n6422143296",
+  "name": "La Monarca Bakery",
+  "status": "confirmed",
+  "hours": "Mo-Su 06:00-21:00",
+  "source": "https://lamonarcabakery.com/pages/locations",
+  "src": "shop",
+  "evidence": "NEW HOURS: MON-SUN 6AM-9PM / SOUTH PASADENA / PHONE (626) 403-6860 / 1001 Mission St. South Pasadena, CA 91030",
+  "note": "The hours line is the card title of the South Pasadena card (same multicolumn__info element)."
+ },
+ {
+  "id": "n8459928417",
+  "name": "La Monarca Bakery & Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 06:00-22:00",
+  "source": "https://lamonarcabakery.com/pages/locations",
+  "src": "shop",
+  "evidence": "NEW HOURS: MON-SUN 6AM-10PM / HIGHLAND PARK / PHONE (323) 507-2515 / 5835 North Figueroa St, Los Angeles, CA 90042",
+  "note": "The hours line is the card title of the Highland Park card."
+ },
+ {
+  "id": "n6422326416",
+  "name": "Tpumps Boba",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:30-21:00",
+  "source": "https://www.tpumps.com/pasadena",
+  "src": "shop",
+  "evidence": "Pasadena 524 S Lake Ave Pasadena, CA 91101 / Store Hours: Open 11:30AM-9PM Daily",
+  "note": "Holiday hours on the page (Nov 26 closed, Nov 27 2PM-7PM, Dec 24/25/31, Jan 1, July 4) ignored."
+ },
+ {
+  "id": "n6450887874",
+  "name": "Churros Calientes",
+  "status": "confirmed",
+  "hours": "Mo-Tu off; We-Th 18:30-23:30; Fr 18:30-24:00; Sa 17:30-24:00; Su 17:30-23:30",
+  "source": "https://churroscalientes.com/",
+  "src": "shop",
+  "evidence": "Open Hours We're open Monday Closed / Tuesday Closed / Wednesday 6:30 PM - 11:30 PM / Thursday 6:30 PM - 11:30 PM / Friday 6:30 PM - 12:00 AM / Saturday 5:30 PM - 12:00 AM / Sunday 5:30 PM - 11:30 PM / located ... at 11521 Santa Monica Blvd",
+  "note": "Second look 2026-11-27: the page says Tuesday Closed; OpenStreetMap had Tuesday open (Tu-Su 17:00-23:30).",
+  "second_look": "2026-11-27"
+ },
+ {
+  "id": "n7455401185",
+  "name": "Factory Tea Bar",
+  "status": "confirmed",
+  "hours": "Mo-Th,Su 12:00-23:00; Fr-Sa 12:00-02:00",
+  "source": "https://factoryteabar.com/locations/san-gabriel",
+  "src": "shop",
+  "evidence": "323 S Mission Dr San Gabriel CA 91776 (626) 872-2969 / Hours Sunday 12 PM - 11 PM ... Thursday 12 PM - 11 PM / Friday 12 PM - 2 AM / Saturday 12 PM - 2 AM",
+  "note": "The home page's San Gabriel card says the same (Sun - Thu 12 PM - 11 PM, Fri - Sat 12 PM - 2 AM)."
+ },
+ {
+  "id": "n7996697201",
+  "name": "The Library",
+  "status": "confirmed",
+  "hours": "Mo-Su 06:00-23:00",
+  "source": "https://thelibrarycoffee.com/",
+  "src": "shop",
+  "evidence": "3418 E Broadway (562) 433-2393 / Open Daily • 6:00 AM - 11:00 PM / Opening Hours Monday 6:00 AM - 11:00 PM ... Sunday 6:00 AM - 11:00 PM",
+  "note": ""
+ },
+ {
+  "id": "n8014492660",
+  "name": "Boba Truck Cafe",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-20:00",
+  "source": "https://www.thebobatruck.com/",
+  "src": "shop",
+  "evidence": "8323 Reseda Blvd. Northridge, CA 91324 / OPEN DAILY: 11AM - 8PM",
+  "note": ""
+ },
+ {
+  "id": "n8092872803",
+  "name": "JJ Bakery",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-20:00",
+  "source": "https://www.jjbakeryusa.com/temple-city",
+  "src": "shop",
+  "evidence": "Temple City / 5755 ROSEMEAD BLVD., TEMPLE CITY, CA 91780 / 626-287-2588 / BAKERY MON-SUN | 8AM - 8PM / CAFE MON-SUN | 11AM - 8PM",
+  "note": "The café's hours (sit-down); the bakery counter opens at 8AM. Matched by phone: the page's address is 5755 Rosemead Blvd, OpenStreetMap's is 5575."
+ },
+ {
+  "id": "n8241350267",
+  "name": "Stirred Roasters Coffee House",
+  "status": "confirmed",
+  "hours": "Mo-Sa 06:00-24:00; Su 07:00-24:00",
+  "source": "https://stirred-roasters-coffee-house.ueniweb.com/contact-us",
+  "src": "shop",
+  "evidence": "Opening Hours Sunday 7:00 AM - 12:00 AM / Monday 6:00 AM - 12:00 AM / ... / Saturday 6:00 AM - 12:00 AM / 13295 South St",
+  "note": "A UENI-built site (the OSM website)."
+ },
+ {
+  "id": "n8241879776",
+  "name": "Tea Maru",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:30-22:30",
+  "source": "https://teamaru.us/",
+  "src": "shop",
+  "evidence": "Tea maru - San gabriel 709 W Las Tunas Dr, San Gabriel, CA 91776 (626)225-2821 ORDER ONLINE Hours Monday-Sunday 11:30AM - 10:30PM",
+  "note": "The page's other branches (724 S Spring St, 1951 E Dyer Rd) have their own lines."
+ },
+ {
+  "id": "n8569870516",
+  "name": "B Sweet",
+  "status": "confirmed",
+  "hours": "Mo-Th off; Fr 18:00-23:00; Sa 12:00-23:00; Su 12:00-22:00",
+  "source": "https://www.mybsweet.com/bsweetdessertbar",
+  "src": "shop",
+  "evidence": "2005 SAWTELLE BLVD. LOS ANGELES, CA 90025 / 424.248.3664 / CURRENT HOURS: MONDAY: CLOSED / TUESDAY: CLOSED / WEDNESDAY: CLOSED / THURSDAY: CLOSED / FRIDAY: 6:00PM - 11:00PM / SATURDAY: 12:00PM - 11:00PM / SUNDAY: 12:00PM - 10:00PM",
+  "note": "Second look 2026-11-27: Monday to Thursday closed, as OpenStreetMap also has; the page's 'We're open till 11pm Friday and Saturday!' agrees. The Koreatown branch on the same page is closed for the season; not this place.",
+  "second_look": "2026-11-27"
+ },
+ {
+  "id": "n8756620422",
+  "name": "Volcano Tea House",
+  "status": "confirmed",
+  "hours": "Mo-Su 10:30-24:00",
+  "source": "https://www.volcanoteahouse2111.com/",
+  "src": "shop",
+  "evidence": "2111 Sawtelle Blvd, Los Angeles, CA 90025 / Hours Mon - Sun: 10:30 AM - 12 AM",
+  "note": ""
+ },
+ {
+  "id": "n8855515462",
+  "name": "Milksha",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-21:00",
+  "source": "https://www.milksha.us/pages/locations/in-los-angeles-ca-1009-Broxton-Avenue",
+  "src": "brand",
+  "evidence": "1009 Broxton Avenue, Los Angeles, California, 90024 / Service Options and Hours / Monday 11:00 AM - 9:00 PM ... Sunday 11:00 AM - 9:00 PM",
+  "note": "The chain's own per-store page; one set of hours."
+ },
+ {
+  "id": "n8925239716",
+  "name": "3Catea Bubble Tea",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:00-22:00",
+  "source": "https://www.3catea.com/location",
+  "src": "shop",
+  "evidence": "CITY OF INDUSTRY / 18215 GALE AVE CITY OF INDUSTRY CA 91748 / MONDAY ... SUNDAY / 11AM - 10PM (seven times)",
+  "note": "The next card (San Gabriel) has the same hours, so the Wix block order cannot pair the wrong ones."
+ },
+ {
+  "id": "n9156595975",
+  "name": "Oh My Pan Bakery & Tea",
+  "status": "confirmed",
+  "hours": "Mo-Su 09:00-20:00",
+  "source": "https://www.ohmypan.com/contact-us",
+  "src": "shop",
+  "evidence": "801 E Valley Blvd #105, San Gabriel, CA 91776 / Monday - Sunday 9:00 AM - 8:00 PM",
+  "note": ""
+ },
+ {
+  "id": "n9576344210",
+  "name": "Requiem: Coffee, Tea, and Fantasy",
+  "status": "confirmed",
+  "hours": "Mo-Th 12:00-22:00; Fr-Sa 12:00-23:00; Su 12:00-21:00",
+  "source": "https://www.requiemcafe.com/",
+  "src": "shop",
+  "evidence": "HOURS MON - THURS 12 PM TO 10PM / FRI - SAT 12PM TO 11PM / SUN 12PM TO 9PM / 280 S CLEMENTINE STREET ANAHEIM, CA 92805 TEL.714-844-2245",
+  "note": "Visible text. The page's schema.org disagrees on two days (Monday closed, Sunday to 22:00); the visible hours are used, as docs/accuracy.md says."
+ },
+ {
+  "id": "n9856598604",
+  "name": "Howdy's",
+  "status": "confirmed",
+  "hours": "Mo-Su 09:00-19:00",
+  "source": "https://howdyscafe.com/",
+  "src": "shop",
+  "evidence": "23401 Civic Center Way, Suite 3A / Hours / Howdy's Sonrisa Cafe Mon -Sun 9:00 a.m to 7:00 p.m / Malibu Sushi Mon - Sun 11:00 a.m to 9:00 p.m",
+  "note": "The café's hours, not the sushi bar's. The page sells it as a Mexican-fusion restaurant ('We are taking online reservations!')."
+ },
+ {
+  "id": "w186387005",
+  "name": "Better Buzz Coffee",
+  "status": "confirmed",
+  "hours": "Mo-Su 04:30-23:00",
+  "source": "https://betterbuzzcoffee.com/pages/locations",
+  "src": "brand",
+  "evidence": "Fullerton CAFE + DRIVE THRU / 1329 S. Harbor Blvd. Fullerton, CA 92832 / Thanksgiving: 4:30am-4pm / Daily: 4:30am-11pm / 657-660-1001",
+  "note": "The chain's own locator; the Thanksgiving line ignored."
+ },
+ {
+  "id": "w265349101",
+  "name": "Cafe Demitasse",
+  "status": "confirmed",
+  "hours": "Mo-Fr,Su 07:00-16:00; Sa 07:00-17:00",
+  "source": "https://cafedemitasse.com/pages/coffee-bars",
+  "src": "shop",
+  "evidence": "Santa Monica / 1149 Third Street Santa Monica, CA 90403 / Sunday - Friday · 7am - 4pm / Saturday · 7am - 5pm",
+  "note": ""
+ },
+ {
+  "id": "w317011640",
+  "name": "Literati Cafe",
+  "status": "confirmed",
+  "hours": "Mo-We 07:00-15:00; Th-Fr 07:00-21:00; Sa 08:00-21:00; Su 08:00-20:00",
+  "source": "https://www.literaticafe.com/hours-location",
+  "src": "shop",
+  "evidence": "Hours Mon, Tue, Wed: 7am-3pm / Th, Fri: 7am-9pm / Sat: 8am-9pm / Sun: 8am-8pm / Address 12081 Wilshire Blvd / New Extended Hours: We are now serving dinner Thursday - Sunday!",
+  "note": "The page gives the same table twice."
+ },
+ {
+  "id": "w352617106",
+  "name": "Macu Tea",
+  "status": "confirmed",
+  "hours": "Mo-Su 11:30-20:30",
+  "source": "https://macutea.com.tw/en/shop.php",
+  "src": "brand",
+  "evidence": "SoCal Irvine771 ADDRESS 6608 Irvine Center Dr, Irvine, CA 92618 TEL +1(949)418-8001 OPEN 11:30AM-8:30PM",
+  "note": "The chain's store list gives day ranges where a store's days differ; this store's line has none, so it is read as every day."
+ },
+ {
+  "id": "n13955712030",
+  "name": "Liu's Cafe",
+  "status": "not_a_cafe",
+  "source": "https://liuscafe.com/",
+  "evidence": "schema.org on the shop's page: \"@type\": \"Restaurant\", \"award\": \"Michelin Bib Gourmand 2024, 2025, 2026\"; menu of rice plates, noodle soups and wontons; 'Dining at Liu's feels nostalgic: the charm of a mid-century American diner'",
+  "note": "A Taiwanese / Hong Kong restaurant (Michelin Bib Gourmand). Its hours would have been 'Wed - Sun · 11:00am - 9:00pm' (Mon-Tue not stated)."
+ },
+ {
+  "id": "n5434491034",
+  "name": "All Time",
+  "status": "not_a_cafe",
+  "source": "https://www.alltimelosangeles.com/",
+  "evidence": "Reservations (Resy) / Private Dining / Wine Club / Breakfast & Lunch 8a-3p Daily / Dinner 5p-10p Daily",
+  "note": "A restaurant with dinner service and reservations."
+ },
+ {
+  "id": "n5853191777",
+  "name": "The Woods WeHo",
+  "status": "not_a_cafe",
+  "source": "https://thewoodsweho.com/",
+  "evidence": "West Hollywood's Premier Cannabis Lounge & Dispensary / The Woods is a licensed cannabis dispensary and consumption lounge / Dispensary: 9 am - 9:50 pm Daily / Lounge: 9:30 am - 10 pm Daily",
+  "note": "A cannabis dispensary and consumption lounge (21+), not a café."
+ },
+ {
+  "id": "n14414980392",
+  "name": "My LiL Cafe",
+  "status": "not_a_cafe",
+  "source": "https://myliltowneg.com/",
+  "evidence": "MY LIL TOWN A HANDS ON LEARNING ENVIRONMENT FOR KIDS / Admission & Pricing First Child: $25 / FOR OPEN PLAY HOURS Please call or text / 5015 Eagle Rock Blvd #100 / P: 818-402-8488",
+  "note": "A children's indoor play centre with paid admission; the page mentions no café. Phone matches OSM's."
+ },
+ {
+  "id": "n13958399237",
+  "name": "… And Destroy Coffee",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "source": "https://www.anddestroy.coffee/",
+  "note": "Squarespace site: events, table reservations and loyalty only."
+ },
+ {
+  "id": "n13979109975",
+  "name": "Jiu Ji Dessert",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "source": "https://www.jiujidessert.com/",
+  "note": "ConnectTimeout twice (harvest and by hand)."
+ },
+ {
+  "id": "n14000651441",
+  "name": "Matcha Ren",
+  "status": "skipped",
+  "reason": "no matching location",
+  "source": "https://www.matcharen.com/",
+  "note": "matcharen.com redirects to unitedmatcha.co, whose location page lists San Jose, Costa Mesa and Arcadia only; nothing at 950 E 3rd St."
+ },
+ {
+  "id": "n14006996433",
+  "name": "Cyclops Coffee",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://lbcyclops.com/",
+  "note": "HTTP 403 to the harvest and by hand."
+ },
+ {
+  "id": "n14145080198",
+  "name": "Junbi Matcha & Tea",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://www.junbimatcha.com/",
+  "note": "Root page HTTP 404, /locations ConnectionError, root again 404."
+ },
+ {
+  "id": "n14159891001",
+  "name": "Boba Cucue",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://bobacucue.com/",
+  "note": "Locations page is filled in by script (pages.js / merged.js); no hours in the fetched page."
+ },
+ {
+  "id": "n14229478006",
+  "name": "Criterion Coffee",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "source": "http://criterioncoffee.us/",
+  "note": "HTTP 500 twice."
+ },
+ {
+  "id": "n1866275218",
+  "name": "Tea Spots",
+  "status": "skipped",
+  "reason": "branch not matched by address",
+  "source": "https://www.myteaspots.com/",
+  "note": "Page (Weebly/Square data) says 'Business Hours : Pasadena 11am-11pm Everyday / West Covina 12-10pm Sun-Thur, 12-11pm Fri-Sat' with no street address or phone. It agrees with OSM (11:00-23:00)."
+ },
+ {
+  "id": "n2165685719",
+  "name": "Ten Forward Coffee and Tea Lounge",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "http://www.10forwardcoffee.com/",
+  "note": "www.10forwardcoffee.com: NXDOMAIN."
+ },
+ {
+  "id": "n2956260905",
+  "name": "Straw & Spoon",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "source": "https://www.strawandspoon.com/",
+  "note": "Square Online site; its hours block is Square's template placeholder (Market Street, San Francisco, 9-5) with no synced location."
+ },
+ {
+  "id": "n3869786470",
+  "name": "Mixue",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "source": "https://jmb-h5-us.mxbc.net/",
+  "note": "The OSM link is a franchise-management web app shell (title '加盟宝'), not a store page."
+ },
+ {
+  "id": "n4166608938",
+  "name": "Cafe Tropical",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "https://cafetrop.com/",
+  "note": "cafetrop.com: NXDOMAIN."
+ },
+ {
+  "id": "n4278605493",
+  "name": "Tony's Donut House",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "http://tonysdonuthouse.com/",
+  "note": "tonysdonuthouse.com shows a Bluehost hosting placeholder."
+ },
+ {
+  "id": "n4335512093",
+  "name": "Daydrift",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "source": "http://www.milkandhoneycostamesa.com/",
+  "note": "OSM website is the old name's domain (milkandhoneycostamesa.com): ConnectionError twice."
+ },
+ {
+  "id": "n4676540490",
+  "name": "3rd Street Coffee",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "https://3rdstreetcoffee.m.webs.com/",
+  "note": "3rdstreetcoffee.m.webs.com resolves to 0.0.0.0."
+ },
+ {
+  "id": "n4758419766",
+  "name": "The Pie Hole",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "https://www.thepieholela.com/locations/hollywood/",
+  "note": "www.thepieholela.com shows an A2 Hosting placeholder; /locations/hollywood/ and /locations/ are 404."
+ },
+ {
+  "id": "n5106542232",
+  "name": "Cafe Dulce",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "source": "https://cafedulcelittletokyo.square.site/",
+  "note": "Square Online pre-order site; only Square's template placeholder hours (Market Street, San Francisco)."
+ },
+ {
+  "id": "n5436409378",
+  "name": "WKNDR",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "https://wkndr.cafe/",
+  "note": "wkndr.cafe: NXDOMAIN."
+ },
+ {
+  "id": "n5439054329",
+  "name": "Tapioca Express",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://www.tapiocaexpress.com/",
+  "note": "Only a theme footer 'Work Hours Everyday 10 AM - 9 PM' next to 'A wonderful serenity has taken possession of my entire soul' (template text); the store list on /locations/ loads by script."
+ },
+ {
+  "id": "n5512810102",
+  "name": "Boba Loca",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "https://www.boba-loca.com/",
+  "note": "www.boba-loca.com: NXDOMAIN."
+ },
+ {
+  "id": "n6768265247",
+  "name": "Tea Brick",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "http://www.teabrick.online/",
+  "note": "Square Online ordering site; store hours come from Square's location data by script."
+ },
+ {
+  "id": "n8505580177",
+  "name": "Lollicup Fresh Westminster",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://lollicupfresh.com/",
+  "note": "Script-only page (title 'Document')."
+ },
+ {
+  "id": "n8774126118",
+  "name": "Teapot Bakery & Cafe",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://teapotbakeryandcafe.com/",
+  "note": "Square site with a synced location; the hours block in the page is Square's placeholder and the real hours load by script."
+ },
+ {
+  "id": "n9161232116",
+  "name": "Teaspoon",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://www.teaspoonlife.com/",
+  "note": "Locations page: 'Store locator is loading from StoreRocket Store Locator App..'"
+ },
+ {
+  "id": "n9658416562",
+  "name": "Boba Story",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://bobastory.com/",
+  "note": "HTTP 403 to the harvest and by hand."
+ },
+ {
+  "id": "n9659800683",
+  "name": "Cha For Tea",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "source": "https://www.chafortea.com/",
+  "note": "Locations page lists 4187 Campus Drive, M-173, Irvine (949) 725-0300 with no hours."
+ },
+ {
+  "id": "n9701939321",
+  "name": "Café de la Abuela",
+  "status": "skipped",
+  "reason": "no matching location",
+  "source": "https://www.horchateriarl.com/",
+  "note": "horchateriarl.com is Horchateria Rio Luna, whose only location is 15950 Paramount Blvd, Paramount; nothing at 231 Maclay St, San Fernando, and the phone is not on the page."
+ },
+ {
+  "id": "n9742168225",
+  "name": "Melo Melo",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://www.melomelo.us/",
+  "note": "Script-only page ('MeloMelo Online Store')."
+ },
+ {
+  "id": "n9752592873",
+  "name": "Coffee Dose",
+  "status": "skipped",
+  "reason": "no matching location",
+  "source": "https://coffeedose.cafe/",
+  "note": "coffeedose.cafe's locations (Costa Mesa x2, Laguna Hills, Irvine, Encinitas, Palm Springs soon) include nothing at 12885 Beach Blvd, Stanton, and the phone is not on the page."
+ },
+ {
+  "id": "n9752592885",
+  "name": "Bestea",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://besteabar.com/",
+  "note": "Page shows only 'Hours Open today 11:00 am - 09:00 pm' (read on Friday 2026-11-27, the day after Thanksgiving); the week loads by script, so a normal week cannot be told from the holiday's."
+ },
+ {
+  "id": "n9856754246",
+  "name": "Xing Fu Tang",
+  "status": "skipped",
+  "reason": "no matching location",
+  "source": "https://xingfutang.com/",
+  "note": "xingfutang.com/locations lists New York (5) and Houston only; no Alhambra store."
+ },
+ {
+  "id": "w1088964745",
+  "name": "Reborn Coffee",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "source": "https://reborncoffee.com/",
+  "note": "Store list shows Manhattan Village, 3180 N Sepulveda Blvd, (310) 546-1775 with no hours."
+ },
+ {
+  "id": "w1329193646",
+  "name": "Quickly",
+  "status": "skipped",
+  "reason": "site dead",
+  "source": "https://www.quicklyboba.org/",
+  "note": "www.quicklyboba.org: NXDOMAIN."
+ },
+ {
+  "id": "w1560861628",
+  "name": "Pengo Drink Station",
+  "status": "skipped",
+  "reason": "hours not readable",
+  "source": "https://www.pengodrink.com/",
+  "note": "Page: 'HOURS SUNDAY - THURSDAY 10AM - 10AM / FRIDAY - SATURDAY 10AM - 10PM' (a typo), one block under two addresses (Lake Forest and Mission Viejo)."
+ },
+ {
+  "id": "w385345377",
+  "name": "Boba Guys",
+  "status": "skipped",
+  "reason": "no matching location",
+  "source": "https://www.bobaguys.com/",
+  "note": "bobaguys.com/los-angeles-express lists Costa Mesa, Rideback Ranch, Long Beach and Culver City; no Woodland Hills / 6220 Topanga Canyon Blvd."
+ },
+ {
+  "id": "w471866061",
+  "name": "Donut Prince",
+  "status": "skipped",
+  "reason": "no hours on the shop's own page",
+  "source": "https://donut-prince.web.app/",
+  "note": "'We are a family owned donut shop located in Burbank'; menu only, no hours."
+ },
+ {
+  "id": "w636364649",
+  "name": "Orange Nutrition",
+  "status": "skipped",
+  "reason": "needs a browser",
+  "source": "https://www.orangenutrition.com/",
+  "note": "HTTP 403 to the harvest and by hand."
+ }
+]
