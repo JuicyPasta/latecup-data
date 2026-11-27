@@ -131,7 +131,7 @@ Before trusting it: `tools/audit_chain_layer.py` compares the layer with the cha
 
 ## Visitors' hours
 
-A visitor can do more than say "these hours are right". The app and the web map send the week as the visitor says it is (a `fix`), or a café the feed does not have at all (an `add`), and the hourly `votes` job reads those rows with the rest. The rules are in [FORMAT.md](FORMAT.md#visitors-hours). In one line: one visitor flags, two app installs that agree change the hours when nothing gets later, three when a night ends later or the café had no hours, and hours we read on the shop's own page are never changed by visitors.
+A visitor can do more than say "these hours are right". The app and the web map send the week as the visitor says it is (a `fix`), or a café the feed does not have at all (an `add`), and the hourly `votes` job reads those rows with the rest. The rules are in [FORMAT.md](FORMAT.md#visitors-hours). In one line: one visitor flags; where an area has publishing on, two app installs that agree change the hours when nothing gets later, and three when a night ends later or the café had no hours; hours we read on the shop's own page are never changed by visitors.
 
 **The ledger.** A change is a file in `visitors/`, one per place: `visitors/<id>.json` for New York, `visitors/<area id>/<id>.json` for another area.
 
@@ -145,7 +145,7 @@ A visitor can do more than say "these hours are right". The app and the web map 
 Visitors: Example Coffee House closes 23:00 Fri-Sat, 2 installs
 ```
 
-and under it the place, the table before and after, the count and the date. A change that takes a place off the late map says `off the late map` in that first line, and one that would put a café on it says `new on the late map`. The job then starts `refresh`, which builds the record into the feed as `src` `visitors`: under a reading written by hand and under the chain layer, over OpenStreetMap's hours or none, and only in an area whose file says so (`"visitors"` in `areas/<id>.json`; left out, it is off for New York and on everywhere else).
+and under it the place, the table before and after, the count and the date. A change that takes a place off the late map says `off the late map` in that first line, and one that would put a café on it says `new on the late map`. The job then starts `refresh`, which builds the record into the feed as `src` `visitors`: under a reading written by hand and under the chain layer, over OpenStreetMap's hours or none, and only in an area whose file says so (`"visitors": true` in `areas/<id>.json`).
 
 - A record is rewritten when more installs agree, or when visitors agree on other hours. For the same hours its count never goes down.
 - **To take a record out, delete the file and push.** Nothing else removes one, and it stays out: the job reads the history, and rows older than the deletion never write that record again. What visitors send after it counts as always. If the hours were simply wrong, the lasting fix is the usual one: read the shop's own page and write an override.
@@ -155,11 +155,15 @@ and under it the place, the table before and after, the count and the date. A ch
 
 | File | What |
 |---|---|
-| `ops/proposals.json` (another area's in `ops/<area id>/`) | Every place with hours from visitors that are not published: the tables, how many app installs agree on each, how many flags came from the web, the newest date, and what it is waiting for. That is `1 more install`, `2 more installs`, `the next build` (the record is written) or `the desk`, with the reason: the hours are the shop's own, the publish guard, two groups that disagree, an area that does not publish visitors' hours, the daily limit. What only the desk can settle comes first, and `off_map` marks hours that would take the place off the late map. Five tables a place at most (`more_tables`: how many more there are) |
+| `ops/proposals.json` (another area's in `ops/<area id>/`) | Every place with hours from visitors that are not published: the tables, how many app installs agree on each, how many flags came from the web, the newest date, and what it is waiting for. That is `1 more install`, `2 more installs`, `the next build` (the record is written) or `the desk`, with the reason: the hours are the shop's own, the publish guard, two groups that disagree, an area that does not publish visitors' hours, the daily limit, a run that would have written too many. What only the desk can settle comes first, and `off_map` marks hours that would take the place off the late map. Five tables a place at most (`more_tables`: how many more there are) |
 | `ops/recheck.json` | As before, with the places a visitor sent hours for at the top (`fix`: how many installs agree on the leading table) |
 | `ops/adds.json` | The cafés visitors would add, grouped within about 50 m: where, which area, the category, the tables, how many app installs (`n`) and how many others (`web`), the newest date, and the places we already have within 50 m (`near`). No names, because the report sheet does not pass them on. Never published as places: a café goes into `additions/` once someone has found it on its own page. The 500 most asked-for (`more`: how many the list leaves out) |
 
-**What the count cannot know.** The platform of a row is whatever the sender wrote, and an install is any UUID. Until there is device proof, "two app installs" can be two requests from a script, and the fast direction (earlier hours) is also the one that takes a café off the map. So no more than ten records are written in one area for one day (the rest wait for the desk, and the list says why), every change is a commit with the table in it, and `quarantine.json` drops a platform's rows for a window of days.
+**Off by default.** No area publishes visitors' hours unless its file says `"visitors": true`, because the platform of a row is whatever the sender writes, so "two installs" can be two scripted posts. That holds until reports carry proof that they come from the real app on a real device.
+
+With it off, everything else goes on as described: a fix flags the place, the leading table is the place's `prop`, and the desk's lists say what each place is waiting for. No record is written.
+
+**Where it is on**, the count still cannot know who sent a row, and the fast direction (earlier hours) is also the one that takes a café off the map. So no more than ten records are written in one area for one day; the rest wait for the desk, and the list says why. A run that would write more than 25 records across all areas writes none of them, lists them for the desk with the reason, and fails: so many at once is far likelier an attack than a crowd. Every change is a commit with the table in it, and `quarantine.json` drops a platform's rows for a window of days.
 
 **When these rules fail.** They are new, and they read what anybody can send. If anything in them goes wrong, the run leaves that part out (no `prop`, no record, the desk's list as it was), counts and publishes the confirmations, ratings and reports as always, and fails at the end, so that somebody hears of it.
 

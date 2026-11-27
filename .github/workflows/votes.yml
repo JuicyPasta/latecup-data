@@ -88,11 +88,13 @@ jobs:
           echo "::error::the records are on main but refresh could not be started; the next daily run builds them"
           exit 1
 
-      # When something in the rules for visitors' hours fails, the count leaves
-      # that part out and goes on, so the confirmations and ratings above are
-      # published all the same. This is what tells the owner.
-      - name: Fail when visitors' hours were left out
+      # Two things end here, after everything above was published. Something
+      # in the rules for visitors' hours failed, and the count went on
+      # without that part. Or one run would have written more records than
+      # the breaker lets through (25, all areas together), and wrote none.
+      # This is what tells the owner.
+      - name: Fail when the count reported a problem
         if: steps.count.outputs.problem == 'true'
         run: |
-          echo "::error::visitors' hours were left out of this run; the Count step says where"
+          echo "::error::visitors' hours need a look: the Count step says what was left out or held back, and why"
           exit 1
