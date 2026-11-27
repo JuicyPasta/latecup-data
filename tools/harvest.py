@@ -455,6 +455,8 @@ def read_page(final, html_text, lines=None):
     a browser read it; otherwise it is read from the HTML."""
     own_lines, links = C.visible_links(html_text)
     title = [" ".join(t.split()) for t in _TITLE.findall(html_text)[:1]]
+    if lines is not None:                            # the browser's text, read the way confirm.visible reads a page
+        lines = [l for l in (" ".join(str(x).replace("\u2013", "-").replace("\u2014", "-").split()) for x in lines) if l]
     return {"url": final, "lines": lines if lines is not None else own_lines, "links": links, "title_lines": title,
             "jsonld": C.jsonld_hours(html_text), "script_data": script_hours(html_text)}
 
