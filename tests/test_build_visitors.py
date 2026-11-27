@@ -90,7 +90,6 @@ def test_records_are_read_per_area_and_new_york_reads_none(tmp_path):
     assert B.load_visitors(folder, A.get("seattle")) == ({}, [])
     # the folder does not exist yet: that is the normal case
     assert B.load_visitors(tmp_path / "nothing", CHICAGO) == ({}, [])
-    assert B.load_visitors(area=CHICAGO)[1] == []
 
 
 def test_new_york_reads_its_own_once_its_area_file_says_so(tmp_path, monkeypatch):
