@@ -120,25 +120,62 @@ What visitors said, counted about once an hour from the report form. One file pe
 
 ```json
 {"format": 1, "city": "nyc", "generated": "2026-11-25T02:00:00Z", "votes": {
-  "n1234567890": {"ok": [3, "2026-11-25"], "bad": [1, "2026-11-26"], "stars": [4.3, 7]}
+  "n1234567890": {"ok": [3, "2026-11-25"], "bad": [1, "2026-11-26"], "stars": [4.3, 7],
+                  "prop": {"hours": [[[480,1380]],[[480,1380]],[[480,1380]],[[480,1380]],[[480,1380]],[[480,1380]],[[540,1320]]],
+                           "n": 1, "date": "2026-11-26"}}
 }}
 ```
 
 | Field | Type | Notes |
 |---|---|---|
 | `generated` | UTC time | When the counts last **changed** (an hourly run that finds nothing new leaves the file alone) |
-| `votes` | object | Place `id` → counts. Any of `ok`, `bad`, `stars` may be missing; a place with none is not listed |
+| `votes` | object | Place `id` → counts. Any of `ok`, `bad`, `stars`, `prop` may be missing; a place with none is not listed |
 | `ok` | `[count, date]` | Visitors who confirmed the **current** hours (their `hh` equals the place's `hh`) and the date of the newest |
-| `bad` | `[count, date]` | Open "hours wrong" / "closed for good" reports and the date of the newest |
+| `bad` | `[count, date]` | Open "hours wrong" / "closed for good" reports, and open fixes (one per install; "Visitors' hours" below), and the date of the newest |
 | `stars` | `[mean, count]` | Mean rating to one decimal (1–5) and the number of ratings |
+| `prop` | `{"hours", "n", "date"}` | Hours that visitors sent for the place and that are **not published**: the table the most app installs agree on (of two with the same support, the newest). `hours` is a weekly table like a place's, `n` the installs that agree on it, `date` the day of the newest of them. **Show it only as a question inside the fix flow** ("A visitor sent these hours on Dec 3. Are they right?"), never as the place's hours |
 
-Dates are days in the area's time zone. An id here may briefly be missing from the places file (the place left the feed since the last count): ignore it.
+Dates are days in the area's time zone. An id here may briefly be missing from the places file (the place left the feed since the last count): ignore it. An id may also be a café of the area's help file, which is not on the late map: such an entry carries `prop` and nothing else.
 
-**Counting rules.** A confirmation counts when its `hh` equals the place's current `hh` and it is under 120 days old; one per install per place (the newest). A rating: the newest per install per place. An install that sends more than 30 votes in one day is dropped whole, in every area. `bad` counts `hours` and `closed` reports dated after the place's `checked` date and made after its hours last changed; so a report disappears when we re-check the place or its hours change. Malformed rows are skipped.
+**Counting rules.** A confirmation counts when its `hh` equals the place's current `hh` and it is under 120 days old; one per install per place (the newest). A rating: the newest per install per place. An install that sends more than 30 rows in one day, of any type, is dropped whole, in every area. `bad` counts `hours` and `closed` reports dated after the place's `checked` date and made after its hours last changed; so a report disappears when we re-check the place or its hours change. It also counts the fixes that are open. Malformed rows are skipped, and so is every row whose `type` or `place_id` is `test`.
 
-**Quarantine.** Rows from a platform in a date window listed in the repository's `quarantine.json` are dropped before anything is counted: they reach neither `ok`, `stars`, `bad` nor the re-check list. This is for periods when the taps are not real visits (the Google Play closed test with paid testers, Android, from 2026-11-24). A rule that has ended keeps its window, so those rows never count later.
+**Quarantine.** Rows from a platform in a date window listed in the repository's `quarantine.json` are dropped before anything is counted: they reach neither `ok`, `stars`, `bad`, `prop` nor the desk's lists, and they change no hours. This is for periods when the taps are not real visits (the Google Play closed test with paid testers, Android, from 2026-11-24). A rule that has ended keeps its window, so those rows never count later.
 
-**What clients send** (to the manifest's `report` endpoint): `type` `attest` with `note` `v=1;iid=<uuid>;hh=<hh>`, or `type` `rate` with `note` `v=1;iid=<uuid>;stars=<1-5>`, plus `place_id`. `iid` is a random UUID the client makes once and keeps. The pipeline publishes counts only: no rows and no install ids. Nothing about where the visitor was is sent or counted (the first form of the note ended in `;onsite=0|1`; the pipeline still accepts it and ignores the flag).
+### What clients send
+
+To the manifest's `report` endpoint: `type`, `place_id`, and a machine string in `note`. `iid` is a random UUID the client makes once and keeps. The pipeline publishes counts and tables only: no rows and no install ids. Nothing about where the visitor was is sent or counted (the first form of an `attest` note ended in `;onsite=0|1`; the pipeline still accepts it and ignores the flag).
+
+| `type` | `place_id` | `note` |
+|---|---|---|
+| `attest` | a place of the feed | `v=1;iid=<uuid>;hh=<hh>`: "these hours are right" |
+| `rate` | a place of the feed | `v=1;iid=<uuid>;stars=<1-5>` |
+| `fix` | a place of the feed or of the help file | `v=2;iid=<uuid>;hh=<hh>;t=<table>`: the week as the visitor says it is. `hh` is the hash of the hours they were looking at, or `0` for a café with none. Saying yes to a `prop` sends that table as a `fix` |
+| `add` | empty | `v=2;iid=<uuid>;ll=<lat>,<lon>;c=<coffee\|tea\|dessert>;t=<table>`: a café the feed does not have at all. `ll` is the pin the visitor placed on the map, with 5 decimals (3 to 6 are read) |
+
+`<table>` is the weekly table in one string: seven day parts joined by `.`, Monday first. A day part is `x` (closed) or one to four spans `open-close` joined by `,`, in minutes from that day's midnight; `close` may pass 1440.
+
+```
+480-1380.480-1380.480-1380.480-1380.480-1500.480-1500.540-1320
+```
+
+It must be a valid table by the rules of "The hours table" above (sorted, no overlap, `0 ≤ open < 1440`, `open < close ≤ open + 1440`, nothing running into the next day's spans), or the row is skipped. Write a closing after midnight as `close` past 1440 on the day it opens, as the example does. The keys of a note come in the order shown and nothing follows the table. One exception: a client may end an `add` with `;w=<the café's website or Instagram, percent-encoded>`. The report sheet keeps that link, and the café's name (`place_name`), to itself; what the pipeline reads ends at the table.
+
+### Visitors' hours
+
+What the hourly count does with a `fix`. One visitor can flag hours; it takes visitors who agree to change them.
+
+- **Counted:** a fix from the app (`ios`, `android`), not quarantined, under 120 days old, with a valid table and the `hh` the place has now (`0` for a café with none), sent after those hours were published. The newest per install per place. A fix that says what is already shown asks for nothing.
+- **From the web a fix is a flag only:** it counts in `bad`, and nowhere else. There is no way yet to tell a browser from a script.
+- **One visitor flags, never changes.** Every open fix for a place on the map counts in `bad` ("Reported wrong on DATE: being checked"), the leading table becomes the place's `prop`, and the place goes to the top of the desk's lists.
+- **Agreement.** Two tables agree when each day has the same number of spans and every opening and closing is within 30 minutes. (A close at midnight that runs on from 00:00 the next day is read as one span first, so the same hours written two ways agree.) The installs that agree are a table and every install within 30 minutes of it; where they all agree with each other, the newest table is the one used.
+- **Two installs that agree change what is published** when no night ends later than it does now and no closed night opens. **Three** are needed when a night ends later, when a closed night opens, and for a café that had no hours. "Says open, is closed" is the mistake that costs someone a trip, so the cautious direction is the fast one. A night's end is the closing time a person reads for that night: a tail after midnight belongs to the night before, as in the app.
+- **The shop's own page always wins.** Hours whose `src` is `shop` or `brand` are never changed by visitors. A fix there flags the place and stays open until we have read the page again (a later `checked`).
+- **Install scores.** An install counts 1. It counts 2 once two of its fixes were later matched by a `shop` or `brand` reading and none was contradicted, and 0 once two were contradicted; at 0 it is not heard at all. Matched means we read hours that agree with the fix after it was sent, and the hours changed (repeating hours that were already published earns nothing). The scores of the installs that agree must add up to the two or three above, and they must be at least two installs. Scores are worked out again on every run and published nowhere.
+- **The publish guard applies.** A table that leaves the place closed four or more days a week, or open on other days of the week than its published hours, is held for the desk, however many installs agree; so is a span under 30 minutes or over 21 hours. Visitors alone never open or close a day of the week.
+- **Held for the desk** as well: two groups of installs that agree on two different tables, and anything past ten changed places in one area in one day.
+- **What changes** is a record in the repository's `visitors/` folder, committed by the hourly job. The next build publishes it as `src` `visitors`, with the place's `visitors` (how many installs agree) and `checked` (the day of the newest). Visitors can change visitors' hours again by the same rules. A record is removed only by a person, and rows older than the removal never write it again.
+- **An area decides** whether visitors' hours are published in it (`visitors` in its area file). New York does not publish them yet: there a fix flags, `prop` keeps asking, and the desk settles it.
+- **`add` rows are never published by the count.** They are listed for the desk, grouped by place, without names. The café goes into `additions/` once someone has found it on its own page.
 
 ## How the feed is made
 

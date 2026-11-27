@@ -25,6 +25,7 @@ The hours forms want the place, the hours for each day in plain words, the link,
 ## 3. Send a pull request
 
 For when you'd rather do the JSON yourself. A pull request adds or edits one file, and a file is one place: `overrides/<id>.json` for a place OpenStreetMap has, `additions/x-<slug>.json` for one it doesn't.
+A pull request can't add or edit anything in `visitors/`: the hourly job is the only thing that writes there, and I don't merge around it.
 
 ### Finding the id
 
