@@ -55,6 +55,10 @@ def test_the_record_the_count_writes_is_the_one_the_build_takes(tmp_path, monkey
     built = [A.Area(json.loads((tmp_path / "areas" / f"{i}.json").read_text())) for i in ("nyc", "chicago")]
     assert [a.visitors for a in built] == [False, True]
     allow = functools.partial(votes.allows, folder=tmp_path / "areas")
+    # the run checks the finished feed against every area's key, read from the repository's own area files:
+    # for the two areas of this test, the test's files speak
+    every_area = A.visitors_of
+    monkeypatch.setattr(A, "visitors_of", lambda folder=None: dict(every_area(folder), **{a.id: a.visitors for a in built}))
     read_visitors = B.load_visitors
     monkeypatch.setattr(B, "load_visitors", lambda folder=None, area=None: read_visitors(repo / "visitors", area))
     monkeypatch.setattr(B, "load_overrides", lambda *a, **k: {})
