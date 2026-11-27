@@ -61,7 +61,8 @@ class World:
 
 
 def good(url, ids, world):
-    return doc([e for i in ids for e in ELEMENTS[i]])
+    """What was asked for: the elements above, or one café at the centre of an area that has none here."""
+    return doc([e for i in ids for e in ELEMENTS.get(i) or [el(9000 + len(i), *A.get(i).center)]])
 
 
 # ---------------------------------------------------------------- what is asked
@@ -178,13 +179,48 @@ def test_every_server_failing_ends_at_the_budget_and_names_each_area():
         assert all(b - a >= osm.FIRST_WAIT for a, b in zip(times, times[1:])) and len(times) <= 12
 
 
-def test_servers_that_come_back_are_used():
+def test_a_server_that_comes_back_is_used_for_everything_it_failed_before():
     def rule(url, ids, world):
         return good(url, ids, world) if world.t >= 300 and url == C1 else IOError("HTTP 502")
     w = World(rule)
     docs, failed = w.pull([NYC, CHICAGO, SEATTLE], budget=1200)
     assert failed == {} and set(docs) == {"nyc", "chicago", "seattle"}
-    assert w.t < 700
+    # the third server's wait had grown to four minutes; its first answer after that opens it to every request
+    back = min(t for t, url, _q in w.asked if url == C1 and t >= 300)
+    assert back < 480 and w.t < back + 10
+    assert [url for t, url, _q in w.asked if t >= back] == [C1, C1, C1]
+
+
+def test_new_york_goes_first_once_a_server_answers():
+    def rule(url, ids, world):
+        return good(url, ids, world) if url == C1 else IOError("HTTP 502")
+    w = World(rule)
+    docs, failed = w.pull([NYC] + [a for a in A.load() if a.id != "nyc"][:20])
+    assert failed == {} and len(docs) == 21
+    # New York failed on the first server, the first rectangles on the second; the third answered a request for
+    # rectangles, and New York was the next one it was asked for
+    order = [("nyc" if "area.nyc" in q else "boxes", url) for _t, url, q in w.asked]
+    assert order[:3] == [("nyc", A1), ("boxes", B1), ("boxes", C1)]
+    assert order[3] == ("nyc", C1) and {url for _what, url in order[3:]} == {C1}
+
+
+def test_requests_take_turns_while_nobody_answers():
+    w = World(lambda url, ids, world: IOError("HTTP 502"))
+    w.pull([NYC, CHICAGO], instances=(A1, B1), budget=200)
+    first = [("nyc" if "area.nyc" in q else "chicago") for _t, _url, q in w.asked[:4]]
+    assert first == ["nyc", "chicago", "nyc", "chicago"]         # New York first, and not New York alone
+
+
+def test_a_server_that_refuses_larger_requests_is_not_asked_for_them_again():
+    def rule(url, ids, world):
+        return IOError("HTTP 403") if len(ids) > 1 else good(url, ids, world)
+    w = World(rule)
+    boxes = [a for a in A.load() if a.id != "nyc"][:16]         # two requests of eight
+    docs, failed = w.pull(boxes, instances=(A1,))
+    assert failed == {} and len(docs) == 16
+    sizes = [q.count('nwr["amenity"="cafe"]') for _t, _url, q in w.asked]
+    # each size was refused once per request and never asked for again after a smaller one passed
+    assert sizes.count(8) == 2 and sizes.count(4) == 4 and sizes.count(2) == 8 and sizes.count(1) == 16
 
 
 def test_a_request_every_server_turned_down_is_asked_again_in_halves():

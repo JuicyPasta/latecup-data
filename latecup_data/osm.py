@@ -10,7 +10,6 @@ handed back with the reason, and the run keeps that area's last good file
 """
 import json
 import time
-from collections import deque
 from datetime import datetime, timedelta, timezone
 from urllib.parse import urlsplit
 
@@ -108,13 +107,19 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
     An area pull (New York) is a request of its own; rectangles go several to
     a request, and each element is handed to the rectangle it lies in. A
     request goes to the server that last worked, else to the one that has
-    failed least. One that fails is left alone for a while and the request
-    goes back in the queue for another server; when every server has turned
-    a request for several rectangles down, it is asked again in halves (a
-    smaller query passes where a larger one timed out). An answer with no
-    element for one of its areas is no answer for that area. Nothing here
-    raises for a server's sake, and nothing runs past `budget` seconds by
-    more than one request.
+    failed least. A server that fails is left alone for a while and the
+    request waits for another one; when every server has turned a request
+    for several rectangles down, it is asked again in halves (a smaller query
+    passes where a larger one timed out). An answer with no element for one
+    of its areas is no answer for that area.
+
+    Who goes next: while no server has answered yet, the requests take turns,
+    New York first, so one that every server refuses does not hold the
+    others up. Once a server answers, the requests it can take go in their
+    first order, New York before the rest.
+
+    Nothing here raises for a server's sake, and nothing runs past `budget`
+    seconds by more than one request.
 
     ask(url, query text, timeout) -> document, clock and sleep are there for
     the tests; `now` is the day the data's age is measured from.
@@ -125,55 +130,59 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
         raise ValueError("no Overpass server to ask")
     start = clock()
     deadline = start + budget
-    todo = deque()
-    boxes = []
+    groups, boxes = [], []
     for a in areas:
         if a.pull["kind"] == "area":
-            todo.append({"areas": [a], "refused": set(), "why": None})
+            groups.append([a])
         else:
             boxes.append(a)
-    for i in range(0, len(boxes), BOXES_PER_QUERY):
-        todo.append({"areas": boxes[i:i + BOXES_PER_QUERY], "refused": set(), "why": None})
+    groups += [boxes[i:i + BOXES_PER_QUERY] for i in range(0, len(boxes), BOXES_PER_QUERY)]
+    # refused: {server: "failed" (it did not answer this request) or "empty" (it answered, with nothing for the area)}
+    todo = [{"areas": group, "refused": {}, "why": None, "order": (n,), "tries": 0} for n, group in enumerate(groups)]
     state = {url: {"fails": 0, "ready": start, "worked": False} for url in instances}
     docs, failed = {}, {}
 
-    def give_up(item, t):
-        why = item["why"] or "not asked"
-        for a in item["areas"]:
-            failed[a.id] = f"no Overpass server answered in {max(1, round((t - start) / 60))} min (the last: {why})"
+    def give_up(t):
+        for item in todo:
+            for a in item["areas"]:
+                failed[a.id] = (f"no Overpass server answered in {max(1, round((t - start) / 60))} min "
+                                f"(the last: {item['why'] or 'not asked'})")
+        todo.clear()
 
-    idle = 0                # requests in a row that had to wait: when it is all of them, sleep
     while todo:
-        item = todo.popleft()
         t = clock()
         if t >= deadline:
-            give_up(item, t)
+            give_up(t)
+            break
+        for item in list(todo):
+            if len(item["refused"]) >= len(instances):
+                # every server has turned this one down. Several areas: ask for them in halves. One: start over.
+                if len(item["areas"]) > 1:
+                    half = (len(item["areas"]) + 1) // 2
+                    todo.remove(item)
+                    todo += [{"areas": part, "refused": {}, "why": item["why"], "order": item["order"] + (n,),
+                              "tries": 0} for n, part in enumerate((item["areas"][:half], item["areas"][half:]))]
+                else:
+                    item["refused"].clear()
+        best = None
+        for item in todo:
+            # a server that has just answered is ready again in a moment: worth the wait, it is the one that works
+            ready = [u for u in instances if u not in item["refused"] and state[u]["ready"] <= t + PAUSE]
+            if ready:
+                turn = (0, item["order"]) if any(state[u]["worked"] for u in ready) else \
+                    (1, item["tries"], item["order"])
+                if best is None or turn < best[0]:
+                    best = (turn, item, ready)
+        if best is None:
+            # every server is being left alone: wait for the first to come back
+            wake = min(state[u]["ready"] for item in todo for u in instances if u not in item["refused"])
+            if wake >= deadline:
+                give_up(deadline)
+                break
+            sleep(max(wake - t, 0.01))
             continue
-        if len(item["refused"]) >= len(instances):
-            # every server has turned this one down. Several areas: ask for them in halves. One: start over.
-            if len(item["areas"]) > 1:
-                half = (len(item["areas"]) + 1) // 2
-                for part in (item["areas"][half:], item["areas"][:half]):
-                    todo.appendleft({"areas": part, "refused": set(), "why": item["why"]})
-                continue
-            item["refused"].clear()
-        open_to = [u for u in instances if u not in item["refused"]]
-        # a server that has just answered is ready again in a moment: worth the wait, it is the one that works
-        ready = [u for u in open_to if state[u]["ready"] <= t + PAUSE]
-        if not ready:
-            todo.append(item)
-            idle += 1
-            if idle >= len(todo):
-                wake = min(state[u]["ready"] for it in todo for u in instances if u not in it["refused"] or
-                           len(it["refused"]) >= len(instances))
-                if wake >= deadline:
-                    while todo:
-                        give_up(todo.popleft(), deadline)
-                    break
-                sleep(max(wake - t, 0.01))
-                idle = 0
-            continue
-        idle = 0
+        _turn, item, ready = best
+        todo.remove(item)
         url = min(ready, key=lambda u: (state[u]["fails"], not state[u]["worked"], instances.index(u)))
         st, host = state[url], _host(url)
         if st["ready"] > t:
@@ -188,12 +197,17 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
             st["fails"] += 2 if took > SLOW else 1
             wait = min(FIRST_WAIT * 2 ** (st["fails"] - 1), LONGEST_WAIT)
             st["ready"] = clock() + wait
-            item["refused"].add(url)
+            item["refused"][url] = "failed"
+            item["tries"] += 1
             item["why"] = f"{host}: {str(e).replace(url + ': ', '')[:200]}"
             log(f"Overpass: {item['why']} ({ids}); leaving it alone for {wait} s")
             todo.append(item)
             continue
         st.update(fails=0, worked=True, ready=clock() + PAUSE)
+        # the server is back: it is open again to the requests it failed earlier, those no larger than this one
+        for other in todo:
+            if other["refused"].get(url) == "failed" and len(other["areas"]) <= len(item["areas"]):
+                del other["refused"][url]
         meta = {k: v for k, v in doc.items() if k != "elements"}
         got = {a.id: [] for a in item["areas"]}
         for el in doc["elements"]:
@@ -203,11 +217,12 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
                 if a.pull["kind"] == "area" or (pos and a.in_box(*pos)):
                     got[a.id].append(el)
                     break
-        for a in item["areas"]:
+        for n, a in enumerate(item["areas"]):
             if got[a.id]:
                 docs[a.id] = dict(meta, elements=got[a.id])
             else:
-                todo.append({"areas": [a], "refused": {url}, "why": f"{host}: no elements for {a.id}"})
+                todo.append({"areas": [a], "refused": {url: "empty"}, "why": f"{host}: no elements for {a.id}",
+                             "order": item["order"] + (n,), "tries": item["tries"] + 1})
         base = (doc.get("osm3s") or {}).get("timestamp_osm_base")
         log(f"Overpass: {host}: {ids}: {len(doc['elements'])} elements" + (f", data of {base}" if base else ""))
     return docs, failed
