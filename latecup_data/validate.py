@@ -10,7 +10,7 @@ from .hours import DAY_MIN, is_late, table_hash
 
 BOROS = {"Manhattan", "Brooklyn", "Queens", "Bronx", "Staten Island"}
 CATS = {"coffee", "tea", "dessert"}
-SRCS = {"shop", "brand", "osm"}
+SRCS = {"shop", "brand", "osm", "visitors"}
 TAGS = {"wifi", "outdoor", "seating", "laptop"}
 # An OpenStreetMap element, or x-<slug> for a place OpenStreetMap lacks. The lengths are the report sheet's
 # (Latecup marketing/report-form.md): it blanks a place id that is not ^([nwr][0-9]{1,20}|x-[a-z0-9-]{1,60}|test)$
@@ -21,10 +21,14 @@ _E164 = re.compile(r"^\+[1-9]\d{7,14}$")
 _IG = re.compile(r"^[a-z0-9._]{1,30}$")
 _SHA = re.compile(r"^[0-9a-f]{64}$")
 _URL = re.compile(r"^https?://[^\s/]+\.[^\s/]+(/\S*)?$")
-PLACE_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "city", "cat", "chain", "hours", "src", "checked",
-              "hh", "phone", "web", "ig", "tags"}
+PLACE_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "city", "cat", "chain", "hours", "src", "visitors",
+              "checked", "hh", "phone", "web", "ig", "tags"}
 # what every place of an area with neighbourhood polygons carries (New York)
-REQUIRED = PLACE_KEYS - {"city", "phone", "web", "ig", "tags"}
+REQUIRED = PLACE_KEYS - {"city", "visitors", "phone", "web", "ig", "tags"}
+# a place of a help file (<id>-help.json): a café the pipeline knows that is not on the late map
+HELP_KEYS = {"id", "name", "lat", "lon", "addr", "hood", "boro", "city", "cat", "why", "hours", "src", "checked", "hh",
+             "phone", "web", "ig"}
+WHYS = {"nohours", "early"}
 # Latecup 1.0.0 (3): the oldest app build in use. `min_build` above it turns that build's map into "Update Latecup"
 RELEASED_BUILD = 3
 FIRST_AREA = "nyc"
@@ -74,11 +78,64 @@ def hours_table(table, what="hours"):
                     _need(na >= b - DAY_MIN, f"{what}[{d}]: runs past midnight into the next day's span")
 
 
-def place(p, bbox=None, hoods="nta2020"):
+def visitors_record(rec, name=None):
+    """A file of visitors/ (visitors/<id>.json for New York,
+    visitors/<area id>/<id>.json for another area): the hours that visitors'
+    reports agreed on, written by the hourly job and by nothing else.
+    `name`: the file's name without .json, which the id inside must match.
+    Keys this does not know are let through and never published."""
+    _need(isinstance(rec, dict), "visitors record: not an object")
+    pid = rec.get("id")
+    _need(isinstance(pid, str) and _ID.match(pid), f"visitors record: bad id {pid!r}")
+    _need(name is None or pid == name, f"visitors record {name}: the id inside must match the file name")
+    missing = {"hours", "src", "visitors", "checked", "by"} - set(rec)
+    _need(not missing, f"visitors record {pid}: missing {sorted(missing)}")
+    hours_table(rec["hours"], f"visitors record {pid}: hours")
+    _need(rec["src"] == "visitors", f"visitors record {pid}: src must be \"visitors\"")
+    _need(type(rec["visitors"]) is int and rec["visitors"] >= 2,
+          f"visitors record {pid}: visitors is how many agreed, a whole number of 2 or more")
+    _day(rec["checked"], f"visitors record {pid}: checked")
+    _need(rec["by"] == "votes", f"visitors record {pid}: by must be \"votes\" (the hourly job writes these files)")
+
+
+def _located(p, pid, bbox, hoods):
+    """Name, position and the fields that say where: what a place of the feed
+    and a place of a help file share."""
+    _need(isinstance(p["name"], str) and p["name"].strip() == p["name"] and p["name"], f"{pid}: bad name")
+    _need(type(p["lat"]) is float and type(p["lon"]) is float, f"{pid}: lat/lon must be numbers")
+    if bbox:
+        w, s, e, n = bbox
+        _need(s <= p["lat"] <= n and w <= p["lon"] <= e, f"{pid}: outside the city bbox")
+    if "addr" in p:
+        _need(isinstance(p["addr"], str) and p["addr"].strip(), f"{pid}: bad addr")
+    if "hood" in p:
+        _need(isinstance(p["hood"], str) and p["hood"], f"{pid}: bad hood")
+    if hoods:
+        _need("boro" not in p or p["boro"] in BOROS, f"{pid}: bad boro {p.get('boro')!r}")
+    else:
+        _need("boro" not in p, f"{pid}: boro is New York's; this area has none")
+    if "city" in p:
+        _need(isinstance(p["city"], str) and p["city"] and p["city"].strip() == p["city"] and len(p["city"]) <= 40,
+              f"{pid}: bad city")
+    _need(p["cat"] in CATS, f"{pid}: bad cat {p['cat']!r}")
+
+
+def _contact(p, pid):
+    if "phone" in p:
+        _need(isinstance(p["phone"], str) and _E164.match(p["phone"]), f"{pid}: phone is not E.164")
+    if "web" in p:
+        _need(isinstance(p["web"], str) and _URL.match(p["web"]), f"{pid}: bad web")
+    if "ig" in p:
+        _need(isinstance(p["ig"], str) and _IG.match(p["ig"]), f"{pid}: bad ig")
+
+
+def place(p, bbox=None, hoods="nta2020", visitors=False):
     """`hoods`: the area's source of neighbourhood names (areas/<id>.json).
     With one (New York), every place carries `hood` and `boro`. With None
     (an area that has no polygons yet), `hood` is there only when known and
-    `boro` never is."""
+    `boro` never is. `visitors`: may a place of this area carry `src`
+    "visitors" (areas/<id>.json; not New York while the app that is out
+    would show that source as OpenStreetMap's)."""
     _need(isinstance(p, dict), "place: not an object")
     pid = p.get("id")
     _need(isinstance(pid, str) and _ID.match(pid), f"bad id {pid!r}")
@@ -86,50 +143,36 @@ def place(p, bbox=None, hoods="nta2020"):
     _need(not extra, f"{pid}: unknown keys {sorted(extra)}")
     missing = (REQUIRED if hoods else REQUIRED - {"hood", "boro"}) - set(p)
     _need(not missing, f"{pid}: missing {sorted(missing)}")
-    _need(isinstance(p["name"], str) and p["name"].strip() == p["name"] and p["name"], f"{pid}: bad name")
-    _need(type(p["lat"]) is float and type(p["lon"]) is float, f"{pid}: lat/lon must be numbers")
-    if bbox:
-        w, s, e, n = bbox
-        _need(s <= p["lat"] <= n and w <= p["lon"] <= e, f"{pid}: outside the city bbox")
-    _need(isinstance(p["addr"], str) and p["addr"].strip(), f"{pid}: bad addr")
-    if "hood" in p:
-        _need(isinstance(p["hood"], str) and p["hood"], f"{pid}: bad hood")
-    if hoods:
-        _need(p["boro"] in BOROS, f"{pid}: bad boro {p['boro']!r}")
-    else:
-        _need("boro" not in p, f"{pid}: boro is New York's; this area has none")
-    if "city" in p:
-        _need(isinstance(p["city"], str) and p["city"] and p["city"].strip() == p["city"] and len(p["city"]) <= 40,
-              f"{pid}: bad city")
-    _need(p["cat"] in CATS, f"{pid}: bad cat {p['cat']!r}")
+    _located(p, pid, bbox, hoods)
     _need(p["chain"] is None or (isinstance(p["chain"], str) and _SLUG.match(p["chain"])), f"{pid}: bad chain")
     hours_table(p["hours"], f"{pid}: hours")
     _need(is_late(p["hours"]), f"{pid}: never closes at 20:00 or later")
     _need(p["src"] in SRCS, f"{pid}: bad src {p['src']!r}")
+    if p["src"] == "visitors":
+        _need(visitors, f"{pid}: src visitors is not published in this area")
+        _need(type(p.get("visitors")) is int and p["visitors"] >= 2,
+              f"{pid}: a place with src visitors says how many agreed (visitors, 2 or more)")
+    else:
+        _need("visitors" not in p, f"{pid}: visitors goes with src visitors and with nothing else")
     if p["checked"] is None:
         _need(p["src"] == "osm", f"{pid}: a confirmed place needs a checked date")
     else:
         _day(p["checked"], f"{pid}: checked")
     _need(p["hh"] == table_hash(p["hours"]), f"{pid}: hh is not the hash of hours")
-    if "phone" in p:
-        _need(isinstance(p["phone"], str) and _E164.match(p["phone"]), f"{pid}: phone is not E.164")
-    if "web" in p:
-        _need(isinstance(p["web"], str) and _URL.match(p["web"]), f"{pid}: bad web")
-    if "ig" in p:
-        _need(isinstance(p["ig"], str) and _IG.match(p["ig"]), f"{pid}: bad ig")
+    _contact(p, pid)
     if "tags" in p:
         _need(isinstance(p["tags"], list) and p["tags"] and set(p["tags"]) <= TAGS
               and len(set(p["tags"])) == len(p["tags"]), f"{pid}: bad tags")
 
 
-def places_file(doc, city_id, bbox=None, hoods="nta2020"):
+def places_file(doc, city_id, bbox=None, hoods="nta2020", visitors=False):
     _need(doc.get("format") == FORMAT, "places: format must be 1")
     _need(doc.get("city") == city_id, f"places: city must be {city_id!r}")
     _ts(doc.get("generated"), "places.generated")
     _need(isinstance(doc.get("places"), list) and doc["places"], "places: empty")
     seen = set()
     for p in doc["places"]:
-        place(p, bbox, hoods)
+        place(p, bbox, hoods, visitors)
         _need(p["id"] not in seen, f"duplicate id {p['id']}")
         seen.add(p["id"])
     return len(seen)
@@ -174,33 +217,123 @@ def real_zone(name):
     return True
 
 
-def bundle(m, read, hoods=None):
+def help_place(p, bbox=None, hoods="nta2020"):
+    """A place of a help file: a café the pipeline knows that is not on the
+    late map and that nobody has confirmed. `why` says what is missing:
+    "nohours" (no hours we can use: the place carries none) or "early"
+    (unconfirmed OpenStreetMap hours that never reach 20:00: it carries
+    them, as `osm`)."""
+    _need(isinstance(p, dict), "help place: not an object")
+    pid = p.get("id")
+    _need(isinstance(pid, str) and _ID.match(pid), f"help: bad id {pid!r}")
+    extra = set(p) - HELP_KEYS
+    _need(not extra, f"help {pid}: unknown keys {sorted(extra)}")
+    missing = {"name", "lat", "lon", "cat", "why"} - set(p)
+    _need(not missing, f"help {pid}: missing {sorted(missing)}")
+    _located(p, f"help {pid}", bbox, hoods)
+    _contact(p, f"help {pid}")
+    _need(p["why"] in WHYS, f"help {pid}: why is \"nohours\" or \"early\", not {p['why']!r}")
+    of_hours = {"hours", "src", "checked", "hh"}
+    if p["why"] == "nohours":
+        _need(not of_hours & set(p), f"help {pid}: a place with no hours carries no hours, src, checked or hh")
+        return
+    _need(of_hours <= set(p), f"help {pid}: an early place carries hours, src, checked and hh")
+    hours_table(p["hours"], f"help {pid}: hours")
+    _need(any(p["hours"]), f"help {pid}: an early place is open some day")
+    _need(not is_late(p["hours"]), f"help {pid}: closes at 20:00 or later: that is a place of the map")
+    _need(p["src"] == "osm", f"help {pid}: an early place carries unconfirmed OpenStreetMap hours, src osm")
+    if p["checked"] is not None:
+        _day(p["checked"], f"help {pid}: checked")
+    _need(p["hh"] == table_hash(p["hours"]), f"help {pid}: hh is not the hash of hours")
+
+
+def help_file(doc, city_id, bbox=None, hoods="nta2020", taken=()):
+    """An area's help file, <id>-help.json. It may be empty. `taken`: the ids
+    of the area's places file: a café is on the map or in the help file,
+    never in both. Returns how many places it holds."""
+    _need(isinstance(doc, dict), "help: not an object")
+    _need(doc.get("format") == FORMAT, "help: format must be 1")
+    _need(doc.get("city") == city_id, f"help: city must be {city_id!r}")
+    _ts(doc.get("generated"), "help.generated")
+    _need(isinstance(doc.get("places"), list), "help: places must be a list")
+    seen, taken = set(), set(taken)
+    for p in doc["places"]:
+        help_place(p, bbox, hoods)
+        _need(p["id"] not in seen, f"help: duplicate id {p['id']}")
+        _need(p["id"] not in taken, f"help: {p['id']} is in the places file as well")
+        seen.add(p["id"])
+    return len(seen)
+
+
+def area_files(c, read, hoods="nta2020", visitors=False):
+    """One area's files against its manifest entry `c`: the places file
+    (bytes, sha256, valid, `count`, `confirmed`, and `indie` and
+    `indie_confirmed` when the entry has them) and, when the entry names
+    one, the help file. `read(name) -> bytes` raises IOError when a file
+    does not answer."""
+    try:
+        body = read(c["places"])
+    except IOError as e:
+        raise Invalid(f"{c['places']}: {e}") from None
+    _need(len(body) == c["bytes"], f"{c['places']}: {len(body)} bytes, the manifest says {c['bytes']}")
+    _need(hashlib.sha256(body).hexdigest() == c["sha256"], f"{c['places']}: sha256 does not match the manifest")
+    try:
+        doc = json.loads(body)
+    except ValueError:
+        raise Invalid(f"{c['places']}: not JSON") from None
+    try:
+        n = places_file(doc, c["id"], c["bbox"], hoods, visitors)
+    except Invalid as e:
+        raise Invalid(f"{c['places']}: {e}") from None
+    _need(n == c["count"], f"{c['places']}: {n} places, the manifest says {c['count']}")
+    confirmed = sum(p["src"] != "osm" for p in doc["places"])
+    _need(confirmed == c["confirmed"], f"{c['places']}: {confirmed} confirmed, the manifest says {c['confirmed']}")
+    if "indie" in c:
+        indie = [p for p in doc["places"] if p["chain"] is None]
+        _need(len(indie) == c["indie"], f"{c['places']}: {len(indie)} independent places, the manifest says {c['indie']}")
+        sure = sum(p["src"] != "osm" for p in indie)
+        _need(sure == c["indie_confirmed"],
+              f"{c['places']}: {sure} independent places confirmed, the manifest says {c['indie_confirmed']}")
+    if "help" in c:
+        h = c["help"]
+        try:
+            body = read(h["file"])
+        except IOError as e:
+            raise Invalid(f"{h['file']}: {e}") from None
+        _need(len(body) == h["bytes"], f"{h['file']}: {len(body)} bytes, the manifest says {h['bytes']}")
+        _need(hashlib.sha256(body).hexdigest() == h["sha256"], f"{h['file']}: sha256 does not match the manifest")
+        try:
+            helped = json.loads(body)
+        except ValueError:
+            raise Invalid(f"{h['file']}: not JSON") from None
+        try:
+            n = help_file(helped, c["id"], c["bbox"], hoods, {p["id"] for p in doc["places"]})
+        except Invalid as e:
+            raise Invalid(f"{h['file']}: {e}") from None
+        _need(n == h["count"], f"{h['file']}: {n} places, the manifest says {h['count']}")
+
+
+def bundle(m, read, hoods=None, visitors=None):
     """Everything a client will fetch, checked together. `read(name) -> bytes`
-    gets a file named in the manifest (a places file name, or a full style
-    URL) and raises IOError when it does not answer. `hoods`: {area id: the
-    area's `hoods` setting} (areas.hoods_of()); an area it does not name is
-    held to New York's rule, `hood` and `boro` on every place.
+    gets a file named in the manifest (a places or help file name, or a full
+    style URL) and raises IOError when it does not answer. `hoods`: {area id:
+    the area's `hoods` setting} (areas.hoods_of()); an area it does not name
+    is held to New York's rule, `hood` and `boro` on every place. `visitors`:
+    {area id: may its places carry `src` "visitors"} (areas.visitors_of());
+    an area it does not name may not.
 
     Rejects: an invalid manifest (bad tz, center outside the bbox, ...), a
-    places file whose bytes, sha256 or count differ from the manifest or that
-    is not valid, and a map style that does not answer or is not a MapLibre
-    style in JSON."""
+    places or help file whose bytes, sha256 or counts differ from the
+    manifest or that is not valid, and a map style that does not answer or
+    is not a MapLibre style in JSON."""
     manifest(m)
     for c in m["cities"]:
-        try:
-            body = read(c["places"])
-        except IOError as e:
-            raise Invalid(f"{c['places']}: {e}") from None
-        _need(len(body) == c["bytes"], f"{c['places']}: {len(body)} bytes, the manifest says {c['bytes']}")
-        _need(hashlib.sha256(body).hexdigest() == c["sha256"], f"{c['places']}: sha256 does not match the manifest")
-        try:
-            doc = json.loads(body)
-        except ValueError:
-            raise Invalid(f"{c['places']}: not JSON") from None
-        n = places_file(doc, c["id"], c["bbox"], (hoods or {}).get(c["id"], "nta2020"))
-        _need(n == c["count"], f"{c['places']}: {n} places, the manifest says {c['count']}")
-        confirmed = sum(p["src"] != "osm" for p in doc["places"])
-        _need(confirmed == c["confirmed"], f"{c['places']}: {confirmed} confirmed, the manifest says {c['confirmed']}")
+        area_files(c, read, (hoods or {}).get(c["id"], "nta2020"), bool((visitors or {}).get(c["id"])))
+    styles(m, read)
+
+
+def styles(m, read):
+    """Both map styles of the manifest answer, with a MapLibre style in JSON."""
     for key in ("style_dark", "style_light"):
         url = (m.get("map") or {}).get(key)
         if url is None:
@@ -287,6 +420,8 @@ def manifest(m):
     ids = [c.get("id") for c in cities if isinstance(c.get("id"), str)]
     _need(len(set(ids)) == len(ids), "manifest: two areas share an id")
     files = [c[k] for c in cities for k in ("places", "votes") if isinstance(c.get(k), str)]
+    files += [c["help"]["file"] for c in cities if isinstance(c.get("help"), dict)
+              and isinstance(c["help"].get("file"), str)]
     _need(len(set(files)) == len(files), "manifest: two areas share a file name")
     for c in cities:
         cid = c.get("id")
@@ -311,6 +446,20 @@ def manifest(m):
         cov = c.get("tag_coverage")
         _need(isinstance(cov, dict) and all(k in TAGS and _num(v) and 0 <= v <= 1 for k, v in cov.items()),
               f"{cid}: bad tag_coverage")
+        # optional, and they come together: the independents of the file and how many of them are confirmed
+        if "indie" in c or "indie_confirmed" in c:
+            _need(type(c.get("indie")) is int and 0 <= c["indie"] <= c["count"], f"{cid}: bad indie")
+            _need(type(c.get("indie_confirmed")) is int and 0 <= c["indie_confirmed"] <= min(c["indie"], c["confirmed"]),
+                  f"{cid}: bad indie_confirmed")
+        # optional: the area's help file
+        if "help" in c:
+            h = c["help"]
+            _need(isinstance(h, dict) and set(h) == {"file", "sha256", "bytes", "count"},
+                  f"{cid}: help is {{file, sha256, bytes, count}}")
+            _need(h["file"] == f"{cid}-help.json", f"{cid}: help.file must be {cid}-help.json")
+            _need(isinstance(h["sha256"], str) and _SHA.match(h["sha256"]), f"{cid}: bad help.sha256")
+            _need(type(h["bytes"]) is int and h["bytes"] > 0, f"{cid}: bad help.bytes")
+            _need(type(h["count"]) is int and h["count"] >= 0, f"{cid}: bad help.count")
     mp = m.get("map")
     if mp is not None:
         for k in ("style_dark", "style_light"):
