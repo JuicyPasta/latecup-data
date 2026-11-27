@@ -135,7 +135,10 @@ def places_file(doc, city_id, bbox=None, hoods="nta2020"):
     return len(seen)
 
 
-def votes_file(doc, city_id, place_ids=None):
+def votes_file(doc, city_id, place_ids=None, help_ids=None):
+    """`place_ids`: the ids of the area's places file, when the caller has
+    them. `help_ids`: the ids of its help file (cafés that are not on the
+    late map): such a place may carry `prop` and nothing else."""
     _need(doc.get("format") == FORMAT, "votes: format must be 1")
     _need(doc.get("city") == city_id, f"votes: city must be {city_id!r}")
     _ts(doc.get("generated"), "votes.generated")
@@ -143,8 +146,17 @@ def votes_file(doc, city_id, place_ids=None):
     _need(isinstance(votes, dict), "votes: `votes` must be an object")
     for pid, v in votes.items():
         _need(isinstance(pid, str) and _ID.match(pid), f"votes: bad id {pid!r}")
-        _need(place_ids is None or pid in place_ids, f"votes: {pid} is not in the feed")
-        _need(isinstance(v, dict) and v and set(v) <= {"ok", "bad", "stars"}, f"votes[{pid}]: ok, bad, stars only")
+        helped = help_ids is not None and pid in help_ids and not (place_ids is not None and pid in place_ids)
+        _need(place_ids is None or pid in place_ids or helped, f"votes: {pid} is not in the feed")
+        _need(isinstance(v, dict) and v and set(v) <= {"ok", "bad", "stars", "prop"},
+              f"votes[{pid}]: ok, bad, stars, prop only")
+        _need(not helped or set(v) == {"prop"}, f"votes[{pid}]: a place that is not on the map carries prop only")
+        if "prop" in v:
+            prop = v["prop"]
+            _need(isinstance(prop, dict) and set(prop) == {"hours", "n", "date"}, f"votes[{pid}].prop is hours, n, date")
+            hours_table(prop["hours"], f"votes[{pid}].prop.hours")
+            _need(type(prop["n"]) is int and prop["n"] >= 1, f"votes[{pid}].prop.n is the installs that agree, 1 or more")
+            _day(prop["date"], f"votes[{pid}].prop.date")
         if "ok" in v:
             ok = v["ok"]
             _need(isinstance(ok, list) and len(ok) == 2 and type(ok[0]) is int and ok[0] >= 1,

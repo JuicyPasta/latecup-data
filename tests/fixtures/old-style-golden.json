@@ -1,0 +1,416 @@
+{
+ "reports-old-style.csv new york 2026-11-20T09:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-old-style.csv new york 2026-11-26T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-24\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-22\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-26T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[4,\"2026-11-25\"],\"stars\":[3.0,2]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[2,\"2026-11-24\"],\"stars\":[2.5,2]},\"n3\":{\"ok\":[2,\"2026-11-24\"],\"bad\":[1,\"2026-11-22\"],\"stars\":[3.2,5]},\"w4\":{\"ok\":[5,\"2026-11-24\"],\"bad\":[1,\"2026-11-25\"],\"stars\":[4.0,4]},\"x-late-owl\":{\"ok\":[2,\"2026-11-24\"],\"stars\":[4.2,6]}}}\n"
+  },
+  "log": [
+   "193 usable rows, 22 quarantined (1 rule(s)), 171 counted; votes for 5 places (5 with confirmations, 3 reported wrong, 5 rated)"
+  ]
+ },
+ "reports-old-style.csv new york 2026-11-26T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-24\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-22\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-26T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[4,\"2026-11-25\"],\"stars\":[3.0,2]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[2,\"2026-11-24\"],\"stars\":[2.5,2]},\"n3\":{\"ok\":[2,\"2026-11-24\"],\"bad\":[1,\"2026-11-22\"],\"stars\":[3.2,5]},\"w4\":{\"ok\":[5,\"2026-11-24\"],\"bad\":[1,\"2026-11-25\"],\"stars\":[4.0,4]},\"x-late-owl\":{\"ok\":[2,\"2026-11-24\"],\"stars\":[4.2,6]}}}\n"
+  },
+  "log": [
+   "193 usable rows, 22 quarantined (1 rule(s)), 171 counted; votes for 5 places (5 with confirmations, 3 reported wrong, 5 rated)"
+  ]
+ },
+ "reports-old-style.csv new york 2026-12-20T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":9,\"latest\":\"2026-12-19\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":5,\"latest\":\"2026-12-05\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":5,\"latest\":\"2026-12-10\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[7,\"2026-12-10\"],\"bad\":[5,\"2026-12-05\"],\"stars\":[3.7,6]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[9,\"2026-12-19\"],\"stars\":[3.0,6]},\"n3\":{\"ok\":[6,\"2026-11-26\"],\"bad\":[5,\"2026-12-10\"],\"stars\":[2.9,8]},\"w4\":{\"ok\":[8,\"2026-12-11\"],\"bad\":[4,\"2026-12-19\"],\"stars\":[4.4,5]},\"x-late-owl\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.8,13]}}}\n"
+  },
+  "log": [
+   "384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 5 places (5 with confirmations, 4 reported wrong, 5 rated)"
+  ]
+ },
+ "reports-old-style.csv new york 2026-12-20T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":9,\"latest\":\"2026-12-19\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":5,\"latest\":\"2026-12-05\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":5,\"latest\":\"2026-12-10\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[7,\"2026-12-10\"],\"bad\":[5,\"2026-12-05\"],\"stars\":[3.7,6]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[9,\"2026-12-19\"],\"stars\":[3.0,6]},\"n3\":{\"ok\":[6,\"2026-11-26\"],\"bad\":[5,\"2026-12-10\"],\"stars\":[2.9,8]},\"w4\":{\"ok\":[8,\"2026-12-11\"],\"bad\":[4,\"2026-12-19\"],\"stars\":[4.4,5]},\"x-late-owl\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.8,13]}}}\n"
+  },
+  "log": [
+   "384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 5 places (5 with confirmations, 4 reported wrong, 5 rated)"
+  ]
+ },
+ "reports-old-style.csv new york 2027-05-01T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":15,\"latest\":\"2026-12-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":7,\"latest\":\"2026-12-25\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":5,\"latest\":\"2026-12-05\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"},{\"id\":\"x-late-owl\",\"name\":\"Late Owl\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-20\",\"web\":null,\"reports\":1,\"latest\":\"2026-12-25\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2027-05-01T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[5,\"2026-12-05\"],\"stars\":[3.7,6]},\"n2\":{\"bad\":[15,\"2026-12-25\"],\"stars\":[3.3,8]},\"n3\":{\"bad\":[7,\"2026-12-25\"],\"stars\":[3.0,9]},\"w4\":{\"bad\":[4,\"2026-12-19\"],\"stars\":[4.3,6]},\"x-late-owl\":{\"bad\":[1,\"2026-12-25\"],\"stars\":[3.8,13]}}}\n"
+  },
+  "log": [
+   "384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 5 places (0 with confirmations, 5 reported wrong, 5 rated)"
+  ]
+ },
+ "reports-old-style.csv two areas 2026-11-20T09:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "nyc: 0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)",
+   "chicago: 0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-old-style.csv two areas 2026-11-26T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-24\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-22\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-26T05:00:00Z\",\"votes\":{\"n1001\":{\"ok\":[6,\"2026-11-24\"],\"stars\":[4.0,4]},\"n1002\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.5,2]},\"r1003\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.9,8]}}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-26T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[4,\"2026-11-25\"],\"stars\":[3.0,2]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[2,\"2026-11-24\"],\"stars\":[2.5,2]},\"n3\":{\"ok\":[2,\"2026-11-24\"],\"bad\":[1,\"2026-11-22\"],\"stars\":[3.2,5]},\"w4\":{\"ok\":[5,\"2026-11-24\"],\"bad\":[1,\"2026-11-25\"],\"stars\":[4.0,4]},\"x-late-owl\":{\"ok\":[2,\"2026-11-24\"],\"stars\":[4.2,6]}}}\n"
+  },
+  "log": [
+   "nyc: 193 usable rows, 22 quarantined (1 rule(s)), 171 counted; votes for 5 places (5 with confirmations, 3 reported wrong, 5 rated)",
+   "chicago: 193 usable rows, 22 quarantined (1 rule(s)), 171 counted; votes for 3 places (3 with confirmations, 0 reported wrong, 3 rated)"
+  ]
+ },
+ "reports-old-style.csv two areas 2026-11-26T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-24\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-22\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-26T05:00:00Z\",\"votes\":{\"n1001\":{\"ok\":[6,\"2026-11-24\"],\"stars\":[4.0,4]},\"n1002\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.5,2]},\"r1003\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.9,8]}}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-26T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[4,\"2026-11-25\"],\"stars\":[3.0,2]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[2,\"2026-11-24\"],\"stars\":[2.5,2]},\"n3\":{\"ok\":[2,\"2026-11-24\"],\"bad\":[1,\"2026-11-22\"],\"stars\":[3.2,5]},\"w4\":{\"ok\":[5,\"2026-11-24\"],\"bad\":[1,\"2026-11-25\"],\"stars\":[4.0,4]},\"x-late-owl\":{\"ok\":[2,\"2026-11-24\"],\"stars\":[4.2,6]}}}\n"
+  },
+  "log": [
+   "nyc: 193 usable rows, 22 quarantined (1 rule(s)), 171 counted; votes for 5 places (5 with confirmations, 3 reported wrong, 5 rated)",
+   "chicago: 193 usable rows, 22 quarantined (1 rule(s)), 171 counted; votes for 3 places (3 with confirmations, 0 reported wrong, 3 rated)"
+  ]
+ },
+ "reports-old-style.csv two areas 2026-12-20T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[{\"id\":\"n1001\",\"name\":\"Loop One\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":7,\"latest\":\"2026-12-19\"},{\"id\":\"r1003\",\"name\":\"Loop Three\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-11-26\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"},{\"id\":\"n1002\",\"name\":\"Loop Two\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-22\",\"web\":null,\"reports\":3,\"latest\":\"2026-11-26\"}]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":9,\"latest\":\"2026-12-19\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":5,\"latest\":\"2026-12-05\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":5,\"latest\":\"2026-12-10\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1001\":{\"ok\":[5,\"2026-11-24\"],\"bad\":[7,\"2026-12-19\"],\"stars\":[4.0,5]},\"n1002\":{\"ok\":[3,\"2026-11-28\"],\"bad\":[3,\"2026-11-26\"],\"stars\":[3.8,5]},\"r1003\":{\"ok\":[10,\"2026-12-19\"],\"bad\":[4,\"2026-12-19\"],\"stars\":[4.1,12]}}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[7,\"2026-12-10\"],\"bad\":[5,\"2026-12-05\"],\"stars\":[3.7,6]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[9,\"2026-12-19\"],\"stars\":[3.0,6]},\"n3\":{\"ok\":[6,\"2026-11-26\"],\"bad\":[5,\"2026-12-10\"],\"stars\":[2.9,8]},\"w4\":{\"ok\":[8,\"2026-12-11\"],\"bad\":[4,\"2026-12-19\"],\"stars\":[4.4,5]},\"x-late-owl\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.8,13]}}}\n"
+  },
+  "log": [
+   "nyc: 384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 5 places (5 with confirmations, 4 reported wrong, 5 rated)",
+   "chicago: 384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 3 places (3 with confirmations, 3 reported wrong, 3 rated)"
+  ]
+ },
+ "reports-old-style.csv two areas 2026-12-20T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[{\"id\":\"n1001\",\"name\":\"Loop One\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":7,\"latest\":\"2026-12-19\"},{\"id\":\"r1003\",\"name\":\"Loop Three\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-11-26\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"},{\"id\":\"n1002\",\"name\":\"Loop Two\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-22\",\"web\":null,\"reports\":3,\"latest\":\"2026-11-26\"}]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":9,\"latest\":\"2026-12-19\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":5,\"latest\":\"2026-12-05\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":5,\"latest\":\"2026-12-10\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1001\":{\"ok\":[5,\"2026-11-24\"],\"bad\":[7,\"2026-12-19\"],\"stars\":[4.0,5]},\"n1002\":{\"ok\":[3,\"2026-11-28\"],\"bad\":[3,\"2026-11-26\"],\"stars\":[3.8,5]},\"r1003\":{\"ok\":[10,\"2026-12-19\"],\"bad\":[4,\"2026-12-19\"],\"stars\":[4.1,12]}}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"ok\":[7,\"2026-12-10\"],\"bad\":[5,\"2026-12-05\"],\"stars\":[3.7,6]},\"n2\":{\"ok\":[4,\"2026-11-24\"],\"bad\":[9,\"2026-12-19\"],\"stars\":[3.0,6]},\"n3\":{\"ok\":[6,\"2026-11-26\"],\"bad\":[5,\"2026-12-10\"],\"stars\":[2.9,8]},\"w4\":{\"ok\":[8,\"2026-12-11\"],\"bad\":[4,\"2026-12-19\"],\"stars\":[4.4,5]},\"x-late-owl\":{\"ok\":[3,\"2026-11-24\"],\"stars\":[3.8,13]}}}\n"
+  },
+  "log": [
+   "nyc: 384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 5 places (5 with confirmations, 4 reported wrong, 5 rated)",
+   "chicago: 384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 3 places (3 with confirmations, 3 reported wrong, 3 rated)"
+  ]
+ },
+ "reports-old-style.csv two areas 2027-05-01T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[{\"id\":\"n1001\",\"name\":\"Loop One\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":9,\"latest\":\"2026-12-25\"},{\"id\":\"n1002\",\"name\":\"Loop Two\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-22\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-25\"},{\"id\":\"r1003\",\"name\":\"Loop Three\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-11-26\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"}]}\n",
+   "ops/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":15,\"latest\":\"2026-12-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":7,\"latest\":\"2026-12-25\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":5,\"latest\":\"2026-12-05\"},{\"id\":\"w4\",\"name\":\"Delta\",\"addr\":\"1 Example St\",\"src\":\"brand\",\"checked\":\"2026-11-23\",\"web\":null,\"reports\":4,\"latest\":\"2026-12-19\"},{\"id\":\"x-late-owl\",\"name\":\"Late Owl\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-20\",\"web\":null,\"reports\":1,\"latest\":\"2026-12-25\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2027-05-01T05:00:00Z\",\"votes\":{\"n1001\":{\"bad\":[9,\"2026-12-25\"],\"stars\":[4.0,5]},\"n1002\":{\"bad\":[4,\"2026-12-25\"],\"stars\":[3.8,5]},\"r1003\":{\"bad\":[4,\"2026-12-19\"],\"stars\":[4.1,12]}}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2027-05-01T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[5,\"2026-12-05\"],\"stars\":[3.7,6]},\"n2\":{\"bad\":[15,\"2026-12-25\"],\"stars\":[3.3,8]},\"n3\":{\"bad\":[7,\"2026-12-25\"],\"stars\":[3.0,9]},\"w4\":{\"bad\":[4,\"2026-12-19\"],\"stars\":[4.3,6]},\"x-late-owl\":{\"bad\":[1,\"2026-12-25\"],\"stars\":[3.8,13]}}}\n"
+  },
+  "log": [
+   "nyc: 384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 5 places (0 with confirmations, 5 reported wrong, 5 rated)",
+   "chicago: 384 usable rows, 32 quarantined (1 rule(s)), 352 counted; votes for 3 places (0 with confirmations, 3 reported wrong, 3 rated)"
+  ]
+ },
+ "reports-platforms.csv new york 2026-11-20T09:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv new york 2026-11-26T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "6 usable rows, 2 quarantined (1 rule(s)), 4 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv new york 2026-11-26T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "6 usable rows, 2 quarantined (1 rule(s)), 4 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv new york 2026-12-20T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"stars\":[5.0,1]},\"n3\":{\"bad\":[1,\"2026-11-25\"]}}}\n"
+  },
+  "log": [
+   "14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 2 places (0 with confirmations, 1 reported wrong, 1 rated)"
+  ]
+ },
+ "reports-platforms.csv new york 2026-12-20T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"stars\":[5.0,1]},\"n3\":{\"bad\":[1,\"2026-11-25\"]}}}\n"
+  },
+  "log": [
+   "14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 2 places (0 with confirmations, 1 reported wrong, 1 rated)"
+  ]
+ },
+ "reports-platforms.csv new york 2027-05-01T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"stars\":[5.0,1]},\"n3\":{\"bad\":[1,\"2026-11-25\"]}}}\n"
+  },
+  "log": [
+   "14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 2 places (0 with confirmations, 1 reported wrong, 1 rated)"
+  ]
+ },
+ "reports-platforms.csv two areas 2026-11-20T09:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "nyc: 0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)",
+   "chicago: 0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv two areas 2026-11-26T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "nyc: 6 usable rows, 2 quarantined (1 rule(s)), 4 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)",
+   "chicago: 6 usable rows, 2 quarantined (1 rule(s)), 4 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv two areas 2026-11-26T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "nyc: 6 usable rows, 2 quarantined (1 rule(s)), 4 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)",
+   "chicago: 6 usable rows, 2 quarantined (1 rule(s)), 4 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv two areas 2026-12-20T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"stars\":[5.0,1]},\"n3\":{\"bad\":[1,\"2026-11-25\"]}}}\n"
+  },
+  "log": [
+   "nyc: 14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 2 places (0 with confirmations, 1 reported wrong, 1 rated)",
+   "chicago: 14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv two areas 2026-12-20T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"stars\":[5.0,1]},\"n3\":{\"bad\":[1,\"2026-11-25\"]}}}\n"
+  },
+  "log": [
+   "nyc: 14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 2 places (0 with confirmations, 1 reported wrong, 1 rated)",
+   "chicago: 14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports-platforms.csv two areas 2027-05-01T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-25\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"stars\":[5.0,1]},\"n3\":{\"bad\":[1,\"2026-11-25\"]}}}\n"
+  },
+  "log": [
+   "nyc: 14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 2 places (0 with confirmations, 1 reported wrong, 1 rated)",
+   "chicago: 14 usable rows, 6 quarantined (1 rule(s)), 8 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv new york 2026-11-20T09:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv new york 2026-11-26T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "6 usable rows, 0 quarantined (1 rule(s)), 6 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv new york 2026-11-26T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "6 usable rows, 0 quarantined (1 rule(s)), 6 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv new york 2026-12-20T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-23\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":1,\"latest\":\"2026-11-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-23\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[1,\"2026-11-25\"],\"stars\":[4.3,3]},\"n2\":{\"bad\":[2,\"2026-11-23\"],\"stars\":[3.0,1]},\"n3\":{\"bad\":[1,\"2026-11-23\"]}}}\n"
+  },
+  "log": [
+   "18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 3 places (0 with confirmations, 3 reported wrong, 2 rated)"
+  ]
+ },
+ "reports.csv new york 2026-12-20T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-23\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":1,\"latest\":\"2026-11-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-23\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[1,\"2026-11-25\"],\"stars\":[4.3,3]},\"n2\":{\"bad\":[2,\"2026-11-23\"],\"stars\":[3.0,1]},\"n3\":{\"bad\":[1,\"2026-11-23\"]}}}\n"
+  },
+  "log": [
+   "18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 3 places (0 with confirmations, 3 reported wrong, 2 rated)"
+  ]
+ },
+ "reports.csv new york 2027-05-01T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-23\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":1,\"latest\":\"2026-11-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-23\"}]}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[1,\"2026-11-25\"],\"stars\":[4.3,3]},\"n2\":{\"bad\":[2,\"2026-11-23\"],\"stars\":[3.0,1]},\"n3\":{\"bad\":[1,\"2026-11-23\"]}}}\n"
+  },
+  "log": [
+   "18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 3 places (0 with confirmations, 3 reported wrong, 2 rated)"
+  ]
+ },
+ "reports.csv two areas 2026-11-20T09:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-20T09:00:00Z\",\"places\":[]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "nyc: 0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)",
+   "chicago: 0 usable rows, 0 quarantined (1 rule(s)), 0 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv two areas 2026-11-26T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T05:00:00Z\",\"places\":[]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "nyc: 6 usable rows, 0 quarantined (1 rule(s)), 6 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)",
+   "chicago: 6 usable rows, 0 quarantined (1 rule(s)), 6 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv two areas 2026-11-26T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-11-26T06:00:00Z\",\"places\":[]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n"
+  },
+  "log": [
+   "nyc: 6 usable rows, 0 quarantined (1 rule(s)), 6 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)",
+   "chicago: 6 usable rows, 0 quarantined (1 rule(s)), 6 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv two areas 2026-12-20T05:00:00Z": {
+  "changed": true,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-23\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":1,\"latest\":\"2026-11-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-23\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[1,\"2026-11-25\"],\"stars\":[4.3,3]},\"n2\":{\"bad\":[2,\"2026-11-23\"],\"stars\":[3.0,1]},\"n3\":{\"bad\":[1,\"2026-11-23\"]}}}\n"
+  },
+  "log": [
+   "nyc: 18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 3 places (0 with confirmations, 3 reported wrong, 2 rated)",
+   "chicago: 18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv two areas 2026-12-20T06:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2026-12-20T06:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-23\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":1,\"latest\":\"2026-11-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-23\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[1,\"2026-11-25\"],\"stars\":[4.3,3]},\"n2\":{\"bad\":[2,\"2026-11-23\"],\"stars\":[3.0,1]},\"n3\":{\"bad\":[1,\"2026-11-23\"]}}}\n"
+  },
+  "log": [
+   "nyc: 18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 3 places (0 with confirmations, 3 reported wrong, 2 rated)",
+   "chicago: 18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ },
+ "reports.csv two areas 2027-05-01T05:00:00Z": {
+  "changed": false,
+  "files": {
+   "ops/chicago/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[]}\n",
+   "ops/recheck.json": "{\"generated\":\"2027-05-01T05:00:00Z\",\"places\":[{\"id\":\"n2\",\"name\":\"Beta\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":null,\"web\":null,\"reports\":2,\"latest\":\"2026-11-23\"},{\"id\":\"n1\",\"name\":\"Alpha\",\"addr\":\"1 Example St\",\"src\":\"shop\",\"checked\":\"2026-11-24\",\"web\":\"https://alpha.example\",\"reports\":1,\"latest\":\"2026-11-25\"},{\"id\":\"n3\",\"name\":\"Gamma\",\"addr\":\"1 Example St\",\"src\":\"osm\",\"checked\":\"2026-05-01\",\"web\":null,\"reports\":1,\"latest\":\"2026-11-23\"}]}\n",
+   "v1/chicago-votes.json": "{\"format\":1,\"city\":\"chicago\",\"generated\":\"2026-11-20T09:00:00Z\",\"votes\":{}}\n",
+   "v1/nyc-votes.json": "{\"format\":1,\"city\":\"nyc\",\"generated\":\"2026-12-20T05:00:00Z\",\"votes\":{\"n1\":{\"bad\":[1,\"2026-11-25\"],\"stars\":[4.3,3]},\"n2\":{\"bad\":[2,\"2026-11-23\"],\"stars\":[3.0,1]},\"n3\":{\"bad\":[1,\"2026-11-23\"]}}}\n"
+  },
+  "log": [
+   "nyc: 18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 3 places (0 with confirmations, 3 reported wrong, 2 rated)",
+   "chicago: 18 usable rows, 0 quarantined (1 rule(s)), 18 counted; votes for 0 places (0 with confirmations, 0 reported wrong, 0 rated)"
+  ]
+ }
+}
