@@ -1,6 +1,7 @@
 """The hourly count with `fix` and `add` rows in it: what is read, what a run
 writes (the votes files, the desk's lists, the ledger), and the proof that a
 run without such rows writes what it always wrote. Install ids are made up."""
+import functools
 import json
 import re
 from datetime import date
@@ -80,7 +81,22 @@ def site(tmp_path):
         {"id": "chicago", "tz": "America/Chicago", "places": "chicago.json", "votes": "chicago-votes.json",
          "bbox": [-88.05, 41.6, -87.5, 42.15], "center": [41.8781, -87.6298],
          "help": {"file": "chicago-help.json", "sha256": "0" * 64, "bytes": 1, "count": 2}}]}))
+    # the area files of these tests (never the repository's own, whose keys change the day an area goes on):
+    # Chicago publishes visitors' hours, New York's file does not say, so it does not
+    area_file(root, "chicago", visitors=True)
+    area_file(root, "nyc")
     return root
+
+
+def area_file(site, area, **keys):
+    folder = site.parent / "areas"
+    folder.mkdir(exist_ok=True)
+    (folder / f"{area}.json").write_text(json.dumps(dict({"id": area}, **keys)))
+
+
+def allows_of(site):
+    """votes.allows, reading the test's own area files."""
+    return functools.partial(votes.allows, folder=site.parent / "areas")
 
 
 @pytest.fixture
@@ -91,6 +107,7 @@ def repo(tmp_path):
 
 def run(site, text, repo=None, now=NOW, **more):
     lines = []
+    more.setdefault("allow", allows_of(site))
     result = votes.tally(site, text, now=now, log=lines.append, rules=more.pop("rules", []), repo=repo, **more)
     return result, lines
 
@@ -321,6 +338,26 @@ def test_one_run_from_rows_to_the_ledger(site, repo):
     assert grown.changed is False and "n1001" not in read(site / "v1" / "chicago-votes.json")["votes"]
 
 
+def test_no_area_publishes_visitors_hours_unless_its_file_says_so(site, repo):
+    # everything else is as it always is: the fixes flag, the leading table is asked of the next visitor, the
+    # desk's list says what the place is waiting for
+    text = csv(fix_row("2026-12-03 20:00", "n1001", 1, EARLIER), fix_row("2026-12-04 20:00", "n1001", 2, EARLIER),
+               fix_row("2026-12-04 21:00", "n1", 3, EARLIER), fix_row("2026-12-04 22:00", "n1", 4, EARLIER))
+    for keys in ({}, {"visitors": False}, {"visitors": "true"}, {"visitors": 1}):
+        area_file(site, "chicago", **keys)
+        result, _lines = run(site, text, repo)
+        assert result.writes == [] and result.problems == () and not (repo / "visitors").exists(), keys
+        assert read(site / "v1" / "chicago-votes.json")["votes"] == {
+            "n1001": {"bad": [2, "2026-12-04"], "prop": {"hours": EARLIER, "n": 2, "date": "2026-12-04"}}}
+        for ops in (site / "ops" / "chicago", site / "ops"):
+            entry = read(ops / "proposals.json")["places"][0]
+            assert entry["waiting"] == "the desk" and entry["why"] == "visitors' hours are not published in this area yet"
+            assert entry["tables"][0]["n"] == 2 and read(ops / "recheck.json")["places"][0]["fix"] == 2
+    area_file(site, "chicago", visitors=True)
+    result, _lines = run(site, text, repo, now="2026-12-10T19:00:00Z")
+    assert [w["path"] for w in result.writes] == ["visitors/chicago/n1001.json"]            # Chicago's file says so now
+
+
 def test_new_york_keeps_its_question_open_until_its_area_says_so(site, repo):
     text = csv(fix_row("2026-12-03 20:00", "n1", 1, EARLIER), fix_row("2026-12-04 20:00", "n1", 2, EARLIER))
     result, _lines = run(site, text, repo)
@@ -330,7 +367,8 @@ def test_new_york_keeps_its_question_open_until_its_area_says_so(site, repo):
     entry = read(site / "ops" / "proposals.json")["places"][0]
     assert entry["waiting"] == "the desk" and entry["why"] == "visitors' hours are not published in this area yet"
     # the day areas/nyc.json says "visitors": true, the same rows write New York's record, in visitors/ itself
-    result, _lines = run(site, text, repo, now="2026-12-10T18:00:00Z", allow=lambda _area: True)
+    area_file(site, "nyc", visitors=True)
+    result, _lines = run(site, text, repo, now="2026-12-10T18:00:00Z")
     assert [w["path"] for w in result.writes] == ["visitors/n1.json"]
     assert json.loads((repo / "visitors" / "n1.json").read_text())["visitors"] == 2
 
@@ -421,14 +459,20 @@ def test_quarantined_rows_never_count(site, repo):
     assert [w["path"] for w in result.writes] == ["visitors/chicago/n1001.json"]
 
 
-def test_installs_are_scored_against_what_we_read_on_the_shops_pages(site, repo):
-    # n1004 and n1005 are `shop`: read on 2026-12-05, when their hours changed to what they are now.
-    # n3001 left the map over what we read (it closes at 18:00), so the reading is only in overrides/.
-    (repo / "overrides" / "chicago").mkdir(parents=True)
-    (repo / "overrides" / "chicago" / "n3001.json").write_text(json.dumps({
-        "id": "n3001", "hours": EARLY, "src": "shop", "source": "https://example.com/hours", "checked": "2026-12-06"}))
-    (repo / "overrides" / "chicago" / "n1004.json").write_text(json.dumps({                 # in the feed: the feed is read
-        "id": "n1004", "hours": LATER, "src": "shop", "source": "https://example.com/hours", "checked": "2026-12-09"}))
+def write_override(repo, area, pid, table, checked, src="shop", **more):
+    folder = repo / "overrides" / area
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / f"{pid}.json").write_text(json.dumps(dict({"id": pid, "hours": table, "src": src,
+                                                           "source": "https://example.com/hours", "checked": checked}, **more)))
+
+
+def test_installs_are_scored_against_what_a_person_read_on_the_shops_pages(site, repo):
+    # The readings that judge an install are the ones a person wrote into overrides/ or additions/. n1004 and
+    # n1005 are `shop`: read on 2026-12-05, when their hours changed to what they are now. n3001 left the
+    # map over what we read (it closes at 18:00), so the reading is only in overrides/.
+    write_override(repo, "chicago", "n1004", EARLIER, "2026-12-05")
+    write_override(repo, "chicago", "n1005", LATER, "2026-12-05")
+    write_override(repo, "chicago", "n3001", EARLY, "2026-12-06")
     history = [
         fix_row("2026-12-01 20:00", "n1004", 7, EARLIER, hh="0ldhash1"), fix_row("2026-12-01 20:05", "n1005", 7, LATER, hh="0ldhash2"),
         fix_row("2026-12-01 20:00", "n1004", 9, LATER, hh="0ldhash1"), fix_row("2026-12-01 20:05", "n1005", 9, EARLIER, hh="0ldhash2"),
@@ -447,14 +491,76 @@ def test_installs_are_scored_against_what_we_read_on_the_shops_pages(site, repo)
     assert result.writes == []
     # install 9 was contradicted twice: it is not heard, not even as a flag
     result, _lines = run(site, csv(*history, fix_row("2026-12-07 20:00", "n1003", 9, EARLIER), fix_row("2026-12-08 20:00", "n1002", 9, EARLIER)),
-                         None, now="2026-12-10T20:00:00Z")
+                         repo, now="2026-12-10T20:00:00Z")
     assert read(site / "v1" / "chicago-votes.json")["votes"] == {}
-    # a broken record in overrides/ does not stop the count: installs are scored from the feed alone
+    # Without the repository the count has the feed alone, and the feed does not say who read a place's
+    # hours: nobody is scored. Install 7 counts 1 like anybody, and install 9 is heard.
+    rows = csv(*history, fix_row("2026-12-07 20:00", "n1002", 7, LATER), fix_row("2026-12-08 20:00", "n1002", 8, LATER),
+               fix_row("2026-12-08 21:00", "n1001", 9, EARLIER))
+    result, _lines = run(site, rows, None, now="2026-12-10T21:00:00Z")
+    assert result.writes == [] and set(read(site / "v1" / "chicago-votes.json")["votes"]) == {"n1001", "n1002"}
+    # a broken record in overrides/ does not stop the count: nobody is scored by that area's readings
     (repo / "overrides" / "chicago" / "n3002.json").write_text('{"id": "somewhere-else"}')
-    result, lines = run(site, csv(*history, fix_row("2026-12-07 20:00", "n1002", 7, LATER), fix_row("2026-12-08 20:00", "n1002", 8, LATER)),
-                        repo, now="2026-12-10T21:00:00Z")
+    result, lines = run(site, csv(*history, fix_row("2026-12-07 20:00", "n1003", 7, LATER), fix_row("2026-12-08 20:00", "n1003", 8, LATER)),
+                        repo, now="2026-12-10T22:00:00Z")
     assert any(line.startswith("::warning::chicago: overrides/ or additions/ could not be read") for line in lines)
-    assert not UUID.search("\n".join(lines))
+    assert result.problems == () and not UUID.search("\n".join(lines))
+
+
+def test_only_a_reading_a_person_wrote_judges_an_install(site, repo):
+    # Three chain stores, all `brand` in the feed, all with the same hours since 2026-12-05. The feed cannot
+    # tell them apart; the repository can.
+    #   n1101  read by hand: a record in overrides/ with no `by`
+    #   n1102  read by the weekly store-page pass: its record says "by": "confirm_brand"
+    #   n1103  read by the chain layer (All The Places): no record at all
+    # The last two are read by a program and dated again every week, and a locator can be wrong. They judge
+    # nobody: not for (a score of 2 would be earned by copying a locator) and not against (a visitor who
+    # corrects two chain stores would be silenced).
+    stores = [feed_place(pid, name, OSM, "brand", "2026-12-05", lat=41.95 + n * 0.01, lon=-87.75, chain="example")
+              for n, (pid, name) in enumerate((("n1101", "By Hand"), ("n1102", "By The Weekly Pass"), ("n1103", "By The Layer")))]
+    since = {p["id"]: [p["hh"], "2026-12-05T10:00:00Z"] for p in stores}
+    since.update({"n1004": [H.table_hash(EARLIER), "2026-12-05T10:00:00Z"], "n1005": [H.table_hash(LATER), "2026-12-05T10:00:00Z"]})
+    write_feed(site, "chicago", CHICAGO + stores, since)
+    write_override(repo, "chicago", "n1101", OSM, "2026-12-05", src="brand")
+    write_override(repo, "chicago", "n1102", OSM, "2026-12-05", src="brand", by="confirm_brand")
+    write_override(repo, "chicago", "n1004", EARLIER, "2026-12-05")
+    write_override(repo, "chicago", "n1005", LATER, "2026-12-05")
+    said, other = OSM, shifted_week(OSM)                    # what the readings say, and something else
+    history = [
+        # install 31: right twice, by readings a person wrote (a chain's page and a shop's)
+        fix_row("2026-12-01 20:00", "n1101", 31, said, hh="0ld"), fix_row("2026-12-01 20:05", "n1004", 31, EARLIER, hh="0ld"),
+        # install 32: "right" twice by what the programs read
+        fix_row("2026-12-01 20:00", "n1102", 32, said, hh="0ld"), fix_row("2026-12-01 20:05", "n1103", 32, said, hh="0ld"),
+        # install 33: at odds twice with what the programs read
+        fix_row("2026-12-01 20:00", "n1102", 33, other, hh="0ld"), fix_row("2026-12-01 20:05", "n1103", 33, other, hh="0ld"),
+        # install 34: at odds twice with what a person read
+        fix_row("2026-12-01 20:00", "n1101", 34, other, hh="0ld"), fix_row("2026-12-01 20:05", "n1005", 34, EARLIER, hh="0ld"),
+    ]
+
+    def later_with(n, now):
+        """Install n and install 8 (which counts 1) agree on a later closing for n1002: enough only when n counts 2."""
+        rows = csv(*history, fix_row("2026-12-07 20:00", "n1002", n, LATER), fix_row("2026-12-08 20:00", "n1002", 8, LATER))
+        result, _lines = run(site, rows, repo, now=now)
+        return [w["record"]["visitors"] for w in result.writes], read(site / "v1" / "chicago-votes.json")["votes"].get("n1002")
+
+    assert later_with(31, "2026-12-10T17:00:00Z")[0] == [2]                    # 2 + 1: published
+    (repo / "visitors" / "chicago" / "n1002.json").unlink()
+    assert later_with(32, "2026-12-10T18:00:00Z")[0] == []                     # 1 + 1: the locators earned it nothing
+    writes, votes_ = later_with(33, "2026-12-10T19:00:00Z")
+    assert writes == [] and votes_["bad"] == [2, "2026-12-08"] and votes_["prop"]["n"] == 2      # 1 + 1, and heard
+    writes, votes_ = later_with(34, "2026-12-10T20:00:00Z")
+    assert writes == [] and votes_["bad"] == [1, "2026-12-08"] and votes_["prop"]["n"] == 1      # 0: not heard
+    # the hand reading stops judging the day the feed no longer shows it (the record held back, or other hours)
+    write_override(repo, "chicago", "n1101", shifted_week(OSM, 90), "2026-12-05", src="brand")
+    assert later_with(31, "2026-12-10T21:00:00Z")[0] == [] and later_with(34, "2026-12-10T22:00:00Z")[1]["prop"]["n"] == 2
+    # ... and so does one a person wrote and a program then signed
+    write_override(repo, "chicago", "n1101", OSM, "2026-12-05", src="brand", by="confirm_brand")
+    assert later_with(31, "2026-12-10T23:00:00Z")[0] == []
+
+
+def shifted_week(table, minutes=-120):
+    """Every day's last closing moved: a week that does not agree with `table`."""
+    return [[list(span) for span in day[:-1]] + [[day[-1][0], day[-1][1] + minutes]] if day else [] for day in table]
 
 
 # ---------------------------------------------------------------- cafés visitors would add
@@ -497,6 +603,7 @@ def test_no_install_id_in_any_output_file(site, repo, tmp_path, monkeypatch, cap
     monkeypatch.setenv("GITHUB_OUTPUT", str(out))
     monkeypatch.setattr(votes.http, "get", lambda url, **_: csv(*rows).encode())
     monkeypatch.setattr(votes, "now_iso", lambda: NOW)
+    monkeypatch.setattr(votes, "allows", allows_of(site))
     assert votes.main(["--site", str(site), "--repo", str(repo), "--plan", str(plan)]) == 0
     said = capsys.readouterr()
     assert out.read_text() == "changed=true\nledger=true\nproblem=false\n"
@@ -568,12 +675,6 @@ def test_the_validator_still_refuses_what_it_refused():
     for entry in ({}, {"oks": [1, "2026-12-03"]}, {"ok": [1, "2026-12-03", 1]}, {"props": {}}, {"iid": "x"}):
         with pytest.raises(validate.Invalid):
             validate.votes_file(votes_doc(entry), "nyc")
-
-
-def test_new_york_waits_and_the_other_areas_do_not():
-    # areas/<id>.json may say `visitors`; where it does not, New York is off (the app that is out would
-    # credit such hours to OpenStreetMap) and every other area is on
-    assert votes.allows("nyc") is False and votes.allows("chicago") is True and votes.allows("no-such-area") is True
 
 
 def test_the_limits_match_the_counts():
@@ -659,17 +760,117 @@ def test_a_failure_in_the_rules_for_visitors_hours_never_stops_the_other_counts(
     assert "::error::visitors' hours, chicago: KeyError" in said.out and not UUID.search(said.out + said.err)
 
 
-def test_an_area_file_can_say_whether_visitors_hours_are_published(tmp_path, monkeypatch):
+def test_an_area_file_says_whether_visitors_hours_are_published(tmp_path, monkeypatch):
     from latecup_data import areas
+    for name, text in (("nyc", '{"id": "nyc", "visitors": true}'), ("chicago", '{"id": "chicago", "visitors": false}'),
+                       ("austin", '{"id": "austin"}'), ("boston", '{"id": "boston", "visitors": "yes"}'),
+                       ("dc", "not json"), ("denver", '["visitors", true]')):
+        (tmp_path / f"{name}.json").write_text(text)
+    # on only where the file says true: not where it says nothing, something else, or cannot be read
+    assert [votes.allows(a, tmp_path) for a in ("nyc", "chicago", "austin", "boston", "dc", "denver", "nowhere")] == \
+        [True, False, False, False, False, False, False]
+    # the folder it reads when it is given none is the repository's areas/
     monkeypatch.setattr(areas, "FOLDER", tmp_path)
-    (tmp_path / "nyc.json").write_text('{"id": "nyc", "visitors": true}')
-    (tmp_path / "chicago.json").write_text('{"id": "chicago", "visitors": false}')
-    (tmp_path / "austin.json").write_text('{"id": "austin"}')
-    (tmp_path / "boston.json").write_text('{"id": "boston", "visitors": "yes"}')            # not true or false: as if unsaid
-    (tmp_path / "dc.json").write_text("not json")
-    assert [votes.allows(a) for a in ("nyc", "chicago", "austin", "boston", "dc")] == [True, False, True, True, True]
-    (tmp_path / "nyc.json").write_text('{"id": "nyc"}')
-    assert votes.allows("nyc") is False
+    assert votes.allows("nyc") is True and votes.allows("austin") is False
+
+
+# ---------------------------------------------------------------- the breaker
+
+def many_places(site, per_area):
+    """Two areas that both publish visitors' hours, `per_area` places each, and for the first `n` places of
+    an area two installs that agree on an earlier closing: ten of them on one day, the rest on the next
+    (the brake of ten a day in one area is not what is tested here)."""
+    area_file(site, "nyc", visitors=True)
+    write_feed(site, "nyc", [feed_place(f"n4{i:03d}", f"Village Cafe {i}", lat=40.70 + i * 0.001, lon=-73.99) for i in range(per_area)])
+    write_feed(site, "chicago", [feed_place(f"n3{i:03d}", f"Loop Cafe {i}", lat=41.80 + i * 0.001) for i in range(per_area)])
+
+    def rows(chicago, nyc):
+        out = []
+        for prefix, n in (("n3", chicago), ("n4", nyc)):
+            for i in range(n):
+                day = "2026-12-03" if i < 10 else "2026-12-04"
+                out += [fix_row(f"{day} 12:{i:02d}", f"{prefix}{i:03d}", 1000 + i * 2 + (prefix == "n4") * 500, EARLIER),
+                        fix_row(f"{day} 13:{i:02d}", f"{prefix}{i:03d}", 1001 + i * 2 + (prefix == "n4") * 500, EARLIER)]
+        return csv(*out)
+    return rows
+
+
+def test_25_records_in_one_run_are_written_and_26_are_not(site, repo, tmp_path, monkeypatch, capsys):
+    assert V.MAX_A_RUN == 25
+    rows = many_places(site, 14)
+    # 26 across two areas: none is written, in either area
+    result, lines = run(site, rows(13, 13), repo)
+    assert result.writes == [] and not (repo / "visitors").exists()
+    assert result.problems == ("visitors' records: 26 records in one run, more than 25: none was written",)
+    assert any(line.startswith("::error::visitors' records: 26 records in one run, more than 25") for line in lines)
+    # they are on the desk's lists, with the reason; the flags and the questions are as always
+    for area, n in (("chicago", 13), ("nyc", 13)):
+        ops = site / "ops" if area == "nyc" else site / "ops" / area
+        desk = read(ops / "proposals.json")["places"]
+        assert len(desk) == n and {e["waiting"] for e in desk} == {"the desk"}
+        assert {e["why"] for e in desk} == {"26 records in one run, more than 25: none was written"}
+        votes_ = read(site / "v1" / f"{area}-votes.json")["votes"]
+        assert len(votes_) == n and all(v["prop"]["n"] == 2 and v["bad"][0] == 2 for v in votes_.values())
+    assert result.changed is True
+    # an hour later it is the same: nothing is written until somebody has looked
+    again, _lines = run(site, rows(13, 13), repo, now="2026-12-10T18:00:00Z")
+    assert again.writes == [] and len(again.problems) == 1 and again.changed is False
+
+    # the job step goes through (the counts are published) and reports the problem, which fails the job at its end
+    out = tmp_path / "github-output"
+    monkeypatch.setenv("REPORTS_CSV_URL", "https://docs.example/pub?output=csv")
+    monkeypatch.setenv("GITHUB_OUTPUT", str(out))
+    monkeypatch.setattr(votes.http, "get", lambda url, **_: rows(13, 13).encode())
+    monkeypatch.setattr(votes, "load_quarantine", lambda path=None: [])
+    monkeypatch.setattr(votes, "now_iso", lambda: "2026-12-10T19:00:00Z")
+    monkeypatch.setattr(votes, "allows", allows_of(site))
+    assert votes.main(["--site", str(site), "--repo", str(repo), "--plan", str(tmp_path / "plan.json")]) == 0
+    assert out.read_text() == "changed=false\nledger=false\nproblem=true\n" and read(tmp_path / "plan.json") == []
+    assert "::error::visitors' records: 26 records in one run" in capsys.readouterr().out
+
+    # 25: every one of them is written
+    result, lines = run(site, rows(13, 12), repo, now="2026-12-10T20:00:00Z")
+    assert len(result.writes) == 25 and result.problems == ()
+    assert len(list((repo / "visitors").rglob("*.json"))) == 25
+    assert {e["waiting"] for e in read(site / "ops" / "chicago" / "proposals.json")["places"]} == {"the next build"}
+    # the 26th place, an hour later, is one record in that run: written
+    result, _lines = run(site, rows(13, 13), repo, now="2026-12-10T21:00:00Z")
+    assert [w["path"] for w in result.writes] == ["visitors/n4012.json"] and result.problems == ()
+
+
+def test_the_breaker_counts_every_record_of_the_run_and_can_be_set(site, repo):
+    rows = many_places(site, 14)
+    # a record that only gains an install is a record written: 25 are in the ledger, the build has not taken
+    # them, and a third install agrees on 13 + 13 places at once
+    assert len(run(site, rows(13, 12), repo)[0].writes) == 25
+    third = [fix_row(f"2026-12-0{5 if i < 10 else 6} 12:00", f"{prefix}{i:03d}", 3000 + i + (prefix == "n4") * 500, EARLIER)
+             for prefix in ("n3", "n4") for i in range(13)]              # ten a day in an area, as the brake has it
+    result, _lines = run(site, rows(13, 13) + "\n" + "\n".join(third), repo, now="2026-12-10T18:00:00Z")
+    assert result.writes == [] and result.problems == ("visitors' records: 26 records in one run, more than 25: none was written",)
+    assert json.loads((repo / "visitors" / "chicago" / "n3000.json").read_text())["visitors"] == 2
+    # the limit is a number somebody can change, or take away
+    result, _lines = run(site, rows(13, 13) + "\n" + "\n".join(third), None, now="2026-12-10T19:00:00Z", breaker=None, cap=None)
+    assert len(result.writes) == 26 and result.problems == ()
+    result, _lines = run(site, rows(2, 1), None, now="2026-12-10T20:00:00Z", breaker=2)
+    assert result.writes == [] and result.problems == ("visitors' records: 3 records in one run, more than 2: none was written",)
+
+
+def test_hold_takes_back_what_a_run_was_about_to_write():
+    from datetime import datetime, timezone
+    hh = H.table_hash(OSM)
+    known = {pid: {"name": pid, "addr": "1 St", "web": None, "hours": OSM, "hh": hh, "src": "osm", "checked": None, "map": True}
+             for pid in ("n1", "n2", "n3")}
+    when = datetime(2026, 12, 3, 20, tzinfo=timezone.utc)
+    rows = [(when, "n1", iid(1), hh, EARLIER, "ios"), (when, "n1", iid(2), hh, EARLIER, "ios"),
+            (when, "n2", iid(3), hh, EARLIER, "ios"), (when, "n3", iid(4), hh, LATER, "ios"), (when, "n3", iid(5), hh, LATER, "ios")]
+    out = V.assess(rows, known, now=datetime(2026, 12, 10, 17, tzinfo=timezone.utc), tz=NY)
+    assert [w["id"] for w in out["writes"]] == ["n1"]
+    assert [(e["id"], e["waiting"]) for e in out["proposals"]] == [("n3", "1 more install"), ("n2", "1 more install"), ("n1", "the next build")]
+    held = V.hold(out, "too many at once")
+    assert held is out and out["writes"] == [] and out["props"]["n1"]["n"] == 2 and out["flags"]["n1"]
+    assert [(e["id"], e["waiting"], e.get("why")) for e in out["proposals"]] == \
+        [("n1", "the desk", "too many at once"), ("n3", "1 more install", "three installs: ends later on Fri-Sat"),
+         ("n2", "1 more install", None)]
 
 
 # ---------------------------------------------------------------- anything at all

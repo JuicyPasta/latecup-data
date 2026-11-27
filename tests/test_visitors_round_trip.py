@@ -5,6 +5,7 @@ us-areas: build.load_visitors, run.make(fields=...)). Until the two are
 merged this file is skipped; from the merge on it is the test that the two
 halves meet: the record the count writes is one the build takes, and the
 feed the build makes is one the count reads."""
+import functools
 import json
 
 import pytest
@@ -43,6 +44,17 @@ def fix(when, pid, n, table, hh=HH):
 def test_the_record_the_count_writes_is_the_one_the_build_takes(tmp_path, monkeypatch):
     repo, site = tmp_path / "repo", tmp_path / "site"
     repo.mkdir()
+    # The area files of this test: Chicago's says "visitors": true, New York's says nothing, and no area
+    # publishes visitors' hours unless its file says so. Both halves read the same two files: the count
+    # through votes.allows, the build through the Area made from them.
+    (tmp_path / "areas").mkdir()
+    for area_id, keys in (("nyc", {}), ("chicago", {"visitors": True})):
+        rec = json.loads((A.FOLDER / f"{area_id}.json").read_text())         # the real area, for its box and zone
+        rec.pop("visitors", None)                                            # ... and never for this key
+        (tmp_path / "areas" / f"{area_id}.json").write_text(json.dumps(dict(rec, **keys)))
+    built = [A.Area(json.loads((tmp_path / "areas" / f"{i}.json").read_text())) for i in ("nyc", "chicago")]
+    assert [a.visitors for a in built] == [False, True]
+    allow = functools.partial(votes.allows, folder=tmp_path / "areas")
     read_visitors = B.load_visitors
     monkeypatch.setattr(B, "load_visitors", lambda folder=None, area=None: read_visitors(repo / "visitors", area))
     monkeypatch.setattr(B, "load_overrides", lambda *a, **k: {})
@@ -50,11 +62,11 @@ def test_the_record_the_count_writes_is_the_one_the_build_takes(tmp_path, monkey
     monkeypatch.setattr(run, "load_report", lambda: None)
 
     def build(now):
-        return run.make(PULLS, site, areas=[A.get("nyc"), A.get("chicago")], now=now, log=lambda *_: None, fields=True)
+        return run.make(PULLS, site, areas=built, now=now, log=lambda *_: None, fields=True)
 
     def count(rows, now):
         return votes.tally(site, "\n".join(["timestamp,type,place_id,note,platform", *rows]), now=now,
-                           log=lambda *_: None, rules=[], repo=repo)
+                           log=lambda *_: None, rules=[], repo=repo, allow=allow)
 
     def read(name):
         return json.loads((site / "v1" / name).read_text())

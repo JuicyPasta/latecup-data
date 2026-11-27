@@ -300,17 +300,18 @@ def count(rows, places, hh_since, now, tz, dropped=None, flags=None, props=None)
     return out
 
 
-def allows(area_id):
-    """True when the area lets visitors' records change its published hours:
-    the key `visitors` of areas/<id>.json. Where the file does not say:
-    false for New York (the app that is out would credit such hours to
-    OpenStreetMap), true everywhere else."""
+def allows(area_id, folder=None):
+    """True when the area publishes visitors' hours: `"visitors": true` in
+    its file, areas/<id>.json. Off for every area whose file does not say
+    so. The platform of a row is whatever the sender writes, so "two
+    installs" can be two scripted posts; until a report carries proof that
+    it comes from the real app on a real device, turning this on is a
+    decision somebody takes for an area, not a default."""
     try:
-        rec = json.loads((A.FOLDER / f"{area_id}.json").read_text())
+        rec = json.loads((Path(folder or A.FOLDER) / f"{area_id}.json").read_text())
     except (OSError, ValueError):
         rec = None
-    said = rec.get("visitors") if isinstance(rec, dict) else None
-    return said if isinstance(said, bool) else area_id != A.FIRST
+    return isinstance(rec, dict) and rec.get("visitors") is True
 
 
 def _entries(site):
@@ -386,26 +387,35 @@ def _changed(places, hh_since):
 
 
 def _readings(areas, repo, warn):
-    """{place id: visitors.Reading}: every place whose hours we read on the
-    shop's or the chain's own page. The published ones are in the feed; one
-    that left the map over what we read (it closes before 20:00) is only in
-    overrides/ or additions/."""
+    """{place id: visitors.Reading}: the hours a person read on the shop's or
+    the chain's own page, the only readings an install is judged by.
+
+    They are the records of overrides/ and additions/ that carry no `by`.
+    The weekly store-page pass signs its records ("by": "confirm_brand"),
+    and the chain layer (All The Places) has no record at all: both are
+    read by a program and dated again every week, and a locator can be
+    wrong, so neither judges anybody. The feed cannot tell the two kinds of
+    `brand` apart (it has no `by`), so this needs the repository: without
+    it nobody is scored.
+
+    A reading stands when the feed shows it (the same table and `checked`),
+    or when the place is off the map over it (it closes before 20:00) and
+    the publish guard has nothing against the table. A record the feed does
+    not show (held back by the guard, or not the place's hours any more)
+    judges nobody."""
     out = {}
+    if repo is None:
+        return out
     for a in areas:
-        for p in a["places"].values():
-            if p.get("src") in ("shop", "brand") and p.get("checked"):
-                out[p["id"]] = visitors.Reading(p["hours"], p["checked"], a["tz"], p["hh"], a["changed"].get(p["id"]))
-        if repo is None:
-            continue
         area = SimpleNamespace(id=a["id"])
         try:
             recs = list(B.load_overrides(Path(repo) / "overrides", area).values())
             recs += B.load_additions(Path(repo) / "additions", area)
         except (OSError, ValueError, KeyError, TypeError, AttributeError) as e:
-            warn(f"{a['id']}: overrides/ or additions/ could not be read ({e}); installs are scored from the feed alone")
+            warn(f"{a['id']}: overrides/ or additions/ could not be read ({e}); nobody is scored by this area's readings")
             continue
         for rec in recs:
-            if rec["id"] in a["places"] or rec.get("closed") or rec.get("exclude") or "hours" not in rec:
+            if rec.get("by") or rec.get("closed") or rec.get("exclude") or "hours" not in rec:
                 continue
             try:
                 table = H.normalize(rec["hours"])
@@ -413,8 +423,12 @@ def _readings(areas, repo, warn):
                 date.fromisoformat(rec["checked"])
             except (ValueError, TypeError):
                 continue
-            if rec.get("second_look") or not B.guard(table, None):
-                out[rec["id"]] = visitors.Reading(table, rec["checked"], a["tz"], H.table_hash(table), None)
+            p = a["places"].get(rec["id"])
+            if p is None:
+                if rec.get("second_look") or not B.guard(table, None):
+                    out[rec["id"]] = visitors.Reading(table, rec["checked"], a["tz"], H.table_hash(table), None)
+            elif p.get("src") in ("shop", "brand") and p["hours"] == table and p.get("checked") == rec["checked"]:
+                out[p["id"]] = visitors.Reading(table, rec["checked"], a["tz"], p["hh"], a["changed"].get(p["id"]))
     return out
 
 
@@ -442,19 +456,23 @@ def _desk_list(path, key, items, now, more=0):
 Result = namedtuple("Result", "changed writes problems", defaults=((),))
 
 
-def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=None, removed=None, allow=allows,
-          cap=visitors.MAX_A_DAY):
+def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=None, removed=None, allow=None,
+          cap=visitors.MAX_A_DAY, breaker=visitors.MAX_A_RUN):
     """Rebuild every area's votes file and the desk's lists in `site`, and
     write the visitors' records the rows have earned.
 
     rules: quarantine rules (default: quarantine.json).
     repo: the repository checkout. Its visitors/ folder is the ledger, and
         its overrides/ and additions/ are the readings installs are scored
-        against. None: no record is read or written.
+        against. None: no record is read or written and nobody is scored.
     removed: {place id: when a person last deleted its record (UTC)}
         (ledger.removed): rows older than that never bring the record back.
-    allow: area id -> may visitors change this area's published hours.
+    allow: area id -> does this area publish visitors' hours (default:
+        allows(), the area's own file; off unless it says so).
     cap: visitors' records written in one area for one day (None: no brake).
+    breaker: visitors' records written in one run, all areas together. One
+        more and the run writes none of them: they stay on the desk's lists
+        with the reason, and the run reports a problem (None: no breaker).
 
     -> Result(changed: something in `site` changed and wants publishing,
               writes: [{"path", "message", ...}], the ledger files written,
@@ -484,6 +502,7 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
     added = [r for r in rows if r[1] == "add" and r[3]["iid"] not in dropped]
     ledger = Path(repo) / "visitors" if repo is not None else None
     removed = removed or {}
+    allow = allow or allows
 
     def warn(text):
         log(f"::warning::{text}")
@@ -520,24 +539,37 @@ def tally(site, csv_text, now=None, tz_name=None, log=print, rules=None, repo=No
             sound = False
             trouble("visitors' hours, every area", e)
 
-    changed = False
-    writes = []
+    # what each area's fixes come to, before anything is written: the breaker looks at the whole run
     for a in areas:
-        area_id, tz, places, ops, hh_since = a["id"], a["tz"], a["places"], a["ops"], a["hh_since"]
-        fx = None
+        area_id, places, hh_since = a["id"], a["places"], a["hh_since"]
+        a["fx"] = None
         try:
             mine = [(r[0], r[2], r[3]["iid"], r[3]["hh"], r[3]["table"], r[4]) for r in fixes if r[2] in a["known"]] \
                 if sound else []
-            if sound and (mine or (ops / "proposals.json").exists()):
+            if sound and (mine or (a["ops"] / "proposals.json").exists()):
                 if "known" not in a:
                     a["known"] = _known(places, _help(v1, a["help"]))
                     a["changed"] = _changed(places, hh_since) if isinstance(hh_since, dict) else {}
-                fx = visitors.assess(mine, a["known"], now=when, tz=tz, weights=weights, changed=a["changed"],
-                                     records=visitors.load(ledger, area_id, warn), removed=removed,
-                                     allowed=bool(allow(area_id)), cap=cap)
+                a["fx"] = visitors.assess(mine, a["known"], now=when, tz=a["tz"], weights=weights, changed=a["changed"],
+                                          records=visitors.load(ledger, area_id, warn), removed=removed,
+                                          allowed=bool(allow(area_id)), cap=cap)
         except Exception as e:      # noqa: BLE001
-            fx = None
+            a["fx"] = None
             trouble(f"visitors' hours, {area_id}", e)
+    earned = sum(len(a["fx"]["writes"]) for a in areas if a["fx"])
+    if breaker is not None and earned > breaker:
+        why = f"{earned} records in one run, more than {breaker}: none was written"
+        for a in areas:
+            if a["fx"] and a["fx"]["writes"]:
+                visitors.hold(a["fx"], why)
+        problems.append(f"visitors' records: {why}")
+        log(f"::error::{problems[-1]}. So many at once is more likely an attack than a crowd: they are on the desk's "
+            f"lists (ops/proposals.json), and nothing is written until somebody has looked")
+
+    changed = False
+    writes = []
+    for a in areas:
+        area_id, tz, places, ops, hh_since, fx = a["id"], a["tz"], a["places"], a["ops"], a["hh_since"], a["fx"]
         votes = count(rows, places, hh_since, when, tz, dropped, fx and fx["flags"], fx and fx["props"])
         doc = {"format": FORMAT, "city": area_id, "generated": now, "votes": votes}
         try:

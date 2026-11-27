@@ -31,6 +31,8 @@ MAX_AGE_DAYS = 120    # a fix or an add older than this is forgotten (the same a
 SLACK = 30            # minutes two tables may differ by, opening by opening and closing by closing, and still agree
 MAX_A_DAY = 10        # visitors' records written in one area for one day. A brake that the SPEC does not have:
                       # the platform of a row is whatever the sender says, so two scripted rows are "two installs"
+MAX_A_RUN = 25        # ... and in one run, all areas together. One record more and the run writes none: at the
+                      # traffic this starts with, a burst is far likelier an attack than a crowd
 MAX_TABLES = 24       # distinct tables weighed for one place (the best supported and newest)
 NEAR_M = 50           # `add` rows this close together are one café
 MAX_LISTED = 5        # tables listed for one place on the desk's list, and for one café visitors would add
@@ -158,8 +160,13 @@ def scores(fixes, readings):
 
     An install counts 2 once two of its fixes were later matched by a `shop`
     or `brand` reading and none was contradicted, and 0 once two were
-    contradicted. One verdict per place, from the install's newest fix made
-    before the reading (`checked` is a later day than the fix's):
+    contradicted. A reading is hours a person read on the shop's or the
+    chain's own page (votes._readings): never what a chain's locator said
+    by way of All The Places or of the weekly store-page pass. Those are
+    read by a program and dated again every week, and a locator can be
+    wrong, so they judge nobody. One verdict per place, from the install's
+    newest fix made before the reading (`checked` is a later day than the
+    fix's):
       matched       the reading agrees with the fix, and the hours changed
                     after the fix was sent (repeating hours that were already
                     published earns nothing);
@@ -497,14 +504,34 @@ def assess(rows, known, *, now, tz, weights=None, changed=None, records=None, re
                 per_day[rec["checked"]] -= 1
         writes.append({k: w[k] for k in ("id", "record", "kind", "was", "src", "name")})
 
-    order = {"the desk": 0, "the next build": 2}
-    entries.sort(key=lambda e: (order.get(e["waiting"], 1), -(e["tables"][0]["n"] if e["tables"] else 0),
-                                e["latest"], e["id"]))
     for e in entries:
         for key in ("web", "why"):
             if e.get(key) is None:
                 e.pop(key, None)
-    return {"flags": flags, "props": props, "proposals": entries, "writes": writes}
+    return {"flags": flags, "props": props, "proposals": _pressing_first(entries), "writes": writes}
+
+
+def _pressing_first(entries):
+    """The desk's list in its order: what only the desk can settle, then what
+    waits for more installs, then what waits for the next build; in each, the
+    most installs first and the oldest first."""
+    order = {"the desk": 0, "the next build": 2}
+    entries.sort(key=lambda e: (order.get(e["waiting"], 1), -(e["tables"][0]["n"] if e["tables"] else 0),
+                                e["latest"], e["id"]))
+    return entries
+
+
+def hold(result, why):
+    """Take back every record an assess() result was about to write: the
+    places stay on the desk's list, waiting for the desk, with the reason.
+    (The breaker of a whole run: votes.tally.)"""
+    held = {w["id"] for w in result["writes"]}
+    for e in result["proposals"]:
+        if e["id"] in held:
+            e["waiting"], e["why"] = "the desk", why
+    result["writes"] = []
+    _pressing_first(result["proposals"])
+    return result
 
 
 # ---------------------------------------------------------------- cafés we do not have: `add` rows

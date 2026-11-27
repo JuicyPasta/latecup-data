@@ -2,6 +2,7 @@
 the hours desk pushes at the same moment, and what a person removed. Every
 repository here is a throwaway in the test's own folder; nothing touches the
 real one or the network."""
+import functools
 import json
 import os
 import subprocess
@@ -277,6 +278,10 @@ def test_a_record_a_person_removed_stays_out_through_the_whole_job(world, tmp_pa
     monkeypatch.setenv("REPORTS_CSV_URL", "https://docs.example/pub?output=csv")
     monkeypatch.setattr(votes.http, "get", lambda url, **_: "\n".join(rows).encode())
     monkeypatch.setattr(votes, "load_quarantine", lambda path=None: [])
+    # the area file of this test: Chicago publishes visitors' hours (no area does unless its file says so)
+    (tmp_path / "areas").mkdir()
+    (tmp_path / "areas" / "chicago.json").write_text('{"id": "chicago", "visitors": true}')
+    monkeypatch.setattr(votes, "allows", functools.partial(votes.allows, folder=tmp_path / "areas"))
 
     def hourly(now):
         monkeypatch.setattr(votes, "now_iso", lambda: now)
