@@ -96,7 +96,7 @@ Places are sorted by `id`. The file is one line of compact JSON, UTF-8.
 | `boro` | in `nyc` | string | `Manhattan`, `Brooklyn`, `Queens`, `Bronx` or `Staten Island`. New York only: no other area's places carry it |
 | `city` | no | string | The municipality (`Oakland`, `Bellevue`, `Evanston`), from OpenStreetMap's `addr:city` or the chain's locator. Outside New York only; New York's places say it with `boro` |
 | `cat` | yes | string | `coffee`, `tea` (tea houses, bubble tea) or `dessert` (dessert and bakery cafés) |
-| `chain` | yes | string or `null` | A brand slug (`starbucks`, `dunkin`, `gregorys`, `kung-fu-tea`, …) when the brand has 5 or more locations in the area, else `null`. The count is made in each area by itself |
+| `chain` | yes | string or `null` | A brand slug (`starbucks`, `dunkin`, `gregorys`, `kung-fu-tea`, …) when the brand has 5 or more locations in the area, else `null`. The count is made in each area by itself. Once the chain layer is on, a store of a chain it reads (Starbucks, Krispy Kreme, Peet's and 16 more) carries its slug however few of them the area has |
 | `hours` | yes | array | The weekly table, below |
 | `src` | yes | string | Where the hours come from: `shop` (we confirmed them on the shop's own website, ordering page or official social account), `brand` (the chain's own store locator), `visitors` (visitors sent these hours and agreed on them; we have not read the shop's page), `osm` (the OpenStreetMap tag; **not confirmed by us**). Read a value you do not know as `osm`. `visitors` is not in `nyc.json` yet: the first app release does not know it and would credit OpenStreetMap |
 | `visitors` | with `src` `visitors` | int | How many visitors agreed on these hours: 2 or more. Never there with another `src` |

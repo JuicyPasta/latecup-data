@@ -461,11 +461,13 @@ def test_the_stores_hours_replace_openstreetmaps():
     p = out["places"][0]
     assert (p["id"], p["src"], p["checked"], p["hours"]) == ("n1", "brand", "2026-11-16", [[[300, 1350]]] * 7)
     assert p["hh"] == H.table_hash(p["hours"]) and p["web"] == "https://www.example.com/store/1"
-    assert p["phone"] == "+13125550100" and p["city"] == "Chicago" and p["chain"] is None
+    # one Starbucks in the whole area, and still a chain's store: its hours come from the chain's own locator
+    assert p["phone"] == "+13125550100" and p["city"] == "Chicago" and p["chain"] == "starbucks"
     validate.place(p, CHICAGO.bbox, hoods=None)
     assert out["chains"]["matched: hours used"] == 1 and out["chains"]["places with the chain's hours"] == 1
-    # without the layer the place is what OpenStreetMap says
-    assert B.build([el(1, "Starbucks")], area=CHICAGO)["places"][0]["src"] == "osm"
+    # without the layer the place is what OpenStreetMap says, and the five-location count decides what a chain is
+    plain = B.build([el(1, "Starbucks")], area=CHICAGO)["places"][0]
+    assert plain["src"] == "osm" and plain["chain"] is None
 
 
 def test_a_store_that_closes_early_takes_the_place_off_the_late_map():
@@ -519,7 +521,7 @@ def test_what_the_weekly_pass_wrote_is_used_only_where_the_layer_has_no_hours():
     osm = [el(1, "Starbucks", hours="Mo-Su 06:00-21:00")]
     # the locator has the store and gives no hours for it (All The Places gives none for a 24-hour Dunkin')
     out = build(osm, [store("1", hours=None)], overrides=ov)
-    assert [(p["src"], p["checked"], p["hours"]) for p in out["places"]] == [("shop", "2026-11-10", table)]
+    assert [(p["src"], p["checked"], p["hours"]) for p in out["places"]] == [("brand", "2026-11-10", table)]
     assert out["chains"]["matched: no hours"] == 1
     # hours the strict parser is not certain of are no hours
     out = build(osm, [store("1", hours="Mo-Fr 06:00-22:00+")], overrides=ov)
@@ -641,17 +643,17 @@ def test_the_publish_guard_holds_a_store_back_too():
     ov = {"n1": {"id": "n1", "hours": H.parse("Mo-Su 06:00-21:30"), "src": "brand", "checked": "2026-11-01",
                  "source": "https://www.example.com/store/1"}}
     out = build([el(1, "Starbucks", hours="Mo-Su 06:00-21:00")], [weekdays], overrides=ov)
-    assert (out["places"][0]["src"], out["places"][0]["checked"]) == ("shop", "2026-11-01")
+    assert (out["places"][0]["src"], out["places"][0]["checked"]) == ("brand", "2026-11-01")
     ov["n1"]["by"] = "confirm_brand"
     out = build([el(1, "Starbucks", hours="Mo-Su 06:00-21:00")], [weekdays], overrides=ov)
-    assert (out["places"][0]["src"], out["places"][0]["checked"]) == ("shop", "2026-11-01")
+    assert (out["places"][0]["src"], out["places"][0]["checked"]) == ("brand", "2026-11-01")
 
 
 def test_a_store_openstreetmap_lacks_becomes_a_place():
     out = build([], [store("1040242", hours="Mo-Su 05:00-22:30")])
     p = out["places"][0]
     assert p == {"id": "x-starbucks-1040242", "name": "Starbucks", "lat": LAT, "lon": LON, "addr": "100 W Monroe St",
-                 "city": "Chicago", "cat": "coffee", "chain": None, "hours": [[[300, 1350]]] * 7, "src": "brand",
+                 "city": "Chicago", "cat": "coffee", "chain": "starbucks", "hours": [[[300, 1350]]] * 7, "src": "brand",
                  "checked": "2026-11-16", "hh": H.table_hash([[[300, 1350]]] * 7), "phone": "+13125550100",
                  "web": "https://www.example.com/store/1040242"}
     validate.place(p, CHICAGO.bbox, hoods=None)
@@ -678,11 +680,34 @@ def test_what_keeps_a_new_store_out():
     assert out["chains"]["near a place of the brand, not matched"] == 1
 
 
-def test_new_stores_count_toward_the_five_locations():
+def test_a_store_of_a_chain_the_layer_reads_is_a_chains_store_however_few_there_are():
     stores = [store(str(i), lat=LAT + i * 0.01, street=f"{i}00 W Monroe St") for i in range(1, 5)]
     out = build([el(1, "Starbucks", lat=LAT - 0.02, number="900")], stores)
     assert len(out["places"]) == 5 and {p["chain"] for p in out["places"]} == {"starbucks"}
-    assert {p["chain"] for p in build([], stores)["places"]} == {None}
+    # four, three, one: a chain's stores all the same. Counted by fives, three Krispy Kreme in one metro were three
+    # independent cafés with confirmed hours, and that is what the area's coverage line would have said
+    assert {p["chain"] for p in build([], stores)["places"]} == {"starbucks"}
+    assert {p["chain"] for p in build([], stores[:1])["places"]} == {"starbucks"}
+    # a place of such a chain that the layer has no store for, mapped under its brand tag or its name
+    out = build([el(1, "Peet's Coffee", lat=LAT + 0.02), el(2, "Corner Cafe", lat=LAT + 0.03, brand="Caribou Coffee"),
+                 el(3, "Tim Hortons", lat=LAT + 0.04)], [])
+    assert [p["chain"] for p in out["places"]] == ["peets", "caribou", "tim-hortons"]
+    # a brand the layer does not read is still a chain from five locations on, and a name of nobody's stays nobody's
+    gong = [el(i, "Gong Cha", lat=LAT + i * 0.01, number=str(i)) for i in range(1, 5)]
+    assert {p["chain"] for p in build(gong + [el(9, "Halsted Coffee Co", lat=LAT - 0.01)], [])["places"]} == {None}
+    assert {p["chain"] for p in build(gong + [el(5, "Gong Cha", lat=LAT + 0.05, number="5")], [])["places"]} == {"gong-cha"}
+    # and with the layer off the count by fives is all there is: New York's file today
+    assert {p["chain"] for p in B.build([el(1, "Peet's Coffee"), el(2, "Starbucks", lat=LAT + 0.01)],
+                                        area=CHICAGO)["places"]} == {None}
+
+
+def test_a_chains_store_is_not_an_independent_and_not_on_the_help_list():
+    # a Peet's with no hours anywhere: its hours are the chain's to give, not a visitor's
+    out = build([el(1, "Peet's Coffee", hours=None), el(2, "Corner Cafe", lat=LAT + 0.01, hours=None, number="7")], [])
+    assert [p["id"] for p in out["help"]] == ["n2"]
+    # with the layer off, the count by fives is what decides, as it always did
+    out = B.build([el(1, "Peet's Coffee", hours=None)], area=CHICAGO)
+    assert [p["id"] for p in out["help"]] == ["n1"]
 
 
 def test_a_hand_added_place_is_matched_like_any_other():

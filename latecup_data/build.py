@@ -342,8 +342,15 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
         layer.update(near.values())
         layer["with no place: new"] = len(new_stores)
 
-    chain_slugs = chains.assign([c["tags"] for c in cands] + [{"name": a["name"]} for a in additions]
-                                + [{"name": s.name} for s in new_stores])
+    known = [c["tags"] for c in cands] + [{"name": a["name"]} for a in additions] + [{"name": s.name} for s in new_stores]
+    chain_slugs = chains.assign(known)
+    if stores is not None:
+        # With the chain layer on, a store of a chain the layer reads is a chain's store however few of them the
+        # area has. The five-location count would call three Krispy Kreme in one metro three independent cafés,
+        # confirmed ones at that, and put a Peet's with no hours on the list of cafés that visitors are asked about
+        of_the_layer = {spider.chain for spider in atp.SPIDERS}
+        chain_slugs = [slug or (key if (key := chains.group_key(tags)) in of_the_layer else None)
+                       for slug, tags in zip(chain_slugs, known)]
     stats["classified places"] = len(cands)
 
     places, to_confirm, recheck, helped = [], [], [], []
@@ -525,8 +532,8 @@ def build(elements, overrides=None, additions=None, addr_cache=None, area=None, 
 
     for pid in sorted(set(overrides) - used_overrides):
         warnings.append(f"override {pid} matches no classified OSM place (deleted, re-mapped or re-tagged)")
-    known = {c["id"] for c in cands} | {a["id"] for a in additions} | {s.id for s in new_stores}
-    for pid in sorted(set(visitors) - known):
+    ids = {c["id"] for c in cands} | {a["id"] for a in additions} | {s.id for s in new_stores}
+    for pid in sorted(set(visitors) - ids):
         warnings.append(f"visitors record {pid} matches no place of the area (deleted, re-mapped or re-tagged)")
 
     # a neighbourhood name belongs to one borough (the app and the web pages group by it)
