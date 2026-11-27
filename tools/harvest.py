@@ -2,6 +2,7 @@
 
 usage: python tools/harvest.py candidates.json out-folder [--workers 6]
        python tools/harvest.py --step plan|next|shape      (the browser reader's half: JSON in, JSON out)
+       python tools/harvest.py --reread out-folder         (the browser's records again, from out/raw/, no fetch)
 
 candidates.json: [{id, name, addr, phone, city, web, ...}]. For each one: read
 the site and keep, in out/<id>.json, what a person needs to decide:
@@ -28,6 +29,8 @@ shops, the store's own page. One site is fetched once however many places share
 it; three requests at most per site, 2 s apart. Instagram, Facebook and listing
 sites are never fetched.
 """
+import gzip
+import hashlib
 import json
 import re
 import sys
@@ -44,6 +47,8 @@ from latecup_data import SHOP_USER_AGENT, confirm as C  # noqa: E402
 
 MAX_PAGES = 3
 PAUSE = 2
+MAX_GROUPS = 2000         # groups of script data read from a page: a chain's locator data holds every store
+KEEP_GROUPS = 30          # ... and kept in a record, this place's first
 
 # where a shop's own site often sends its visitors: an ordering page is still the shop's (CONTRIBUTING.md)
 ORDERING_HOSTS = re.compile(
@@ -212,19 +217,21 @@ def _hours_groups(doc):
 
     def add(lines, ancestors):
         lines = [l for l in lines if l]
-        key = tuple(lines)
-        if len(lines) < 1 or key in seen:
+        if not lines:
             return
-        seen.add(key)
         near = None
         for a in reversed(ancestors[-5:]):
             near = _address_of(a)
             if near:
                 break
+        key = (near, tuple(lines))                    # the same hours at two addresses are two stores
+        if key in seen:
+            return
+        seen.add(key)
         groups.append({"near": near, "lines": lines[:14]})
 
     def walk(node, ancestors, depth=0):
-        if depth > 40 or len(groups) >= 30:
+        if depth > 40 or len(groups) >= MAX_GROUPS:
             return
         if isinstance(node, dict):
             low = {str(k).lower(): v for k, v in node.items()}
@@ -311,7 +318,7 @@ def script_hours(page):
         found = []
         for doc in _json_docs(body):
             found += _hours_groups(doc)
-            if len(found) >= 30:
+            if len(found) >= MAX_GROUPS:
                 break
         if not found:
             text = re.sub(r"\\[nrt]", " ", body.replace("\\u0026", "&").replace('\\"', '"').replace("\\/", "/"))
@@ -325,7 +332,7 @@ def script_hours(page):
         for g in found:
             if g not in out:
                 out.append(g)
-    return out[:30]
+    return out[:MAX_GROUPS]
 
 
 # --------------------------------------------------------------- the block around this place
@@ -487,7 +494,7 @@ def data_hours(data):
                 g = dict(g, **{"from": item.get("url")})
                 if g not in out:
                     out.append(g)
-            if len(out) >= 30:
+            if len(out) >= MAX_GROUPS:
                 return out
     return out
 
@@ -501,7 +508,7 @@ def read_page(final, html_text, lines=None, data=None):
     if lines is not None:                            # the browser's text, read the way confirm.visible reads a page
         lines = [l for l in (" ".join(str(x).replace("\u2013", "-").replace("\u2014", "-").split()) for x in lines) if l]
     return {"url": final, "lines": lines if lines is not None else own_lines, "links": links, "title_lines": title,
-            "jsonld": C.jsonld_hours(html_text), "script_data": (script_hours(html_text) + data_hours(data))[:40],
+            "jsonld": C.jsonld_hours(html_text), "script_data": (script_hours(html_text) + data_hours(data))[:MAX_GROUPS],
             "browser": lines is not None}
 
 
@@ -554,6 +561,19 @@ def read_site(url, cands, fetch=C.fetch, sleep=time.sleep, max_pages=MAX_PAGES):
     return out
 
 
+def script_for(groups, c):
+    """The script data a record keeps: the groups found with this place's
+    address or phone first, then those with no address, then the rest."""
+    phone10 = _digits10(c.get("phone"))
+
+    def rank(g):
+        near = g.get("near") or ""
+        if near and _ours(near, c.get("addr"), phone10):
+            return 0
+        return 1 if not near else 2
+    return sorted(groups, key=rank)[:KEEP_GROUPS]
+
+
 def shape(c, url, site):
     """The record for one place from what its site gave."""
     rec = {"id": c["id"], "name": c["name"], "addr": c.get("addr"), "phone": c.get("phone"), "web": url,
@@ -566,7 +586,7 @@ def shape(c, url, site):
         if bl:
             entry["block"] = bl
         if pg["script_data"]:
-            entry["script_data"] = pg["script_data"]
+            entry["script_data"] = script_for(pg["script_data"], c)
         if pg.get("browser"):
             entry["text"] = pg["lines"][:600]          # all a person saw, for the one who reads the record
         rec["pages"].append(entry)
@@ -603,6 +623,11 @@ def step(name, doc):
         site = {"pages": pages, "error": doc.get("error")}
         outdir = Path(doc["out"])
         outdir.mkdir(parents=True, exist_ok=True)
+        # what the browser read, as it read it: a later version of these rules can read it again without a fetch
+        raw = outdir / "raw"
+        raw.mkdir(exist_ok=True)
+        with gzip.open(raw / (hashlib.sha1(doc["url"].encode()).hexdigest()[:16] + ".json.gz"), "wt") as f:
+            json.dump(doc, f, ensure_ascii=False)
         for c in cands:
             rec = shape(c, doc["url"], site)
             rec["read_with"] = "browser"
@@ -611,9 +636,24 @@ def step(name, doc):
     raise SystemExit(f"no such step: {name}")
 
 
+def reread(outdir):
+    """Write the browser's records again from what it saved in out/raw/, with no fetch."""
+    n = 0
+    for f in sorted(Path(outdir, "raw").glob("*.json.gz")):
+        with gzip.open(f, "rt") as fh:
+            doc = json.load(fh)
+        doc["out"] = str(outdir)
+        step("shape", doc)
+        n += 1
+    return n
+
+
 def main(argv):
     if argv and argv[0] == "--step":
         print(json.dumps(step(argv[1], json.load(sys.stdin)), ensure_ascii=False))
+        return
+    if argv and argv[0] == "--reread":
+        print(reread(argv[1]), "sites read again from", Path(argv[1], "raw"))
         return
     cands = json.loads(Path(argv[0]).read_text())
     outdir = Path(argv[1])

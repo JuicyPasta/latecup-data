@@ -273,3 +273,24 @@ def test_the_browser_steps_take_the_rendered_page_and_its_visible_text(tmp_path)
     assert rec["pages"][1]["block"] == ["Milpitas", "1693 N. Milpitas Blvd, Milpitas, CA 95035", "Daily: 8am - 10pm"]
     assert Hv.step("next", {"url": "https://shop.example/old", "candidates": [MILPITAS], "pages": [],
                             "error": "HTTP 404"}) == {"next": "https://shop.example/"}
+
+
+def test_a_locators_data_keeps_this_shops_store_however_many_come_before_it():
+    stores = [{"address": f"{n} Other St", "hours": {d: "10am - 8pm" for d in ("monday", "tuesday", "wednesday")}}
+              for n in range(1, 200)]
+    stores.append({"address": "457 Saratoga Ave San Jose", "hours": {d: "11am - 9:30pm" for d in
+                                                                      ("monday", "tuesday", "wednesday")}})
+    groups = Hv.data_hours([{"url": "https://api.locator.example/stores", "body": json.dumps({"stores": stores})}])
+    assert len(groups) == 200
+    kept = Hv.script_for(groups, {"addr": "457 Saratoga Avenue"})
+    assert len(kept) == Hv.KEEP_GROUPS and kept[0]["near"] == "457 Saratoga Ave San Jose"
+    assert kept[0]["lines"][0] == "monday: 11am - 9:30pm" and kept[0]["from"] == "https://api.locator.example/stores"
+
+
+def test_the_browsers_pages_are_kept_and_can_be_read_again(tmp_path):
+    first = {"url": MILPITAS["web"], "final": MILPITAS["web"], "html": page("store_milpitas.html"),
+             "lines": ["1693 N. Milpitas Blvd, Milpitas, CA 95035", "Mon - Sun 9am - 9pm"]}
+    Hv.step("shape", {"url": MILPITAS["web"], "candidates": [MILPITAS], "pages": [first], "out": str(tmp_path)})
+    (tmp_path / "n1.json").unlink()
+    assert Hv.reread(tmp_path) == 1
+    assert json.loads((tmp_path / "n1.json").read_text())["pages"][0]["block"][-1] == "Mon - Sun 9am - 9pm"
