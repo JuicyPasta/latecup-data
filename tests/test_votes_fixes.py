@@ -337,10 +337,11 @@ def test_new_york_keeps_its_question_open_until_its_area_says_so(site, repo):
 
 def test_without_a_repository_nothing_is_written_outside_the_site(site, tmp_path):
     text = csv(fix_row("2026-12-03 20:00", "n1001", 1, EARLIER), fix_row("2026-12-04 20:00", "n1001", 2, EARLIER))
-    before = {p for p in tmp_path.rglob("*") if "site" not in p.parts}
+    def outside():
+        return {p for p in tmp_path.rglob("*") if "site" not in p.parts} | set((votes.ROOT / "visitors").rglob("*"))
+    before = outside()
     assert votes.make(site, text, now=NOW, log=lambda *_: None, rules=[]) is True
-    assert {p for p in tmp_path.rglob("*") if "site" not in p.parts} == before
-    assert not (votes.ROOT / "visitors" / "chicago" / "n1001.json").exists()
+    assert outside() == before                               # not in the test's folder, not in the repository's own ledger
 
 
 def test_a_cafe_from_the_help_file_gets_its_first_hours(site, repo):
