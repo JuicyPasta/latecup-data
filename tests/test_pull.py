@@ -117,11 +117,12 @@ def test_rectangles_share_a_request_and_each_element_goes_to_its_own():
     assert {url for _t, url, _q in w.asked} == {A1} and w.slept == [osm.PAUSE]
 
 
-def test_thirty_one_rectangles_are_four_requests():
+def test_thirty_one_rectangles_are_six_requests():
     w = World(lambda url, ids, world: doc([el(n, *a.center) for n, a in enumerate(A.load()) if a.id in ids]))
     docs, failed = w.pull(list(A.load()))
-    assert failed == {} and len(docs) == 32 and len(w.asked) == 5
+    assert failed == {} and len(docs) == 32 and len(w.asked) == 7        # and New York's own
     assert all(len(d["elements"]) == 1 for d in docs.values())
+    assert max(q.count('nwr["amenity"="cafe"]') for _t, _url, q in w.asked) == osm.BOXES_PER_QUERY == 6
 
 
 def test_an_element_outside_every_rectangle_asked_for_is_dropped():
@@ -211,16 +212,18 @@ def test_requests_take_turns_while_nobody_answers():
     assert first == ["nyc", "chicago", "nyc", "chicago"]         # New York first, and not New York alone
 
 
-def test_a_server_that_refuses_larger_requests_is_not_asked_for_them_again():
+def test_a_server_that_refuses_larger_requests_is_not_asked_for_them_again(monkeypatch):
     def rule(url, ids, world):
         return IOError("HTTP 403") if len(ids) > 1 else good(url, ids, world)
+    monkeypatch.setattr(osm, "BOXES_PER_QUERY", 8)
     w = World(rule)
     boxes = [a for a in A.load() if a.id != "nyc"][:16]         # two requests of eight
     docs, failed = w.pull(boxes, instances=(A1,))
     assert failed == {} and len(docs) == 16
     sizes = [q.count('nwr["amenity"="cafe"]') for _t, _url, q in w.asked]
-    # each size was refused once per request and never asked for again after a smaller one passed
-    assert sizes.count(8) == 2 and sizes.count(4) == 4 and sizes.count(2) == 8 and sizes.count(1) == 16
+    # eight was refused, then four, then two, once each: when a size is too much for every server, everything
+    # still waiting is cut to the next size down, and what was asked for one at a time passed
+    assert sizes == [8, 4, 2] + [1] * 16
 
 
 def test_a_request_every_server_turned_down_is_asked_again_in_halves():
@@ -231,6 +234,21 @@ def test_a_request_every_server_turned_down_is_asked_again_in_halves():
     assert failed == {} and set(docs) == {"chicago", "seattle"}
     sizes = [q.count('nwr["amenity"="cafe"]') for _t, _url, q in w.asked]
     assert sizes == [2, 2, 1, 1]                                 # both servers said no to the pair, then one each
+
+
+def test_a_heavy_request_that_times_out_is_halved_and_the_rest_with_it():
+    def rule(url, ids, world):
+        if len(ids) > 3:
+            world.t += 119
+            return doc([], remark="runtime error: Query timed out in \"query\" at line 9 after 151 seconds.")
+        return good(url, ids, world)
+    w = World(rule)
+    boxes = [a for a in A.load() if a.id != "nyc"][:18]         # three requests of six
+    docs, failed = w.pull(boxes, instances=(A1, B1))
+    assert failed == {} and len(docs) == 18
+    sizes = [q.count('nwr["amenity"="cafe"]') for _t, _url, q in w.asked]
+    assert sizes == [6] + [3] * 6                                # one six timed out: everything goes in threes
+    assert [url for _t, url, _q in w.asked] == [A1] + [B1] * 6 and w.t < 200
 
 
 def test_an_answer_the_server_gave_up_on_is_not_used():
@@ -278,10 +296,93 @@ def test_no_elements_for_an_area_is_no_answer_for_that_area():
     docs, failed = w.pull([CHICAGO, SEATTLE], instances=(A1, B1))
     assert failed == {} and len(docs["seattle"]["elements"]) == 2 and len(docs["chicago"]["elements"]) == 3
     assert [(url, q.count('nwr["amenity"="cafe"]')) for _t, url, q in w.asked] == [(A1, 2), (B1, 1)]
-    # and when nobody has anything for it, it is the one that fails; the other is kept
+    # and when nobody has anything for it, it is the one that fails; the other is kept. Each server was asked for
+    # it once: an area no server knows is not asked for until the budget runs out
     w = World(lambda url, ids, world: doc(ELEMENTS["chicago"]))
-    docs, failed = w.pull([CHICAGO, SEATTLE], instances=(A1, B1), budget=300)
-    assert set(docs) == {"chicago"} and list(failed) == ["seattle"] and "no elements for seattle" in failed["seattle"]
+    docs, failed = w.pull([CHICAGO, SEATTLE], instances=(A1, B1), budget=1200)
+    assert set(docs) == {"chicago"} and list(failed) == ["seattle"]
+    assert failed["seattle"] == "no Overpass server has an element for it (the last: b.example: no elements for seattle)"
+    assert [(url, q.count('nwr["amenity"="cafe"]')) for _t, url, q in w.asked] == [(A1, 2), (B1, 1)] and w.t < 10
+    # one server down and the other with nothing for the area: the one that is down is asked again, the other is not
+    def rule(url, ids, world):
+        return IOError("HTTP 502") if url == A1 else doc([])
+    w = World(rule)
+    docs, failed = w.pull([SEATTLE], instances=(A1, B1), budget=200)
+    assert docs == {} and "no Overpass server answered in 3 min" in failed["seattle"]
+    assert [url for _t, url, _q in w.asked].count(B1) == 1 and [url for _t, url, _q in w.asked].count(A1) >= 3
+
+
+def test_no_pull_sends_more_than_so_many_requests():
+    # servers that never answer with anything usable, and a budget of a week: only the count stops it
+    w = World(lambda url, ids, world: doc(ELEMENTS["nyc"], remark="runtime error: out of memory"))
+    docs, failed = osm.pull([NYC, CHICAGO, SEATTLE], ask=w.ask, instances=(A1, B1, C1), budget=7 * 86400,
+                            clock=w.clock, sleep=w.sleep, now=NOW, log=lambda *_: None, max_requests=25)
+    assert docs == {} and set(failed) == {"nyc", "chicago", "seattle"} and len(w.asked) == 25
+    assert all(why.startswith("no Overpass server answered after 25 requests") for why in failed.values())
+    assert osm.MAX_REQUESTS <= 150
+
+
+def test_one_failure_of_the_server_that_works_is_a_hiccup():
+    # what the pull of 2026-11-27 met: four good answers from the first server, then one 504
+    state = {"n": 0}
+
+    def rule(url, ids, world):
+        if url != A1:
+            world.t += 119                                       # the others hang
+            return IOError("Read timed out")
+        state["n"] += 1
+        return IOError("HTTP 504") if state["n"] == 3 else good(url, ids, world)
+    w = World(rule)
+    boxes = [a for a in A.load() if a.id != "nyc"][:18]         # three requests after New York's
+    docs, failed = w.pull([NYC] + boxes)
+    assert failed == {} and len(docs) == 19
+    # the same server was asked again after its first wait, and nobody else was asked at all
+    assert {url for _t, url, _q in w.asked} == {A1} and len(w.asked) == 5
+    assert osm.FIRST_WAIT in [round(s) for s in w.slept] and w.t < 60
+
+
+def test_busy_is_a_hiccup_whatever_the_size_of_the_request():
+    # the server answered New York, then said "504" to the first request for six rectangles
+    state = {"n": 0}
+
+    def rule(url, ids, world):
+        if url != A1:
+            world.t += 119
+            return IOError("Read timed out")
+        state["n"] += 1
+        return IOError(f"POST failed: {url}: HTTP 504") if state["n"] == 2 else good(url, ids, world)
+    w = World(rule)
+    docs, failed = w.pull([NYC] + [a for a in A.load() if a.id != "nyc"][:6])
+    assert failed == {} and len(docs) == 7 and {url for _t, url, _q in w.asked} == {A1} and len(w.asked) == 3
+
+
+def test_a_second_failure_in_a_row_is_not_a_hiccup():
+    state = {"n": 0}
+
+    def rule(url, ids, world):
+        if url == A1:
+            state["n"] += 1
+            return good(url, ids, world) if state["n"] == 1 else IOError("HTTP 504")
+        return good(url, ids, world)
+    w = World(rule)
+    docs, failed = w.pull([NYC, CHICAGO], instances=(A1, B1))
+    assert failed == {} and set(docs) == {"nyc", "chicago"}
+    assert [url for _t, url, _q in w.asked] == [A1, A1, A1, B1]   # worked, failed, failed again after 15 s, the next one
+
+
+def test_a_server_that_worked_and_then_hangs_is_not_waited_for():
+    state = {"n": 0}
+
+    def rule(url, ids, world):
+        if url == A1:
+            state["n"] += 1
+            if state["n"] > 1:
+                world.t += 119
+                return IOError("Read timed out")
+        return good(url, ids, world)
+    w = World(rule)
+    docs, failed = w.pull([NYC, CHICAGO], instances=(A1, B1))
+    assert failed == {} and [url for _t, url, _q in w.asked] == [A1, A1, B1]
 
 
 def test_new_york_is_asked_for_first():

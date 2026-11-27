@@ -35,8 +35,10 @@ INSTANCES = (
 _WHAT = ['nwr["amenity"="cafe"]', 'nwr["shop"~"^(coffee|tea)$"]',
          'nwr["cuisine"~"(^|;) ?(coffee_shop|bubble_tea|tea|dessert)( ?;|$)"]']
 # rectangles asked for in one request: enough to keep the daily run to a few
-# requests, few enough for a busy public server to answer in time
-BOXES_PER_QUERY = 8
+# requests, few enough for a busy public server to answer in time. On
+# 2026-11-27 eight took VK Maps 37 to 71 seconds, and seven of the larger ones
+# took the smallest server 103: too near the limit, so six.
+BOXES_PER_QUERY = 6
 
 BUDGET = 20 * 60          # seconds a whole pull may take; what is not answered by then is handed back as failed
 READ_TIMEOUT = 120        # seconds to wait for one answer (the query's own limit on the server is 150)
@@ -44,7 +46,9 @@ PAUSE = 2                 # seconds between two requests to the same server
 FIRST_WAIT = 15           # seconds a server is left alone after it fails; doubled each time it fails again
 LONGEST_WAIT = 300
 SLOW = 30                 # a failure that took longer than this counts twice: a server that hangs costs the most
+BUSY = ("HTTP 429", "HTTP 500", "HTTP 502", "HTTP 503", "HTTP 504")   # the server's trouble, not the request's
 MAX_AGE = timedelta(days=3)   # an answer from data older than this is not used (a mirror that stopped updating)
+MAX_REQUESTS = 120        # in one pull, whatever happens: a good day needs 5, a day of halving and waiting about 60
 
 
 def _filter(area):
@@ -101,7 +105,7 @@ def _host(url):
 
 
 def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monotonic, sleep=time.sleep, now=None,
-         log=print):
+         log=print, max_requests=MAX_REQUESTS):
     """-> ({area id: Overpass document}, {area id: why there is none}).
 
     An area pull (New York) is a request of its own; rectangles go several to
@@ -118,8 +122,23 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
     others up. Once a server answers, the requests it can take go in their
     first order, New York before the rest.
 
-    Nothing here raises for a server's sake, and nothing runs past `budget`
-    seconds by more than one request.
+    A server that has answered in this pull and then fails once, quickly, is
+    asked the same thing again after its first wait before the request goes
+    anywhere else: one "504" between good answers is a hiccup, and the next
+    server down the list may be one that hangs for two minutes. (Not when it
+    refuses, with something other than "busy", a request larger than any it
+    has answered: that is about the request.)
+
+    A request for several rectangles is halved when every server has turned
+    it down, and at once when a server took long over it and then failed (a
+    time-out, or an answer the server gave up on): that is what a query too
+    heavy for a busy server looks like, and each such try costs two minutes.
+    Every request still waiting is cut to the same size then: what was too
+    much once is not tried five more times.
+
+    Nothing here raises for a server's sake, nothing runs past `budget`
+    seconds by more than one request, and no pull sends more than
+    `max_requests` requests: these are other people's servers.
 
     ask(url, query text, timeout) -> document, clock and sleep are there for
     the tests; `now` is the day the data's age is measured from.
@@ -139,35 +158,56 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
     groups += [boxes[i:i + BOXES_PER_QUERY] for i in range(0, len(boxes), BOXES_PER_QUERY)]
     # refused: {server: "failed" (it did not answer this request) or "empty" (it answered, with nothing for the area)}
     todo = [{"areas": group, "refused": {}, "why": None, "order": (n,), "tries": 0} for n, group in enumerate(groups)]
-    state = {url: {"fails": 0, "ready": start, "worked": False} for url in instances}
+    # worked: the most areas the server has answered for in one request in this pull (0: it has not answered yet)
+    state = {url: {"fails": 0, "ready": start, "worked": 0} for url in instances}
     docs, failed = {}, {}
+    asked = 0
+
+    def soon(url, t):
+        """Is the server ready, or about to be? One that has just answered is ready again in a moment, and one
+        that has answered and then failed once is worth its first wait: it is the one that works."""
+        st = state[url]
+        return st["ready"] <= t + PAUSE + (FIRST_WAIT if st["worked"] and st["fails"] == 1 else 0)
+
+    def cut(size):
+        """Every request waiting for more than `size` areas becomes requests for at most that many."""
+        for big in [it for it in todo if len(it["areas"]) > size]:
+            todo.remove(big)
+            parts = [big["areas"][i:i + size] for i in range(0, len(big["areas"]), size)]
+            todo.extend({"areas": part, "refused": {}, "why": big["why"], "order": big["order"] + (n,), "tries": 0}
+                        for n, part in enumerate(parts))
 
     def give_up(t):
+        spent = f"after {asked} requests" if asked >= max_requests else f"in {max(1, round((t - start) / 60))} min"
         for item in todo:
             for a in item["areas"]:
-                failed[a.id] = (f"no Overpass server answered in {max(1, round((t - start) / 60))} min "
-                                f"(the last: {item['why'] or 'not asked'})")
+                failed[a.id] = f"no Overpass server answered {spent} (the last: {item['why'] or 'not asked'})"
         todo.clear()
 
     while todo:
         t = clock()
-        if t >= deadline:
+        if t >= deadline or asked >= max_requests:
             give_up(t)
             break
-        for item in list(todo):
+        while True:
+            item = next((it for it in todo if len(it["refused"]) >= len(instances)), None)
+            if item is None:
+                break
+            # every server has turned this one down
+            if len(item["areas"]) > 1:
+                cut((len(item["areas"]) + 1) // 2)
+                continue
+            # one area: the servers that failed get another turn. Those that answered with nothing for the area do
+            # not, and when that is all of them the area has no pull: asking again would only hammer them
+            item["refused"] = {u: how for u, how in item["refused"].items() if how == "empty"}
             if len(item["refused"]) >= len(instances):
-                # every server has turned this one down. Several areas: ask for them in halves. One: start over.
-                if len(item["areas"]) > 1:
-                    half = (len(item["areas"]) + 1) // 2
-                    todo.remove(item)
-                    todo += [{"areas": part, "refused": {}, "why": item["why"], "order": item["order"] + (n,),
-                              "tries": 0} for n, part in enumerate((item["areas"][:half], item["areas"][half:]))]
-                else:
-                    item["refused"].clear()
+                failed[item["areas"][0].id] = f"no Overpass server has an element for it (the last: {item['why']})"
+                todo.remove(item)
+        if not todo:
+            break
         best = None
         for item in todo:
-            # a server that has just answered is ready again in a moment: worth the wait, it is the one that works
-            ready = [u for u in instances if u not in item["refused"] and state[u]["ready"] <= t + PAUSE]
+            ready = [u for u in instances if u not in item["refused"] and soon(u, t)]
             if ready:
                 turn = (0, item["order"]) if any(state[u]["worked"] for u in ready) else \
                     (1, item["tries"], item["order"])
@@ -183,27 +223,34 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
             continue
         _turn, item, ready = best
         todo.remove(item)
-        url = min(ready, key=lambda u: (state[u]["fails"], not state[u]["worked"], instances.index(u)))
+        # the server that has worked before any other, then the one that has failed least
+        url = min(ready, key=lambda u: (not state[u]["worked"], state[u]["fails"], instances.index(u)))
         st, host = state[url], _host(url)
         if st["ready"] > t:
             sleep(st["ready"] - t)
             t = clock()
         ids = ", ".join(a.id for a in item["areas"])
+        asked += 1
         try:
             doc = ask(url, query(item["areas"]), max(5, min(READ_TIMEOUT, deadline - t)))
             usable(doc, now)
         except (IOError, ValueError) as e:
-            took = clock() - t
-            st["fails"] += 2 if took > SLOW else 1
+            slow = clock() - t > SLOW
+            hiccup = st["worked"] and st["fails"] == 0 and not slow and (
+                st["worked"] >= len(item["areas"]) or any(code in str(e) for code in BUSY))
+            st["fails"] += 2 if slow else 1
             wait = min(FIRST_WAIT * 2 ** (st["fails"] - 1), LONGEST_WAIT)
             st["ready"] = clock() + wait
-            item["refused"][url] = "failed"
+            if not hiccup:
+                item["refused"][url] = "failed"
             item["tries"] += 1
             item["why"] = f"{host}: {str(e).replace(url + ': ', '')[:200]}"
             log(f"Overpass: {item['why']} ({ids}); leaving it alone for {wait} s")
             todo.append(item)
+            if slow and len(item["areas"]) > 1:
+                cut((len(item["areas"]) + 1) // 2)
             continue
-        st.update(fails=0, worked=True, ready=clock() + PAUSE)
+        st.update(fails=0, worked=max(st["worked"], len(item["areas"])), ready=clock() + PAUSE)
         # the server is back: it is open again to the requests it failed earlier, those no larger than this one
         for other in todo:
             if other["refused"].get(url) == "failed" and len(other["areas"]) <= len(item["areas"]):
@@ -221,8 +268,11 @@ def pull(areas, *, ask=ask, instances=INSTANCES, budget=BUDGET, clock=time.monot
             if got[a.id]:
                 docs[a.id] = dict(meta, elements=got[a.id])
             else:
-                todo.append({"areas": [a], "refused": {url: "empty"}, "why": f"{host}: no elements for {a.id}",
-                             "order": item["order"] + (n,), "tries": item["tries"] + 1})
+                # asked for alone already: what the other servers said about it still stands
+                before = item["refused"] if len(item["areas"]) == 1 else {}
+                todo.append({"areas": [a], "refused": dict(before, **{url: "empty"}),
+                             "why": f"{host}: no elements for {a.id}", "order": item["order"] + (n,),
+                             "tries": item["tries"] + 1})
         base = (doc.get("osm3s") or {}).get("timestamp_osm_base")
         log(f"Overpass: {host}: {ids}: {len(doc['elements'])} elements" + (f", data of {base}" if base else ""))
     return docs, failed
