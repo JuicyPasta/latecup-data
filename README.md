@@ -129,6 +129,33 @@ The rules, in the order they bite (`latecup_data/atp.py`, `build.py`):
 
 Before trusting it: `tools/audit_chain_layer.py` compares the layer with the chain hours we read ourselves, and [docs/accuracy.md](docs/accuracy.md) has the result of 2026-11-26. One thing to know from it: All The Places' Dunkin' closing times are the store page's pick-up hours, 15 minutes before the store's own.
 
+## How it runs
+
+| Workflow | When | What |
+|---|---|---|
+| [`refresh`](.github/workflows/refresh.yml) | Daily at 09:17 UTC, on a push that changes the data or the pipeline, or by hand | Tests → OSM pull (Overpass) → classify → hours → overrides and additions → validate → publish as one commit on `gh-pages`. **Refuses to publish** a feed that fails validation or that lost more than 20 % of its places; the job fails and the last good feed stays up |
+| [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings and "hours wrong" reports from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into `v1/nyc-votes.json`. No OSM pull. Publishes only when the counts changed. With no secret it writes an empty, valid file. Only counts are published: no rows, no install ids |
+| [`brand`](.github/workflows/brand.yml) | Mondays 07:07 UTC, or by hand | Reads the chains' own store locators again (Dunkin' store pages, Starbucks' locator data) and commits the hours to `overrides/` as `brand`. Starbucks' locator shows the next seven days, so that pass skips any week with a holiday in it |
+| [`staleness`](.github/workflows/staleness.yml) | Every 6 hours | Fails if the published feed is older than 36 hours, does not match its manifest's hash, or no longer validates |
+| [`tests`](.github/workflows/tests.yml) | On every push | `pytest`: the hours parser, the classifier, the validator, the build rules |
+
+## Run it locally
+
+```sh
+python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python -m pytest -q
+.venv/bin/python -m latecup_data.run --site work/site --save-osm work/osm.json   # live OSM pull, builds work/site/v1
+.venv/bin/python -m latecup_data.run --site work/site --osm work/osm.json        # the same from a saved pull
+.venv/bin/python -m latecup_data.run --site work/site-us --area all --save-osm-dir work/pulls   # every area, live pulls
+.venv/bin/python -m latecup_data.run --site work/site-us --area all --osm-dir work/pulls --chains atp   # ... from saved pulls, with the chain layer
+.venv/bin/python -m latecup_data.report work/site-us --us docs/coverage-us.md    # coverage of every area in a site
+.venv/bin/python tools/audit_chain_layer.py                                      # the chain layer against our own readings
+REPORTS_CSV_URL=… .venv/bin/python -m latecup_data.votes --site work/site        # the votes file (empty without the URL)
+.venv/bin/python -m latecup_data.report work/site                                # coverage numbers
+.venv/bin/python -m latecup_data.monitor                                         # checks the published feed
+tools/publish.sh work/site                                                       # publish by hand (the Action normally does)
+```
+
 ## Visitors' hours
 
 A visitor can do more than say "these hours are right". The app and the web map send the week as the visitor says it is (a `fix`), or a café the feed does not have at all (an `add`), and the hourly `votes` job reads those rows with the rest. The rules are in [FORMAT.md](FORMAT.md#visitors-hours). In one line: one visitor flags, two app installs that agree change the hours when nothing gets later, three when a night ends later or the café had no hours, and hours we read on the shop's own page are never changed by visitors.
@@ -163,32 +190,7 @@ and under it the place, the table before and after, the count and the date. The 
 
 **The app that is out.** Latecup 1.0.0 reads New York's votes file. `tools/released_app_check/votes.sh` runs that app's own parser on a votes file with `prop` in it and on the same file without: it must read both the same.
 
-## How it runs
-
-| Workflow | When | What |
-|---|---|---|
-| [`refresh`](.github/workflows/refresh.yml) | Daily at 09:17 UTC, on a push that changes the data or the pipeline, or by hand | Tests → OSM pull (Overpass) → classify → hours → overrides and additions → validate → publish as one commit on `gh-pages`. **Refuses to publish** a feed that fails validation or that lost more than 20 % of its places; the job fails and the last good feed stays up |
-| [`votes`](.github/workflows/votes.yml) | Hourly at :37, or by hand | Counts visitor confirmations, ratings, "hours wrong" reports and visitors' own hours from the report form (CSV at the URL in the secret `REPORTS_CSV_URL`) into each area's votes file (`v1/nyc-votes.json`). No OSM pull. Publishes only when something changed. With no secret it writes an empty, valid file. Only counts and tables are published: no rows, no install ids. When visitors' hours have earned it, it commits the records to `visitors/` on `main` (on top of whatever was pushed in the meantime, never forced) and starts `refresh` |
-| [`brand`](.github/workflows/brand.yml) | Mondays 07:07 UTC, or by hand | Reads the chains' own store locators again (Dunkin' store pages, Starbucks' locator data) and commits the hours to `overrides/` as `brand`. Starbucks' locator shows the next seven days, so that pass skips any week with a holiday in it |
-| [`staleness`](.github/workflows/staleness.yml) | Every 6 hours | Fails if the published feed is older than 36 hours, does not match its manifest's hash, or no longer validates |
-| [`tests`](.github/workflows/tests.yml) | On every push | `pytest`: the hours parser, the classifier, the validator, the build rules |
-
-## Run it locally
-
-```sh
-python3.12 -m venv .venv && .venv/bin/pip install -r requirements.txt
-.venv/bin/python -m pytest -q
-.venv/bin/python -m latecup_data.run --site work/site --save-osm work/osm.json   # live OSM pull, builds work/site/v1
-.venv/bin/python -m latecup_data.run --site work/site --osm work/osm.json        # the same from a saved pull
-.venv/bin/python -m latecup_data.run --site work/site-us --area all --save-osm-dir work/pulls   # every area, live pulls
-.venv/bin/python -m latecup_data.run --site work/site-us --area all --osm-dir work/pulls --chains atp   # ... from saved pulls, with the chain layer
-.venv/bin/python -m latecup_data.report work/site-us --us docs/coverage-us.md    # coverage of every area in a site
-.venv/bin/python tools/audit_chain_layer.py                                      # the chain layer against our own readings
-REPORTS_CSV_URL=… .venv/bin/python -m latecup_data.votes --site work/site        # the votes file (empty without the URL)
-.venv/bin/python -m latecup_data.report work/site                                # coverage numbers
-.venv/bin/python -m latecup_data.monitor                                         # checks the published feed
-tools/publish.sh work/site                                                       # publish by hand (the Action normally does)
-```
+**Where it is.** `latecup_data/visitors.py` has the rules, `latecup_data/votes.py` the hourly count that applies them, `latecup_data/ledger.py` the commit and the push. The [`votes`](.github/workflows/votes.yml) workflow runs them: after the count it commits the changed records to `main`, on top of whatever was pushed in the meantime (fetch, rebase, push, and again when someone was faster; nothing is ever forced, and nothing but `visitors/` files is pushed), and then starts `refresh`, because a push made with the job's own token starts no workflow by itself.
 
 ## Layout
 
@@ -204,11 +206,9 @@ tools/publish.sh work/site                                                      
 | `latecup_data/build.py` | Dedupe, overrides, additions, the feed and the to-confirm list |
 | `latecup_data/validate.py` | The format-1 contract as code |
 | `latecup_data/run.py`, `monitor.py`, `report.py` | One pipeline run; the staleness check; the coverage report |
-| `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings, wrong-hours reports and visitors' own hours |
-| `latecup_data/visitors.py`, `ledger.py` | The rules for visitors' hours; the commit and push of `visitors/` |
+| `latecup_data/votes.py` | The hourly count of visitor confirmations, ratings and wrong-hours reports |
 | `latecup_data/confirm.py`, `tools/` | Reading a shop's own site for its hours; hand tools; `tools/audit_chain_layer.py` |
 | `overrides/`, `additions/` | Hours we confirmed; places we added (New York's in the folder, another area's in `<area id>/`) |
-| `visitors/` | Hours that visitors agreed on, written by the hourly job and by nothing else (the folder appears with the first record) |
 | `quarantine.json`, `report.json` | Vote periods that are never counted; the manifest's report endpoint |
 | `data/` | Neighbourhood polygons; the cache of looked-up street addresses |
 | `styles/` | The dark and light MapLibre styles |
