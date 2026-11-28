@@ -1,0 +1,54 @@
+{
+ "id": "n11372544124",
+ "name": "Kung Fu Tea",
+ "addr": "61-07 Utopia Pkwy",
+ "hours": [
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ],
+  [
+   [
+    660,
+    1380
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-23:00",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=fresh-meadows--47357798",
+ "checked": "2026-11-28",
+ "note": "OpenStreetMap had no hours. Read: Fresh Meadows / TKK & KFT / 61-07 Utopia Pkwy / Fresh Meadows, NY 11365 / Hours / Monday 11:00 am - 11:00 pm ... Sunday 11:00 am - 11:00 pm / 347-855-9350 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is 2 m from it."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n6932788478",
+ "name": "Kung Fu Tea",
+ "hours": [
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:45",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=brooklyn-8th-ave--20425716",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-We 11:00-22:00, Th 11:00-21:30, Fr-Su 10:30-22:30",
+ "note": "OpenStreetMap said \"Mo-We 11:00-22:00, Th 11:00-21:30, Fr-Su 10:30-22:30\"; the shop's own source wins. Read: Brooklyn 8th Ave / 806 55th St Brooklyn NY 11220 / Hours / Monday 11:00 am - 8:45 pm ... Sunday 11:00 am - 8:45 pm Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+}

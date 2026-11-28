@@ -1,0 +1,54 @@
+{
+ "id": "n9742033446",
+ "name": "Kung Fu Tea",
+ "hours": [
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ],
+  [
+   [
+    720,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-19:00",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=forest-hills--20425748",
+ "checked": "2026-11-28",
+ "osm_hours": "Su-We 12:00-20:00; Th-Sa 12:00-20:30",
+ "note": "OpenStreetMap said \"Su-We 12:00-20:00; Th-Sa 12:00-20:30\"; the shop's own source wins. Read: Forest Hills / 70-10 Austin St Store3 / Forest Hills NY 11375 / Hours / Monday 12:00 pm - 7:00 pm ... Sunday 12:00 pm - 7:00 pm / 718-263-3631 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). Closes at 19:00 every day, so it leaves the feed."
+}

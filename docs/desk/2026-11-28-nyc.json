@@ -1,0 +1,770 @@
+[
+ {
+  "id": "n5862744811",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/w-68th-columbus",
+  "evidence": "W 68th & Columbus / 187 Columbus Ave, New York, NY 10023 / Cafe Hours / Monday - Sunday: 7:00AM - 8:00PM",
+  "hours": "Mo-Su 07:00-20:00",
+  "src": "brand",
+  "late": true,
+  "note": "Joe Coffee's own store page."
+ },
+ {
+  "id": "n4762031974",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/bryant-park",
+  "evidence": "Bryant Park / Structure #9, 55 W 40th St Kiosk #4, New York, NY 10018 / Cafe Hours / Monday - Friday: 8:00AM - 8:00PM / Saturday-Sunday: 9:00AM - 8:00PM",
+  "hours": "Mo-Fr 08:00-20:00; Sa-Su 09:00-20:00",
+  "src": "brand",
+  "late": true,
+  "note": "Joe Coffee's own store page. OpenStreetMap's node (in Bryant Park, phone Joe's main line) has no street address; the store page gives the kiosk's."
+ },
+ {
+  "id": "n2547200402",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/13th-street",
+  "evidence": "13th Street / 9 E 13th St, New York, NY 10003 / Monday - Friday: 7:00AM - 7:00PM / Saturday - Sunday: 8:00AM - 6:00PM",
+  "hours": "Mo-Fr 07:00-19:00; Sa-Su 08:00-18:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes by 19:00 every day, so it leaves the feed."
+ },
+ {
+  "id": "n2549884902",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/brooklyn-heights",
+  "evidence": "102 Hicks St, Brooklyn, NY 11201 / Monday - Friday: 6:30AM - 7:00PM / Saturday - Sunday: 7:00AM - 7:00PM",
+  "hours": "Mo-Fr 06:30-19:00; Sa-Su 07:00-19:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes at 19:00 every day, so it leaves the feed."
+ },
+ {
+  "id": "n3874983057",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/chelsea",
+  "evidence": "405 W 23 St, New York, NY 10011 / Monday - Sunday: 7:00AM - 6:00PM",
+  "hours": "Mo-Su 07:00-18:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes at 18:00 every day, so it leaves the feed."
+ },
+ {
+  "id": "n2409398832",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/w-85th-columbus",
+  "evidence": "514 Columbus Ave, New York, NY 10024 / Monday - Sunday: 7:00AM - 7:00PM",
+  "hours": "Mo-Su 07:00-19:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes at 19:00 every day, so it leaves the feed."
+ },
+ {
+  "id": "n4816185281",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/columbia-pulitzer-hall",
+  "evidence": "Columbia Pulitzer Hall / 2950 Broadway, New York, NY 10027 / A valid Columbia University ID is required to visit this location. / Monday - Friday: 7:00AM - 7:00PM / Saturday - Sunday: 9:00AM - 4:00PM",
+  "hours": "Mo-Fr 07:00-19:00; Sa-Su 09:00-16:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes by 19:00 every day (and needs a Columbia ID), so it leaves the feed."
+ },
+ {
+  "id": "n2308955289",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/columbia-northwest-corner-building",
+  "evidence": "Columbia University Northwest Corner Building / 550 W 120th St, New York, NY 10027 / Monday - Friday: 7:00AM - 7:00PM / Saturday - Sunday: 9:00AM - 5:00PM",
+  "hours": "Mo-Fr 07:00-19:00; Sa-Su 09:00-17:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes by 19:00 every day, so it leaves the feed."
+ },
+ {
+  "id": "n2358048509",
+  "name": "Joe Coffee Company",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/west-village",
+  "evidence": "West Village / 141 Waverly Pl, New York, NY 10014 / Cafe Hours / Monday - Sunday: 7:00AM - 7:00PM",
+  "hours": "Mo-Su 07:00-19:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes at 19:00 every day, so it leaves the feed."
+ },
+ {
+  "id": "n5500393532",
+  "name": "Joe Coffee",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://joecoffeecompany.com/pages/dumbo",
+  "evidence": "Dumbo / 45 Washington St, Brooklyn, NY 11201 / Cafe Hours / Monday - Sunday: 7:00AM - 7:00PM",
+  "hours": "Mo-Su 07:00-19:00",
+  "src": "brand",
+  "late": false,
+  "note": "Joe Coffee's own store page. Closes at 19:00, so it stays off the late map."
+ },
+ {
+  "id": "n1383909693",
+  "name": "Le Pain Quotidien",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.lepainquotidien.com/us/en/stores/3003%3A%20Columbus_Circle",
+  "evidence": "Le Pain Quotidien Columbus Circle / Opening hours monday 06:30 AM until 09:00 PM ... friday 06:30 AM until 09:00 PM / saturday 07:00 AM until 09:00 PM / sunday 07:00 AM until 09:00 PM / Address: 1800 Broadway, New York, NY 10019 (at Columbus Circle) Phone: (332) 910-6866",
+  "hours": "Mo-Fr 06:30-21:00; Sa-Su 07:00-21:00",
+  "src": "brand",
+  "late": true,
+  "note": "The brand's own store page. The address conflict: OpenStreetMap's node says 240 Central Park South, the brand says 1800 Broadway (at Columbus Circle); the node's phone (+1 332 910 6866) is this store's, so it is this store and the brand's address is used. Thanksgiving and the day after are listed apart on the page as holiday hours; the standing week is the one written."
+ },
+ {
+  "id": "n11413866658",
+  "name": "Möge Tee",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+  "evidence": "Moge Tee Manhattan Valley / 971 Amsterdam Avenue, New York, NY, USA / NOW OPEN / Open Hours> Mon-Sun: 12:00PM - 10:00PM",
+  "hours": "Mo-Su 12:00-22:00",
+  "src": "brand",
+  "late": true,
+  "note": "OpenStreetMap still has NaiSnow at 971 Amsterdam Ave; Möge Tee's own store list has its Manhattan Valley shop at that address, now open. NaiSnow's own site (naisnow.com) draws nothing, in a browser either. The place is renamed Möge Tee."
+ },
+ {
+  "id": "n12043679262",
+  "name": "Liz’s Book Bar",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.lizsbookbar.com/contact-hours",
+  "evidence": "CONTACT + HOURS / Liz's Book Bar / 315 Smith Street / Monday 8:00 AM 2:00 PM / Tuesday 8:00 AM 9:00 PM / Wednesday 8:00 AM 9:00 PM / Thursday 8:00 AM 11:00 PM / Friday * 8:00 AM 11:00 PM / Saturday 9:00 AM 11:00 PM / Sunday 9:00 AM 9:00 PM / * December 25th Closed",
+  "hours": "Mo 08:00-14:00; Tu-We 08:00-21:00; Th-Fr 08:00-23:00; Sa 09:00-23:00; Su 09:00-21:00",
+  "src": "shop",
+  "late": true,
+  "note": "Read with tools/harvest_browser.mjs (the page is drawn by scripts); visible text."
+ },
+ {
+  "id": "n12247119193",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=brooklyn-5th-ave--20425714",
+  "evidence": "Brooklyn 5th Ave / 8625 5th Ave / Brooklyn, NY 11209 / Hours / Monday 11AM-8PM ... Sunday 11AM-8PM",
+  "hours": "Mo-Su 11:00-20:00",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+ },
+ {
+  "id": "n6932788478",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=brooklyn-8th-ave--20425716",
+  "evidence": "Brooklyn 8th Ave / 806 55th St Brooklyn NY 11220 / Hours / Monday 11:00 am - 8:45 pm ... Sunday 11:00 am - 8:45 pm",
+  "hours": "Mo-Su 11:00-20:45",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+ },
+ {
+  "id": "n7314202222",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=nyu--20425769",
+  "evidence": "NYU / 31 Waverly Place / Unit 5, New York, NY 10003 / Hours / Monday 11:10 am - 9:15 pm ... Friday 11:10 am - 9:15 pm / Saturday 12:10 pm - 9:15 pm / Sunday 12:10 pm - 9:15 pm / 212-677-4517",
+  "hours": "Mo-Fr 11:10-21:15; Sa-Su 12:10-21:15",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+ },
+ {
+  "id": "n12412618920",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=jackson-heights--20425759",
+  "evidence": "Jackson Heights / 82-02 Roosevelt Ave / Jackson Heights, NY 11372 / Hours / Monday 11:00 am - 9:59 pm ... Sunday 11:00 am - 9:59 pm / 718 685 2886",
+  "hours": "Mo-Su 11:00-21:59",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). The closing time is written as the page has it (9:59 pm)."
+ },
+ {
+  "id": "n11667208329",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=elm-park--38894251",
+  "evidence": "Elm Park / 1267 Forest Ave / Staten Island, NY 10302 / Hours / Monday 11:00 am - 9:00 pm ... Thursday 11:00 am - 9:00 pm / Friday 11:00 am - 10:00 pm / Saturday 11:00 am - 10:00 pm / Sunday 11:00 am - 9:00 pm / 718-603-8999",
+  "hours": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is 51 m from it and no other Kung Fu Tea is near."
+ },
+ {
+  "id": "n6700595182",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=eltingville--54103102",
+  "evidence": "Eltingville / 3845 Richmond Ave. / Staten Island, NY 10312. / Hours / Monday 11:00 am - 8:45 pm ... Sunday 11:00 am - 8:45 pm / 347-679-5555",
+  "hours": "Mo-Su 11:00-20:45",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is on it (0 m)."
+ },
+ {
+  "id": "n11372544124",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=fresh-meadows--47357798",
+  "evidence": "Fresh Meadows / TKK & KFT / 61-07 Utopia Pkwy / Fresh Meadows, NY 11365 / Hours / Monday 11:00 am - 11:00 pm ... Sunday 11:00 am - 11:00 pm / 347-855-9350",
+  "hours": "Mo-Su 11:00-23:00",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is 2 m from it."
+ },
+ {
+  "id": "n12770823875",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=elmhurst-justice-ave--20425745",
+  "evidence": "Elmhurst Justice Ave / 86-12 Justice Ave / Elmhurst NY 11373 / Hours / Monday 11:00 am - 9:30 pm ... Sunday 11:00 am - 9:30 pm / 718-899-1189",
+  "hours": "Mo-Su 11:00-21:30",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+ },
+ {
+  "id": "n12360594370",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=bayside--20425842",
+  "evidence": "Bayside / 42-21 Bell Blvd Bayside NY 11361 / Hours / Monday 11:15 am - 10:00 pm ... Sunday 11:15 am - 10:00 pm / 718 631 0011",
+  "hours": "Mo-Su 11:15-22:00",
+  "src": "brand",
+  "late": true,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is 123 m from it, and it is the only Kung Fu Tea within 3 km."
+ },
+ {
+  "id": "n9742033446",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=forest-hills--20425748",
+  "evidence": "Forest Hills / 70-10 Austin St Store3 / Forest Hills NY 11375 / Hours / Monday 12:00 pm - 7:00 pm ... Sunday 12:00 pm - 7:00 pm / 718-263-3631",
+  "hours": "Mo-Su 12:00-19:00",
+  "src": "brand",
+  "late": false,
+  "note": "Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). Closes at 19:00 every day, so it leaves the feed."
+ },
+ {
+  "id": "x-kung-fu-tea-midtown-south",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=midtown-south--37759105",
+  "evidence": "Kung Fu Tea's own store page (tools/harvest_browser.mjs, visible text): Midtown South / 42 West 38th Street New York NY 10018 / Hours / Monday-Friday 10:30 am - 8:15 pm / Saturday-Sunday 11:00 am - 8:15 pm",
+  "hours": "Mo-Fr 10:30-20:15; Sa-Su 11:00-20:15",
+  "src": "brand",
+  "late": true,
+  "note": "Added to additions/ (OpenStreetMap's café set does not have it). Nominatim: 42 West 38th Street (38 Food Hall), Midtown South 10018 (house)"
+ },
+ {
+  "id": "x-kung-fu-tea-washington-heights",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.kungfutea.com/location/?l=washington-heights--20425938",
+  "evidence": "Kung Fu Tea's own store page (tools/harvest_browser.mjs, visible text): Washington Heights / 4053 Broadway New York NY 10032 / Hours / Monday-Saturday 11:00 am - 9:45 pm / Sunday 12:00 pm - 9:45 pm",
+  "hours": "Mo-Sa 11:00-21:45; Su 12:00-21:45",
+  "src": "brand",
+  "late": true,
+  "note": "Added to additions/ (OpenStreetMap's café set does not have it). Nominatim: 4053 Broadway, Washington Heights 10032 (OSM has a Poke Station at that address)"
+ },
+ {
+  "id": "x-moge-tee-flushing-express",
+  "name": "Möge Tee",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+  "evidence": "Moge Tee Flushing Express / 42-35 Main St, Queens, NY 11355, USA / (646) 758-6266 / Open Hours> Sun-Thur: 10:30AM - 8:30PM / Fri-Sat: 10:30AM - 9:00PM",
+  "hours": "Su-Th 10:30-20:30; Fr-Sa 10:30-21:00",
+  "src": "brand",
+  "late": true,
+  "note": "Added to additions/ (OpenStreetMap's café set does not have it). Nominatim: Arcadia Mall, 42-35 Main Street, Flushing 11355"
+ },
+ {
+  "id": "x-moge-tee-forest-hills",
+  "name": "Möge Tee",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+  "evidence": "Moge Tee Forest Hills / 70-15 Austin St, Forest Hills, NY 11375, USA / (347) 644-1702 / Open Hours> Sun-Thur: 10:30AM - 9:00PM / Fri-Sat: 10:30AM - 10:00PM",
+  "hours": "Su-Th 10:30-21:00; Fr-Sa 10:30-22:00",
+  "src": "brand",
+  "late": true,
+  "note": "Added to additions/ (OpenStreetMap's café set does not have it). Nominatim: 70-15, Austin Street, Forest Hills, Queens 11375 (house)"
+ },
+ {
+  "id": "x-moge-tee-northern-blvd",
+  "name": "Möge Tee",
+  "area": "nyc",
+  "status": "confirmed",
+  "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+  "evidence": "Moge Tee Northern / 157-08 Northern Boulevard, Queens, NY, USA / (347) 368-4129 / Open Hours> Sun-Thur: 12:00PM - 9:00PM / Fri - Sat: 12:00PM - 10:00PM",
+  "hours": "Su-Th 12:00-21:00; Fr-Sa 12:00-22:00",
+  "src": "brand",
+  "late": true,
+  "note": "Added to additions/ (OpenStreetMap's café set does not have it). Nominatim: 157-08, Northern Boulevard, Flushing, Queens 11354 (house)"
+ },
+ {
+  "id": "n6696993241",
+  "name": "Kopitiam Malaysian Coffee",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "own pages disagree",
+  "note": "The visible text says HOURS 7 DAYS A WEEK 10:00 AM - 10:00 PM; the same page's schema.org data and its script data say 11:00-19:00 and closed Wednesday. Left as it is (OSM 09:00-22:00); its official Instagram could settle it.",
+  "page": "https://www.kopitiamnyc.com/"
+ },
+ {
+  "id": "n2555997484",
+  "name": "Cafe Lounge",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "own pages disagree",
+  "note": "The visible Square block for 210 Kings Hwy says Mon-Wed 8 AM-9 PM, Thu-Sat 8 AM-10 PM, Sun 8 AM-9 PM; the site's store data say 07:00-23:00 daily (and 07:00-22:00/23:00 for pickup). Late either way; left as it is.",
+  "page": "https://www.cafeloungenyc.com/"
+ },
+ {
+  "id": "n8149503340",
+  "name": "Debutea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no visible hours",
+  "note": "Square site: no hours shown. Its store data say 11:00-21:00 daily (and a 00:00-23:59 group), which is not OpenStreetMap's 09:30-21:00, so page data alone is not taken.",
+  "page": "https://www.debutea.com/"
+ },
+ {
+  "id": "n5587111257",
+  "name": "Debutea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "not on the shop's own site",
+  "note": "The site lists only Debutea Brooklyn (71 Smith St); nothing for 217 Thompson St.",
+  "page": "https://www.debutea.com/"
+ },
+ {
+  "id": "n11005811332",
+  "name": "Black Lab Cafe",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no own page",
+  "note": "The domain now redirects to a gambling site (laytoto4d.com). No own page; left unconfirmed.",
+  "page": "https://www.blacklabcafe.com/"
+ },
+ {
+  "id": "n3822484908",
+  "name": "The Bean",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "HTTP 403 to a script and to the browser reader (a bot check, not gone through).",
+  "page": "https://www.thebean.nyc/"
+ },
+ {
+  "id": "n2547054885",
+  "name": "The Bean",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "HTTP 403 to a script and to the browser reader (a bot check, not gone through).",
+  "page": "https://www.thebean.nyc/"
+ },
+ {
+  "id": "n2494245665",
+  "name": "The Bean",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "a bot check",
+  "note": "HTTP 403 to a script and to the browser reader (a bot check, not gone through).",
+  "page": "https://www.thebean.nyc/"
+ },
+ {
+  "id": "n6110870385",
+  "name": "Mango Mango",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "nothing on the page",
+  "note": "The locations page draws no hours in the browser either.",
+  "page": "https://www.mangomangodessert.com/locations"
+ },
+ {
+  "id": "n6110907588",
+  "name": "Mango Mango Dessert",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "nothing on the page",
+  "note": "The locations page draws no hours in the browser either.",
+  "page": "https://www.mangomangodessert.com/locations"
+ },
+ {
+  "id": "n12334487675",
+  "name": "Oasis Cafe",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no website",
+  "note": "OpenStreetMap has no website for either Oasis Cafe and no own page was found.",
+  "page": null
+ },
+ {
+  "id": "n9579194108",
+  "name": "Oasis Cafe",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no website",
+  "note": "OpenStreetMap has no website for either Oasis Cafe and no own page was found.",
+  "page": null
+ },
+ {
+  "id": "n14135072935",
+  "name": "The Oasis Cafe",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "today's status only",
+  "note": "The site (read in the browser) shows only today's status: 857 9th Avenue, Closed, Opens 7am. No week.",
+  "page": "https://www.theoasiscafe.com/"
+ },
+ {
+  "id": "n11721695351",
+  "name": "Variety Cafe",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "Variety's own locations page lists the addresses and phones of all its cafés and no hours; the FAQ gives only the office's hours.",
+  "page": "https://varietycoffeeroasters.com/pages/locations"
+ },
+ {
+  "id": "n14268802101",
+  "name": "Variety Coffee",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "Variety's own locations page lists the addresses and phones of all its cafés and no hours; the FAQ gives only the office's hours.",
+  "page": "https://varietycoffeeroasters.com/pages/locations"
+ },
+ {
+  "id": "n2568681567",
+  "name": "Variety Coffee Roasters",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "Variety's own locations page lists the addresses and phones of all its cafés and no hours; the FAQ gives only the office's hours.",
+  "page": "https://varietycoffeeroasters.com/pages/locations"
+ },
+ {
+  "id": "n2568752298",
+  "name": "Variety Coffee Roasters",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "Variety's own locations page lists the addresses and phones of all its cafés and no hours; the FAQ gives only the office's hours.",
+  "page": "https://varietycoffeeroasters.com/pages/locations"
+ },
+ {
+  "id": "n6250062022",
+  "name": "Variety Coffee Roasters",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "Variety's own locations page lists the addresses and phones of all its cafés and no hours; the FAQ gives only the office's hours.",
+  "page": "https://varietycoffeeroasters.com/pages/locations"
+ },
+ {
+  "id": "n6250176401",
+  "name": "Variety Coffee Roasters",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "Variety's own locations page lists the addresses and phones of all its cafés and no hours; the FAQ gives only the office's hours.",
+  "page": "https://varietycoffeeroasters.com/pages/locations"
+ },
+ {
+  "id": "n11836256036",
+  "name": "ViVi's Bubble Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "ViVi's own list gives address and phone for each store, no hours (the old location_content.php pages are 404 since the site was rebuilt).",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n3676784853",
+  "name": "ViVi Bubble Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "ViVi's own list gives address and phone for each store, no hours (the old location_content.php pages are 404 since the site was rebuilt).",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n5754840626",
+  "name": "ViVi Bubble Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "ViVi's own list gives address and phone for each store, no hours (the old location_content.php pages are 404 since the site was rebuilt).",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n6259694363",
+  "name": "ViVi Bubble Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "ViVi's own list gives address and phone for each store, no hours (the old location_content.php pages are 404 since the site was rebuilt).",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n8923548077",
+  "name": "Vivi BubbleTea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "ViVi's own list gives address and phone for each store, no hours (the old location_content.php pages are 404 since the site was rebuilt).",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n9241590661",
+  "name": "Vivi Bubble Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours",
+  "note": "ViVi's own list gives address and phone for each store, no hours (the old location_content.php pages are 404 since the site was rebuilt).",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n6259730842",
+  "name": "ViVi Bubble Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "not on the brand's list",
+  "note": "170 W 23rd St and 2 East Broadway are not on ViVi's own list of stores. Left as they are: worth a look at another allowed source before taking them off.",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n6260059211",
+  "name": "ViVi Bubble Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "not on the brand's list",
+  "note": "170 W 23rd St and 2 East Broadway are not on ViVi's own list of stores. Left as they are: worth a look at another allowed source before taking them off.",
+  "page": "https://vivibubbletea.com/locations/"
+ },
+ {
+  "id": "n10234443658",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n10651869821",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n11036322282",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n2553613124",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n2717323719",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n2761671634",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n6259767847",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n6259787768",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n6264476981",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n7795039231",
+  "name": "Gong Cha",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "site unreachable",
+  "note": "gongchausa.com fails the TLS handshake (certificate error), so it was not read.",
+  "page": "https://www.gongchausa.com/"
+ },
+ {
+  "id": "n6412172122",
+  "name": "787 Coffee",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "page data only, and it disagrees",
+  "note": "The NYC page draws its store list with scripts; what it holds is schema.org data, and on the one store page read (131 E 7th St) that data says Mo-Su 07:00-20:00 while the visible text says Mon-Sat 7 am-6 pm, Sun 8 am-6 pm. Not taken.",
+  "page": "https://www.787coffee.com/nyc-coffee-shops"
+ },
+ {
+  "id": "n12230629417",
+  "name": "787 Coffee",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "page data only, and it disagrees",
+  "note": "The NYC page draws its store list with scripts; what it holds is schema.org data, and on the one store page read (131 E 7th St) that data says Mo-Su 07:00-20:00 while the visible text says Mon-Sat 7 am-6 pm, Sun 8 am-6 pm. Not taken.",
+  "page": "https://www.787coffee.com/nyc-coffee-shops"
+ },
+ {
+  "id": "n11665558672",
+  "name": "787 Coffee",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "page data only, and it disagrees",
+  "note": "The NYC page draws its store list with scripts; what it holds is schema.org data, and on the one store page read (131 E 7th St) that data says Mo-Su 07:00-20:00 while the visible text says Mon-Sat 7 am-6 pm, Sun 8 am-6 pm. Not taken.",
+  "page": "https://www.787coffee.com/nyc-coffee-shops"
+ },
+ {
+  "id": "n9845209353",
+  "name": "Moge Tee",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "not on the brand's list",
+  "note": "Möge Tee's own NY list has no Bensonhurst store (its Brooklyn one is 705 59th St).",
+  "page": "https://www.mogeteeusa.com/store-locations-1/ny"
+ },
+ {
+  "id": "n8953971452",
+  "name": "Möge tee",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "no hours on the brand's list",
+  "note": "Listed (Moge Tee Long Island City, 42-32 Crescent Street) with the hours left blank.",
+  "page": "https://www.mogeteeusa.com/store-locations-1/ny"
+ },
+ {
+  "id": "n12248243320",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "not on the brand's locator",
+  "note": "Not in Kung Fu Tea's own store locator (313 stores read 2026-11-28). Left as they are.",
+  "page": "https://www.kungfutea.com/locations/usa/"
+ },
+ {
+  "id": "n2572411294",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "not on the brand's locator",
+  "note": "Not in Kung Fu Tea's own store locator (313 stores read 2026-11-28). Left as they are.",
+  "page": "https://www.kungfutea.com/locations/usa/"
+ },
+ {
+  "id": "n6680404242",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "not on the brand's locator",
+  "note": "Not in Kung Fu Tea's own store locator (313 stores read 2026-11-28). Left as they are.",
+  "page": "https://www.kungfutea.com/locations/usa/"
+ },
+ {
+  "id": "n2555989806",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "another address on the locator",
+  "note": "The locator's nearest store has another address: 2300 86th St vs 2174 86th St (298 m); 40 Hoyt St vs 80 Livingston St (465 m); 136-17 39th Ave vs Queens Crossing, 136-20 38th Ave (27 m). Two addresses are not one shop; left as they are.",
+  "page": "https://www.kungfutea.com/locations/usa/"
+ },
+ {
+  "id": "n6453371196",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "another address on the locator",
+  "note": "The locator's nearest store has another address: 2300 86th St vs 2174 86th St (298 m); 40 Hoyt St vs 80 Livingston St (465 m); 136-17 39th Ave vs Queens Crossing, 136-20 38th Ave (27 m). Two addresses are not one shop; left as they are.",
+  "page": "https://www.kungfutea.com/locations/usa/"
+ },
+ {
+  "id": "n7412863961",
+  "name": "Kung Fu Tea",
+  "area": "nyc",
+  "status": "skipped",
+  "reason": "another address on the locator",
+  "note": "The locator's nearest store has another address: 2300 86th St vs 2174 86th St (298 m); 40 Hoyt St vs 80 Livingston St (465 m); 136-17 39th Ave vs Queens Crossing, 136-20 38th Ave (27 m). Two addresses are not one shop; left as they are.",
+  "page": "https://www.kungfutea.com/locations/usa/"
+ }
+]

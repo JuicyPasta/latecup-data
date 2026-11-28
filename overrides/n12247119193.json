@@ -1,0 +1,54 @@
+{
+ "id": "n12247119193",
+ "name": "Kung Fu Tea",
+ "hours": [
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ],
+  [
+   [
+    660,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:00",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=brooklyn-5th-ave--20425714",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Su 11:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Brooklyn 5th Ave / 8625 5th Ave / Brooklyn, NY 11209 / Hours / Monday 11AM-8PM ... Sunday 11AM-8PM Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+}

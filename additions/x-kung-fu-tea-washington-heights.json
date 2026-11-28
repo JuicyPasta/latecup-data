@@ -1,0 +1,58 @@
+{
+ "id": "x-kung-fu-tea-washington-heights",
+ "name": "Kung Fu Tea",
+ "lat": 40.84303,
+ "lon": -73.9394,
+ "addr": "4053 Broadway",
+ "cat": "tea",
+ "hours": [
+  [
+   [
+    660,
+    1305
+   ]
+  ],
+  [
+   [
+    660,
+    1305
+   ]
+  ],
+  [
+   [
+    660,
+    1305
+   ]
+  ],
+  [
+   [
+    660,
+    1305
+   ]
+  ],
+  [
+   [
+    660,
+    1305
+   ]
+  ],
+  [
+   [
+    660,
+    1305
+   ]
+  ],
+  [
+   [
+    720,
+    1305
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Sa 11:00-21:45; Su 12:00-21:45",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=washington-heights--20425938",
+ "checked": "2026-11-28",
+ "web": "https://www.kungfutea.com/location/?l=washington-heights--20425938",
+ "note": "Not in OpenStreetMap's café set on 2026-11-28. Read: Kung Fu Tea's own store page (tools/harvest_browser.mjs, visible text): Washington Heights / 4053 Broadway New York NY 10032 / Hours / Monday-Saturday 11:00 am - 9:45 pm / Sunday 12:00 pm - 9:45 pm Coordinates: Nominatim: 4053 Broadway, Washington Heights 10032 (OSM has a Poke Station at that address)"
+}

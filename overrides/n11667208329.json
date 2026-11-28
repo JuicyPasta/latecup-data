@@ -1,0 +1,54 @@
+{
+ "id": "n11667208329",
+ "name": "Kung Fu Tea",
+ "addr": "1267 Forest Ave",
+ "hours": [
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1320
+   ]
+  ],
+  [
+   [
+    660,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Th 11:00-21:00; Fr-Sa 11:00-22:00; Su 11:00-21:00",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=elm-park--38894251",
+ "checked": "2026-11-28",
+ "note": "OpenStreetMap had no hours. Read: Elm Park / 1267 Forest Ave / Staten Island, NY 10302 / Hours / Monday 11:00 am - 9:00 pm ... Thursday 11:00 am - 9:00 pm / Friday 11:00 am - 10:00 pm / Saturday 11:00 am - 10:00 pm / Sunday 11:00 am - 9:00 pm / 718-603-8999 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is 51 m from it and no other Kung Fu Tea is near."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n12360594370",
+ "name": "Kung Fu Tea",
+ "addr": "42-21 Bell Blvd",
+ "hours": [
+  [
+   [
+    675,
+    1320
+   ]
+  ],
+  [
+   [
+    675,
+    1320
+   ]
+  ],
+  [
+   [
+    675,
+    1320
+   ]
+  ],
+  [
+   [
+    675,
+    1320
+   ]
+  ],
+  [
+   [
+    675,
+    1320
+   ]
+  ],
+  [
+   [
+    675,
+    1320
+   ]
+  ],
+  [
+   [
+    675,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:15-22:00",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=bayside--20425842",
+ "checked": "2026-11-28",
+ "note": "OpenStreetMap had no hours. Read: Bayside / 42-21 Bell Blvd Bayside NY 11361 / Hours / Monday 11:15 am - 10:00 pm ... Sunday 11:15 am - 10:00 pm / 718 631 0011 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is 123 m from it, and it is the only Kung Fu Tea within 3 km."
+}

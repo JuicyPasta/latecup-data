@@ -1,0 +1,53 @@
+{
+ "id": "n5500393532",
+ "name": "Joe Coffee",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-19:00",
+ "src": "brand",
+ "source": "https://joecoffeecompany.com/pages/dumbo",
+ "checked": "2026-11-28",
+ "note": "OpenStreetMap had no hours. Read: Dumbo / 45 Washington St, Brooklyn, NY 11201 / Cafe Hours / Monday - Sunday: 7:00AM - 7:00PM Joe Coffee's own store page. Closes at 19:00, so it stays off the late map."
+}

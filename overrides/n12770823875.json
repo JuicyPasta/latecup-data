@@ -1,0 +1,53 @@
+{
+ "id": "n12770823875",
+ "name": "Kung Fu Tea",
+ "hours": [
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ],
+  [
+   [
+    660,
+    1290
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:30",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=elmhurst-justice-ave--20425745",
+ "checked": "2026-11-28",
+ "note": "OpenStreetMap had no hours. Read: Elmhurst Justice Ave / 86-12 Justice Ave / Elmhurst NY 11373 / Hours / Monday 11:00 am - 9:30 pm ... Sunday 11:00 am - 9:30 pm / 718-899-1189 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+}

@@ -1,0 +1,54 @@
+{
+ "id": "n2547200402",
+ "name": "Joe Coffee Company",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ],
+  [
+   [
+    480,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-19:00; Sa-Su 08:00-18:00",
+ "src": "brand",
+ "source": "https://joecoffeecompany.com/pages/13th-street",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Th 07:00-20:00; Fr-Su 07:00-18:30",
+ "note": "OpenStreetMap said \"Mo-Th 07:00-20:00; Fr-Su 07:00-18:30\"; the shop's own source wins. Read: 13th Street / 9 E 13th St, New York, NY 10003 / Monday - Friday: 7:00AM - 7:00PM / Saturday - Sunday: 8:00AM - 6:00PM Joe Coffee's own store page. Closes by 19:00 every day, so it leaves the feed."
+}

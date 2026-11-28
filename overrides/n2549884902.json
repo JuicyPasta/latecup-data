@@ -1,0 +1,54 @@
+{
+ "id": "n2549884902",
+ "name": "Joe Coffee Company",
+ "hours": [
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    390,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:30-19:00; Sa-Su 07:00-19:00",
+ "src": "brand",
+ "source": "https://joecoffeecompany.com/pages/brooklyn-heights",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-20:00\"; the shop's own source wins. Read: 102 Hicks St, Brooklyn, NY 11201 / Monday - Friday: 6:30AM - 7:00PM / Saturday - Sunday: 7:00AM - 7:00PM Joe Coffee's own store page. Closes at 19:00 every day, so it leaves the feed."
+}

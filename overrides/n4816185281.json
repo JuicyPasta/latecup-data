@@ -1,0 +1,54 @@
+{
+ "id": "n4816185281",
+ "name": "Joe Coffee Company",
+ "hours": [
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    420,
+    1140
+   ]
+  ],
+  [
+   [
+    540,
+    960
+   ]
+  ],
+  [
+   [
+    540,
+    960
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 07:00-19:00; Sa-Su 09:00-16:00",
+ "src": "brand",
+ "source": "https://joecoffeecompany.com/pages/columbia-pulitzer-hall",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Fr 08:00-20:00; Sa-Su 09:00-17:00",
+ "note": "OpenStreetMap said \"Mo-Fr 08:00-20:00; Sa-Su 09:00-17:00\"; the shop's own source wins. Read: Columbia Pulitzer Hall / 2950 Broadway, New York, NY 10027 / A valid Columbia University ID is required to visit this location. / Monday - Friday: 7:00AM - 7:00PM / Saturday - Sunday: 9:00AM - 4:00PM Joe Coffee's own store page. Closes by 19:00 every day (and needs a Columbia ID), so it leaves the feed."
+}

@@ -1,0 +1,55 @@
+{
+ "id": "n1383909693",
+ "name": "Le Pain Quotidien",
+ "addr": "1800 Broadway",
+ "hours": [
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    390,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ],
+  [
+   [
+    420,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 06:30-21:00; Sa-Su 07:00-21:00",
+ "src": "brand",
+ "source": "https://www.lepainquotidien.com/us/en/stores/3003%3A%20Columbus_Circle",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Fr 07:00-20:00; Sa-Su 08:00-20:00\"; the shop's own source wins. Read: Le Pain Quotidien Columbus Circle / Opening hours monday 06:30 AM until 09:00 PM ... friday 06:30 AM until 09:00 PM / saturday 07:00 AM until 09:00 PM / sunday 07:00 AM until 09:00 PM / Address: 1800 Broadway, New York, NY 10019 (at Columbus Circle) Phone: (332) 910-6866 The brand's own store page. The address conflict: OpenStreetMap's node says 240 Central Park South, the brand says 1800 Broadway (at Columbus Circle); the node's phone (+1 332 910 6866) is this store's, so it is this store and the brand's address is used. Thanksgiving and the day after are listed apart on the page as holiday hours; the standing week is the one written."
+}

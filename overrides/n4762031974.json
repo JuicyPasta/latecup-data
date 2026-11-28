@@ -1,0 +1,55 @@
+{
+ "id": "n4762031974",
+ "name": "Joe Coffee Company",
+ "addr": "55 W 40th St",
+ "hours": [
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    480,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ],
+  [
+   [
+    540,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 08:00-20:00; Sa-Su 09:00-20:00",
+ "src": "brand",
+ "source": "https://joecoffeecompany.com/pages/bryant-park",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Fr 08:00-20:00; Sa,Su 09:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: Bryant Park / Structure #9, 55 W 40th St Kiosk #4, New York, NY 10018 / Cafe Hours / Monday - Friday: 8:00AM - 8:00PM / Saturday-Sunday: 9:00AM - 8:00PM Joe Coffee's own store page. OpenStreetMap's node (in Bryant Park, phone Joe's main line) has no street address; the store page gives the kiosk's."
+}

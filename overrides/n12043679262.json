@@ -1,0 +1,54 @@
+{
+ "id": "n12043679262",
+ "name": "Liz’s  Book Bar",
+ "hours": [
+  [
+   [
+    480,
+    840
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1260
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    480,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1380
+   ]
+  ],
+  [
+   [
+    540,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Mo 08:00-14:00; Tu-We 08:00-21:00; Th-Fr 08:00-23:00; Sa 09:00-23:00; Su 09:00-21:00",
+ "src": "shop",
+ "source": "https://www.lizsbookbar.com/contact-hours",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo 08:00-14:00; Tu-We 08:00-21:00; Th-Fr 08:00-23:00; Sa 09:00-23:00; Su 09:00-21:00",
+ "note": "Agrees with OpenStreetMap. Read: CONTACT + HOURS / Liz's Book Bar / 315 Smith Street / Monday 8:00 AM 2:00 PM / Tuesday 8:00 AM 9:00 PM / Wednesday 8:00 AM 9:00 PM / Thursday 8:00 AM 11:00 PM / Friday * 8:00 AM 11:00 PM / Saturday 9:00 AM 11:00 PM / Sunday 9:00 AM 9:00 PM / * December 25th Closed Read with tools/harvest_browser.mjs (the page is drawn by scripts); visible text."
+}

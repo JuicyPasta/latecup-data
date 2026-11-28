@@ -1,0 +1,54 @@
+{
+ "id": "n5862744811",
+ "name": "Joe Coffee Company",
+ "hours": [
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ],
+  [
+   [
+    420,
+    1200
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-20:00",
+ "src": "brand",
+ "source": "https://joecoffeecompany.com/pages/w-68th-columbus",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "Agrees with OpenStreetMap. Read: W 68th & Columbus / 187 Columbus Ave, New York, NY 10023 / Cafe Hours / Monday - Sunday: 7:00AM - 8:00PM Joe Coffee's own store page."
+}

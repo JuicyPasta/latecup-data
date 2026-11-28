@@ -1,0 +1,54 @@
+{
+ "id": "n7314202222",
+ "name": "Kung Fu Tea",
+ "hours": [
+  [
+   [
+    670,
+    1275
+   ]
+  ],
+  [
+   [
+    670,
+    1275
+   ]
+  ],
+  [
+   [
+    670,
+    1275
+   ]
+  ],
+  [
+   [
+    670,
+    1275
+   ]
+  ],
+  [
+   [
+    670,
+    1275
+   ]
+  ],
+  [
+   [
+    730,
+    1275
+   ]
+  ],
+  [
+   [
+    730,
+    1275
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 11:10-21:15; Sa-Su 12:10-21:15",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=nyu--20425769",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Fr 11:00-21:00; Sa,Su 12:00-21:30",
+ "note": "OpenStreetMap said \"Mo-Fr 11:00-21:00; Sa,Su 12:00-21:30\"; the shop's own source wins. Read: NYU / 31 Waverly Place / Unit 5, New York, NY 10003 / Hours / Monday 11:10 am - 9:15 pm ... Friday 11:10 am - 9:15 pm / Saturday 12:10 pm - 9:15 pm / Sunday 12:10 pm - 9:15 pm / 212-677-4517 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text)."
+}

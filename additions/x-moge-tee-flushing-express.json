@@ -1,0 +1,59 @@
+{
+ "id": "x-moge-tee-flushing-express",
+ "name": "Möge Tee",
+ "lat": 40.75465,
+ "lon": -73.82749,
+ "addr": "42-35 Main St",
+ "cat": "tea",
+ "hours": [
+  [
+   [
+    630,
+    1230
+   ]
+  ],
+  [
+   [
+    630,
+    1230
+   ]
+  ],
+  [
+   [
+    630,
+    1230
+   ]
+  ],
+  [
+   [
+    630,
+    1230
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1230
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 10:30-20:30; Fr-Sa 10:30-21:00",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-28",
+ "web": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "phone": "+16467586266",
+ "note": "Not in OpenStreetMap's café set on 2026-11-28. Read: Moge Tee Flushing Express / 42-35 Main St, Queens, NY 11355, USA / (646) 758-6266 / Open Hours> Sun-Thur: 10:30AM - 8:30PM / Fri-Sat: 10:30AM - 9:00PM Coordinates: Nominatim: Arcadia Mall, 42-35 Main Street, Flushing 11355"
+}

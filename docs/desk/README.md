@@ -18,6 +18,7 @@ browser, a site that was down that day, an official Instagram account nobody rea
 | `2026-11-27-dfw.json` | Dallas-Fort Worth | 65 | 37 confirmed (33 late), 3 not cafés, 12 need a browser |
 | `2026-11-27-chicago.json` | Chicago | 60 | 34 confirmed (29 late), 2 not cafés, 7 need a browser |
 | `2026-11-27-seattle.json` | Seattle and the Eastside | 123 | 65 confirmed (55 late), 8 not cafés, 22 need a browser |
+| `2026-11-28-nyc.json` | New York (batch 5) | 76: the chains whose hours are on their own store pages (Joe, Kung Fu Tea, Möge Tee, Le Pain Quotidien, Variety, ViVi, Gong Cha, 787) and the independents left open by batches 2-4 | 28 confirmed (19 late, 5 of them added to `additions/` and 6 that OSM had without hours or an address); 9 leave or stay off on their own hours (Joe ×8, Kung Fu Tea Forest Hills); 48 left alone, each with its reason |
 
 The browser pass was read with `tools/harvest_browser.mjs`, which takes the same candidates file as
 `tools/harvest.py` and keeps what a person would see on the page. Page data (a site builder's location

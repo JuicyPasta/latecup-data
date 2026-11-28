@@ -1,0 +1,54 @@
+{
+ "id": "n12412618920",
+ "name": "Kung Fu Tea",
+ "hours": [
+  [
+   [
+    660,
+    1319
+   ]
+  ],
+  [
+   [
+    660,
+    1319
+   ]
+  ],
+  [
+   [
+    660,
+    1319
+   ]
+  ],
+  [
+   [
+    660,
+    1319
+   ]
+  ],
+  [
+   [
+    660,
+    1319
+   ]
+  ],
+  [
+   [
+    660,
+    1319
+   ]
+  ],
+  [
+   [
+    660,
+    1319
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-21:59",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=jackson-heights--20425759",
+ "checked": "2026-11-28",
+ "osm_hours": "11:00-20:00",
+ "note": "OpenStreetMap said \"11:00-20:00\"; the shop's own source wins. Read: Jackson Heights / 82-02 Roosevelt Ave / Jackson Heights, NY 11372 / Hours / Monday 11:00 am - 9:59 pm ... Sunday 11:00 am - 9:59 pm / 718 685 2886 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). The closing time is written as the page has it (9:59 pm)."
+}

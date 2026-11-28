@@ -1,0 +1,54 @@
+{
+ "id": "n11413866658",
+ "name": "Möge Tee",
+ "hours": [
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 12:00-22:00",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Su 11:00-22:00",
+ "note": "OpenStreetMap said \"Mo-Su 11:00-22:00\"; the shop's own source wins. Read: Moge Tee Manhattan Valley / 971 Amsterdam Avenue, New York, NY, USA / NOW OPEN / Open Hours> Mon-Sun: 12:00PM - 10:00PM OpenStreetMap still has NaiSnow at 971 Amsterdam Ave; Möge Tee's own store list has its Manhattan Valley shop at that address, now open. NaiSnow's own site (naisnow.com) draws nothing, in a browser either. The place is renamed Möge Tee."
+}

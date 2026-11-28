@@ -1,0 +1,54 @@
+{
+ "id": "n3874983057",
+ "name": "Joe Coffee Company",
+ "hours": [
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ],
+  [
+   [
+    420,
+    1080
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 07:00-18:00",
+ "src": "brand",
+ "source": "https://joecoffeecompany.com/pages/chelsea",
+ "checked": "2026-11-28",
+ "osm_hours": "Mo-Su 07:00-20:00",
+ "note": "OpenStreetMap said \"Mo-Su 07:00-20:00\"; the shop's own source wins. Read: 405 W 23 St, New York, NY 10011 / Monday - Sunday: 7:00AM - 6:00PM Joe Coffee's own store page. Closes at 18:00 every day, so it leaves the feed."
+}

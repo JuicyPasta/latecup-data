@@ -1,0 +1,59 @@
+{
+ "id": "x-moge-tee-forest-hills",
+ "name": "Möge Tee",
+ "lat": 40.72085,
+ "lon": -73.84635,
+ "addr": "70-15 Austin St",
+ "cat": "tea",
+ "hours": [
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ],
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1320
+   ]
+  ],
+  [
+   [
+    630,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 10:30-21:00; Fr-Sa 10:30-22:00",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-28",
+ "web": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "phone": "+13476441702",
+ "note": "Not in OpenStreetMap's café set on 2026-11-28. Read: Moge Tee Forest Hills / 70-15 Austin St, Forest Hills, NY 11375, USA / (347) 644-1702 / Open Hours> Sun-Thur: 10:30AM - 9:00PM / Fri-Sat: 10:30AM - 10:00PM Coordinates: Nominatim: 70-15, Austin Street, Forest Hills, Queens 11375 (house)"
+}

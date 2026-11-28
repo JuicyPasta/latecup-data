@@ -1,0 +1,54 @@
+{
+ "id": "n6700595182",
+ "name": "Kung Fu Tea",
+ "addr": "3845 Richmond Ave",
+ "hours": [
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ],
+  [
+   [
+    660,
+    1245
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Su 11:00-20:45",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=eltingville--54103102",
+ "checked": "2026-11-28",
+ "note": "OpenStreetMap had no hours. Read: Eltingville / 3845 Richmond Ave. / Staten Island, NY 10312. / Hours / Monday 11:00 am - 8:45 pm ... Sunday 11:00 am - 8:45 pm / 347-679-5555 Kung Fu Tea's own store page, read with tools/harvest_browser.mjs (visible text). OpenStreetMap's node has no address; the locator's own pin for this store is on it (0 m)."
+}

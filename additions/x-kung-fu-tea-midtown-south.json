@@ -1,0 +1,59 @@
+{
+ "id": "x-kung-fu-tea-midtown-south",
+ "name": "Kung Fu Tea",
+ "lat": 40.75169,
+ "lon": -73.98471,
+ "addr": "42 W 38th St",
+ "cat": "tea",
+ "hours": [
+  [
+   [
+    630,
+    1215
+   ]
+  ],
+  [
+   [
+    630,
+    1215
+   ]
+  ],
+  [
+   [
+    630,
+    1215
+   ]
+  ],
+  [
+   [
+    630,
+    1215
+   ]
+  ],
+  [
+   [
+    630,
+    1215
+   ]
+  ],
+  [
+   [
+    660,
+    1215
+   ]
+  ],
+  [
+   [
+    660,
+    1215
+   ]
+  ]
+ ],
+ "hours_text": "Mo-Fr 10:30-20:15; Sa-Su 11:00-20:15",
+ "src": "brand",
+ "source": "https://www.kungfutea.com/location/?l=midtown-south--37759105",
+ "checked": "2026-11-28",
+ "web": "https://www.kungfutea.com/location/?l=midtown-south--37759105",
+ "phone": "+19173883021",
+ "note": "Not in OpenStreetMap's café set on 2026-11-28. Read: Kung Fu Tea's own store page (tools/harvest_browser.mjs, visible text): Midtown South / 42 West 38th Street New York NY 10018 / Hours / Monday-Friday 10:30 am - 8:15 pm / Saturday-Sunday 11:00 am - 8:15 pm Coordinates: Nominatim: 42 West 38th Street (38 Food Hall), Midtown South 10018 (house)"
+}

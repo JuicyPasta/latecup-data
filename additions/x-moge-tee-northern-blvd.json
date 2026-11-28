@@ -1,0 +1,59 @@
+{
+ "id": "x-moge-tee-northern-blvd",
+ "name": "Möge Tee",
+ "lat": 40.76354,
+ "lon": -73.80796,
+ "addr": "157-08 Northern Blvd",
+ "cat": "tea",
+ "hours": [
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1320
+   ]
+  ],
+  [
+   [
+    720,
+    1260
+   ]
+  ]
+ ],
+ "hours_text": "Su-Th 12:00-21:00; Fr-Sa 12:00-22:00",
+ "src": "brand",
+ "source": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "checked": "2026-11-28",
+ "web": "https://www.mogeteeusa.com/store-locations-1/ny",
+ "phone": "+13473684129",
+ "note": "Not in OpenStreetMap's café set on 2026-11-28. Read: Moge Tee Northern / 157-08 Northern Boulevard, Queens, NY, USA / (347) 368-4129 / Open Hours> Sun-Thur: 12:00PM - 9:00PM / Fri - Sat: 12:00PM - 10:00PM Coordinates: Nominatim: 157-08, Northern Boulevard, Flushing, Queens 11354 (house)"
+}
